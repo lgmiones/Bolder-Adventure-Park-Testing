@@ -1,0 +1,28 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #030303;
+  color: #ffffff;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: #ff5a1f;
+  color: #fff;
+}
