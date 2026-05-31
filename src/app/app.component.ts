@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 interface MegaItem {
@@ -12,6 +12,13 @@ interface Experience {
   kicker: string;
   copy: string;
   size?: 'large' | 'wide';
+}
+
+interface AttractionCard {
+  title: string;
+  image: string;
+  category: 'base' | 'mountain' | 'ropes';
+  link: string;
 }
 
 interface PassRow {
@@ -33,8 +40,11 @@ interface Review {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
+  @ViewChild('heroVideo') heroVideoRef!: ElementRef<HTMLVideoElement>;
+
   activePlanTab = 'things';
   isNavOpen = false;
+  activeReviewIndex = 0;
 
   /**
    * Show the intro splash only on first visit per browser session.
@@ -123,6 +133,41 @@ export class AppComponent implements AfterViewInit {
       size: 'wide'
     }
   ];
+
+  activeAttractionTab = 'all';
+
+  attractionTabs = [
+    { id: 'all',      label: 'All Attractions' },
+    { id: 'base',     label: 'Base Camp' },
+    { id: 'mountain', label: 'Mountain Course' },
+    { id: 'ropes',    label: 'Ropes Course' },
+  ];
+
+  attractionCards: AttractionCard[] = [
+    { title: 'Ropes Course',              image: 'assets/All-Attraction/Ropes-courses.jpg',       category: 'ropes',    link: 'https://newvues.sg-host.com/attractions/ropes-course/' },
+    { title: 'Mountain Experience',       image: 'assets/All-Attraction/Mountain-experience.jpg', category: 'mountain', link: 'https://newvues.sg-host.com/attractions/mountain-experience/' },
+    { title: 'Zip Line',                  image: 'assets/All-Attraction/Zip-lines.jpg',           category: 'ropes',    link: 'https://newvues.sg-host.com/attractions/zip-line/' },
+    { title: 'Tubing Slides',             image: 'assets/All-Attraction/Tubing-slides.jpg',       category: 'base',     link: 'https://newvues.sg-host.com/attractions/tubing-slides/' },
+    { title: 'Blaster Zone',              image: 'assets/All-Attraction/Blaster-zone.jpg',        category: 'base',     link: 'https://newvues.sg-host.com/attractions/blaster-zone/' },
+    { title: 'Bumper Cars',               image: 'assets/All-Attraction/Bumper-cars.jpg',         category: 'base',     link: 'https://newvues.sg-host.com/attractions/bumper-cars/' },
+    { title: 'Free Fall Drop',            image: 'assets/All-Attraction/Free-fall-drop.jpg',      category: 'mountain', link: 'https://newvues.sg-host.com/attractions/free-fall-drop/' },
+    { title: 'Jump Pad',                  image: 'assets/All-Attraction/Jump-pads.png',           category: 'base',     link: 'https://newvues.sg-host.com/attractions/jump-pad/' },
+    { title: 'Adventure Nets',            image: 'assets/All-Attraction/Adventure-nets.jpg',      category: 'base',     link: 'https://newvues.sg-host.com/attractions/adventure-nets/' },
+    { title: 'Exploration Playground',    image: 'assets/All-Attraction/Exploration-play.jpg',    category: 'base',     link: 'https://newvues.sg-host.com/attractions/exploration-playground/' },
+  ];
+
+  get filteredAttractions(): AttractionCard[] {
+    if (this.activeAttractionTab === 'all') return this.attractionCards;
+    return this.attractionCards.filter(c => c.category === this.activeAttractionTab);
+  }
+
+  setAttractionTab(id: string): void {
+    this.activeAttractionTab = id;
+  }
+
+  trackByAttraction(_: number, item: AttractionCard): string {
+    return this.activeAttractionTab + '_' + item.title;
+  }
 
   passes = [
     {
@@ -239,7 +284,23 @@ export class AppComponent implements AfterViewInit {
     this.activePlanTab = id;
   }
 
+  nextReview(): void {
+    this.activeReviewIndex = (this.activeReviewIndex + 1) % this.reviews.length;
+  }
+
+  prevReview(): void {
+    this.activeReviewIndex = (this.activeReviewIndex - 1 + this.reviews.length) % this.reviews.length;
+  }
+
+  goToReview(index: number): void {
+    this.activeReviewIndex = index;
+  }
+
   ngAfterViewInit(): void {
+    const vid = this.heroVideoRef.nativeElement;
+    vid.muted = true;
+    vid.play().catch(() => {});
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -255,17 +316,5 @@ export class AppComponent implements AfterViewInit {
     );
     document.querySelectorAll('.sr').forEach(el => observer.observe(el));
 
-    // Pixel-perfect promo ticker — measure the exact first-half width so the
-    // keyframe end value is an integer pixel, not a rounded percentage.
-    requestAnimationFrame(() => {
-      const track = document.querySelector<HTMLElement>('.promo-strip-track');
-      if (!track) return;
-      const spans = Array.from(track.querySelectorAll<HTMLElement>('span'));
-      const half = spans.length / 2;
-      const oneSetW = spans
-        .slice(0, half)
-        .reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
-      track.style.setProperty('--ps-shift', `-${Math.ceil(oneSetW)}px`);
-    });
   }
 }

@@ -10,6 +10,39 @@
       content="A modern, conversion-focused indoor adventure park landing page."
     />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Preconnect to speed up font & external resource connections -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+
+    <!-- Preload the hero poster so it paints immediately (LCP element) -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/After-hero-section/Attractions - A view from Mezz 1.jpg"
+      fetchpriority="high"
+    />
+
+    <!-- Google Fonts — loaded async via print trick, no render-blocking -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <app-root></app-root>
