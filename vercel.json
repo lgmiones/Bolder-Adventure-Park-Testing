@@ -1,6 +1,6 @@
 {
   "outputDirectory": "dist/bolder-conversion-angular-v3",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [{ "source": "/((?!robots.txt|sitemap.xml).*)", "destination": "/index.html" }],
   "headers": [
     {
       "source": "/assets/(.*)",
