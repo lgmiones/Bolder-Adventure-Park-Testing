@@ -1776,29 +1776,36 @@ a {
 
 .ac-section:hover .ac-image img { transform: scale(1.04); }
 
-/* ---- Mobile: remove sticky, stack normally ---- */
+/* ---- Mobile: sticky-stacking kept, single-column layout ---- */
 @media (max-width: 768px) {
   .pyv-header {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
+  /* Restore sticky mechanic — same as desktop, adapted for portrait cards */
   .ac-slide {
-    height: auto;
-    position: relative;
-    top: auto;
-    padding: 0.75rem;
-    margin-top: 0 !important;   /* reset negative margins — no stacking on mobile */
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 0;
   }
 
+  /* Mobile overlap: card = 82vh, dark runway below = 18vh */
+  .ac-slide:nth-child(2) { margin-top: -18vh; }
+  .ac-slide:nth-child(3) { margin-top: -18vh; }
+  .ac-slide:last-child   { height: 82vh; }
+
   .ac-section {
-    height: auto;
+    height: 82vh;
     border-radius: 16px;
     grid-template-columns: 1fr;
+    grid-template-rows: 44% 56%;  /* image row / content row */
   }
 
   .ac-image {
-    min-height: 260px;
+    height: 100%;
+    min-height: 0;
     order: -1;
   }
 }

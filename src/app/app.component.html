@@ -60,28 +60,59 @@
               <h2>Plan Your Visit</h2>
 
               <nav class="plan-visit-list">
-                <a href="#visit">Know Before You Go</a>
-                <a href="#experiences">Attractions</a>
                 <a
-                  href="https://bolderadventurepark.com/birthday-party-packages/"
+                  href="https://newvues.sg-host.com/plan-your-visit/"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  >Know Before You Go</a
+                >
+                <a
+                  href="https://newvues.sg-host.com/attractions/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Attractions
+                </a>
+                <a
+                  href="https://newvues.sg-host.com/birthday-parties/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Birthday Parties
                 </a>
                 <a
-                  href="https://bolderadventurepark.com/group-events/"
+                  href="https://newvues.sg-host.com/group-events/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Groups & Corporate Events
+                  Groups Bookings
                 </a>
-                <a href="#parties">Events at Bolder</a>
                 <a
-                  href="https://bolderadventurepark.com/plan/hours/"
+                  href="https://newvues.sg-host.com/group-events/"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  >Corporate Events</a
+                >
+                <a
+                  href="https://newvues.sg-host.com/plan-your-visit/#hours"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Opening Hours
                 </a>
-                <a href="#faqs">FAQs</a>
+                <a
+                  href="https://newvues.sg-host.com/faq/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >FAQs</a
+                >
+                <a
+                  href="https://waiver.roller.app/BolderAdventurePark/home"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Waiver
+                </a>
               </nav>
 
               <a class="plan-visit-main-link" href="#visit">
@@ -123,7 +154,16 @@
         </div>
 
         <a
-          href="https://bolderadventurepark.com/birthday-party-packages/"
+          href="https://newvues.sg-host.com/attractions/"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="closeNav()"
+        >
+          Attractions
+        </a>
+
+        <a
+          href="https://newvues.sg-host.com/birthday-parties/"
           target="_blank"
           rel="noopener noreferrer"
           (click)="closeNav()"
@@ -132,7 +172,7 @@
         </a>
 
         <a
-          href="https://s.bolderadventurepark.com/"
+          href="https://summer.bolderadventurepark.com/?_gl=1*zav77q*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw"
           target="_blank"
           rel="noopener noreferrer"
           (click)="closeNav()"
@@ -141,15 +181,12 @@
         </a>
 
         <a
-          href="https://bolderadventurepark.com/group-events/"
+          href="https://newvues.sg-host.com/group-events/"
           target="_blank"
           rel="noopener noreferrer"
           (click)="closeNav()"
+          >Group Events</a
         >
-          Group Events
-        </a>
-
-        <a href="#parties" (click)="closeNav()">Live Events</a>
       </div>
 
       <div class="navbar-actions">
@@ -923,7 +960,7 @@
             <div class="vr-card-bottom">
               <button
                 class="vr-share-btn"
-                (click)="$event.stopPropagation()"
+                (click)="shareVideo(vid.id, $event)"
                 aria-label="Share"
               >
                 <svg
@@ -1613,14 +1650,70 @@
       <nav class="footer-nav" aria-label="Plan your visit">
         <h4 class="footer-nav-title">Plan Your Visit</h4>
         <ul>
-          <li><a href="#">Know Before You Go</a></li>
-          <li><a href="#">Attractions</a></li>
-          <li><a href="#">Birthday Parties</a></li>
-          <li><a href="#">Groups &amp; Corporate Events</a></li>
-          <li><a href="#">Events at Bolder</a></li>
-          <li><a href="#">Opening Hours</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Waiver</a></li>
+          <li>
+            <a
+              href="https://newvues.sg-host.com/plan-your-visit/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Know Before You Go</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://newvues.sg-host.com/attractions/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Attractions</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://newvues.sg-host.com/birthday-parties/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Birthday Parties</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://newvues.sg-host.com/group-events/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Groups &amp; Corporate Events</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://newvues.sg-host.com/events/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Events at Bolder</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://newvues.sg-host.com/plan-your-visit/#hours"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Opening Hours</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://newvues.sg-host.com/faq/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >FAQs</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://waiver.roller.app/BolderAdventurePark/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Waiver</a
+            >
+          </li>
         </ul>
       </nav>
 
@@ -1629,8 +1722,22 @@
         <nav class="footer-nav" aria-label="Company">
           <h4 class="footer-nav-title">Company</h4>
           <ul>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li>
+              <a
+                href="https://newvues.sg-host.com/work/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Jobs</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://newvues.sg-host.com/contact-us/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Contact Us</a
+              >
+            </li>
           </ul>
         </nav>
 
@@ -1638,9 +1745,30 @@
           <h4 class="footer-nav-title">Tickets</h4>
           <ul>
             <li><a href="#">Ticket Prices</a></li>
-            <li><a href="#">Book Tickets</a></li>
-            <li><a href="#">Annual Passes</a></li>
-            <li><a href="#">Summer Camps</a></li>
+            <li>
+              <a
+                href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*185a6dt*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*_ga*MjA2MDE2NjAwOC4xNzgwNDQ1MjYw*_ga_42GXW9EFND*czE3ODA0NDc0MTAkbzIkZzEkdDE3ODA0NTAxOTkkajYwJGwwJGgw"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Book Tickets</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://newvues.sg-host.com/memberships/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Annual Passes</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://summer.bolderadventurepark.com/?_gl=1*1j56rl2*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Summer Camps</a
+              >
+            </li>
           </ul>
         </nav>
 

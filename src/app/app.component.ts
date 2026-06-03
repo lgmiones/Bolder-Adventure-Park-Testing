@@ -280,6 +280,16 @@ export class AppComponent implements AfterViewInit {
     this.activeVideoUrl = null;
   }
 
+  shareVideo(id: string, event: MouseEvent): void {
+    event.stopPropagation();
+    const url = `https://www.youtube.com/shorts/${id}`;
+    if (navigator.share) {
+      navigator.share({ url });
+    } else {
+      navigator.clipboard.writeText(url).then(() => alert('Link copied to clipboard!'));
+    }
+  }
+
   setPlanTab(id: string): void {
     this.activePlanTab = id;
   }
