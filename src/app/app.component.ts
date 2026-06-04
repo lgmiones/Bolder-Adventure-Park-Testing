@@ -44,6 +44,7 @@ export class AppComponent implements AfterViewInit {
 
   activePlanTab = 'things';
   isNavOpen = false;
+  isSideMenuPlanOpen = false;
   activeReviewIndex = 0;
 
   /**
@@ -71,6 +72,11 @@ export class AppComponent implements AfterViewInit {
 
   closeNav(): void {
     this.isNavOpen = false;
+    this.isSideMenuPlanOpen = false;
+  }
+
+  toggleSideMenuPlan(): void {
+    this.isSideMenuPlanOpen = !this.isSideMenuPlanOpen;
   }
 
   tickets: MegaItem[] = [

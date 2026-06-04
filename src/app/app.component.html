@@ -61,47 +61,47 @@
 
               <nav class="plan-visit-list">
                 <a
-                  href="https://newvues.sg-host.com/plan-your-visit/"
+                  href="https://bolderadventurepark.com/plan-your-visit/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Know Before You Go</a
                 >
                 <a
-                  href="https://newvues.sg-host.com/attractions/"
+                  href="https://bolderadventurepark.com/attractions/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Attractions
                 </a>
                 <a
-                  href="https://newvues.sg-host.com/birthday-parties/"
+                  href="https://bolderadventurepark.com/birthday-parties/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Birthday Parties
                 </a>
                 <a
-                  href="https://newvues.sg-host.com/group-events/"
+                  href="https://bolderadventurepark.com/group-events/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Groups Bookings
                 </a>
                 <a
-                  href="https://newvues.sg-host.com/group-events/"
+                  href="https://bolderadventurepark.com/group-events/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Corporate Events</a
                 >
                 <a
-                  href="https://newvues.sg-host.com/plan-your-visit/#hours"
+                  href="https://bolderadventurepark.com/plan-your-visit/#hours"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Opening Hours
                 </a>
                 <a
-                  href="https://newvues.sg-host.com/faq/"
+                  href="https://bolderadventurepark.com/faqs/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >FAQs</a
@@ -115,13 +115,23 @@
                 </a>
               </nav>
 
-              <a class="plan-visit-main-link" href="#visit">
+              <a
+                class="plan-visit-main-link"
+                href="https://bolderadventurepark.com/plan-your-visit/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Plan Your Visit <span>↗</span>
               </a>
             </div>
 
             <div class="plan-visit-cards">
-              <a class="plan-visit-card" href="#visit">
+              <a
+                class="plan-visit-card"
+                href="https://bolderadventurepark.com/plan-your-visit/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="assets/images/Action-on-the-ground.jpg"
                   alt="Plan your visit"
@@ -132,7 +142,8 @@
 
               <a
                 class="plan-visit-card"
-                href="https://bolderadventurepark.com/birthday-party-packages/"
+                href="https://bolderadventurepark.com/birthday-parties/"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 <img
@@ -142,19 +153,24 @@
                 <strong>Birthday Parties</strong>
               </a>
 
-              <a class="plan-visit-card" href="#experiences">
+              <a
+                class="plan-visit-card"
+                href="https://bolderadventurepark.com/attractions/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
-                  src="assets/images/Thrills-in-the-air.jpg"
+                  src="assets/images/Group-events.jpg"
                   alt="Explore the attractions"
                 />
-                <strong>Explore The Attractions</strong>
+                <strong>Group Bookings</strong>
               </a>
             </div>
           </div>
         </div>
 
         <a
-          href="https://newvues.sg-host.com/attractions/"
+          href="https://bolderadventurepark.com/attractions/"
           target="_blank"
           rel="noopener noreferrer"
           (click)="closeNav()"
@@ -163,7 +179,7 @@
         </a>
 
         <a
-          href="https://newvues.sg-host.com/birthday-parties/"
+          href="https://bolderadventurepark.com/birthday-parties/"
           target="_blank"
           rel="noopener noreferrer"
           (click)="closeNav()"
@@ -181,7 +197,7 @@
         </a>
 
         <a
-          href="https://newvues.sg-host.com/group-events/"
+          href="https://bolderadventurepark.com/group-events/"
           target="_blank"
           rel="noopener noreferrer"
           (click)="closeNav()"
@@ -273,8 +289,77 @@
 
     <nav class="side-menu-links">
       <a href="#home" class="active" (click)="closeNav()">Home</a>
-      <a href="#about" (click)="closeNav()">About Us</a>
-      <a href="#visit" (click)="closeNav()">Plan Your Visit</a>
+
+      <div class="side-menu-plan-item">
+        <button
+          class="side-menu-plan-trigger"
+          type="button"
+          (click)="toggleSideMenuPlan()"
+          [class.is-open]="isSideMenuPlanOpen"
+        >
+          Plan Your Visit
+          <span class="side-menu-caret">&#8250;</span>
+        </button>
+        <div class="side-menu-plan-sub" [class.is-open]="isSideMenuPlanOpen">
+          <a
+            href="https://bolderadventurepark.com/plan-your-visit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Know Before You Go</a
+          >
+          <a
+            href="https://bolderadventurepark.com/attractions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Attractions</a
+          >
+          <a
+            href="https://bolderadventurepark.com/birthday-parties/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Birthday Parties</a
+          >
+          <a
+            href="https://bolderadventurepark.com/group-events/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Group Events</a
+          >
+          <a
+            href="https://bolderadventurepark.com/group-events/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Corporate Events</a
+          >
+          <a
+            href="https://bolderadventurepark.com/plan-your-visit/#hours"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Opening Hours</a
+          >
+          <a
+            href="https://bolderadventurepark.com/faqs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >FAQs</a
+          >
+          <a
+            href="https://waiver.roller.app/BolderAdventurePark/home"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Waiver</a
+          >
+        </div>
+      </div>
+
       <a
         href="https://bolderadventurepark.com/birthday-party-packages/"
         target="_blank"
@@ -293,7 +378,13 @@
         (click)="closeNav()"
         >Group Events</a
       >
-      <a href="#parties" (click)="closeNav()">Live Events</a>
+      <a
+        href="https://bolderadventurepark.com/contact-us/"
+        target="_blank"
+        rel="noopener noreferrer"
+        (click)="closeNav()"
+        >Contact Us</a
+      >
     </nav>
 
     <a
@@ -319,12 +410,9 @@
     </a>
 
     <div class="side-menu-info">
-      <h3>Bolder Adventure Park</h3>
-      <p>2324 W Warrior Trail<br />Grand Prairie, TX</p>
-      <p>
-        <strong>Phone:</strong> (469) 858-0577<br />
-        <strong>Email:</strong> info@bolderadventurepark.com
-      </p>
+      <h3>Open Hours:</h3>
+      <p>Friday &amp; Saturday: 11am–9pm</p>
+      <p>Sunday to Thursday: 11am–8pm</p>
     </div>
 
     <div class="side-menu-socials">
@@ -1652,7 +1740,7 @@
         <ul>
           <li>
             <a
-              href="https://newvues.sg-host.com/plan-your-visit/"
+              href="https://bolderadventurepark.com/plan-your-visit/"
               target="_blank"
               rel="noopener noreferrer"
               >Know Before You Go</a
@@ -1660,7 +1748,7 @@
           </li>
           <li>
             <a
-              href="https://newvues.sg-host.com/attractions/"
+              href="https://bolderadventurepark.com/attractions/"
               target="_blank"
               rel="noopener noreferrer"
               >Attractions</a
@@ -1668,7 +1756,7 @@
           </li>
           <li>
             <a
-              href="https://newvues.sg-host.com/birthday-parties/"
+              href="https://bolderadventurepark.com/birthday-parties/"
               target="_blank"
               rel="noopener noreferrer"
               >Birthday Parties</a
@@ -1676,7 +1764,7 @@
           </li>
           <li>
             <a
-              href="https://newvues.sg-host.com/group-events/"
+              href="https://bolderadventurepark.com/group-events/"
               target="_blank"
               rel="noopener noreferrer"
               >Groups &amp; Corporate Events</a
@@ -1684,7 +1772,7 @@
           </li>
           <li>
             <a
-              href="https://newvues.sg-host.com/events/"
+              href="https://bolderadventurepark.com/events/"
               target="_blank"
               rel="noopener noreferrer"
               >Events at Bolder</a
@@ -1692,7 +1780,7 @@
           </li>
           <li>
             <a
-              href="https://newvues.sg-host.com/plan-your-visit/#hours"
+              href="https://bolderadventurepark.com/plan-your-visit/#hours"
               target="_blank"
               rel="noopener noreferrer"
               >Opening Hours</a
@@ -1700,7 +1788,7 @@
           </li>
           <li>
             <a
-              href="https://newvues.sg-host.com/faq/"
+              href="https://bolderadventurepark.com/faqs/"
               target="_blank"
               rel="noopener noreferrer"
               >FAQs</a
@@ -1724,7 +1812,7 @@
           <ul>
             <li>
               <a
-                href="https://newvues.sg-host.com/work/"
+                href="https://bolderadventurepark.com/work/"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Jobs</a
@@ -1732,7 +1820,7 @@
             </li>
             <li>
               <a
-                href="https://newvues.sg-host.com/contact-us/"
+                href="https://bolderadventurepark.com/contact-us/"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Contact Us</a
@@ -1744,7 +1832,6 @@
         <nav class="footer-nav" aria-label="Tickets">
           <h4 class="footer-nav-title">Tickets</h4>
           <ul>
-            <li><a href="#">Ticket Prices</a></li>
             <li>
               <a
                 href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*185a6dt*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*_ga*MjA2MDE2NjAwOC4xNzgwNDQ1MjYw*_ga_42GXW9EFND*czE3ODA0NDc0MTAkbzIkZzEkdDE3ODA0NTAxOTkkajYwJGwwJGgw"
@@ -1755,7 +1842,7 @@
             </li>
             <li>
               <a
-                href="https://newvues.sg-host.com/memberships/"
+                href="https://bolderadventurepark.com/memberships/"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Annual Passes</a

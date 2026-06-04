@@ -904,6 +904,70 @@ a {
   color: #ff9344;
 }
 
+.side-menu-plan-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu-plan-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #050505;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.side-menu-plan-trigger .side-menu-caret {
+  display: inline-block;
+  font-size: 1.4em;
+  line-height: 1;
+  transition: transform 0.25s ease;
+  transform: rotate(90deg);
+}
+
+.side-menu-plan-trigger.is-open .side-menu-caret {
+  transform: rotate(270deg);
+}
+
+.side-menu-plan-trigger:hover {
+  color: #ff9344;
+}
+
+.side-menu-plan-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding-left: 1.2rem;
+}
+
+.side-menu-plan-sub.is-open {
+  max-height: 600px;
+  padding-top: 0.9rem;
+  padding-bottom: 0.4rem;
+}
+
+.side-menu-plan-sub a {
+  font-size: 1.35rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.side-menu-plan-sub a:hover {
+  color: #ff9344;
+}
+
 .side-menu-ticket {
   min-width: 260px;
   min-height: 76px;
@@ -922,7 +986,9 @@ a {
 }
 
 .side-menu-ticket:hover {
-  background: #ff8436;
+  background: #fff;
+  outline: 2px solid #ff9344;
+  color: #111;
 }
 
 .side-menu-info h3 {
@@ -968,7 +1034,9 @@ a {
 }
 
 .side-menu-socials a:hover {
-  background: #ff8436;
+  background: #fff;
+  outline: 2px solid #ff9344;
+  color: #ff9344;
 }
 
 .side-menu-socials a svg {
@@ -4203,6 +4271,10 @@ a {
   }
 
   .side-menu-links a {
+    font-size: 2.55rem;
+  }
+
+  .side-menu-plan-trigger {
     font-size: 2.55rem;
   }
 
