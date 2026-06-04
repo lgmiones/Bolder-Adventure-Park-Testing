@@ -45,6 +45,8 @@ export class AppComponent implements AfterViewInit {
   activePlanTab = 'things';
   isNavOpen = false;
   isSideMenuPlanOpen = false;
+  isPlanMenuOpen = false;
+  private planCloseTimer: ReturnType<typeof setTimeout> | null = null;
   activeReviewIndex = 0;
 
   /**
@@ -77,6 +79,21 @@ export class AppComponent implements AfterViewInit {
 
   toggleSideMenuPlan(): void {
     this.isSideMenuPlanOpen = !this.isSideMenuPlanOpen;
+  }
+
+  openPlanMenu(): void {
+    if (this.planCloseTimer !== null) {
+      clearTimeout(this.planCloseTimer);
+      this.planCloseTimer = null;
+    }
+    this.isPlanMenuOpen = true;
+  }
+
+  schedulePlanMenuClose(): void {
+    this.planCloseTimer = setTimeout(() => {
+      this.isPlanMenuOpen = false;
+      this.planCloseTimer = null;
+    }, 200);
   }
 
   tickets: MegaItem[] = [

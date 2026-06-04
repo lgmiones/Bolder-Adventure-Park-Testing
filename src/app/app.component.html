@@ -50,12 +50,18 @@
       </a>
 
       <div class="navbar-links">
-        <div class="navbar-plan-item">
+        <div class="navbar-plan-item"
+             [class.is-open]="isPlanMenuOpen"
+             (mouseenter)="openPlanMenu()"
+             (mouseleave)="schedulePlanMenuClose()">
           <button class="navbar-plan-trigger" type="button">
             Plan Your Visit <span class="nav-caret">⌄</span>
           </button>
 
-          <div class="plan-visit-mega">
+          <div class="plan-visit-mega"
+               [class.is-open]="isPlanMenuOpen"
+               (mouseenter)="openPlanMenu()"
+               (mouseleave)="schedulePlanMenuClose()">
             <div class="plan-visit-left">
               <h2>Plan Your Visit</h2>
 

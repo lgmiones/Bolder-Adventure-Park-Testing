@@ -638,7 +638,8 @@ a {
 }
 
 .navbar-plan-item:hover .navbar-plan-trigger,
-.navbar-plan-item:focus-within .navbar-plan-trigger {
+.navbar-plan-item:focus-within .navbar-plan-trigger,
+.navbar-plan-item.is-open .navbar-plan-trigger {
   background: #f3eee9;
 }
 
@@ -651,7 +652,8 @@ a {
 }
 
 .navbar-plan-item:hover .nav-caret,
-.navbar-plan-item:focus-within .nav-caret {
+.navbar-plan-item:focus-within .nav-caret,
+.navbar-plan-item.is-open .nav-caret {
   transform: rotate(180deg);
 }
 
@@ -681,7 +683,8 @@ a {
 }
 
 .navbar-plan-item:hover .plan-visit-mega,
-.navbar-plan-item:focus-within .plan-visit-mega {
+.navbar-plan-item:focus-within .plan-visit-mega,
+.plan-visit-mega.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
