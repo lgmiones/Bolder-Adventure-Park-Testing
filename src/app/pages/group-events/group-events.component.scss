@@ -1,0 +1,154 @@
+.inner-page { padding-top: 148px; background: var(--black); color: var(--white); min-height: 100vh; }
+.ip-section { padding: clamp(4rem, 8vw, 6rem) 1.5rem; }
+.ip-container { max-width: 1100px; margin: 0 auto; }
+.ip-kicker { display:inline-block;font-family:var(--font-ui);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:0.6rem; }
+.ip-heading { font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4.5rem);color:var(--white);line-height:1;margin:0 0 1rem; }
+
+/* ── Event blocks ── */
+.ge-event-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+
+.ge-event-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+
+  &:nth-child(even) {
+    direction: rtl;
+    > * { direction: ltr; }
+  }
+}
+
+.ge-event-image {
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img { transform: scale(1.04); }
+}
+
+.ge-event-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ge-event-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--white);
+  margin: 0.3rem 0 0.75rem;
+  line-height: 1;
+}
+
+.ge-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--orange);
+  border-radius: 2px;
+  margin: 0 0 1.25rem;
+}
+
+.ge-event-copy p {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+}
+
+/* ── Reviews ── */
+.ge-reviews-section { background: #060606; }
+
+.ge-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  @media (max-width: 900px) { grid-template-columns: 1fr; max-width: 500px; margin-inline: auto; }
+}
+
+.ge-review-card {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 2rem;
+  p { font-family:var(--font-body);font-size:0.88rem;color:var(--muted);line-height:1.7;margin:0 0 1.25rem; }
+}
+
+.ger-quote { font-family:var(--font-display);font-size:5rem;color:var(--orange);line-height:0.7;display:block;margin-bottom:0.75rem; }
+.ger-meta { strong { font-family:var(--font-ui);font-size:1rem;font-weight:700;color:var(--white);display:block; } span { font-family:var(--font-body);font-size:0.78rem;color:var(--orange); } }
+
+/* ── Form ── */
+.ge-form-section { background: #080808; }
+
+.ge-form-header {
+  margin-bottom: 2.5rem;
+  p { font-family:var(--font-body);font-size:0.95rem;color:var(--muted);margin-top:0.5rem; }
+}
+
+.ge-form {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+
+.ge-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  @media (max-width: 650px) { grid-template-columns: 1fr; }
+}
+
+.ge-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  &--full { margin-bottom: 1.5rem; }
+
+  label {
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  input, select, textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &::placeholder { color: rgba(255,255,255,0.3); }
+    &:focus { border-color: var(--orange); }
+
+    option { background: #1a1a1a; color: var(--white); }
+  }
+
+  textarea { resize: vertical; min-height: 120px; }
+}
+
+.ge-submit { align-self: flex-start; }

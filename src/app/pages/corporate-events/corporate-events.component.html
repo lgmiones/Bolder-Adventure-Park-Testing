@@ -1,0 +1,199 @@
+<div class="inner-page corporate-events-page">
+
+  <app-page-hero
+    title="Corporate Events"
+    subtitle="Team-building that feels fun, not forced. Bolder turns corporate outings into stories your team won't stop sharing."
+    backgroundImage="assets/carousel-images/Carousel-7.jpg"
+    tag="Corporate & Groups">
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Intro + Photo Grid -->
+  <section class="ip-section ce-intro-section">
+    <div class="ip-container">
+      <div class="ce-intro-wrap">
+        <div class="ce-intro-text">
+          <span class="ce-kicker">Plan Your Event</span>
+          <h2 class="ce-heading">A Corporate Event With A Difference</h2>
+          <div class="ce-accent-bar"></div>
+          <p>Planning a group event? Skip the ordinary. Bolder turns corporate outings and celebrations into stories people won't stop sharing. Our unique venue is perfect for team-building that actually works — because it's genuinely fun.</p>
+          <p>Fill out the form below and our event team will be in contact within 72 hours. Sales & Events office is open Monday–Friday, 9am to 5pm.</p>
+          <a routerLink="/group-events" class="btn btn-outline ce-back-link">← All Group Events</a>
+        </div>
+        <div class="ce-photo-mosaic">
+          <div class="ce-photo-grid">
+            <div class="ce-photo ce-photo--tall sr sr-left" data-sr-delay="0.05s">
+              <img src="assets/images/Groups1.jpg" alt="Corporate team adventure" loading="lazy"/>
+            </div>
+            <div class="ce-photo-stack">
+              <div class="ce-photo sr sr-right" data-sr-delay="0.1s">
+                <img src="assets/carousel-images/Carousel-9.jpg" alt="Team building via ferrata" loading="lazy"/>
+              </div>
+              <div class="ce-photo sr sr-right" data-sr-delay="0.18s">
+                <img src="assets/images/Groups3.jpg" alt="Corporate group experience" loading="lazy"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="ip-section ce-features-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>What You Get</p>
+        <h2>Everything Your Event Needs</h2>
+      </div>
+      <div class="ce-features-grid">
+        <div class="ce-feature-card sr sr-up"
+             *ngFor="let f of features; let i = index"
+             [attr.data-sr-delay]="(i * 0.08) + 's'">
+          <div class="ce-feature-icon">{{ f.icon }}</div>
+          <h4>{{ f.title }}</h4>
+          <p>{{ f.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="ce-stats-section sr sr-up">
+    <div class="ip-container">
+      <div class="ce-stats-grid">
+        <div class="ce-stat">
+          <div class="ce-stat-num">500+</div>
+          <div class="ce-stat-label">Corporate Groups Hosted</div>
+        </div>
+        <div class="ce-stat">
+          <div class="ce-stat-num">20+</div>
+          <div class="ce-stat-label">Unique Attractions</div>
+        </div>
+        <div class="ce-stat">
+          <div class="ce-stat-num">72hr</div>
+          <div class="ce-stat-label">Response Time</div>
+        </div>
+        <div class="ce-stat">
+          <div class="ce-stat-num">98%</div>
+          <div class="ce-stat-label">Would Come Back</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Form -->
+  <section class="ip-section ce-form-section">
+    <div class="ip-container ce-form-container">
+      <div class="ce-form-header sr sr-up">
+        <span class="ce-kicker">Get Started</span>
+        <h2 class="ce-heading">Inquire About Your Corporate Event</h2>
+        <p>Our event team will respond within 72 hours with a tailored quote.</p>
+      </div>
+
+      <div class="ce-success sr sr-up" *ngIf="submitted">
+        <div class="ce-success-icon">✓</div>
+        <h3>Inquiry Sent!</h3>
+        <p>Thanks! Our events team will be in touch within 72 hours.</p>
+        <button class="btn btn-orange" (click)="submitted = false">Send Another</button>
+      </div>
+
+      <form class="ce-form sr sr-up" (ngSubmit)="submitForm()" *ngIf="!submitted" data-sr-delay="0.1s" #ceForm="ngForm">
+        <div class="ce-form-row">
+          <div class="ce-field">
+            <label>First Name *</label>
+            <input type="text" [(ngModel)]="formData.firstName" name="firstName" placeholder="First name" required/>
+          </div>
+          <div class="ce-field">
+            <label>Last Name *</label>
+            <input type="text" [(ngModel)]="formData.lastName" name="lastName" placeholder="Last name" required/>
+          </div>
+        </div>
+        <div class="ce-form-row">
+          <div class="ce-field">
+            <label>Email *</label>
+            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="your@company.com" required/>
+          </div>
+          <div class="ce-field">
+            <label>Mobile *</label>
+            <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="(555) 000-0000" required/>
+          </div>
+        </div>
+        <div class="ce-form-row">
+          <div class="ce-field">
+            <label>Company Name</label>
+            <input type="text" [(ngModel)]="formData.company" name="company" placeholder="Your company"/>
+          </div>
+          <div class="ce-field">
+            <label>Event Type</label>
+            <select [(ngModel)]="formData.eventType" name="eventType">
+              <option value="" disabled selected>Select event type</option>
+              <option value="team-building">Team Building</option>
+              <option value="company-party">Company Party</option>
+              <option value="client-event">Client Entertainment</option>
+              <option value="conference">Conference Activity</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="ce-form-row">
+          <div class="ce-field">
+            <label>Number of Guests</label>
+            <input type="number" [(ngModel)]="formData.guests" name="guests" placeholder="Estimated headcount" min="10"/>
+          </div>
+          <div class="ce-field">
+            <label>Preferred Date</label>
+            <input type="date" [(ngModel)]="formData.date" name="date"/>
+          </div>
+        </div>
+        <div class="ce-field ce-field--full">
+          <label>Message</label>
+          <textarea [(ngModel)]="formData.message" name="message" rows="5" placeholder="Tell us about your event goals, preferences, or any special requirements..."></textarea>
+        </div>
+        <button type="submit" class="ce-submit-btn" [class.is-loading]="submitting" [disabled]="submitting || ceForm.invalid">
+          <span *ngIf="!submitting">Submit Inquiry ↗</span>
+          <span *ngIf="submitting">Sending...</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="ip-section ce-reviews-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Don't Just Take Our Word For It</p>
+        <h2>What Corporate Groups Say</h2>
+      </div>
+      <div class="ce-reviews-grid">
+        <div class="ce-review-card sr sr-up"
+             *ngFor="let r of reviews; let i = index"
+             [attr.data-sr-delay]="(i * 0.1) + 's'">
+          <div class="ce-review-quote">"</div>
+          <p>{{ r.quote }}</p>
+          <div class="ce-review-meta">
+            <strong>{{ r.name }}</strong>
+            <span>{{ r.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="ip-container">
+    <div class="page-cta-banner sr sr-up">
+      <div>
+        <div class="cta-label">Book Your Event</div>
+        <h2>Ready To Plan Your Corporate Adventure?</h2>
+        <p>Our events team is ready to make your next company outing unforgettable.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home" target="_blank" rel="noopener" class="btn btn-dark btn-lg">Get Tickets</a>
+        <a routerLink="/contact-us" class="btn btn-outline btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+</div>

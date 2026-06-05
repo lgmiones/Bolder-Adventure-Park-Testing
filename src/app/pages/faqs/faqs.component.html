@@ -1,0 +1,63 @@
+<div class="inner-page faqs-page">
+
+  <app-page-hero
+    title="Frequently Asked Questions"
+    subtitle="Have a question? Explore our list of frequently asked questions. If you can't find the answer, contact us and our friendly team will be happy to assist."
+    backgroundImage="assets/carousel-images/Carousel-6.jpg"
+    tag="Got Questions?">
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <section class="ip-section">
+    <div class="ip-container">
+      <div class="faq-page-intro sr sr-up">
+        <p>Have a question? Explore our FAQ below. If you can't find the answer, please <a routerLink="/contact-us" class="ip-link">contact us</a> and our friendly team will be happy to assist you.</p>
+      </div>
+
+      <div class="faq-groups">
+        <div class="faq-group sr sr-up"
+             *ngFor="let group of faqGroups; let gi = index"
+             [attr.data-sr-delay]="(gi * 0.1) + 's'">
+          <h3 class="faq-group-title">{{ group.category }}</h3>
+          <div class="faq-list">
+            <div class="faq-item"
+                 *ngFor="let faq of group.faqs; let fi = index"
+                 [class.is-open]="openFaqs.has(getFaqIndex(gi, fi))">
+              <button class="faq-trigger" type="button" (click)="toggleFaq(getFaqIndex(gi, fi))">
+                <span class="faq-q">{{ faq.q }}</span>
+                <span class="faq-plus">{{ openFaqs.has(getFaqIndex(gi, fi)) ? '−' : '+' }}</span>
+              </button>
+              <div class="faq-body" [class.is-open]="openFaqs.has(getFaqIndex(gi, fi))">
+                <p>{{ faq.a }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-contact-prompt sr sr-up">
+        <p>Still have questions? We're happy to help.</p>
+        <div class="faq-contact-actions">
+          <a routerLink="/contact-us" class="btn btn-orange">Contact Us</a>
+          <a href="tel:+14698580577" class="btn btn-outline">(469) 858-0577</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="ip-container">
+    <div class="page-cta-banner sr sr-up">
+      <div>
+        <div class="cta-label">Book Now</div>
+        <h2>Book Your Next Bolder Adventure Now!</h2>
+        <p>Book your tickets in advance to avoid disappointment and guarantee the best price!</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener" class="btn btn-dark btn-lg">Get Tickets</a>
+      </div>
+    </div>
+  </div>
+
+</div>

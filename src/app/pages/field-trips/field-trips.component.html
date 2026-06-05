@@ -1,0 +1,195 @@
+<div class="inner-page field-trips-page">
+
+  <app-page-hero
+    title="Field Trips"
+    subtitle="Skip the ordinary field trip. Bolder turns classroom outings into stories kids won't stop talking about."
+    backgroundImage="assets/carousel-images/Carousel-1.jpg"
+    tag="Schools & Groups">
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Intro + Photo Grid -->
+  <section class="ip-section ft-intro-section">
+    <div class="ip-container">
+      <div class="ft-intro-wrap">
+        <div class="ft-photo-mosaic sr sr-left">
+          <div class="ft-photo-grid">
+            <div class="ft-photo ft-photo--main">
+              <img src="assets/images/Groups2.jpg" alt="Kids on field trip adventure" loading="lazy"/>
+              <div class="ft-photo-overlay"></div>
+              <div class="ft-photo-tag">A Class Favourite!</div>
+            </div>
+            <div class="ft-photo">
+              <img src="assets/carousel-images/Carousel-4.jpg" alt="Students adventure activity" loading="lazy"/>
+            </div>
+            <div class="ft-photo">
+              <img src="assets/images/Action-on-the-ground.jpg" alt="Field trip group fun" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+        <div class="ft-intro-text sr sr-right">
+          <span class="ft-kicker">Plan Your Field Trip</span>
+          <h2 class="ft-heading">An Adventure They'll Never Forget</h2>
+          <div class="ft-accent-bar"></div>
+          <p>Planning a field trip? Skip the ordinary. Bolder turns field trips into stories kids won't stop talking about. Give your class the chance to learn action-adventure skills, while testing their bravery and having a huge amount of fun.</p>
+          <p>Fill out the form below to get started, and our event team will be in contact within 72 hours. Sales & Events office is open Monday–Friday, 9am to 5pm.</p>
+          <a routerLink="/group-events" class="btn btn-outline ft-back-link">← All Group Events</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grade Level Tiers -->
+  <section class="ip-section ft-tiers-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Something For Everyone</p>
+        <h2>Programs By Grade Level</h2>
+      </div>
+      <div class="ft-tiers-grid">
+        <div class="ft-tier-card sr sr-up"
+             *ngFor="let g of gradeGroups; let i = index"
+             [attr.data-sr-delay]="(i * 0.1) + 's'">
+          <div class="ft-tier-icon">{{ g.icon }}</div>
+          <div class="ft-tier-grades">{{ g.grades }}</div>
+          <h3 class="ft-tier-label">{{ g.label }}</h3>
+          <p class="ft-tier-desc">{{ g.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="ip-section ft-features-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Why Choose Bolder</p>
+        <h2>What Every Field Trip Includes</h2>
+      </div>
+      <div class="ft-features-grid">
+        <div class="ft-feature-card sr sr-up"
+             *ngFor="let f of features; let i = index"
+             [attr.data-sr-delay]="(i * 0.08) + 's'">
+          <div class="ft-feature-icon">{{ f.icon }}</div>
+          <h4>{{ f.title }}</h4>
+          <p>{{ f.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Form -->
+  <section class="ip-section ft-form-section">
+    <div class="ip-container ft-form-container">
+      <div class="ft-form-header sr sr-up">
+        <span class="ft-kicker">Book Your Trip</span>
+        <h2 class="ft-heading">Inquire About A Field Trip</h2>
+        <p>Our event team will respond within 72 hours with all the details you need.</p>
+      </div>
+
+      <div class="ft-success sr sr-up" *ngIf="submitted">
+        <div class="ft-success-icon">✓</div>
+        <h3>Inquiry Sent!</h3>
+        <p>Thanks! Our events team will be in touch within 72 hours to help plan your trip.</p>
+        <button class="btn btn-orange" (click)="submitted = false">Send Another</button>
+      </div>
+
+      <form class="ft-form sr sr-up" (ngSubmit)="submitForm()" *ngIf="!submitted" data-sr-delay="0.1s" #ftForm="ngForm">
+        <div class="ft-form-row">
+          <div class="ft-field">
+            <label>First Name *</label>
+            <input type="text" [(ngModel)]="formData.firstName" name="firstName" placeholder="First name" required/>
+          </div>
+          <div class="ft-field">
+            <label>Last Name *</label>
+            <input type="text" [(ngModel)]="formData.lastName" name="lastName" placeholder="Last name" required/>
+          </div>
+        </div>
+        <div class="ft-form-row">
+          <div class="ft-field">
+            <label>Email *</label>
+            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="your@school.edu" required/>
+          </div>
+          <div class="ft-field">
+            <label>Mobile *</label>
+            <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="(555) 000-0000" required/>
+          </div>
+        </div>
+        <div class="ft-form-row">
+          <div class="ft-field">
+            <label>School / Organization</label>
+            <input type="text" [(ngModel)]="formData.school" name="school" placeholder="Your school name"/>
+          </div>
+          <div class="ft-field">
+            <label>Grade Level</label>
+            <select [(ngModel)]="formData.gradeLevel" name="gradeLevel">
+              <option value="" disabled selected>Select grade range</option>
+              <option value="k-3">Grades K–3</option>
+              <option value="4-6">Grades 4–6</option>
+              <option value="7-9">Grades 7–9</option>
+              <option value="10-12">Grades 10–12</option>
+              <option value="mixed">Mixed / Multiple Grades</option>
+            </select>
+          </div>
+        </div>
+        <div class="ft-form-row">
+          <div class="ft-field">
+            <label>Number of Students</label>
+            <input type="number" [(ngModel)]="formData.guests" name="guests" placeholder="Estimated headcount" min="10"/>
+          </div>
+          <div class="ft-field">
+            <label>Preferred Date</label>
+            <input type="date" [(ngModel)]="formData.date" name="date"/>
+          </div>
+        </div>
+        <div class="ft-field ft-field--full">
+          <label>Message / Special Requirements</label>
+          <textarea [(ngModel)]="formData.message" name="message" rows="5" placeholder="Tell us about your group, any accessibility needs, or special requests..."></textarea>
+        </div>
+        <button type="submit" class="ft-submit-btn" [class.is-loading]="submitting" [disabled]="submitting || ftForm.invalid">
+          <span *ngIf="!submitting">Submit Inquiry ↗</span>
+          <span *ngIf="submitting">Sending...</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="ip-section ft-reviews-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Teachers Love It Too</p>
+        <h2>What Educators Are Saying</h2>
+      </div>
+      <div class="ft-reviews-grid">
+        <div class="ft-review-card sr sr-up"
+             *ngFor="let r of reviews; let i = index"
+             [attr.data-sr-delay]="(i * 0.1) + 's'">
+          <div class="ft-review-quote">"</div>
+          <p>{{ r.quote }}</p>
+          <div class="ft-review-meta">
+            <strong>{{ r.name }}</strong>
+            <span>{{ r.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="ip-container">
+    <div class="page-cta-banner sr sr-up">
+      <div>
+        <div class="cta-label">Book Your Field Trip</div>
+        <h2>Give Your Class An Adventure They Deserve</h2>
+        <p>Contact our events team to plan your school's next unforgettable outing.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home" target="_blank" rel="noopener" class="btn btn-dark btn-lg">Get Tickets</a>
+        <a routerLink="/contact-us" class="btn btn-outline btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+</div>

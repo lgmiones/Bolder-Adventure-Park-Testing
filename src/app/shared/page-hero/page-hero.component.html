@@ -1,0 +1,29 @@
+<section class="page-hero">
+  <!-- Real <img> instead of CSS background — enables fetchpriority + proper LCP -->
+  <img
+    class="ph-bg-img"
+    [src]="backgroundImage"
+    [alt]="title"
+    fetchpriority="high"
+    loading="eager"
+    decoding="sync"
+    width="1920"
+    height="640"
+  />
+
+  <!-- layered overlays -->
+  <div class="ph-overlay-dark"></div>
+  <div class="ph-overlay-grad"></div>
+  <!-- decorative diagonal line -->
+  <div class="ph-deco-line"></div>
+
+  <div class="ph-content">
+    <span class="ph-tag sr sr-up" *ngIf="tag">{{ tag }}</span>
+    <h1 class="ph-title sr sr-up" data-sr-delay="0.08s">{{ title }}</h1>
+    <div class="ph-accent-line sr sr-up" data-sr-delay="0.18s"></div>
+    <p class="ph-subtitle sr sr-up" *ngIf="subtitle" data-sr-delay="0.24s">{{ subtitle }}</p>
+  </div>
+
+  <!-- bottom fade into the page -->
+  <div class="ph-bottom-fade"></div>
+</section>

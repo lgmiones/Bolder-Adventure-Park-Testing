@@ -1,0 +1,120 @@
+<div class="inner-page group-events-page">
+
+  <app-page-hero
+    title="Group Events"
+    subtitle="Planning a group event? Skip the ordinary. Bolder turns field trips, corporate outings, and celebrations into stories people won't stop sharing."
+    backgroundImage="assets/images/Group-events.jpg"
+    tag="Groups & Corporate">
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Event Types -->
+  <section class="ip-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>What We Offer</p>
+        <h2>Group Experiences For Every Occasion</h2>
+      </div>
+
+      <div class="ge-event-blocks">
+        <div class="ge-event-block sr"
+             *ngFor="let event of eventTypes; let i = index; let even = even"
+             [class.sr-left]="even"
+             [class.sr-right]="!even"
+             [attr.data-sr-delay]="(i * 0.1) + 's'">
+          <div class="ge-event-image">
+            <img [src]="event.image" [alt]="event.title" loading="lazy"/>
+          </div>
+          <div class="ge-event-copy">
+            <div class="ge-event-icon">{{ event.icon }}</div>
+            <span class="ip-kicker">Group Experience</span>
+            <h3 class="ge-event-title">{{ event.title }}</h3>
+            <div class="ge-divider"></div>
+            <p>{{ event.desc }}</p>
+            <ng-container *ngIf="event.routerLink; else externalLink">
+              <a [routerLink]="event.routerLink" class="btn btn-orange">{{ event.linkText }} →</a>
+            </ng-container>
+            <ng-template #externalLink>
+              <a routerLink="/contact-us" class="btn btn-orange">{{ event.linkText }} →</a>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="ip-section ge-reviews-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>What They Said</p>
+        <h2>Our Guests Love It</h2>
+      </div>
+      <div class="ge-reviews-grid">
+        <div class="ge-review-card sr sr-up"
+             *ngFor="let r of reviews; let i = index"
+             [attr.data-sr-delay]="(i * 0.1) + 's'">
+          <span class="ger-quote">"</span>
+          <p>{{ r.quote }}</p>
+          <div class="ger-meta">
+            <strong>{{ r.name }}</strong>
+            <span>{{ r.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Form -->
+  <section class="ip-section ge-form-section">
+    <div class="ip-container">
+      <div class="ge-form-header sr sr-up">
+        <span class="ip-kicker">Get In Touch</span>
+        <h2 class="ip-heading">Complete The Form To Inquire Today</h2>
+        <p>Tell us about your group and we'll get back to you with a tailored quote within 24 hours.</p>
+      </div>
+
+      <form class="ge-form sr sr-up" (ngSubmit)="submitForm()" data-sr-delay="0.1s">
+        <div class="ge-form-grid">
+          <div class="ge-field">
+            <label>Full Name *</label>
+            <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Your name" required/>
+          </div>
+          <div class="ge-field">
+            <label>Email Address *</label>
+            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="Your email" required/>
+          </div>
+          <div class="ge-field">
+            <label>Phone Number</label>
+            <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="(xxx) xxx-xxxx"/>
+          </div>
+          <div class="ge-field">
+            <label>Event Type *</label>
+            <select [(ngModel)]="formData.eventType" name="eventType" required>
+              <option value="" disabled selected>Select event type</option>
+              <option value="corporate">Corporate Event</option>
+              <option value="fieldtrip">Field Trip</option>
+              <option value="birthday">Birthday Party</option>
+              <option value="other">Other Group Event</option>
+            </select>
+          </div>
+          <div class="ge-field">
+            <label>Number of Guests *</label>
+            <input type="number" [(ngModel)]="formData.guests" name="guests" placeholder="Estimated number" min="10" required/>
+          </div>
+          <div class="ge-field">
+            <label>Preferred Date</label>
+            <input type="date" [(ngModel)]="formData.date" name="date"/>
+          </div>
+        </div>
+        <div class="ge-field ge-field--full">
+          <label>Message</label>
+          <textarea [(ngModel)]="formData.message" name="message" rows="5" placeholder="Tell us more about your event..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-orange btn-lg ge-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+</div>

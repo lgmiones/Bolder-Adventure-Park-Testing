@@ -2,22 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Home Bolder - Bolder Adventure Park</title>
+    <title>Bolder Adventure Park — Indoor Adventure Park, Grand Prairie TX</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="A modern, conversion-focused indoor adventure park landing page."
-    />
+    <meta name="description" content="Bolder Adventure Park — 66,000 sq ft indoor adventure park in Grand Prairie, TX. Ropes course, zip lines, climbing, birthday parties & group events." />
+    <meta name="theme-color" content="#030303" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-    <!-- Preconnect to speed up font & external resource connections -->
+    <!-- DNS prefetch / preconnect for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://ecom.roller.app" />
     <link rel="dns-prefetch" href="https://img.youtube.com" />
-    <link rel="dns-prefetch" href="https://www.youtube.com" />
 
-    <!-- Preload the hero poster so it paints immediately (LCP element) -->
+    <!-- Preload hero poster — the LCP element on the home page -->
     <link
       rel="preload"
       as="image"
@@ -25,24 +23,30 @@
       fetchpriority="high"
     />
 
-    <!-- Google Fonts — loaded async via print trick, no render-blocking -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap"
-    />
+    <!--
+      Google Fonts — non-render-blocking via media swap trick.
+      font-display=swap is already in the URL so text renders immediately with fallback.
+    -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
       />
     </noscript>
+
+    <!-- Inline critical above-fold styles: background color + font fallbacks -->
+    <style>
+      html { background: #030303; color-scheme: dark; }
+      body { margin: 0; background: #030303; color: #fff; }
+      /* Reserve space for nav so layout doesn't shift on load */
+      app-root { display: block; min-height: 100vh; }
+    </style>
   </head>
   <body>
     <app-root></app-root>

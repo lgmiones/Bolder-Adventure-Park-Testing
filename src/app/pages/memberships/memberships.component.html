@@ -1,0 +1,97 @@
+<div class="inner-page memberships-page">
+
+  <app-page-hero
+    title="Memberships &amp; Annual Passes"
+    subtitle="Ultimate fun, for ultimate value. Access Bolder Adventure Park all year round with unlimited adventures for one great price."
+    backgroundImage="assets/carousel-images/Carousel-3.jpg"
+    tag="Unlimited Access">
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Intro -->
+  <section class="ip-section mem-intro-section">
+    <div class="ip-container">
+      <div class="mem-intro sr sr-up">
+        <p>Ultimate fun, for ultimate value. Access Bolder Adventure Park all year round with unlimited adventures for one great price.</p>
+        <p>Seasonal membership passes such as the Summer Pass are also available.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pass Cards -->
+  <section class="ip-section mem-passes-section">
+    <div class="ip-container">
+      <div class="mem-passes-grid">
+        <div class="mem-pass-card sr"
+             *ngFor="let pass of passes; let i = index; let even = even"
+             [class.sr-left]="even"
+             [class.sr-right]="!even"
+             [attr.data-sr-delay]="(i * 0.12) + 's'"
+             [class.is-featured]="pass.popular"
+             [style.--pass-color]="pass.color">
+
+          <div class="mpc-popular" *ngIf="pass.popular">Most Popular</div>
+
+          <div class="mpc-image-wrap">
+            <img [src]="pass.image" [alt]="pass.name" loading="lazy"/>
+            <div class="mpc-image-overlay"></div>
+            <div class="mpc-badge">{{ pass.badge }}</div>
+            <div class="mpc-tagline">{{ pass.tagline }}</div>
+          </div>
+
+          <div class="mpc-body">
+            <h3 class="mpc-name">{{ pass.name }}</h3>
+            <p class="mpc-desc">{{ pass.desc }}</p>
+
+            <ul class="mpc-features">
+              <li *ngFor="let f of pass.features" [innerHTML]="f"></li>
+            </ul>
+
+            <p class="mpc-note" *ngIf="pass.note">{{ pass.note }}</p>
+
+            <a href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home" target="_blank" rel="noopener" class="mpc-cta">{{ pass.cta }} ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Annual Pass -->
+  <section class="ip-section mem-why-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Why Go Annual?</p>
+        <h2>The Smart Choice For Regular Adventurers</h2>
+      </div>
+      <div class="mem-benefits-grid">
+        <div class="mem-benefit sr sr-up" *ngFor="let b of [
+          {icon:'💰', title:'Save Money', desc:'One annual pass pays for itself after just 2–3 visits.'},
+          {icon:'⚡', title:'Skip The Line', desc:'Annual pass holders get priority access at peak times.'},
+          {icon:'🎯', title:'Unlimited Visits', desc:'Come back as many times as you like, all year long.'},
+          {icon:'🎁', title:'Member Perks', desc:'Exclusive discounts on food, merchandise, and events.'}
+        ]; let i = index" [attr.data-sr-delay]="(i * 0.1) + 's'">
+          <div class="mem-benefit-icon">{{ b.icon }}</div>
+          <h4>{{ b.title }}</h4>
+          <p>{{ b.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="ip-container">
+    <div class="page-cta-banner sr sr-up">
+      <div>
+        <div class="cta-label">Unlimited Fun</div>
+        <h2>Get Your Annual Pass Today!</h2>
+        <p>Seasonal passes like the Summer Pass are also available. Don't miss out!</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home" target="_blank" rel="noopener" class="btn btn-dark btn-lg">Buy Now</a>
+        <a routerLink="/contact-us" class="btn btn-outline btn-lg">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+
+</div>

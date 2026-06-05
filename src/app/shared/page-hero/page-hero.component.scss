@@ -1,0 +1,136 @@
+.page-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(380px, 60vh, 640px);
+  /* No background-image here — using <img> element instead for LCP */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── hero background image (replaces background-attachment:fixed) ── */
+.ph-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 0;
+  /* will-change: auto tells browser no transform animation — avoids compositing layer */
+  will-change: auto;
+}
+
+/* ── overlays ── */
+.ph-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  z-index: 1;
+}
+
+.ph-overlay-grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 3, 3, 0.15) 0%,
+    transparent 30%,
+    transparent 55%,
+    rgba(3, 3, 3, 0.9) 100%
+  );
+  z-index: 2;
+}
+
+/* ── diagonal decorative line ── */
+.ph-deco-line {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -10%;
+    bottom: -10%;
+    width: 60%;
+    height: 3px;
+    background: var(--orange, #f45113);
+    transform: rotate(-8deg);
+    transform-origin: left bottom;
+    opacity: 0.5;
+  }
+}
+
+/* ── bottom fade ── */
+.ph-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--black, #030303));
+  z-index: 3;
+}
+
+/* ── content ── */
+.ph-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding: 0 1.5rem 3.5rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.ph-tag {
+  display: inline-block;
+  background: var(--orange, #f45113);
+  color: #fff;
+  font-family: var(--font-ui, 'Barlow Condensed', Arial, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.85rem;
+  border-radius: 3px;
+  margin-bottom: 0.9rem;
+}
+
+.ph-title {
+  font-family: var(--font-display, 'Bebas Neue', Impact, sans-serif);
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  color: #fff;
+  margin: 0 0 0.3rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.6);
+}
+
+.ph-accent-line {
+  width: 64px;
+  height: 4px;
+  background: var(--orange, #f45113);
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+}
+
+.ph-subtitle {
+  font-family: var(--font-body, 'Inter', Arial, sans-serif);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ── Scroll reveal (locally scoped for safety) ── */
+.ph-content .sr {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.ph-content .sr-up { transform: translateY(20px); }
+.ph-content .sr.sr-visible { opacity: 1; transform: none; }

@@ -1,23 +1,18 @@
 <div class="site">
+
   <!-- ── Intro splash screen (first visit per session only) ── -->
   <div class="intro-overlay" *ngIf="showIntro" aria-hidden="true">
     <div class="intro-logo-wrap">
-      <img
-        class="intro-logo-img"
-        src="assets/images/bolder-logo-white-text.png"
-        alt="Bolder Adventure Park"
-      />
-      <!-- orange accent line that expands under the logo -->
+      <img class="intro-logo-img" src="assets/images/bolder-logo-white-text.png" alt="Bolder Adventure Park" />
       <div class="intro-line"></div>
     </div>
   </div>
-  <!-- ──────────────────────────────────────────────────────── -->
 
   <div class="noise"></div>
 
+  <!-- ── Promo Strip ── -->
   <div class="promo-strip">
     <div class="promo-strip-track">
-      <!-- set A — 3 messages repeated 3× so this half exceeds any viewport width -->
       <span>• OPEN FROM 11AM DAILY</span>
       <span>• BOOK IN ADVANCE AND SAVE</span>
       <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
@@ -27,7 +22,6 @@
       <span>• OPEN FROM 11AM DAILY</span>
       <span>• BOOK IN ADVANCE AND SAVE</span>
       <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
-      <!-- set B — exact duplicate of set A for seamless -50% loop -->
       <span>• OPEN FROM 11AM DAILY</span>
       <span>• BOOK IN ADVANCE AND SAVE</span>
       <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
@@ -40,13 +34,11 @@
     </div>
   </div>
 
+  <!-- ── Main Navbar ── -->
   <header class="main-navbar-wrap">
     <nav class="main-navbar" aria-label="Main navigation">
-      <a class="navbar-brand" href="#home" (click)="closeNav()">
-        <img
-          src="assets/images/Bolder-update.png"
-          alt="Bolder Adventure Park"
-        />
+      <a class="navbar-brand" routerLink="/" (click)="closeNav()">
+        <img src="assets/images/Bolder-update.png" alt="Bolder Adventure Park" />
       </a>
 
       <div class="navbar-links">
@@ -64,354 +56,110 @@
                (mouseleave)="schedulePlanMenuClose()">
             <div class="plan-visit-left">
               <h2>Plan Your Visit</h2>
-
               <nav class="plan-visit-list">
-                <a
-                  href="https://bolderadventurepark.com/plan-your-visit/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Know Before You Go</a
-                >
-                <a
-                  href="https://bolderadventurepark.com/attractions/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Attractions
-                </a>
-                <a
-                  href="https://bolderadventurepark.com/birthday-parties/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Birthday Parties
-                </a>
-                <a
-                  href="https://bolderadventurepark.com/group-events/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Groups Bookings
-                </a>
-                <a
-                  href="https://bolderadventurepark.com/group-events/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Corporate Events</a
-                >
-                <a
-                  href="https://bolderadventurepark.com/plan-your-visit/#hours"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Opening Hours
-                </a>
-                <a
-                  href="https://bolderadventurepark.com/faqs/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >FAQs</a
-                >
-                <a
-                  href="https://waiver.roller.app/BolderAdventurePark/home"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Waiver
-                </a>
+                <a routerLink="/plan-your-visit" (click)="closeNav()">Know Before You Go</a>
+                <a routerLink="/attractions" (click)="closeNav()">Attractions</a>
+                <a routerLink="/birthday-parties" (click)="closeNav()">Birthday Parties</a>
+                <a routerLink="/group-events" (click)="closeNav()">Group Bookings</a>
+                <a routerLink="/group-events" (click)="closeNav()">Corporate Events</a>
+                <a routerLink="/plan-your-visit" fragment="hours" (click)="closeNav()">Opening Hours</a>
+                <a routerLink="/faqs" (click)="closeNav()">FAQs</a>
+                <a href="https://waiver.roller.app/BolderAdventurePark/home" target="_blank" rel="noopener noreferrer">Waiver</a>
               </nav>
-
-              <a
-                class="plan-visit-main-link"
-                href="https://bolderadventurepark.com/plan-your-visit/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="plan-visit-main-link" routerLink="/plan-your-visit" (click)="closeNav()">
                 Plan Your Visit <span>↗</span>
               </a>
             </div>
 
             <div class="plan-visit-cards">
-              <a
-                class="plan-visit-card"
-                href="https://bolderadventurepark.com/plan-your-visit/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="assets/images/Action-on-the-ground.jpg"
-                  alt="Plan your visit"
-                />
+              <a class="plan-visit-card" routerLink="/plan-your-visit" (click)="closeNav()">
+                <img src="assets/images/Action-on-the-ground.jpg" alt="Plan your visit" />
                 <span class="plan-visit-ribbon">First Time? Start Here</span>
                 <strong>Plan Your Visit</strong>
               </a>
-
-              <a
-                class="plan-visit-card"
-                href="https://bolderadventurepark.com/birthday-parties/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  src="assets/images/Birthday-parties.jpg"
-                  alt="Birthday parties"
-                />
+              <a class="plan-visit-card" routerLink="/birthday-parties" (click)="closeNav()">
+                <img src="assets/images/Birthday-parties.jpg" alt="Birthday parties" />
                 <strong>Birthday Parties</strong>
               </a>
-
-              <a
-                class="plan-visit-card"
-                href="https://bolderadventurepark.com/attractions/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="assets/images/Group-events.jpg"
-                  alt="Explore the attractions"
-                />
+              <a class="plan-visit-card" routerLink="/group-events" (click)="closeNav()">
+                <img src="assets/images/Group-events.jpg" alt="Group bookings" />
                 <strong>Group Bookings</strong>
               </a>
             </div>
           </div>
         </div>
 
-        <a
-          href="https://bolderadventurepark.com/attractions/"
-          target="_blank"
-          rel="noopener noreferrer"
-          (click)="closeNav()"
-        >
-          Attractions
-        </a>
-
-        <a
-          href="https://bolderadventurepark.com/birthday-parties/"
-          target="_blank"
-          rel="noopener noreferrer"
-          (click)="closeNav()"
-        >
-          Birthday Parties
-        </a>
-
-        <a
-          href="https://summer.bolderadventurepark.com/?_gl=1*zav77q*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw"
-          target="_blank"
-          rel="noopener noreferrer"
-          (click)="closeNav()"
-        >
-          Summer Camps
-        </a>
-
-        <a
-          href="https://bolderadventurepark.com/group-events/"
-          target="_blank"
-          rel="noopener noreferrer"
-          (click)="closeNav()"
-          >Group Events</a
-        >
+        <a routerLink="/attractions" routerLinkActive="is-active" (click)="closeNav()">Attractions</a>
+        <a routerLink="/birthday-parties" routerLinkActive="is-active" (click)="closeNav()">Birthday Parties</a>
+        <a href="https://summer.bolderadventurepark.com/" target="_blank" rel="noopener noreferrer" (click)="closeNav()">Summer Camps</a>
+        <a routerLink="/group-events" routerLinkActive="is-active" (click)="closeNav()">Group Events</a>
       </div>
 
       <div class="navbar-actions">
-        <a
-          class="navbar-location"
-          href="https://www.google.com/maps/search/?api=1&query=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Location"
-        >
+        <a class="navbar-location"
+           href="https://www.google.com/maps/search/?api=1&query=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX"
+           target="_blank" rel="noopener noreferrer" aria-label="Location">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.4"
-            />
-            <circle
-              cx="12"
-              cy="9"
-              r="2.4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.4"
-            />
+            <path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            <circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="2.4"/>
           </svg>
         </a>
 
-        <a
-          class="navbar-ticket"
-          href="https://ticket.bolderadventurepark.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="navbar-ticket" href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener noreferrer">
           <span class="ticket-text">Get Tickets</span>
-          <!-- Ticket icon — Bootstrap Icons "ticket-fill" shape -->
-          <svg
-            class="ticket-icon-svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            width="20"
-            height="20"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
-            />
+          <svg class="ticket-icon-svg" viewBox="0 0 16 16" fill="currentColor" width="20" height="20" aria-hidden="true">
+            <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/>
           </svg>
         </a>
 
         <span class="navbar-divider"></span>
 
-        <button
-          class="navbar-menu"
-          type="button"
-          aria-label="Toggle menu"
-          [class.is-active]="isNavOpen"
-          (click)="toggleNav()"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="navbar-menu" type="button" aria-label="Toggle menu"
+                [class.is-active]="isNavOpen" (click)="toggleNav()">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
   </header>
 
-  <div
-    class="menu-backdrop"
-    [class.is-open]="isNavOpen"
-    (click)="closeNav()"
-  ></div>
+  <!-- ── Backdrop ── -->
+  <div class="menu-backdrop" [class.is-open]="isNavOpen" (click)="closeNav()"></div>
 
+  <!-- ── Side Menu ── -->
   <aside class="side-menu" [class.is-open]="isNavOpen">
-    <button
-      class="side-menu-close"
-      type="button"
-      aria-label="Close menu"
-      (click)="closeNav()"
-    >
-      ×
-    </button>
+    <button class="side-menu-close" type="button" aria-label="Close menu" (click)="closeNav()">×</button>
 
     <nav class="side-menu-links">
-      <a href="#home" class="active" (click)="closeNav()">Home</a>
+      <a routerLink="/" (click)="closeNav()">Home</a>
 
       <div class="side-menu-plan-item">
-        <button
-          class="side-menu-plan-trigger"
-          type="button"
-          (click)="toggleSideMenuPlan()"
-          [class.is-open]="isSideMenuPlanOpen"
-        >
-          Plan Your Visit
-          <span class="side-menu-caret">&#8250;</span>
+        <button class="side-menu-plan-trigger" type="button"
+                (click)="toggleSideMenuPlan()" [class.is-open]="isSideMenuPlanOpen">
+          Plan Your Visit <span class="side-menu-caret">&#8250;</span>
         </button>
         <div class="side-menu-plan-sub" [class.is-open]="isSideMenuPlanOpen">
-          <a
-            href="https://bolderadventurepark.com/plan-your-visit/"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >Know Before You Go</a
-          >
-          <a
-            href="https://bolderadventurepark.com/attractions/"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >Attractions</a
-          >
-          <a
-            href="https://bolderadventurepark.com/birthday-parties/"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >Birthday Parties</a
-          >
-          <a
-            href="https://bolderadventurepark.com/group-events/"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >Group Events</a
-          >
-          <a
-            href="https://bolderadventurepark.com/group-events/"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >Corporate Events</a
-          >
-          <a
-            href="https://bolderadventurepark.com/plan-your-visit/#hours"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >Opening Hours</a
-          >
-          <a
-            href="https://bolderadventurepark.com/faqs/"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >FAQs</a
-          >
-          <a
-            href="https://waiver.roller.app/BolderAdventurePark/home"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="closeNav()"
-            >Waiver</a
-          >
+          <a routerLink="/plan-your-visit" (click)="closeNav()">Know Before You Go</a>
+          <a routerLink="/attractions" (click)="closeNav()">Attractions</a>
+          <a routerLink="/birthday-parties" (click)="closeNav()">Birthday Parties</a>
+          <a routerLink="/group-events" (click)="closeNav()">Group Events</a>
+          <a routerLink="/group-events" (click)="closeNav()">Corporate Events</a>
+          <a routerLink="/plan-your-visit" fragment="hours" (click)="closeNav()">Opening Hours</a>
+          <a routerLink="/faqs" (click)="closeNav()">FAQs</a>
+          <a href="https://waiver.roller.app/BolderAdventurePark/home" target="_blank" rel="noopener noreferrer" (click)="closeNav()">Waiver</a>
         </div>
       </div>
 
-      <a
-        href="https://bolderadventurepark.com/birthday-party-packages/"
-        target="_blank"
-        (click)="closeNav()"
-        >Birthday Parties</a
-      >
-      <a
-        href="https://s.bolderadventurepark.com/"
-        target="_blank"
-        (click)="closeNav()"
-        >Summer Camps</a
-      >
-      <a
-        href="https://bolderadventurepark.com/group-events/"
-        target="_blank"
-        (click)="closeNav()"
-        >Group Events</a
-      >
-      <a
-        href="https://bolderadventurepark.com/contact-us/"
-        target="_blank"
-        rel="noopener noreferrer"
-        (click)="closeNav()"
-        >Contact Us</a
-      >
+      <a routerLink="/birthday-parties" (click)="closeNav()">Birthday Parties</a>
+      <a href="https://s.bolderadventurepark.com/" target="_blank" (click)="closeNav()">Summer Camps</a>
+      <a routerLink="/group-events" (click)="closeNav()">Group Events</a>
+      <a routerLink="/memberships" (click)="closeNav()">Memberships</a>
+      <a routerLink="/contact-us" (click)="closeNav()">Contact Us</a>
     </nav>
 
-    <a
-      class="side-menu-ticket"
-      href="https://ticket.bolderadventurepark.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="side-menu-ticket" href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener noreferrer">
       Get Tickets
-      <svg
-        class="ticket-icon-svg"
-        viewBox="0 0 16 16"
-        fill="currentColor"
-        width="22"
-        height="22"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
-        />
+      <svg class="ticket-icon-svg" viewBox="0 0 16 16" fill="currentColor" width="22" height="22" aria-hidden="true">
+        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/>
       </svg>
     </a>
 
@@ -422,1316 +170,44 @@
     </div>
 
     <div class="side-menu-socials">
-      <a
-        href="https://www.facebook.com/bolderadventurepark"
-        target="_blank"
-        aria-label="Facebook"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          width="22"
-          height="22"
-          aria-hidden="true"
-        >
-          <path
-            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-          />
+      <a href="https://www.facebook.com/bolderadventurepark" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
         </svg>
       </a>
-      <a
-        href="https://www.instagram.com/bolderadventurepark"
-        target="_blank"
-        aria-label="Instagram"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          width="22"
-          height="22"
-          aria-hidden="true"
-        >
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      <a href="https://www.instagram.com/bolderadventurepark" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
       </a>
-      <a
-        href="https://www.tiktok.com/@bolderadventurepark"
-        target="_blank"
-        aria-label="TikTok"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          width="22"
-          height="22"
-          aria-hidden="true"
-        >
-          <path
-            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.8 1.52V6.77a4.85 4.85 0 0 1-1.03-.08z"
-          />
+      <a href="https://www.tiktok.com/@bolderadventurepark" target="_blank" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.8 1.52V6.77a4.85 4.85 0 0 1-1.03-.08z"/>
         </svg>
       </a>
-      <a
-        href="https://www.youtube.com/bolderadventurepark"
-        target="_blank"
-        aria-label="YouTube"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          width="22"
-          height="22"
-          aria-hidden="true"
-        >
-          <path
-            d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
-          />
-          <polygon
-            points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
-            fill="#fff"
-          />
+      <a href="https://www.youtube.com/bolderadventurepark" target="_blank" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/>
         </svg>
       </a>
     </div>
   </aside>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-video-wrapper">
-        <video
-          #heroVideo
-          class="hero-video"
-          src="assets/videos/Bolder-video.webm"
-          poster="assets/After-hero-section/Attractions - A view from Mezz 1.jpg"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="none"
-        ></video>
-      </div>
+  <!-- ── Page Content (routed) ── -->
+  <router-outlet></router-outlet>
 
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <div class="mini-badge reveal">
-          Indoor Adventure Park • Grand Prairie, TX
-        </div>
-        <h1 class="reveal delay-1">Adventure Awaits</h1>
-        <div class="hero-actions reveal delay-3">
-          <a
-            href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"
-            target="_blank"
-            class="btn btn-orange btn-lg"
-            >Buy Tickets Now</a
-          >
-          <a
-            href="https://newvues.sg-host.com/attractions/"
-            target="_blank"
-            class="btn btn-outline btn-lg"
-            >Explore Attractions</a
-          >
-        </div>
-
-        <div class="hero-proof reveal delay-4">
-          <span>✓ Best for families</span>
-          <span>✓ Birthday packages</span>
-          <span>✓ Group events</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Stats / About section ── -->
-    <section class="about-stats" id="about">
-      <div class="about-stats-grid">
-        <!-- 18+ Attractions — slides in from left -->
-        <div class="as-cell as-cell--tl sr sr-left">
-          <div class="as-number">18<sup>+</sup></div>
-          <div class="as-label">Attractions</div>
-          <div class="as-photo">
-            <img
-              src="assets/After-hero-section/Attractions - A view from Mezz 1.jpg"
-              alt="18+ attractions at Bolder Adventure Park"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <!-- Center description text — fades up -->
-        <div class="as-cell as-cell--center sr sr-up">
-          <p class="as-tagline">
-            Experience year-round fun at the Bolder Adventure Park — a
-            <strong>66,000 sq&nbsp;ft</strong> indoor family entertainment
-            center. One of the most unique family days out in North Texas,
-            there's fun for kids of all ages… and big kids too!
-          </p>
-        </div>
-
-        <!-- 100% All Out Fun — slides in from right -->
-        <div class="as-cell as-cell--tr sr sr-right">
-          <div class="as-number">100<sup>%</sup></div>
-          <div class="as-label">All Out Fun</div>
-          <div class="as-photo">
-            <img
-              src="assets/After-hero-section/DSC08395.jpg"
-              alt="100% all out fun"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <!-- 66,000 sq ft Dome — slides in from left with delay -->
-        <div class="as-cell as-cell--bl sr sr-left" data-sr-delay="0.15s">
-          <div class="as-number as-number--lg">66,000</div>
-          <div class="as-label">Square Foot Dome</div>
-          <div class="as-photo">
-            <img
-              src="assets/After-hero-section/Dome photos-03988-2.jpg"
-              alt="66,000 sq ft dome"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <!-- 5★ Party Venue — slides in from right with delay -->
-        <div class="as-cell as-cell--br sr sr-right" data-sr-delay="0.15s">
-          <div class="as-number">5<sup>★</sup></div>
-          <div class="as-label">Party Venue</div>
-        </div>
-      </div>
-    </section>
-    <!-- ───────────────────────────── -->
-
-    <!-- ── Summer Camp Section ─────────────────────── -->
-    <section class="camp-section" id="promo">
-      <div class="camp-inner">
-        <!-- Copy -->
-        <div class="camp-copy sr sr-left">
-          <p class="camp-kicker">Summer Adventure</p>
-          <h2 class="camp-heading">
-            The Summer<br />Camp Your<br />Kids Will Love
-          </h2>
-
-          <div class="camp-badges">
-            <span class="camp-badge">
-              <svg
-                viewBox="0 0 24 24"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-              Ages 5–15
-            </span>
-            <span class="camp-badge">
-              <svg
-                viewBox="0 0 24 24"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
-              June 1 – Aug 7
-            </span>
-            <span class="camp-badge">
-              <svg
-                viewBox="0 0 24 24"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-              100% Indoors
-            </span>
-            <span class="camp-badge">
-              <svg
-                viewBox="0 0 24 24"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Grand Prairie, TX
-            </span>
-          </div>
-
-          <p class="camp-tagline">Big fun. New friends. Awesome memories.</p>
-
-          <div class="camp-ctas">
-            <a
-              href="https://s.bolderadventurepark.com/"
-              target="_blank"
-              class="btn btn-orange btn-lg"
-              >Book Now</a
-            >
-            <a
-              href="https://s.bolderadventurepark.com/"
-              target="_blank"
-              class="btn btn-outline"
-              >Explore Summer Camps</a
-            >
-          </div>
-        </div>
-
-        <!-- Image -->
-        <div class="camp-image-wrap sr sr-right" data-sr-delay="0.15s">
-          <div class="camp-image-glow"></div>
-          <img
-            src="assets/images/Bolder-summercamp.png"
-            alt="Bolder Summer Camps – The Summer Camp Your Kids Will Love"
-            class="camp-img"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="section experiences" id="experiences">
-      <div class="section-title sr sr-up">
-        <p>Daily Experiences</p>
-        <h2>Big adventure, easy decision</h2>
-      </div>
-
-      <!-- Filter tabs -->
-      <div class="attraction-tabs sr sr-up" data-sr-delay="0.1s">
-        <button
-          *ngFor="let tab of attractionTabs"
-          class="attraction-tab"
-          [class.is-active]="activeAttractionTab === tab.id"
-          (click)="setAttractionTab(tab.id)"
-          type="button"
-        >
-          {{ tab.label }}
-        </button>
-      </div>
-
-      <!-- Attraction cards grid -->
-      <div class="attraction-grid">
-        <a
-          class="attraction-card"
-          *ngFor="
-            let card of filteredAttractions;
-            let i = index;
-            trackBy: trackByAttraction
-          "
-          [href]="card.link"
-          target="_blank"
-          rel="noopener"
-          [style.animation-delay]="i * 0.055 + 's'"
-        >
-          <img [src]="card.image" [alt]="card.title" loading="lazy" />
-          <div class="attraction-card-content">
-            <span class="attraction-card-title">{{ card.title }}</span>
-            <span class="attraction-card-arrow" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
-            </span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- PLAN YOUR VISIT — full-screen sticky-stacking cards -->
-    <section class="plan-your-visit" id="attractions">
-      <!-- Intro header scrolls off normally, then cards take over -->
-      <div class="pyv-header sr sr-up">
-        <div class="pyv-heading">
-          <span class="pyv-kicker">Choose Your Pass</span>
-          <h2>Plan Your<br />Visit</h2>
-          <div class="pyv-accent-line"></div>
-        </div>
-        <div class="pyv-intro">
-          <p>
-            The park is split by ground level and aerial activities — our ticket
-            options are simple to understand.
-          </p>
-          <p>
-            The Jump Pad, Adventure Nets and Exploration Playground are perfect
-            for smaller kids. More daring ones can also ride the Tubing Slides,
-            Bumper Cars and fight it out in the Blaster Zone — all available
-            with a <span class="pyv-tag">Base Camp Pass</span>.
-          </p>
-          <p>
-            For bigger thrills, there are two ways to explore Bolder Adventure
-            Mountain: the Ropes Course, including Zip Lines, and the Mountain
-            Course featuring an exhilarating
-            <span class="pyv-tag">Free Fall Drop!</span>
-          </p>
-          <a href="#attractions" class="pyv-scroll-hint"
-            >Scroll to explore passes ↓</a
-          >
-        </div>
-      </div>
-
-      <!--
-        STACKING MECHANIC: each .ac-slide is height:100vh + position:sticky top:0.
-        Inside sits the visible card (.ac-section) with border-radius + box-shadow.
-        Higher z-index slides slide up from below and cover the previous one.
-        Scroll up = perfect automatic reverse.
-      -->
-      <div class="attraction-stack">
-        <!-- 01 — Base Camp: content left · image right -->
-        <div class="ac-slide">
-          <div class="ac-section ac--navy">
-            <div class="ac-content">
-              <span class="ac-num">01 &nbsp;/&nbsp; Base</span>
-              <svg
-                class="ac-icon"
-                viewBox="0 0 52 52"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  x="4"
-                  y="4"
-                  width="44"
-                  height="44"
-                  rx="10"
-                  stroke="rgba(255,255,255,0.6)"
-                  stroke-width="3"
-                />
-              </svg>
-              <h3 class="ac-name">Base Camp</h3>
-              <p class="ac-desc">
-                Action is on the ground — Jump Pad, Adventure Nets, Exploration
-                Playground, Tubing Slides, Blaster Zone and Bumper Cars. Perfect
-                for every age.
-              </p>
-              <a
-                href="https://newvues.sg-host.com/attractions/"
-                target="_blank"
-                rel="noopener"
-                class="ac-cta"
-                >Get Your Pass ↗</a
-              >
-            </div>
-            <div class="ac-image">
-              <img
-                src="assets/carousel-images/Carousel-4.jpg"
-                alt="Base Camp ground activities"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- 02 — Summit: image left · content right — GOLD theme -->
-        <div class="ac-slide">
-          <div class="ac-section ac--gold">
-            <div class="ac-image">
-              <img
-                src="assets/carousel-images/Carousel-6.jpg"
-                alt="Summit aerial activities"
-                loading="lazy"
-              />
-            </div>
-            <div class="ac-content">
-              <span class="ac-num">02 &nbsp;/&nbsp; Summit</span>
-              <svg
-                class="ac-icon"
-                viewBox="0 0 52 52"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polygon
-                  points="26,3 49,26 26,49 3,26"
-                  stroke="rgba(0,0,0,0.45)"
-                  stroke-width="3"
-                  fill="rgba(0,0,0,0.08)"
-                />
-              </svg>
-              <h3 class="ac-name">Summit</h3>
-              <p class="ac-desc">
-                Action is in the air. All Base Camp activities, plus your choice
-                of a Ropes Course <em>or</em> a Mountain Experience session. The
-                adventure levels up.
-              </p>
-              <a
-                href="https://newvues.sg-host.com/attractions/"
-                target="_blank"
-                rel="noopener"
-                class="ac-cta ac-cta--dark"
-                >Get Your Pass ↗</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- 03 — Extreme: content left · image right — VIOLET theme -->
-        <div class="ac-slide">
-          <div class="ac-section ac--violet">
-            <div class="ac-content">
-              <span class="ac-num">03 &nbsp;/&nbsp; Extreme</span>
-              <svg
-                class="ac-icon ac-icon--wide"
-                viewBox="0 0 106 52"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polygon
-                  points="26,3 49,26 26,49 3,26"
-                  fill="rgba(255,255,255,0.28)"
-                />
-                <polygon
-                  points="80,3 103,26 80,49 57,26"
-                  fill="rgba(255,255,255,0.28)"
-                />
-              </svg>
-              <h3 class="ac-name">Extreme All&nbsp;Access</h3>
-              <p class="ac-desc">
-                Unlimited access to the entire venue — every Rope, every
-                Mountain course, every ground activity. This is the complete
-                Bolder experience.
-              </p>
-              <a
-                href="https://newvues.sg-host.com/attractions/"
-                target="_blank"
-                rel="noopener"
-                class="ac-cta"
-                >Get Your Pass ↗</a
-              >
-            </div>
-            <div class="ac-image">
-              <img
-                src="assets/carousel-images/Carousel-8.jpg"
-                alt="Extreme All Access activities"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="comparison">
-      <!-- Video Reel Carousel — YouTube Shorts Shelf -->
-      <div class="video-reel-wrap sr sr-up">
-        <!-- Shelf header -->
-        <div class="vr-shelf-header">
-          <div class="vr-shelf-left">
-            <div class="vr-yt-logo-wrap">
-              <!-- YouTube icon (red rect + white play triangle) -->
-              <svg
-                viewBox="0 0 32 22"
-                width="38"
-                height="26"
-                aria-hidden="true"
-              >
-                <rect width="32" height="22" rx="5" fill="#FF0000" />
-                <polygon points="13,6 13,16 22,11" fill="#fff" />
-              </svg>
-              <span class="vr-yt-wordmark">YouTube</span>
-            </div>
-            <div class="vr-shelf-text">
-              <span class="vr-shelf-kicker">Watch On YouTube</span>
-              <h2 class="vr-shelf-heading">Watch The Adventure</h2>
-            </div>
-          </div>
-          <a
-            href="https://www.youtube.com/@bolderadventurepark"
-            target="_blank"
-            rel="noopener"
-            class="vr-see-all"
-            >See all
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              width="15"
-              height="15"
-              aria-hidden="true"
-            >
-              <polyline points="9 6 15 12 9 18" />
-            </svg>
-          </a>
-        </div>
-
-        <!-- Cards grid -->
-        <div class="video-reel-grid">
-          <div
-            class="video-reel-card"
-            *ngFor="let vid of visibleVideos"
-            (click)="openVideo(vid.id)"
-          >
-            <!-- Thumbnail fills entire card -->
-            <img
-              class="video-reel-thumb"
-              [src]="
-                'https://img.youtube.com/vi/' + vid.id + '/maxresdefault.jpg'
-              "
-              [alt]="vid.title"
-              loading="lazy"
-            />
-
-            <!-- Top gradient for text legibility -->
-            <div class="vr-top-grad"></div>
-
-            <!-- Top overlay: avatar + channel + title -->
-            <div class="vr-card-top">
-              <div class="vr-avatar">
-                <img
-                  src="assets/images/bolder-logo.png"
-                  alt="Bolder Adventure Park"
-                />
-              </div>
-              <div class="vr-top-text">
-                <span class="vr-channel-name">Bolder Adventure Park</span>
-                <p class="vr-card-title">{{ vid.title }}</p>
-              </div>
-            </div>
-
-            <!-- Center play button -->
-            <div class="video-reel-play">
-              <svg
-                viewBox="0 0 68 48"
-                width="56"
-                height="40"
-                aria-hidden="true"
-              >
-                <path
-                  d="M66.52 7.74C65.7 4.72 63.28 2.3 60.27 1.49 55.01.05 34 0 34 0S12.99.05 7.73 1.49C4.72 2.3 2.3 4.72 1.48 7.74.05 13.01 0 24 0 24s.05 10.99 1.48 16.26C2.3 43.28 4.72 45.7 7.73 46.51 12.99 47.95 34 48 34 48s21.01-.05 26.27-1.49C63.28 45.7 65.7 43.28 66.52 40.26 67.95 35 68 24 68 24s-.05-10.99-1.48-16.26z"
-                  fill="#ff0000"
-                />
-                <path d="M27 34 45 24 27 14z" fill="#fff" />
-              </svg>
-            </div>
-
-            <!-- Bottom gradient -->
-            <div class="vr-bottom-grad"></div>
-
-            <!-- Bottom row: share icon + Shorts badge -->
-            <div class="vr-card-bottom">
-              <button
-                class="vr-share-btn"
-                (click)="shareVideo(vid.id, $event)"
-                aria-label="Share"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  width="18"
-                  height="18"
-                  aria-hidden="true"
-                >
-                  <circle cx="18" cy="5" r="3" />
-                  <circle cx="6" cy="12" r="3" />
-                  <circle cx="18" cy="19" r="3" />
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                </svg>
-              </button>
-              <div class="vr-shorts-badge">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  width="12"
-                  height="12"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"
-                  />
-                </svg>
-                Shorts
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="video-reel-nav" *ngIf="maxVideoPage > 0">
-          <button
-            class="vrn-arrow"
-            (click)="prevVideoPage()"
-            [disabled]="videoPage === 0"
-            aria-label="Previous videos"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.8"
-              width="22"
-              height="22"
-              aria-hidden="true"
-            >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <button
-            class="vrn-arrow"
-            (click)="nextVideoPage()"
-            [disabled]="videoPage >= maxVideoPage"
-            aria-label="Next videos"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.8"
-              width="22"
-              height="22"
-              aria-hidden="true"
-            >
-              <polyline points="9 6 15 12 9 18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="compare-table-wrap sr sr-up">
-        <!-- Logo Header Card -->
-        <div class="ct-logo-card">
-          <img
-            src="assets/images/bolder-logo-white-text.png"
-            alt="Bolder Adventure Park at EpicCentral"
-            class="ct-logo-img"
-          />
-          <span class="ct-kicker">Ticket Options</span>
-          <div class="ct-title">Choose Your Adventure Level</div>
-        </div>
-
-        <!-- Column Headers -->
-        <div class="ct-header">
-          <div class="ct-h-cell">
-            <span class="ct-attr-label">Attraction</span>
-          </div>
-          <div class="ct-h-cell tier-base">
-            <span class="ct-h-label">Base Camp</span>
-            <span class="ct-h-sub">Action on the Ground</span>
-            <span class="ct-h-badge">Included</span>
-          </div>
-          <div class="ct-h-cell tier-summit">
-            <span class="ct-h-label">Summit</span>
-            <span class="ct-h-sub">Ropes Course + Zip Lines</span>
-            <span class="ct-h-badge">Popular</span>
-          </div>
-          <div class="ct-h-cell tier-extreme">
-            <span class="ct-h-label">Extreme</span>
-            <span class="ct-h-sub">All Access</span>
-            <span class="ct-h-badge">Ultimate</span>
-          </div>
-        </div>
-
-        <!-- Ground Level -->
-        <div class="ct-section-tag"><span>Ground Level</span></div>
-
-        <div class="ct-row">
-          <div class="ct-cell">
-            Jump Pad <span class="ct-note">(Socks Additional)</span>
-          </div>
-          <div class="ct-cell"><span class="ic-yes base">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Adventure Nets</div>
-          <div class="ct-cell"><span class="ic-yes base">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Exploration Play (Playground)</div>
-          <div class="ct-cell"><span class="ic-yes base">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Tubing Slides (Speed Shot)</div>
-          <div class="ct-cell"><span class="ic-yes base">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Tubing Slides (Rolling Hills)</div>
-          <div class="ct-cell"><span class="ic-yes base">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Blaster Zone</div>
-          <div class="ct-cell"><span class="ic-yes base">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Bumper Cars</div>
-          <div class="ct-cell"><span class="ic-yes base">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-
-        <!-- Summit Level -->
-        <div class="ct-section-tag"><span>Summit Level</span></div>
-
-        <div class="ct-row">
-          <div class="ct-cell">Ropes Course (4 Levels)</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Rock Climbing</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-yes summit">✓</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-
-        <!-- Extreme Only -->
-        <div class="ct-section-tag"><span>Extreme Only</span></div>
-
-        <div class="ct-row">
-          <div class="ct-cell">Mountain Experience (2 Trails)</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Free Fall (Trap Door)</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Free Fall (Top of the Arch)</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Archery</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Darts</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-yes extreme">✓</span></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Arcade</div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell"><span class="ic-no">✗</span></div>
-          <div class="ct-cell">
-            <span class="ic-special">$10 Arcade Card</span>
-          </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="ct-footer">
-          <div class="ct-footer-cell"></div>
-          <div class="ct-footer-cell fb">Min Height<br />42"</div>
-          <div class="ct-footer-cell fs">
-            Min Height<br />42" | 48" | 54"<br />Max 265 lbs (w/ Gear)
-          </div>
-          <div class="ct-footer-cell fe">
-            Min Height<br />42" | 48" | 54"<br />Max 88–265 lbs (w/ Gear)
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="parties" id="parties">
-      <!-- Section heading -->
-      <div class="parties-heading sr sr-up">
-        <h2>Birthday Parties &amp; Group Events</h2>
-        <div class="parties-heading-line"></div>
-      </div>
-
-      <!-- ── Birthday block ── -->
-      <div class="parties-block">
-        <!-- 4-image mosaic: tall-left | [wide-top / duo-bottom] -->
-        <div class="parties-collage">
-          <div class="pc-tall sr sr-left">
-            <img
-              src="assets/images/Birthday-parties.jpg"
-              alt="Birthday celebrations at Bolder"
-              loading="lazy"
-            />
-          </div>
-          <div class="pc-right">
-            <div class="pc-wide sr sr-up" data-sr-delay="0.10s">
-              <img
-                src="assets/images/Parties1.png"
-                alt="Ropes course adventure"
-                loading="lazy"
-              />
-            </div>
-            <div class="pc-duo">
-              <div class="pc-duo-item sr sr-up" data-sr-delay="0.20s">
-                <img
-                  src="assets/images/Parties2.png"
-                  alt="Parties"
-                  loading="lazy"
-                />
-              </div>
-              <div class="pc-duo-item sr sr-up" data-sr-delay="0.30s">
-                <img
-                  src="assets/images/Parties3.jpg"
-                  alt="Parties"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="parties-copy sr sr-right">
-          <span class="parties-badge">Birthdays</span>
-          <h3>
-            Throw An Unforgettable Birthday Party Without Lifting A Finger
-          </h3>
-          <p>
-            All-inclusive adventure parties starting at less than $33 per child
-            with attractions, pizza, drinks, and clean-up handled so you can
-            actually enjoy the day.
-          </p>
-          <a
-            href="https://newvues.sg-host.com/birthday-parties/"
-            target="_blank"
-            rel="noopener"
-            class="parties-cta"
-            >Birthday Parties</a
-          >
-        </div>
-      </div>
-
-      <!-- ── Groups block ── -->
-      <div class="parties-block">
-        <div class="parties-copy sr sr-left" data-sr-delay="0.05s">
-          <span class="parties-badge parties-badge--blue">Groups</span>
-          <h3>Plan A Group Event With A Difference</h3>
-          <p>
-            Planning a group event? Skip the ordinary. Bolder turns field trips,
-            corporate outings, and celebrations into stories people won't stop
-            sharing.
-          </p>
-          <a
-            href="https://newvues.sg-host.com/group-events/"
-            target="_blank"
-            rel="noopener"
-            class="parties-cta"
-            >Group &amp; Corporate Events</a
-          >
-        </div>
-
-        <!-- 4-image mosaic -->
-        <div class="parties-collage">
-          <div class="pc-tall sr sr-right" data-sr-delay="0.05s">
-            <img
-              src="assets/images/Group-events.jpg"
-              alt="Group events at Bolder Adventure Park"
-              loading="lazy"
-            />
-          </div>
-          <div class="pc-right">
-            <div class="pc-wide sr sr-up" data-sr-delay="0.15s">
-              <img
-                src="assets/images/Groups1.jpg"
-                alt="Summit activities"
-                loading="lazy"
-              />
-            </div>
-            <div class="pc-duo">
-              <div class="pc-duo-item sr sr-up" data-sr-delay="0.25s">
-                <img
-                  src="assets/images/Groups2.jpg"
-                  alt="Extreme all access"
-                  loading="lazy"
-                />
-              </div>
-              <div class="pc-duo-item sr sr-up" data-sr-delay="0.35s">
-                <img
-                  src="assets/images/Groups3.jpg"
-                  alt="Group adventure"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="annual-pass">
-      <div class="annual-card">
-        <!-- Left: text content -->
-        <div class="annual-card-left sr sr-left">
-          <span class="annual-badge">Unlimited Fun</span>
-          <h2 class="annual-heading">Annual Passes &amp;<br />Memberships</h2>
-          <p class="annual-desc">
-            Get amazing value on your Bolder adventures with a whole year of
-            fun.
-          </p>
-          <div class="annual-actions">
-            <a
-              href="https://newvues.sg-host.com/memberships/"
-              target="_blank"
-              rel="noopener"
-              class="annual-btn-dark"
-              >Membership Info</a
-            >
-            <a
-              href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"
-              target="_blank"
-              rel="noopener"
-              class="annual-btn-outline"
-              >Get Tickets ↗</a
-            >
-          </div>
-        </div>
-
-        <!-- Right: 3×2 photo grid -->
-        <div class="annual-photo-grid sr sr-right" data-sr-delay="0.15s">
-          <div class="annual-photo">
-            <img
-              src="assets/carousel-images/Carousel-3.jpg"
-              alt="Ropes course"
-              loading="lazy"
-            />
-          </div>
-          <div class="annual-photo">
-            <img
-              src="assets/carousel-images/Carousel-5.jpg"
-              alt="Adventure activity"
-              loading="lazy"
-            />
-          </div>
-          <div class="annual-photo">
-            <img
-              src="assets/carousel-images/Carousel-7.jpg"
-              alt="Zip line"
-              loading="lazy"
-            />
-          </div>
-          <div class="annual-photo ap-offset">
-            <img
-              src="assets/carousel-images/Carousel-9.jpg"
-              alt="Balance walk"
-              loading="lazy"
-            />
-          </div>
-          <div class="annual-photo ap-pull">
-            <img
-              src="assets/carousel-images/Carousel-11.jpg"
-              alt="Tubing slides"
-              loading="lazy"
-            />
-          </div>
-          <div class="annual-photo ap-offset">
-            <img
-              src="assets/carousel-images/Carousel-13.jpg"
-              alt="Blaster arena"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section parkmap-section" id="park-map">
-      <div class="section-title sr sr-up">
-        <p>Explore The Park</p>
-        <h2>Your adventure starts here</h2>
-        <span
-          >Get to know every corner of Bolder Adventure Park before you
-          arrive.</span
-        >
-      </div>
-
-      <div class="parkmap-wrapper sr sr-scale">
-        <div class="parkmap-glow"></div>
-        <a
-          href="https://bolderadventurepark.com/park-maps/"
-          target="_blank"
-          rel="noopener"
-          class="parkmap-link"
-        >
-          <img
-            src="assets/images/Parkmap.png"
-            alt="Bolder Adventure Park Map"
-            class="parkmap-img"
-          />
-        </a>
-        <div class="parkmap-badge">
-          <span>🗺️ Bolder Adventure Park — Grand Prairie, TX</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- carousel -->
-    <section class="carousel-section">
-      <div class="carousel-track-wrapper">
-        <div class="carousel-track">
-          <div class="carousel-slide" *ngFor="let img of carouselImages">
-            <img
-              [src]="'assets/carousel-images/' + img"
-              [alt]="img"
-              loading="lazy"
-            />
-          </div>
-          <!-- Duplicate set for seamless infinite loop -->
-          <div class="carousel-slide" *ngFor="let img of carouselImages">
-            <img
-              [src]="'assets/carousel-images/' + img"
-              [alt]="img"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reviews">
-      <div class="section-title sr sr-up">
-        <p>Our Guests Say It Best</p>
-        <h2>What people are saying</h2>
-      </div>
-
-      <div class="review-carousel sr sr-up" data-sr-delay="0.1s">
-        <!-- Slide track -->
-        <div class="review-track-wrap">
-          <div
-            class="review-track"
-            [style.transform]="'translateX(-' + activeReviewIndex * 100 + '%)'"
-          >
-            <article
-              class="review-card"
-              *ngFor="let review of reviews; let i = index"
-            >
-              <div class="review-image-wrap">
-                <img
-                  [src]="'assets/images/' + reviewImages[i].file"
-                  [alt]="reviewImages[i].tag"
-                  class="review-img"
-                />
-                <span class="review-tag">{{ reviewImages[i].tag }}</span>
-              </div>
-              <div class="review-body">
-                <p>"{{ review.quote }}"</p>
-                <div class="review-meta">
-                  <strong>{{ review.name }}</strong>
-                  <span class="review-time">{{ review.source }}</span>
-                </div>
-                <div class="review-stars" [style.color]="reviewImages[i].color">
-                  ★★★★★
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- Prev arrow -->
-        <button
-          class="review-arrow review-arrow--prev"
-          (click)="prevReview()"
-          aria-label="Previous review"
-          type="button"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-
-        <!-- Next arrow -->
-        <button
-          class="review-arrow review-arrow--next"
-          (click)="nextReview()"
-          aria-label="Next review"
-          type="button"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-
-        <!-- Dot indicators -->
-        <div class="review-dots">
-          <button
-            *ngFor="let r of reviews; let i = index"
-            class="review-dot"
-            [class.is-active]="activeReviewIndex === i"
-            (click)="goToReview(i)"
-            [attr.aria-label]="'Go to review ' + (i + 1)"
-            type="button"
-          ></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="visit" id="visit">
-      <div class="map-shell sr sr-left">
-        <iframe
-          class="map-frame"
-          title="Summit Adventure Park Location"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX&amp;output=embed"
-        >
-        </iframe>
-
-        <div class="map-glow"></div>
-
-        <div class="map-pin">
-          <span>⌖</span>
-          <strong>We are here</strong>
-        </div>
-      </div>
-
-      <div class="visit-card sr sr-right" data-sr-delay="0.15s">
-        <img
-          class="visit-logo-img"
-          src="assets/images/bolder-logo-white-text.png"
-          alt="Bolder at EpicCentral logo"
-        />
-
-        <span class="visit-kicker">Visit us today</span>
-        <p>2324 W Warrior Trail, Grand Prairie, TX</p>
-        <h3>(469) 858-0577</h3>
-
-        <div class="visit-actions">
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-outline"
-          >
-            Get Directions
-          </a>
-
-          <a
-            href="https://newvues.sg-host.com/plan-your-visit/"
-            target="_blank"
-            class="btn btn-orange"
-          >
-            Book Visit
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Video Modal -->
-  <div class="video-modal" *ngIf="activeVideoUrl" (click)="closeVideo()">
-    <div class="video-modal-box" (click)="$event.stopPropagation()">
-      <button
-        class="video-modal-close"
-        (click)="closeVideo()"
-        aria-label="Close video"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.8"
-          width="18"
-          height="18"
-          aria-hidden="true"
-        >
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
-      <iframe
-        [src]="activeVideoUrl"
-        title="Bolder Adventure Park Video"
-        frameborder="0"
-        allow="autoplay; encrypted-media; fullscreen"
-        allowfullscreen
-      ></iframe>
-    </div>
-  </div>
-
-  <footer class="footer sr sr-up">
-    <!-- ── Main grid ─────────────────────────────── -->
+  <!-- ── Footer ── -->
+  <footer class="footer">
     <div class="footer-inner">
-      <!-- Brand -->
       <div class="footer-brand">
-        <img
-          class="footer-logo-img"
-          src="assets/images/bolder-logo-white-text.png"
-          alt="Bolder at EpicCentral logo white"
-        />
+        <img class="footer-logo-img" src="assets/images/bolder-logo-white-text.png" alt="Bolder at EpicCentral logo white"/>
         <address class="footer-address">
-          <p>2324 W Warrior Trail<br />Grand Prairie, TX</p>
+          <p>2324 W Warrior Trail<br/>Grand Prairie, TX</p>
           <a href="tel:+14698580577"><strong>Phone:</strong> (469) 858-0577</a>
-          <a href="mailto:info@bolderadventurepark.com"
-            ><strong>Email:</strong> info&#64;bolderadventurepark.com</a
-          >
+          <a href="mailto:bolder@bolderpark.com"><strong>Email:</strong> bolder&#64;bolderpark.com</a>
         </address>
         <div class="footer-hours">
           <span class="footer-hours-label">Opening Hours</span>
@@ -1740,227 +216,60 @@
         </div>
       </div>
 
-      <!-- Plan Your Visit -->
       <nav class="footer-nav" aria-label="Plan your visit">
         <h4 class="footer-nav-title">Plan Your Visit</h4>
         <ul>
-          <li>
-            <a
-              href="https://bolderadventurepark.com/plan-your-visit/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Know Before You Go</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://bolderadventurepark.com/attractions/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Attractions</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://bolderadventurepark.com/birthday-parties/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Birthday Parties</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://bolderadventurepark.com/group-events/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Groups &amp; Corporate Events</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://bolderadventurepark.com/events/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Events at Bolder</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://bolderadventurepark.com/plan-your-visit/#hours"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Opening Hours</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://bolderadventurepark.com/faqs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >FAQs</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://waiver.roller.app/BolderAdventurePark/home"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Waiver</a
-            >
-          </li>
+          <li><a routerLink="/plan-your-visit">Know Before You Go</a></li>
+          <li><a routerLink="/attractions">Attractions</a></li>
+          <li><a routerLink="/birthday-parties">Birthday Parties</a></li>
+          <li><a routerLink="/group-events">Groups &amp; Corporate Events</a></li>
+          <li><a routerLink="/plan-your-visit" fragment="hours">Opening Hours</a></li>
+          <li><a routerLink="/faqs">FAQs</a></li>
+          <li><a href="https://waiver.roller.app/BolderAdventurePark/home" target="_blank" rel="noopener noreferrer">Waiver</a></li>
         </ul>
       </nav>
 
-      <!-- Company + Tickets + Socials -->
       <div class="footer-right-col">
         <nav class="footer-nav" aria-label="Company">
           <h4 class="footer-nav-title">Company</h4>
           <ul>
-            <li>
-              <a
-                href="https://bolderadventurepark.com/work/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Jobs</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://bolderadventurepark.com/contact-us/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Contact Us</a
-              >
-            </li>
+            <li><a href="https://bolderadventurepark.com/work/" target="_blank" rel="noopener noreferrer">Jobs</a></li>
+            <li><a routerLink="/contact-us">Contact Us</a></li>
           </ul>
         </nav>
 
         <nav class="footer-nav" aria-label="Tickets">
           <h4 class="footer-nav-title">Tickets</h4>
           <ul>
-            <li>
-              <a
-                href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*185a6dt*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*_ga*MjA2MDE2NjAwOC4xNzgwNDQ1MjYw*_ga_42GXW9EFND*czE3ODA0NDc0MTAkbzIkZzEkdDE3ODA0NTAxOTkkajYwJGwwJGgw"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Book Tickets</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://bolderadventurepark.com/memberships/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Annual Passes</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://summer.bolderadventurepark.com/?_gl=1*1j56rl2*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Summer Camps</a
-              >
-            </li>
+            <li><a href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home" target="_blank" rel="noopener noreferrer">Book Tickets</a></li>
+            <li><a routerLink="/memberships">Annual Passes</a></li>
+            <li><a href="https://summer.bolderadventurepark.com/" target="_blank" rel="noopener noreferrer">Summer Camps</a></li>
           </ul>
         </nav>
 
         <div class="socials">
-          <a
-            href="https://www.facebook.com/bolderadventurepark"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <span
-              ><svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                width="18"
-                height="18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                /></svg
-            ></span>
+          <a href="https://www.facebook.com/bolderadventurepark" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <span><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
           </a>
-          <a
-            href="https://www.instagram.com/bolderadventurepark"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <span
-              ><svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                width="18"
-                height="18"
-                aria-hidden="true"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg
-            ></span>
+          <a href="https://www.instagram.com/bolderadventurepark" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
           </a>
-          <a
-            href="https://www.tiktok.com/@bolderadventurepark"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="TikTok"
-          >
-            <span
-              ><svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                width="18"
-                height="18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.8 1.52V6.77a4.85 4.85 0 0 1-1.03-.08z"
-                /></svg
-            ></span>
+          <a href="https://www.tiktok.com/@bolderadventurepark" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <span><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.8 1.52V6.77a4.85 4.85 0 0 1-1.03-.08z"/></svg></span>
           </a>
-          <a
-            href="https://www.youtube.com/bolderadventurepark"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="YouTube"
-          >
-            <span
-              ><svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                width="18"
-                height="18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
-                />
-                <polygon
-                  points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
-                  fill="#fff"
-                /></svg
-            ></span>
+          <a href="https://www.youtube.com/bolderadventurepark" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <span><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg></span>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- ── Bottom bar ─────────────────────────────── -->
     <div class="footer-bottom">
-      <p>© 2026 Bolder Adventure Park. All rights reserved.</p>
+      <p>© 2026 Bolder Adventure Park. All rights reserved. – Website by <a href="https://newvue.com" target="_blank" rel="noopener">New Vue</a></p>
       <a href="#" class="footer-privacy">Privacy Policy</a>
     </div>
 
-    <!-- ── Decorative large text ──────────────────── -->
-    <p class="footer-tagline" aria-hidden="true">Adventure Awaits</p>
+    <p class="footer-tagline" aria-hidden="true">Adventure Awaits.</p>
   </footer>
+
 </div>

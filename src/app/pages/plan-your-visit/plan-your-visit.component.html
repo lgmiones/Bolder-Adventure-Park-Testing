@@ -1,0 +1,281 @@
+<div class="inner-page plan-your-visit-page">
+  <app-page-hero
+    title="Plan Your Visit"
+    subtitle="To help ensure you have the best visit possible, please review the following pre-visit information."
+    backgroundImage="assets/carousel-images/Carousel-2.jpg"
+    tag="Know Before You Go"
+  >
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Ticket options intro -->
+  <section class="ip-section ticket-options-section">
+    <div class="ip-container">
+      <div class="ip-split-header sr sr-up">
+        <div class="ip-split-left">
+          <span class="ip-kicker">Ticket Options</span>
+          <h2 class="ip-heading">Choose The Right Pass<br />For Your Visit</h2>
+        </div>
+        <div class="ip-split-right">
+          <p>
+            The park is split by ground level and aerial activities — our ticket
+            options are easy to understand. Whatever your comfort level, there's
+            a pass that fits.
+          </p>
+          <p>
+            The easiest way to book is via our website, where you will get the
+            best price guaranteed!
+          </p>
+          <div class="ip-cta-row">
+            <a
+              href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*18ohgh7*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA2MDQ2NzckbzU2JGcxJHQxNzgwNjA1MjAxJGozNSRsMCRoMA..*_fplc*OCUyQiUyQmN4R3pBa0w5b25welNPU3g1b0dkdUVHYTRyd2ROSmxvVSUyRjczOWxKMlF4YlhiSVBIcWhwSGdMdnU1Q3BiWVgzT2RoekdIaiUyRlZuJTJGZVRPJTJGalM1THpidVFveGpPJTJCWSUyRnRrTCUyQnRLa0lTeWdWTzBZSDJFMEpKNjJZNUh4OEZRJTNEJTNE"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-orange"
+              >Get Tickets</a
+            >
+            <a routerLink="/attractions" class="btn btn-outline"
+              >Explore The Park</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Ticket option cards -->
+      <div class="ticket-cards-grid">
+        <div
+          class="ticket-card sr sr-up"
+          *ngFor="let t of ticketOptions; let i = index"
+          [attr.data-sr-delay]="i * 0.12 + 's'"
+          [style.--accent]="t.color"
+        >
+          <div class="ticket-card-badge">{{ t.tag }}</div>
+          <h3 class="ticket-card-name">{{ t.name }}</h3>
+          <p class="ticket-card-desc">{{ t.desc }}</p>
+          <div class="ticket-card-price">{{ t.price }}</div>
+          <a
+            href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*p4qz8g*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA2MDQ2NzckbzU2JGcxJHQxNzgwNjA1ODg0JGo1OCRsMCRoMA..*_fplc*OCUyQiUyQmN4R3pBa0w5b25welNPU3g1b0dkdUVHYTRyd2ROSmxvVSUyRjczOWxKMlF4YlhiSVBIcWhwSGdMdnU1Q3BiWVgzT2RoekdIaiUyRlZuJTJGZVRPJTJGalM1THpidVFveGpPJTJCWSUyRnRrTCUyQnRLa0lTeWdWTzBZSDJFMEpKNjJZNUh4OEZRJTNEJTNE"
+            class="ticket-card-cta"
+            >Book Now ↗</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stacking pass cards (Base / Summit / Extreme visual) -->
+  <section class="plan-your-visit" id="passes">
+    <div class="attraction-stack">
+      <div class="ac-slide">
+        <div class="ac-section ac--navy">
+          <div class="ac-content">
+            <span class="ac-num">01 &nbsp;/&nbsp; Base</span>
+            <svg class="ac-icon" viewBox="0 0 52 52" fill="none">
+              <rect
+                x="4"
+                y="4"
+                width="44"
+                height="44"
+                rx="10"
+                stroke="rgba(255,255,255,0.6)"
+                stroke-width="3"
+              />
+            </svg>
+            <h3 class="ac-name">Base Camp</h3>
+            <p class="ac-desc">
+              Action is on the ground — Jump Pad, Adventure Nets, Exploration
+              Playground, Tubing Slides, Blaster Zone and Bumper Cars.
+            </p>
+            <ul class="ac-features">
+              <li>Jump Pad (socks required)</li>
+              <li>Adventure Nets</li>
+              <li>Exploration Playground</li>
+              <li>Tubing Slides</li>
+              <li>Blaster Zone</li>
+              <li>Bumper Cars</li>
+            </ul>
+            <a routerLink="/attractions" class="ac-cta">Explore Base Camp ↗</a>
+          </div>
+          <div class="ac-image">
+            <img
+              src="assets/carousel-images/Carousel-4.jpg"
+              alt="Base Camp activities"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="ac-slide">
+        <div class="ac-section ac--gold">
+          <div class="ac-image">
+            <img
+              src="assets/carousel-images/Carousel-6.jpg"
+              alt="Summit activities"
+              loading="lazy"
+            />
+          </div>
+          <div class="ac-content">
+            <span class="ac-num">02 &nbsp;/&nbsp; Summit</span>
+            <svg class="ac-icon" viewBox="0 0 52 52" fill="none">
+              <polygon
+                points="26,3 49,26 26,49 3,26"
+                stroke="rgba(0,0,0,0.45)"
+                stroke-width="3"
+                fill="rgba(0,0,0,0.08)"
+              />
+            </svg>
+            <h3 class="ac-name">Summit</h3>
+            <p class="ac-desc">
+              All Base Camp activities, plus your choice of a Ropes Course
+              <em>or</em> a Mountain Experience session.
+            </p>
+            <ul class="ac-features" style="color: #111">
+              <li>Everything in Base Camp</li>
+              <li>Ropes Course (4 levels)</li>
+              <li>Zip Lines</li>
+              <li>Rock Climbing</li>
+            </ul>
+            <a routerLink="/attractions" class="ac-cta ac-cta--dark"
+              >Explore Summit ↗</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="ac-slide">
+        <div class="ac-section ac--violet">
+          <div class="ac-content">
+            <span class="ac-num">03 &nbsp;/&nbsp; Extreme</span>
+            <svg class="ac-icon ac-icon--wide" viewBox="0 0 106 52" fill="none">
+              <polygon
+                points="26,3 49,26 26,49 3,26"
+                fill="rgba(255,255,255,0.28)"
+              />
+              <polygon
+                points="80,3 103,26 80,49 57,26"
+                fill="rgba(255,255,255,0.28)"
+              />
+            </svg>
+            <h3 class="ac-name">Extreme All Access</h3>
+            <p class="ac-desc">
+              Unlimited access to the entire venue — every Rope, every Mountain
+              course, every ground activity.
+            </p>
+            <ul class="ac-features">
+              <li>Everything in Summit</li>
+              <li>Mountain Experience (2 trails)</li>
+              <li>Free Fall Drop</li>
+              <li>Archery &amp; Darts</li>
+              <li>$10 Arcade Card</li>
+            </ul>
+            <a
+              routerLink="/attractions"
+              target="_blank"
+              rel="noopener"
+              class="ac-cta"
+              >Explore Extreme All Access ↗</a
+            >
+          </div>
+          <div class="ac-image">
+            <img
+              src="assets/carousel-images/Carousel-8.jpg"
+              alt="Extreme All Access"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opening Hours -->
+  <section class="ip-section hours-section" id="hours">
+    <div class="ip-container">
+      <div class="hours-card sr sr-up">
+        <div class="hours-left">
+          <span class="ip-kicker">When We're Open</span>
+          <h2 class="ip-heading">Opening Hours</h2>
+        </div>
+        <div class="hours-right">
+          <div class="hours-row">
+            <span class="hours-day">Friday &amp; Saturday</span>
+            <span class="hours-time">11am – 9pm</span>
+          </div>
+          <div class="hours-divider"></div>
+          <div class="hours-row">
+            <span class="hours-day">Sunday to Thursday</span>
+            <span class="hours-time">11am – 8pm</span>
+          </div>
+          <p class="hours-note">
+            * Hours may vary on public holidays. Check our social media for
+            updates.
+          </p>
+          <a
+            href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*p4qz8g*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA2MDQ2NzckbzU2JGcxJHQxNzgwNjA1ODg0JGo1OCRsMCRoMA..*_fplc*OCUyQiUyQmN4R3pBa0w5b25welNPU3g1b0dkdUVHYTRyd2ROSmxvVSUyRjczOWxKMlF4YlhiSVBIcWhwSGdMdnU1Q3BiWVgzT2RoekdIaiUyRlZuJTJGZVRPJTJGalM1THpidVFveGpPJTJCWSUyRnRrTCUyQnRLa0lTeWdWTzBZSDJFMEpKNjJZNUh4OEZRJTNEJTNE"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-orange"
+            >Book Tickets In Advance</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ preview -->
+  <section class="ip-section faq-preview-section">
+    <div class="ip-container">
+      <div class="faq-header sr sr-up">
+        <span class="ip-kicker">Quick Answers</span>
+        <h2 class="ip-heading">Frequently Asked Questions</h2>
+        <p>
+          Have a question? Here are the most common ones.
+          <a routerLink="/faqs" class="ip-link">See all FAQs →</a>
+        </p>
+      </div>
+      <div class="faq-list">
+        <div
+          class="faq-item sr sr-up"
+          *ngFor="let faq of faqs; let i = index"
+          [attr.data-sr-delay]="i * 0.08 + 's'"
+          [class.is-open]="openFaqs.has(i)"
+        >
+          <button class="faq-trigger" type="button" (click)="toggleFaq(i)">
+            <span class="faq-q">{{ faq.q }}</span>
+            <span class="faq-plus">{{ openFaqs.has(i) ? "−" : "+" }}</span>
+          </button>
+          <div class="faq-body" [class.is-open]="openFaqs.has(i)">
+            <p>{{ faq.a }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-cta-row sr sr-up">
+        <a routerLink="/faqs" class="btn btn-outline">See All FAQs</a>
+        <a routerLink="/contact-us" class="btn btn-orange">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="ip-container">
+    <div class="page-cta-banner sr sr-up">
+      <div>
+        <div class="cta-label">Book Now</div>
+        <h2>Book Your Next Bolder Adventure Now!</h2>
+        <p>
+          Book your tickets in advance to avoid disappointment and guarantee the
+          best price!
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a
+          href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*p4qz8g*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA2MDQ2NzckbzU2JGcxJHQxNzgwNjA1ODg0JGo1OCRsMCRoMA..*_fplc*OCUyQiUyQmN4R3pBa0w5b25welNPU3g1b0dkdUVHYTRyd2ROSmxvVSUyRjczOWxKMlF4YlhiSVBIcWhwSGdMdnU1Q3BiWVgzT2RoekdIaiUyRlZuJTJGZVRPJTJGalM1THpidVFveGpPJTJCWSUyRnRrTCUyQnRLa0lTeWdWTzBZSDJFMEpKNjJZNUh4OEZRJTNEJTNE"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-dark btn-lg"
+          >Get Tickets</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="carousel-section" [class]="'speed-' + speed">
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track">
+      <!-- First set — lazy load, fixed dimensions prevent CLS -->
+      <div class="carousel-slide" *ngFor="let img of carouselImages">
+        <img [src]="'assets/carousel-images/' + img" [alt]="img"
+             loading="lazy" decoding="async" width="480" height="320" />
+      </div>
+      <!-- Duplicate for seamless loop — lazy, aria-hidden to avoid duplicate alt text -->
+      <div class="carousel-slide" *ngFor="let img of carouselImages" aria-hidden="true">
+        <img [src]="'assets/carousel-images/' + img" alt=""
+             loading="lazy" decoding="async" width="480" height="320" />
+      </div>
+    </div>
+  </div>
+</div>

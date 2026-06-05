@@ -1,0 +1,195 @@
+.inner-page {
+  padding-top: 148px;
+  background: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+.ip-section { padding: clamp(4rem, 8vw, 6rem) 1.5rem; }
+.ip-container { max-width: 1200px; margin: 0 auto; }
+
+.ip-kicker {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.6rem;
+}
+
+/* ── Enhanced attraction cards ── */
+.attraction-cards-enhanced {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ace-card {
+  background: var(--panel);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(244,81,19,0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+
+    .ace-img-wrap img { transform: scale(1.06); }
+  }
+}
+
+/* ── Mobile: horizontal scroll carousel ── */
+@media (max-width: 700px) {
+  .attraction-cards-enhanced {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .ace-card {
+    flex: 0 0 80vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+}
+
+.ace-img-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+}
+
+.ace-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.6) 100%);
+}
+
+.ace-cat-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(244,81,19,0.9);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.ace-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.ace-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--white);
+  margin: 0 0 0.6rem;
+  line-height: 1;
+}
+
+.ace-desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Passes promo ── */
+.passes-promo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+
+  @media (max-width: 700px) { grid-template-columns: 1fr; }
+}
+
+.passes-promo-card {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.25s;
+
+  &:hover { border-color: rgba(244,81,19,0.3); }
+}
+
+.ppc-icon {
+  font-size: 2.5rem;
+}
+
+.passes-promo-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--white);
+  margin: 0;
+  line-height: 1;
+}
+
+.passes-promo-card p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.btn-outline-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  align-self: flex-start;
+
+  &:hover {
+    background: var(--orange);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}

@@ -1,3 +1,6 @@
+/* =========================================================
+   GLOBAL RESETS & BASE
+========================================================= */
 html {
   scroll-behavior: smooth;
 }
@@ -6,7 +9,7 @@ body {
   margin: 0;
   background: #030303;
   color: #ffffff;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black", Arial, sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Arial Black', Arial, sans-serif;
 }
 
 * {
@@ -20,9 +23,246 @@ button {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 ::selection {
-  background: #ff5a1f;
+  background: #f45113;
   color: #fff;
+}
+
+/* =========================================================
+   CSS CUSTOM PROPERTIES (global root — available everywhere)
+========================================================= */
+:root {
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-ui: 'Barlow Condensed', Arial, sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+
+  --black: #030303;
+  --panel: #101010;
+  --white: #ffffff;
+  --muted: #c9c9c9;
+
+  --orange: #f45113;
+  --orange-2: #ff8a00;
+  --blue: #119ee8;
+  --purple: #8f34cd;
+  --yellow: #ffd400;
+
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+}
+
+/* =========================================================
+   SCROLL REVEAL ANIMATIONS (shared across all pages)
+========================================================= */
+.sr {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sr-left  { transform: translateX(-28px); }
+.sr-right { transform: translateX(28px); }
+.sr-up    { transform: translateY(28px); }
+.sr-scale { transform: scale(0.94); }
+
+.sr.sr-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================
+   SHARED BUTTONS (used across all pages)
+========================================================= */
+.btn {
+  position: relative;
+  z-index: 0;
+  min-height: 48px;
+  padding: 0.8rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-orange {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(244, 81, 19, 0.35);
+
+  &:hover {
+    background: #e03d0a;
+    box-shadow: 0 8px 32px rgba(244, 81, 19, 0.5);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.btn-outline-orange {
+  background: transparent;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+
+  &:hover {
+    background: var(--orange);
+    color: #fff;
+  }
+}
+
+.btn-dark {
+  background: var(--black);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: #111;
+  }
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  min-height: 52px;
+}
+
+/* =========================================================
+   SHARED SECTION UTILITIES
+========================================================= */
+.section {
+  padding: 5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  p {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 0.4rem;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: var(--white);
+    margin: 0 0 0.5rem;
+    line-height: 1;
+  }
+
+  span {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 500px;
+    display: block;
+    margin: 0.5rem auto 0;
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   SHARED CTA BANNER (reused on multiple pages)
+========================================================= */
+.page-cta-banner {
+  background: var(--orange);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  margin: 4rem auto;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  .cta-label {
+    display: inline-block;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    margin: 0 0 0.5rem;
+    line-height: 1;
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+
+  .cta-actions {
+    flex-shrink: 0;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   SHARED FOOTER TAGLINE
+========================================================= */
+.footer-tagline-bar {
+  overflow: hidden;
+  background: var(--black);
+
+  .footer-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 18vw, 14rem);
+    color: rgba(255, 255, 255, 0.05);
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    line-height: 0.85;
+    user-select: none;
+    padding: 0 1rem 1rem;
+  }
 }

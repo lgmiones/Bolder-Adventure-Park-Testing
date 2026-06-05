@@ -1,0 +1,156 @@
+<div class="inner-page attractions-page">
+  <app-page-hero
+    title="Attractions at Bolder"
+    subtitle="We have attractions to suit all ages. Explore the options below — click each attraction for more information and restrictions."
+    backgroundImage="assets/carousel-images/Carousel-1.jpg"
+    tag="Explore Everything"
+  >
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Attraction Filter + Grid -->
+  <section class="ip-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>What's Inside</p>
+        <h2>All Of Our Attractions</h2>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="attraction-tabs sr sr-up" data-sr-delay="0.1s">
+        <button
+          *ngFor="let tab of tabs"
+          class="attraction-tab"
+          [class.is-active]="activeTab === tab.id"
+          (click)="setTab(tab.id)"
+          type="button"
+        >
+          {{ tab.label }}
+        </button>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="attraction-cards-enhanced">
+        <div
+          class="ace-card sr sr-up"
+          *ngFor="let card of filteredCards; let i = index; trackBy: trackBy"
+          [attr.data-sr-delay]="i * 0.06 + 's'"
+        >
+          <div class="ace-img-wrap">
+            <img [src]="card.image" [alt]="card.title" loading="lazy" />
+            <div class="ace-img-overlay"></div>
+            <div class="ace-cat-badge">
+              {{
+                card.category === "base"
+                  ? "Base Camp"
+                  : card.category === "mountain"
+                    ? "Mountain Course"
+                    : "Ropes Course"
+              }}
+            </div>
+          </div>
+          <div class="ace-body">
+            <h3 class="ace-title">{{ card.title }}</h3>
+            <p class="ace-desc">{{ card.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Park Map -->
+  <section class="ip-section parkmap-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Navigate The Park</p>
+        <h2>Park Map</h2>
+        <span
+          >Get to know every corner of Bolder Adventure Park before you
+          arrive.</span
+        >
+      </div>
+      <div class="parkmap-wrapper sr sr-scale">
+        <div class="parkmap-glow"></div>
+        <a routerLink="/contact-us" class="parkmap-link">
+          <img
+            src="assets/images/Parkmap.png"
+            alt="Bolder Adventure Park Map"
+            class="parkmap-img"
+          />
+        </a>
+        <div class="parkmap-badge">
+          <span>🗺️ Bolder Adventure Park — Grand Prairie, TX</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passes section -->
+  <section class="ip-section passes-promo-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Maximize Your Fun</p>
+        <h2>Book Online &amp; Save</h2>
+        <span
+          >Pre-booking online is the best and most cost-effective way to
+          guarantee your spot at Bolder.</span
+        >
+      </div>
+
+      <div class="passes-promo-grid">
+        <div class="passes-promo-card sr sr-left">
+          <div class="ppc-icon">🎟️</div>
+          <h3>Annual Passes &amp; Memberships</h3>
+          <p>
+            Get the most out of Bolder Adventure Park with an annual pass. The
+            annual pass gives you unlimited access to all ground and aerial
+            attractions.
+          </p>
+          <a routerLink="/memberships" class="btn btn-outline-orange"
+            >View Memberships</a
+          >
+        </div>
+        <div class="passes-promo-card sr sr-right" data-sr-delay="0.1s">
+          <div class="ppc-icon">🏕️</div>
+          <h3>Summer Camps</h3>
+          <p>
+            Bolder summer camps run from 1:00 PM to 5:00 PM, Monday – Friday,
+            with activities including climbing, zip-lining, and more. All
+            indoors, climate-controlled.
+          </p>
+          <a
+            href="https://s.bolderadventurepark.com/"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline-orange"
+            >View Summer Camps</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="ip-container">
+    <div class="page-cta-banner sr sr-up">
+      <div>
+        <div class="cta-label">Book Now</div>
+        <h2>Ready For Your Next Adventure?</h2>
+        <p>Book tickets online for the best price and guaranteed entry.</p>
+      </div>
+      <div class="cta-actions">
+        <a
+          href="https://ticket.bolderadventurepark.com/"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-dark btn-lg"
+          >Get Tickets</a
+        >
+        <a routerLink="/plan-your-visit" class="btn btn-outline btn-lg"
+          >Plan Your Visit</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
