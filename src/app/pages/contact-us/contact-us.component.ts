@@ -22,8 +22,8 @@ export class ContactUsComponent implements AfterViewInit {
     {
       icon: '📍',
       label: 'Address',
-      value: '2350 Coit Rd Suite 100, Plano, TX 75075',
-      link: 'https://maps.google.com/?q=2350+Coit+Rd+Suite+100+Plano+TX+75075',
+      value: '2324 W Warrior Trail, Grand Prairie, TX',
+      link: 'https://maps.google.com/?q=2324+W+Warrior+Trail+Grand+Prairie+TX',
       linkText: 'Get Directions'
     },
     {
@@ -36,14 +36,14 @@ export class ContactUsComponent implements AfterViewInit {
     {
       icon: '✉️',
       label: 'Email',
-      value: 'info@bolderadventurepark.com',
-      link: 'mailto:info@bolderadventurepark.com',
+      value: 'bolder@bolderpark.com',
+      link: 'mailto:bolder@bolderpark.com',
       linkText: 'Send Email'
     },
     {
       icon: '🕐',
       label: 'Hours',
-      value: 'Mon–Thu 3–9 PM · Fri 3–10 PM · Sat 10AM–10PM · Sun 10AM–8PM',
+      value: 'Mondays – Thursdays 11 AM – 9 PM · Fridays - Sundays 11 AM – 9 PM ',
       link: null,
       linkText: null
     }

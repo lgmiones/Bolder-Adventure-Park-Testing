@@ -1,10 +1,10 @@
 <div class="inner-page birthday-parties-page">
-
   <app-page-hero
     title="Birthday Parties"
     subtitle="If you are looking for a one of a kind birthday experience for your big day, Bolder Adventure Park is your destination!"
     backgroundImage="assets/images/Birthday-parties.jpg"
-    tag="Celebrate with Bolder">
+    tag="Celebrate with Bolder"
+  >
   </app-page-hero>
 
   <app-infinite-carousel speed="slow"></app-infinite-carousel>
@@ -14,20 +14,50 @@
     <div class="ip-container">
       <div class="bp-intro-grid sr sr-up">
         <div class="bp-intro-photos">
-          <div class="bp-photo-main"><img src="assets/images/Birthday-parties.jpg" alt="Birthday parties at Bolder" loading="lazy"/></div>
+          <div class="bp-photo-main">
+            <img
+              src="assets/images/Birthday-parties.jpg"
+              alt="Birthday parties at Bolder"
+              loading="lazy"
+            />
+          </div>
           <div class="bp-photo-duo">
-            <img src="assets/images/Parties1.png" alt="Party activities" loading="lazy"/>
-            <img src="assets/images/Parties2.png" alt="Birthday celebration" loading="lazy"/>
+            <img
+              src="assets/images/Parties1.png"
+              alt="Party activities"
+              loading="lazy"
+            />
+            <img
+              src="assets/images/Parties2.png"
+              alt="Birthday celebration"
+              loading="lazy"
+            />
           </div>
         </div>
         <div class="bp-intro-copy">
           <span class="ip-kicker">Make It Unforgettable</span>
-          <h2 class="ip-heading">Throw The Best<br/>Birthday Party Ever!</h2>
-          <p>If you are looking for a one of a kind birthday experience for your big day, Bolder Adventure Park is your destination! We've got the best birthday packages with endless fun. Check them out below and book a party to get started.</p>
-          <p>The party team will contact you ahead of the day to ensure everything is catered to your requirements. The Bolder team will be there on the big day to make sure the celebrations run smoothly from start to finish.</p>
+          <h2 class="ip-heading">Throw The Best<br />Birthday Party Ever!</h2>
+          <p>
+            If you are looking for a one of a kind birthday experience for your
+            big day, Bolder Adventure Park is your destination! We've got the
+            best birthday packages with endless fun. Check them out below and
+            book a party to get started.
+          </p>
+          <p>
+            The party team will contact you ahead of the day to ensure
+            everything is catered to your requirements. The Bolder team will be
+            there on the big day to make sure the celebrations run smoothly from
+            start to finish.
+          </p>
           <div class="bp-intro-ctas">
-            <a href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Book A Party</a>
-            <a routerLink="/contact-us" class="btn btn-outline">Enquire Now</a>
+            <a
+              href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*1a467vw*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA3NTM2NjEkbzYxJGcxJHQxNzgwNzUzNzYyJGozOSRsMCRoMA..*_fplc*N3lueDFvWVNob0xRbUNYRU5IWGxuQmhtZVJuTGdvbVFucjNWQWFuRDZDNTVRcGM0MG52eEp3M0llMG9ldXF5MTU1cXpWJTJGUzRTS3ZiVUd5MzQ5bkZ2VTJjUk1QMEI1alJ1YVclMkJXWjR1YUFLWWtDSWh3ZkN4YVRZazJLb3loZyUzRCUzRA.."
+              target="_blank"
+              rel="noopener"
+              class="btn btn-orange btn-lg"
+              >Book A Party</a
+            >
+            <a routerLink="/contact-us" class="btn btn-outline">Inquire Now</a>
           </div>
         </div>
       </div>
@@ -42,14 +72,21 @@
         <h2>What You Get</h2>
       </div>
       <div class="bp-includes-grid">
-        <div class="bp-include-item sr sr-up" *ngFor="let item of [
-          {icon: '👥', label: '10 Party Guests Admission'},
-          {icon: '🎫', label: '2 Parent Passes'},
-          {icon: '🪑', label: '45-Min. Party Table Reservation'},
-          {icon: '🍕', label: 'Pizza Meal'},
-          {icon: '🥤', label: 'Unlimited Drinks'},
-          {icon: '🎂', label: 'Bring Your Own Cake'}
-        ]; let i = index" [attr.data-sr-delay]="(i * 0.07) + 's'">
+        <div
+          class="bp-include-item sr sr-up"
+          *ngFor="
+            let item of [
+              { icon: '👥', label: '10 Party Guests Admission' },
+              { icon: '🎫', label: '2 Parent Passes' },
+              { icon: '🪑', label: '45-Min. Party Table Reservation' },
+              { icon: '🍕', label: 'Pizza Meal' },
+              { icon: '🥤', label: 'Unlimited Drinks' },
+              { icon: '🎂', label: 'Bring Your Own Cake' },
+            ];
+            let i = index
+          "
+          [attr.data-sr-delay]="i * 0.07 + 's'"
+        >
           <div class="bp-include-icon">{{ item.icon }}</div>
           <span class="bp-include-label">{{ item.label }}</span>
         </div>
@@ -65,11 +102,13 @@
         <h2>Party Packages</h2>
       </div>
       <div class="bp-packages-grid">
-        <div class="bp-package-card sr sr-up"
-             *ngFor="let pkg of packages; let i = index"
-             [attr.data-sr-delay]="(i * 0.1) + 's'"
-             [class.is-popular]="pkg.popular"
-             [style.--pkg-color]="pkg.color">
+        <div
+          class="bp-package-card sr sr-up"
+          *ngFor="let pkg of packages; let i = index"
+          [attr.data-sr-delay]="i * 0.1 + 's'"
+          [class.is-popular]="pkg.popular"
+          [style.--pkg-color]="pkg.color"
+        >
           <div class="bpp-popular-tag" *ngIf="pkg.popular">Most Popular</div>
           <div class="bpp-header">
             <div class="bpp-tag">{{ pkg.tag }}</div>
@@ -83,7 +122,13 @@
           <ul class="bpp-includes">
             <li *ngFor="let item of pkg.includes">{{ item }}</li>
           </ul>
-          <a href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener" class="bpp-cta">Book This Package ↗</a>
+          <a
+            href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*tawbul*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA3NTM2NjEkbzYxJGcxJHQxNzgwNzU0NDAxJGo1NSRsMCRoMA..*_fplc*N3lueDFvWVNob0xRbUNYRU5IWGxuQmhtZVJuTGdvbVFucjNWQWFuRDZDNTVRcGM0MG52eEp3M0llMG9ldXF5MTU1cXpWJTJGUzRTS3ZiVUd5MzQ5bkZ2VTJjUk1QMEI1alJ1YVclMkJXWjR1YUFLWWtDSWh3ZkN4YVRZazJLb3loZyUzRCUzRA.."
+            target="_blank"
+            rel="noopener"
+            class="bpp-cta"
+            >Book This Package ↗</a
+          >
         </div>
       </div>
     </div>
@@ -97,9 +142,11 @@
         <h2>Parents &amp; Kids Love A Bolder Birthday Party</h2>
       </div>
       <div class="bp-reviews-grid">
-        <div class="bp-review-card sr sr-up"
-             *ngFor="let r of reviews; let i = index"
-             [attr.data-sr-delay]="(i * 0.1) + 's'">
+        <div
+          class="bp-review-card sr sr-up"
+          *ngFor="let r of reviews; let i = index"
+          [attr.data-sr-delay]="i * 0.1 + 's'"
+        >
           <span class="bpr-quote-mark">"</span>
           <p class="bpr-text">{{ r.quote }}</p>
           <div class="bpr-meta">
@@ -119,13 +166,15 @@
         <h2 class="ip-heading">Frequently Asked Questions</h2>
       </div>
       <div class="faq-list">
-        <div class="faq-item sr sr-up"
-             *ngFor="let faq of faqs; let i = index"
-             [attr.data-sr-delay]="(i * 0.07) + 's'"
-             [class.is-open]="openFaqs.has(i)">
+        <div
+          class="faq-item sr sr-up"
+          *ngFor="let faq of faqs; let i = index"
+          [attr.data-sr-delay]="i * 0.07 + 's'"
+          [class.is-open]="openFaqs.has(i)"
+        >
           <button class="faq-trigger" type="button" (click)="toggleFaq(i)">
             <span class="faq-q">{{ faq.q }}</span>
-            <span class="faq-plus">{{ openFaqs.has(i) ? '−' : '+' }}</span>
+            <span class="faq-plus">{{ openFaqs.has(i) ? "−" : "+" }}</span>
           </button>
           <div class="faq-body" [class.is-open]="openFaqs.has(i)">
             <p>{{ faq.a }}</p>
@@ -141,12 +190,20 @@
       <div>
         <div class="cta-label">Easy Online Booking</div>
         <h2>Ready To Throw The Best Party Ever?</h2>
-        <p>Book online in just a few clicks. Our team will reach out to confirm the details.</p>
+        <p>
+          Book online in just a few clicks. Our team will reach out to confirm
+          the details.
+        </p>
       </div>
       <div class="cta-actions">
-        <a href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener" class="btn btn-dark btn-lg">Book A Party Now</a>
+        <a
+          href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*tawbul*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA3NTM2NjEkbzYxJGcxJHQxNzgwNzU0NDAxJGo1NSRsMCRoMA..*_fplc*N3lueDFvWVNob0xRbUNYRU5IWGxuQmhtZVJuTGdvbVFucjNWQWFuRDZDNTVRcGM0MG52eEp3M0llMG9ldXF5MTU1cXpWJTJGUzRTS3ZiVUd5MzQ5bkZ2VTJjUk1QMEI1alJ1YVclMkJXWjR1YUFLWWtDSWh3ZkN4YVRZazJLb3loZyUzRCUzRA.."
+          target="_blank"
+          rel="noopener"
+          class="btn btn-dark btn-lg"
+          >Book A Party Now</a
+        >
       </div>
     </div>
   </div>
-
 </div>
