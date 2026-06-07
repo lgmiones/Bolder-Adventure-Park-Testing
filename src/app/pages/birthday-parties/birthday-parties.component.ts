@@ -9,14 +9,14 @@ export class BirthdayPartiesComponent implements AfterViewInit {
 
   packages = [
     {
-      name: 'Base Camp Party',
-      tag: 'Best for Younger Kids',
-      price: '$299*',
-      priceSuffix: '/party',
+      name: 'Base Camp Birthday Party',
+      tag: 'Great for All Ages',
+      price: '$25.50*',
+      priceSuffix: '/guest',
       priceNote: '*Min. 10 guests',
       color: '#119ee8',
       includes: [
-        '45-min. exclusive party table reservation',
+        'Celebrate your special day with us',
         'All Base Camp ground-level attractions',
         '2 parent passes included',
         'Pizza meal for all guests',
@@ -25,36 +25,36 @@ export class BirthdayPartiesComponent implements AfterViewInit {
       ]
     },
     {
-      name: 'Summit Party',
+      name: 'Summit Ropes Course Birthday Party',
       tag: 'Most Popular',
-      price: '$379*',
-      priceSuffix: '/party',
+      price: '$55.00*',
+      priceSuffix: '/guest',
       priceNote: '*Min. 10 guests',
       color: '#f45113',
       popular: true,
       includes: [
-        'Everything in Base Camp Party',
-        'All Summit activities included',
-        'Ropes Course + Zip Lines access',
+        'All Base Camp ground-level attractions',
+        'Vertical climbing walls access',
+        'Ropes course included',
         '2 parent passes included',
-        'Full pizza meal',
-        'Dedicated party host'
+        'Pizza meal for all guests',
+        'Unlimited drinks'
       ]
     },
     {
-      name: 'Extreme Party',
+      name: 'Summit Mountain Experience Birthday Party',
       tag: 'Ultimate Experience',
-      price: '$499*',
-      priceSuffix: '/party',
+      price: '$55.00*',
+      priceSuffix: '/guest',
       priceNote: '*Min. 10 guests',
       color: '#8f34cd',
       includes: [
-        'Everything in Summit Party',
-        'Full Extreme All Access for all guests',
-        'Mountain Experience + Free Fall Drop',
+        'All Base Camp ground-level attractions',
+        'Vertical climbing walls access',
+        'Mountain Experience activities',
         '2 parent passes included',
-        'Premium pizza meal',
-        'Dedicated party host + priority access'
+        'Pizza meal for all guests',
+        'Unlimited drinks'
       ]
     }
   ];
