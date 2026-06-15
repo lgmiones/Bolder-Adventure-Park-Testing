@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-group-events',
   templateUrl: './group-events.component.html',
   styleUrls: ['./group-events.component.scss']
 })
-export class GroupEventsComponent implements AfterViewInit {
+export class GroupEventsComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Group Events',
+      description: 'Book group events at Bolder Adventure Park — corporate team building, school field trips, and birthday parties in Grand Prairie, TX.',
+      path: '/group-events',
+      keywords: 'group events, corporate events, field trips, team building, Grand Prairie group booking'
+    });
+  }
 
   eventTypes = [
     {

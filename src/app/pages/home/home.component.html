@@ -94,39 +94,78 @@
     </div>
   </section>
 
-  <!-- Summer Camp -->
-  <section class="camp-section" id="promo">
-    <div class="camp-inner">
-      <div class="camp-copy sr sr-left">
-        <p class="camp-kicker">Summer Adventure</p>
-        <h2 class="camp-heading">The Summer<br/>Camp Your<br/>Kids Will Love</h2>
-        <div class="camp-badges">
-          <span class="camp-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Ages 5–15
+
+  <!-- ══ LIVE EVENTS CAROUSEL ══ -->
+  <section class="home-events-section">
+    <div class="home-events-header">
+      <p class="home-events-kicker">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="vertical-align:-2px;margin-right:6px"><path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/></svg>
+        Live &amp; Special Events
+      </p>
+      <h2 class="home-events-title">What's On <span class="accent-orange">At Bolder</span></h2>
+      <a routerLink="/live-events" class="home-events-viewall">View All Events →</a>
+    </div>
+
+    <div class="le-container">
+      <div class="le-carousel-card sr sr-up">
+
+        <!-- Image panel -->
+        <div class="le-car-image-wrap">
+          <img [src]="carouselEvents[carouselIndex].image" [alt]="carouselEvents[carouselIndex].carouselTitle" loading="lazy" />
+          <div class="le-car-img-overlay"></div>
+          <span class="le-car-next-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            NEXT UP &nbsp;{{ padNum(carouselIndex + 1) }}/{{ padNum(carouselEvents.length) }}
           </span>
-          <span class="camp-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            June 1 – Aug 7
-          </span>
-          <span class="camp-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            100% Indoors
-          </span>
-          <span class="camp-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Grand Prairie, TX
-          </span>
+          <button class="le-car-arrow le-car-prev" (click)="prevCarousel()" aria-label="Previous event">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="le-car-arrow le-car-next" (click)="nextCarousel()" aria-label="Next event">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
-        <p class="camp-tagline">Big fun. New friends. Awesome memories.</p>
-        <div class="camp-ctas">
-          <a href="https://s.bolderadventurepark.com/" target="_blank" class="btn btn-orange btn-lg">Book Now</a>
-          <a href="https://s.bolderadventurepark.com/" target="_blank" class="btn btn-outline">Explore Summer Camps</a>
+
+        <!-- Content panel -->
+        <div class="le-car-copy">
+          <h2 class="le-car-title">
+            {{ carouselEvents[carouselIndex].carouselTitle }}<br/>
+            <span class="accent-orange">{{ carouselEvents[carouselIndex].carouselAccent }}</span>
+          </h2>
+          <div class="le-car-meta">
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              {{ carouselEvents[carouselIndex].date }}
+            </span>
+            <span class="le-car-sep">·</span>
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+              {{ carouselEvents[carouselIndex].location }}
+            </span>
+            <span class="le-car-sep">·</span>
+            <span>{{ carouselEvents[carouselIndex].ageRestriction }}</span>
+          </div>
+          <p class="le-car-desc">{{ carouselEvents[carouselIndex].description }}</p>
+          <div class="le-car-countdown">
+            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownDays) }}</span><span class="le-car-cd-label">Days</span></div>
+            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownHours) }}</span><span class="le-car-cd-label">Hrs</span></div>
+            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownMinutes) }}</span><span class="le-car-cd-label">Min</span></div>
+            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownSeconds) }}</span><span class="le-car-cd-label">Sec</span></div>
+          </div>
+          <div class="le-car-actions">
+            <a href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener" class="btn btn-orange btn-lg">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/></svg>
+              Get Tickets
+            </a>
+            <a [routerLink]="['/live-events', carouselEvents[carouselIndex].slug]" class="le-car-detail-link">View Event Details →</a>
+          </div>
+          <div class="le-car-dots">
+            <button *ngFor="let e of carouselEvents; let i = index"
+                    class="le-car-dot" [class.is-active]="i === carouselIndex"
+                    (click)="goToCarousel(i)" [attr.aria-label]="'Go to slide ' + (i + 1)">
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="camp-image-wrap sr sr-right" data-sr-delay="0.15s">
-        <div class="camp-image-glow"></div>
-        <img src="assets/images/Bolder-summercamp.png" alt="Bolder Summer Camps" class="camp-img" loading="lazy"/>
+
       </div>
     </div>
   </section>

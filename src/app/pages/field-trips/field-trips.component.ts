@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-field-trips',
   templateUrl: './field-trips.component.html',
   styleUrls: ['./field-trips.component.scss']
 })
-export class FieldTripsComponent implements AfterViewInit {
+export class FieldTripsComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Field Trips',
+      description: 'Book a school field trip at Bolder Adventure Park in Grand Prairie, TX. Curriculum-aligned programs, certified guides, and group pricing for all grade levels.',
+      path: '/group-events/field-trips',
+      keywords: 'school field trip, educational trip, kids adventure, group pricing, Grand Prairie field trip'
+    });
+  }
 
   photos = [
     { src: 'assets/images/Groups2.jpg', alt: 'Kids on field trip adventure' },

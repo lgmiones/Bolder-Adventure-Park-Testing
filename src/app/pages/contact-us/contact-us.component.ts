@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss']
 })
-export class ContactUsComponent implements AfterViewInit {
+export class ContactUsComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Contact Us',
+      description: 'Get in touch with Bolder Adventure Park in Grand Prairie, TX. Ask about bookings, group events, birthday parties, or general inquiries.',
+      path: '/contact-us',
+      keywords: 'contact Bolder Adventure Park, Grand Prairie park contact, booking inquiry'
+    });
+  }
 
   formData = {
     name: '',

@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-memberships',
   templateUrl: './memberships.component.html',
   styleUrls: ['./memberships.component.scss']
 })
-export class MembershipsComponent implements AfterViewInit {
+export class MembershipsComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Memberships & Passes',
+      description: 'Get unlimited access to Bolder Adventure Park with our membership passes. Monthly and annual options available for individuals and families in Grand Prairie, TX.',
+      path: '/memberships',
+      keywords: 'adventure park membership, unlimited pass, annual pass, Grand Prairie membership'
+    });
+  }
 
   passes = [
     {

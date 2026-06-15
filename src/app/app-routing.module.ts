@@ -10,6 +10,8 @@ import { MembershipsComponent } from './pages/memberships/memberships.component'
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { CorporateEventsComponent } from './pages/corporate-events/corporate-events.component';
 import { FieldTripsComponent } from './pages/field-trips/field-trips.component';
+import { LiveEventsComponent } from './pages/live-events/live-events.component';
+import { EventDetailComponent } from './pages/live-events/event-detail/event-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'faqs', component: FaqsComponent },
   { path: 'memberships', component: MembershipsComponent },
   { path: 'contact-us', component: ContactUsComponent },
+  { path: 'live-events', component: LiveEventsComponent },
+  { path: 'live-events/:slug', component: EventDetailComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

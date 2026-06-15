@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-corporate-events',
   templateUrl: './corporate-events.component.html',
   styleUrls: ['./corporate-events.component.scss']
 })
-export class CorporateEventsComponent implements AfterViewInit {
+export class CorporateEventsComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Corporate Events',
+      description: 'Host your next corporate event or team building outing at Bolder Adventure Park in Grand Prairie, TX. Private bookings, catering options, and dedicated staff.',
+      path: '/group-events/corporate-events',
+      keywords: 'corporate events, team building, company outing, private booking, Grand Prairie corporate'
+    });
+  }
 
   photos = [
     { src: 'assets/images/Groups1.jpg', alt: 'Corporate team on ropes course' },

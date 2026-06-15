@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-faqs',
   templateUrl: './faqs.component.html',
   styleUrls: ['./faqs.component.scss']
 })
-export class FaqsComponent implements AfterViewInit {
+export class FaqsComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'FAQs',
+      description: 'Frequently asked questions about Bolder Adventure Park — tickets, age requirements, safety, group bookings, and more.',
+      path: '/faqs',
+      keywords: 'adventure park FAQ, age requirements, safety, tickets, Grand Prairie park questions'
+    });
+  }
 
   openFaqs = new Set<number>();
 

@@ -182,9 +182,13 @@ a {
     color: var(--white);
     margin: 0 0 0.5rem;
     line-height: 1;
+
+    // Protect accent spans from the global span { font-family: var(--font-body) } rule
+    span { font-family: var(--font-display); }
   }
 
-  span {
+  // This targets only the subtitle/description text below the heading, not h2 spans
+  > span {
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--muted);

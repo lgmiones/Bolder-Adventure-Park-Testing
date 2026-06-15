@@ -14,6 +14,8 @@ import { MembershipsComponent } from './pages/memberships/memberships.component'
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { CorporateEventsComponent } from './pages/corporate-events/corporate-events.component';
 import { FieldTripsComponent } from './pages/field-trips/field-trips.component';
+import { LiveEventsComponent } from './pages/live-events/live-events.component';
+import { EventDetailComponent } from './pages/live-events/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FieldTripsComponent } from './pages/field-trips/field-trips.component';
     MembershipsComponent,
     ContactUsComponent,
     CorporateEventsComponent,
-    FieldTripsComponent
+    FieldTripsComponent,
+    LiveEventsComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,

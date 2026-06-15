@@ -1,0 +1,486 @@
+<!-- ══════════════════════════════════════════════
+     404 fallback
+══════════════════════════════════════════════ -->
+<div class="ed-not-found" *ngIf="!event">
+  <h1>Event not found</h1>
+  <a routerLink="/live-events" class="btn btn-orange">← Back to Live Events</a>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     EVENT DETAIL PAGE
+══════════════════════════════════════════════ -->
+<div class="inner-page event-detail-page" *ngIf="event">
+  <!-- ── Back breadcrumb ── -->
+  <div class="ed-breadcrumb">
+    <a routerLink="/live-events" class="ed-back-link">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        aria-hidden="true"
+      >
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+      All Events
+    </a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="ed-hero">
+    <img
+      class="ed-hero-bg"
+      [src]="event.heroImage"
+      [alt]="event.title"
+      fetchpriority="high"
+      [style.object-position]="event.type === 'adult-night' ? 'center 10%' : null"
+    />
+    <div class="ed-hero-overlay"></div>
+    <div class="ed-hero-grad"></div>
+
+    <div class="ed-hero-content">
+      <div class="ed-hero-badges">
+        <span class="ed-status-badge" [ngClass]="event.statusClass">{{
+          event.statusLabel
+        }}</span>
+        <span
+          class="ed-age-badge"
+          *ngIf="event.ageRestriction !== 'All Ages'"
+          >{{ event.ageRestriction }}</span
+        >
+      </div>
+      <h1 class="ed-hero-title sr sr-up">
+        {{ event.title
+        }}<span *ngIf="event.titleAccent">
+          <span class="accent-orange">{{ event.titleAccent }}</span></span
+        >
+      </h1>
+      <div class="ed-hero-meta sr sr-up" data-sr-delay="0.1s">
+        <span>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+          {{ event.date }}
+        </span>
+        <span class="ed-sep">•</span>
+        <span>{{ event.day }}</span>
+        <span class="ed-sep">•</span>
+        <span>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          {{ event.time }}
+        </span>
+        <span class="ed-sep">•</span>
+        <span>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z" />
+            <circle cx="12" cy="9" r="2.4" />
+          </svg>
+          {{ event.location }}
+        </span>
+        <span class="ed-sep">•</span>
+        <span>{{ event.ageRestriction }}</span>
+      </div>
+    </div>
+
+    <div class="ed-hero-bottom-fade"></div>
+  </section>
+
+  <!-- ── COUNTDOWN ── -->
+  <section class="ed-countdown-section">
+    <div class="ed-container">
+      <div class="ed-countdown">
+        <div class="ed-cd-box sr sr-up">
+          <span class="ed-cd-num">{{ pad(countdownDays) }}</span>
+          <span class="ed-cd-label">Days</span>
+        </div>
+        <div class="ed-cd-sep">:</div>
+        <div class="ed-cd-box sr sr-up" data-sr-delay="0.08s">
+          <span class="ed-cd-num">{{ pad(countdownHours) }}</span>
+          <span class="ed-cd-label">Hours</span>
+        </div>
+        <div class="ed-cd-sep">:</div>
+        <div class="ed-cd-box sr sr-up" data-sr-delay="0.16s">
+          <span class="ed-cd-num">{{ pad(countdownMinutes) }}</span>
+          <span class="ed-cd-label">Minutes</span>
+        </div>
+        <div class="ed-cd-sep">:</div>
+        <div class="ed-cd-box sr sr-up" data-sr-delay="0.24s">
+          <span class="ed-cd-num">{{ pad(countdownSeconds) }}</span>
+          <span class="ed-cd-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE EXPERIENCE ── -->
+  <section class="ed-section ed-experience">
+    <div class="ed-container">
+      <div class="ed-experience-grid">
+        <div class="ed-exp-copy">
+          <span class="ed-kicker sr sr-up">About The Event</span>
+          <h2 class="ed-exp-title sr sr-up" data-sr-delay="0.08s">
+            The <span class="accent-orange">Experience</span>
+          </h2>
+          <p
+            class="ed-exp-body sr sr-up"
+            *ngFor="let para of event.experienceBody; let i = index"
+            [attr.data-sr-delay]="(i + 2) * 0.08 + 's'"
+          >
+            {{ para }}
+          </p>
+          <a
+            href="https://ecom.roller.app/bolderadventurepark/liveevents/en-us/home?_gl=1*m3lrmr*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODEzOTY2MDkkbzc5JGcxJHQxNzgxMzk4MTUzJGozMyRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-orange sr sr-up"
+            data-sr-delay="0.32s"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
+              />
+            </svg>
+            Get Tickets
+          </a>
+        </div>
+        <div class="ed-exp-images">
+          <div class="ed-exp-img-grid">
+            <div
+              class="ed-exp-img"
+              *ngFor="let img of event.experienceImages; let i = index"
+            >
+              <img [src]="img" [alt]="event.title" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TICKETS & PACKAGES (Concert only) ── -->
+  <section
+    class="ed-section ed-tickets-section"
+    *ngIf="event.type === 'concert' && event.packages"
+  >
+    <div class="ed-container">
+      <div class="ed-pkg-heading sr sr-up">
+        <p class="ed-pkg-kicker">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            aria-hidden="true"
+            style="vertical-align: -2px; margin-right: 6px"
+          >
+            <path
+              d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
+            />
+          </svg>
+          Choose Your Night
+        </p>
+        <h2 class="ed-pkg-title">Tickets &amp; <span>Packages</span></h2>
+        <p class="ed-pkg-sub">
+          Choose from {{ event.packages.length }} great ticket packages.
+        </p>
+      </div>
+
+      <!-- Package cards row -->
+      <div class="ed-pkg-cards">
+        <div
+          class="ed-pkg-card sr sr-up"
+          [class.is-featured]="pkg.featured"
+          *ngFor="let pkg of event.packages; let i = index"
+          [attr.data-sr-delay]="i * 0.1 + 's'"
+        >
+          <span class="ed-pkg-best" *ngIf="pkg.label">{{ pkg.label }}</span>
+          <div class="ed-pkg-card-body">
+            <h3 class="ed-pkg-name">{{ pkg.name }}</h3>
+            <div class="ed-pkg-price">
+              <span class="ed-pkg-dollar">$</span
+              ><span class="ed-pkg-num">{{ pkg.price }}</span>
+              <span class="ed-pkg-per">per ticket</span>
+            </div>
+            <p class="ed-pkg-value" *ngIf="pkg.originalValue">
+              ${{ pkg.originalValue }} total value included
+            </p>
+          </div>
+          <a
+            [href]="pkg.ticketUrl"
+            target="_blank"
+            rel="noopener"
+            class="ed-pkg-btn"
+            [class.is-featured-btn]="pkg.featured"
+          >
+            Get Tickets
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="ed-compare-table sr sr-up" data-sr-delay="0.2s">
+        <div class="ed-ct-label">What's Included</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th *ngFor="let pkg of event.packages">
+                <span class="ed-ct-pkg-name">{{ pkg.name }}</span>
+                <span class="ed-ct-pkg-price">${{ pkg.price }}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let feature of allFeatures">
+              <td class="ed-ct-feature">{{ feature }}</td>
+              <td *ngFor="let p of event.packages">
+                <span *ngIf="packageHasFeature(p, feature)" class="ed-ct-check">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span *ngIf="!packageHasFeature(p, feature)" class="ed-ct-dash"
+                  >—</span
+                >
+              </td>
+            </tr>
+            <tr class="ed-ct-total-row">
+              <td>Your Price</td>
+              <td *ngFor="let pkg of event.packages" class="ed-ct-total">
+                ${{ pkg.price }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Add-ons -->
+        <div class="ed-addons" *ngIf="event.addOns">
+          <div class="ed-addons-label">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Add-Ons
+          </div>
+          <div class="ed-addons-grid">
+            <div class="ed-addon-row" *ngFor="let a of event.addOns">
+              <div class="ed-addon-accent"></div>
+              <span class="ed-addon-name">{{ a.name }}</span>
+              <span class="ed-addon-price"
+                ><span class="ed-addon-dollar">$</span>{{ a.price }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NIGHT HIGHLIGHTS (Adult night only) ── -->
+  <section
+    class="ed-section ed-highlights-section"
+    *ngIf="event.type === 'adult-night' && event.highlights"
+  >
+    <div class="ed-container">
+      <div class="ed-hl-heading sr sr-up">
+        <p class="ed-hl-kicker">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="var(--orange)"
+            aria-hidden="true"
+            style="vertical-align: -2px; margin-right: 6px"
+          >
+            <path
+              d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"
+            />
+          </svg>
+          What's Included
+        </p>
+        <h2 class="ed-hl-title">Night <span>Highlights</span></h2>
+      </div>
+      <div class="ed-highlights-grid">
+        <div
+          class="ed-highlight-chip sr sr-up"
+          *ngFor="let h of event.highlights; let i = index"
+          [attr.data-sr-delay]="i * 0.08 + 's'"
+        >
+          <span class="ed-hl-icon">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="var(--orange)"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline
+                points="8 12 11 15 16 9"
+                stroke="#fff"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span>{{ h }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EVENT GALLERY ── -->
+  <section
+    class="ed-section ed-gallery-section"
+    *ngIf="event.galleryImages && event.galleryImages.length"
+  >
+    <div class="ed-container">
+      <div class="section-title ed-gallery-title sr sr-up">
+        <p>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            aria-hidden="true"
+            style="vertical-align: -2px; margin-right: 5px"
+          >
+            <path
+              d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+            />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+          Event Photos
+        </p>
+        <h2>Caught In The <span class="accent-orange">Act</span></h2>
+      </div>
+      <div class="ed-gallery-grid">
+        <div
+          class="ed-gallery-item sr sr-scale"
+          *ngFor="let img of event.galleryImages; let i = index"
+          [attr.data-sr-delay]="i * 0.07 + 's'"
+        >
+          <img
+            [src]="img"
+            [alt]="event.title"
+            loading="lazy"
+            [style.object-position]="
+              img.includes('Justin.png') ? 'center top' : null
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOOK NOW CTA BANNER ── -->
+  <section class="ed-section ed-cta-banner-wrap">
+    <div class="ed-container">
+      <div class="ed-cta-banner sr sr-up">
+        <div class="ed-cta-left">
+          <span class="ed-cta-label">Book Now</span>
+          <h2 class="ed-cta-title">
+            Book Your Next Epic Event<br />
+            Night At <span class="accent-orange">Bolder</span> Now
+          </h2>
+          <p class="ed-cta-sub">
+            Book your tickets in advance to avoid disappointment and guarantee
+            the best price!
+          </p>
+        </div>
+        <a
+          href="https://ecom.roller.app/bolderadventurepark/liveevents/en-us/home?_gl=1*m3lrmr*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODEzOTY2MDkkbzc5JGcxJHQxNzgxMzk4MTUzJGozMyRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-orange btn-lg"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            aria-hidden="true"
+            style="vertical-align: -2px; margin-right: 6px"
+          >
+            <path
+              d="M1 4.5A2.5 2.5 0 0 1 3.5 2h9A2.5 2.5 0 0 1 15 4.5v1.159a2 2 0 0 1 0 3.682V11.5A2.5 2.5 0 0 1 12.5 14h-9A2.5 2.5 0 0 1 1 11.5V9.341a2 2 0 0 1 0-3.682V4.5zM2 9.5V11.5a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5V9.5a2 2 0 0 1 0-3V4.5A1.5 1.5 0 0 0 12.5 3h-9A1.5 1.5 0 0 0 2 4.5v2a2 2 0 0 1 0 3zm4.5-5.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm5 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+            />
+          </svg>
+          Book Tickets Now
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

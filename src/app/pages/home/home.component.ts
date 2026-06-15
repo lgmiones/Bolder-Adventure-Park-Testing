@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SeoService } from '../../services/seo.service';
 
 interface MegaItem {
   title: string;
@@ -25,7 +26,7 @@ interface Review {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroVideo') heroVideoRef!: ElementRef<HTMLVideoElement>;
 
   activePlanTab = 'things';
@@ -34,7 +35,18 @@ export class HomeComponent implements AfterViewInit {
   videoPage = 0;
   readonly videosPerPage = 5;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Bolder Adventure Park',
+      description: 'Bolder Adventure Park — 66,000 sq ft indoor adventure park in Grand Prairie, TX. Ropes course, zip lines, climbing, birthday parties & group events.',
+      path: '/',
+      keywords: 'indoor adventure park, Grand Prairie TX, ropes course, zip lines, rock climbing, birthday parties, family fun'
+    });
+    this.startCarouselCountdown();
+    this.startCarouselAutoPlay();
+  }
 
   tickets: MegaItem[] = [
     { title: 'Daily Tickets', subtitle: 'Fast checkout for today, this weekend, or a planned family day.', label: 'Most direct' },
@@ -169,5 +181,86 @@ export class HomeComponent implements AfterViewInit {
       vid.muted = true;
       vid.play().catch(() => {});
     }
+  }
+
+  // ── Events Carousel ──────────────────────────────
+  carouselIndex = 0;
+  carouselCountdownDays = 0;
+  carouselCountdownHours = 0;
+  carouselCountdownMinutes = 0;
+  carouselCountdownSeconds = 0;
+  private carouselCountdownTimer: any;
+  private carouselAutoPlayTimer: any;
+
+  carouselEvents = [
+    {
+      slug: 'mj-dejavu',
+      carouselTitle: 'MJ', carouselAccent: 'Dejavu',
+      date: 'June 20, 2026', location: 'Main Stage', ageRestriction: 'All Ages',
+      image: 'assets/MJ Dejavu/0 - HERO IMAGE.png',
+      description: 'Step into the world of the King of Pop for an unforgettable evening with MJ Dejavu, direct from Las Vegas — rated the #1 MJ tribute.',
+      targetDate: new Date('2026-06-20T19:00:00')
+    },
+    {
+      slug: 'adult-night-july-2026',
+      carouselTitle: 'Adult Night', carouselAccent: 'July 2026',
+      date: 'July 3, 2026', location: 'Whole Park', ageRestriction: '18+',
+      image: 'assets/images/Groups3.jpg',
+      description: 'The park goes 18+ for the night. Every attraction open until late, music turned up, and zero kids\' lines — just you, your crew, and the whole dome.',
+      targetDate: new Date('2026-07-03T20:00:00')
+    },
+    {
+      slug: 'adult-night-august-2026',
+      carouselTitle: 'Adult Night', carouselAccent: 'August 2026',
+      date: 'August 7, 2026', location: 'Whole Park', ageRestriction: '18+',
+      image: 'assets/images/Thrills-in-the-air.jpg',
+      description: 'First-Friday takeover, round two. Climb, zip, and race the slides — adults only. Every attraction open, music up, kids\' lines gone.',
+      targetDate: new Date('2026-08-07T20:00:00')
+    }
+  ];
+
+  padNum(n: number): string { return n < 10 ? '0' + n : '' + n; }
+
+  prevCarousel(): void {
+    this.carouselIndex = (this.carouselIndex - 1 + this.carouselEvents.length) % this.carouselEvents.length;
+    this.startCarouselCountdown(); this.resetCarouselAutoPlay();
+  }
+  nextCarousel(): void {
+    this.carouselIndex = (this.carouselIndex + 1) % this.carouselEvents.length;
+    this.startCarouselCountdown(); this.resetCarouselAutoPlay();
+  }
+  goToCarousel(i: number): void {
+    this.carouselIndex = i;
+    this.startCarouselCountdown(); this.resetCarouselAutoPlay();
+  }
+
+  startCarouselAutoPlay(): void {
+    this.carouselAutoPlayTimer = setInterval(() => {
+      this.carouselIndex = (this.carouselIndex + 1) % this.carouselEvents.length;
+      this.startCarouselCountdown();
+    }, 5000);
+  }
+  resetCarouselAutoPlay(): void {
+    if (this.carouselAutoPlayTimer) clearInterval(this.carouselAutoPlayTimer);
+    this.startCarouselAutoPlay();
+  }
+
+  startCarouselCountdown(): void {
+    if (this.carouselCountdownTimer) clearInterval(this.carouselCountdownTimer);
+    const update = () => {
+      const diff = this.carouselEvents[this.carouselIndex].targetDate.getTime() - Date.now();
+      if (diff <= 0) { this.carouselCountdownDays = this.carouselCountdownHours = this.carouselCountdownMinutes = this.carouselCountdownSeconds = 0; return; }
+      this.carouselCountdownDays    = Math.floor(diff / 86400000);
+      this.carouselCountdownHours   = Math.floor((diff % 86400000) / 3600000);
+      this.carouselCountdownMinutes = Math.floor((diff % 3600000) / 60000);
+      this.carouselCountdownSeconds = Math.floor((diff % 60000) / 1000);
+    };
+    update();
+    this.carouselCountdownTimer = setInterval(update, 1000);
+  }
+
+  ngOnDestroy(): void {
+    if (this.carouselCountdownTimer) clearInterval(this.carouselCountdownTimer);
+    if (this.carouselAutoPlayTimer) clearInterval(this.carouselAutoPlayTimer);
   }
 }

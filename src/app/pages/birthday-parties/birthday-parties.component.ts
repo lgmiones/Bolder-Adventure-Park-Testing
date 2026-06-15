@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-birthday-parties',
   templateUrl: './birthday-parties.component.html',
   styleUrls: ['./birthday-parties.component.scss']
 })
-export class BirthdayPartiesComponent implements AfterViewInit {
+export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Birthday Parties',
+      description: 'Throw an unforgettable birthday party at Bolder Adventure Park. Choose from Base Camp, Summit Ropes Course, or Summit Mountain Experience party packages in Grand Prairie, TX.',
+      path: '/birthday-parties',
+      keywords: 'birthday party, kids birthday, adventure party, party packages, Grand Prairie birthday'
+    });
+  }
 
   packages = [
     {

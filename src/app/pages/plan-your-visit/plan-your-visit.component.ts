@@ -1,11 +1,23 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-plan-your-visit',
   templateUrl: './plan-your-visit.component.html',
   styleUrls: ['./plan-your-visit.component.scss']
 })
-export class PlanYourVisitComponent implements AfterViewInit {
+export class PlanYourVisitComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Plan Your Visit',
+      description: 'Everything you need to know before visiting Bolder Adventure Park in Grand Prairie, TX. Hours, tickets, park map, and FAQs.',
+      path: '/plan-your-visit',
+      keywords: 'plan visit, hours, tickets, park map, Grand Prairie adventure park'
+    });
+  }
 
   ticketOptions = [
     {

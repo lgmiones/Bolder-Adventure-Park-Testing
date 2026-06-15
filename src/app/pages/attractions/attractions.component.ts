@@ -1,4 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 interface AttractionCard {
   title: string;
@@ -12,7 +13,18 @@ interface AttractionCard {
   templateUrl: './attractions.component.html',
   styleUrls: ['./attractions.component.scss']
 })
-export class AttractionsComponent implements AfterViewInit {
+export class AttractionsComponent implements OnInit, AfterViewInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Attractions',
+      description: 'Explore all attractions at Bolder Adventure Park — ropes course, zip lines, mountain experience, free fall drop, bumper cars, and more in Grand Prairie, TX.',
+      path: '/attractions',
+      keywords: 'ropes course, zip lines, rock climbing, free fall drop, bumper cars, adventure park attractions'
+    });
+  }
 
   activeTab = 'all';
 
