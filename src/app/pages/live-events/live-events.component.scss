@@ -1113,3 +1113,7 @@
   gap: 1rem;
   justify-content: center;
 }
+
+/* ── angular theme pass ── */
+.le-event-card, .le-challenge-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
+.le-crew-card, .le-gallery-item, .le-card-image { border-radius:0 !important; }

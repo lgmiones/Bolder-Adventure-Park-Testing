@@ -12,9 +12,13 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   isNavOpen = false;
-  isSideMenuPlanOpen = false;
-  isPlanMenuOpen = false;
-  private planCloseTimer: ReturnType<typeof setTimeout> | null = null;
+
+  /** Key of the desktop dropdown currently open ('tickets' | 'plan' | 'experiences' | null) */
+  openMenu: string | null = null;
+  /** Key of the mobile side-menu accordion group currently open */
+  openSideGroup: string | null = null;
+
+  private menuCloseTimer: ReturnType<typeof setTimeout> | null = null;
 
   showIntro: boolean;
 
@@ -53,32 +57,34 @@ export class AppComponent implements OnInit {
     document.querySelectorAll('.sr:not(.sr-visible)').forEach(el => observer.observe(el));
   }
 
+  /* Mobile slide-out menu */
   toggleNav(): void {
     this.isNavOpen = !this.isNavOpen;
   }
 
   closeNav(): void {
     this.isNavOpen = false;
-    this.isSideMenuPlanOpen = false;
-    this.isPlanMenuOpen = false;
+    this.openSideGroup = null;
+    this.openMenu = null;
   }
 
-  toggleSideMenuPlan(): void {
-    this.isSideMenuPlanOpen = !this.isSideMenuPlanOpen;
+  toggleSideGroup(key: string): void {
+    this.openSideGroup = this.openSideGroup === key ? null : key;
   }
 
-  openPlanMenu(): void {
-    if (this.planCloseTimer !== null) {
-      clearTimeout(this.planCloseTimer);
-      this.planCloseTimer = null;
+  /* Desktop dropdown menus (multi) */
+  openDropdown(key: string): void {
+    if (this.menuCloseTimer !== null) {
+      clearTimeout(this.menuCloseTimer);
+      this.menuCloseTimer = null;
     }
-    this.isPlanMenuOpen = true;
+    this.openMenu = key;
   }
 
-  schedulePlanMenuClose(): void {
-    this.planCloseTimer = setTimeout(() => {
-      this.isPlanMenuOpen = false;
-      this.planCloseTimer = null;
-    }, 200);
+  scheduleDropdownClose(): void {
+    this.menuCloseTimer = setTimeout(() => {
+      this.openMenu = null;
+      this.menuCloseTimer = null;
+    }, 180);
   }
 }

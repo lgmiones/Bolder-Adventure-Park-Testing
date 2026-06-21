@@ -1,0 +1,105 @@
+<div class="inner-page td-page" *ngIf="ticket" [style.--lc]="ticket.color">
+
+  <app-page-hero
+    [title]="ticket.name"
+    [subtitle]="ticket.level"
+    [backgroundImage]="ticket.heroImage"
+    tag="Day Ticket">
+  </app-page-hero>
+
+  <!-- Breadcrumb + price bar -->
+  <section class="ip-section td-top-section">
+    <div class="ip-container">
+      <a routerLink="/tickets-passes" class="td-back">&#8592; All Tickets &amp; Passes</a>
+
+      <div class="td-overview sr sr-up">
+        <div class="td-overview-text">
+          <span class="td-kicker">&#9670;&nbsp;&nbsp;{{ ticket.level }}</span>
+          <h2 class="td-name">{{ ticket.name }}</h2>
+          <p class="td-price">{{ ticket.price }} <span>per ticket</span></p>
+          <p class="td-intro" *ngFor="let p of ticket.intro">{{ p }}</p>
+          <div class="td-cta-row">
+            <a [href]="bookUrl" target="_blank" rel="noopener" class="td-cta">Book {{ ticket.name }} &#8599;</a>
+            <a routerLink="/plan-your-visit" class="td-cta ghost">Plan Your Visit</a>
+          </div>
+        </div>
+
+        <aside class="td-facts">
+          <div class="td-fact">
+            <span class="td-fact-label">Min Height</span>
+            <span class="td-fact-value" [innerHTML]="ticket.height"></span>
+          </div>
+          <div class="td-fact">
+            <span class="td-fact-label">Weight</span>
+            <span class="td-fact-value" [innerHTML]="ticket.weight"></span>
+          </div>
+          <div class="td-fact">
+            <span class="td-fact-label">Best Price</span>
+            <span class="td-fact-value">Online &amp; In&nbsp;Advance</span>
+          </div>
+          <a href="https://waiver.roller.app/BolderAdventurePark/home" target="_blank" rel="noopener" class="td-fact-link">Sign your waiver &#8599;</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="ip-section td-incl-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <span>What You Unlock</span>
+        <h2>Included With {{ ticket.name }}</h2>
+      </div>
+
+      <div class="td-incl-grid">
+        <article class="td-incl-card sr sr-up"
+                 *ngFor="let inc of ticket.inclusions; let i = index"
+                 [attr.data-sr-delay]="(i * 0.06) + 's'">
+          <span class="td-incl-diamond">&#9670;</span>
+          <h3>{{ inc.title }}</h3>
+          <p>{{ inc.desc }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="ip-section td-gallery-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <span>The Experience</span>
+        <h2>See It In Action</h2>
+      </div>
+
+      <div class="td-gallery sr sr-up">
+        <a class="td-gallery-item"
+           *ngFor="let img of ticket.gallery; let i = index"
+           [href]="img" target="_blank" rel="noopener"
+           [class.is-wide]="i % 5 === 0">
+          <img [src]="img" [alt]="ticket.name + ' photo ' + (i + 1)" loading="lazy" />
+          <span class="td-gallery-zoom" aria-hidden="true">&#43;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="ip-section td-cta-section">
+    <div class="ip-container">
+      <div class="td-cta-band sr sr-scale">
+        <div>
+          <span class="td-band-kicker">{{ ticket.price }}</span>
+          <h2>Ready To Take On {{ ticket.name }}?</h2>
+          <p>Book online in advance to guarantee entry and lock in the best price.</p>
+        </div>
+        <div class="td-band-actions">
+          <a [href]="bookUrl" target="_blank" rel="noopener" class="td-cta">Get Tickets &#8599;</a>
+          <a [routerLink]="['/tickets-passes', ticket.nextSlug]" class="td-next">
+            Next: {{ ticket.nextName }} &#8594;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

@@ -22,10 +22,11 @@ export class MembershipsComponent implements OnInit, AfterViewInit {
   passes = [
     {
       name: 'Annual Blue Pass',
-      tagline: 'ONLY $89.99',
+      tagline: 'Unlimited Ground Level',
       badge: 'Ground Level',
-      color: '#119ee8',
-      image: 'assets/images/extreme-all-access-pass.jpg',
+      price: 'Only $89.99',
+      color: '#1ba1e2',
+      image: 'assets/images/Blue-pass.png',
       desc: 'The Blue Annual Pass gives you unlimited access to all of the ground-level attractions.',
       features: [
         'Tree House',
@@ -40,11 +41,12 @@ export class MembershipsComponent implements OnInit, AfterViewInit {
     },
     {
       name: 'Annual Black Diamond Pass',
-      tagline: 'ALL ATTRACTIONS',
+      tagline: 'Unlimited All Access',
       badge: 'All Attractions',
-      color: '#f45113',
+      price: 'Only $199.99',
+      color: '#e6179e',
       popular: true,
-      image: 'assets/carousel-images/Carousel-8.jpg',
+      image: 'assets/images/Black-pass.png',
       desc: 'The Black Diamond Annual Pass gives you unlimited access to all ground and aerial attractions.',
       features: [
         'Everything in Blue Pass',

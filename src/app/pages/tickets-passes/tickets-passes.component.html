@@ -1,0 +1,253 @@
+<div class="inner-page tickets-page">
+  <app-page-hero
+    title="Tickets &amp; Passes"
+    subtitle="Every way to play at Bolder Adventure Park. Pick a day ticket, go unlimited with an annual pass, or grab a parent pass — and always book online for the best price."
+    backgroundImage="assets/images/ticket-page-hero.png"
+    tag="Book &amp; Save"
+  >
+  </app-page-hero>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Intro -->
+  <section class="ip-section tp-intro-section">
+    <div class="ip-container">
+      <div class="tp-intro sr sr-up">
+        <p>
+          There are <strong>Two day-ticket options</strong> to choose from, plus
+          annual and seasonal passes for maximum value. The further up you go,
+          the more of the park you unlock — all the way to the full
+          <strong>Extreme All Access</strong> experience.
+        </p>
+        <p>
+          Our venue is popular and capacity is limited, so we highly recommend
+          booking in advance to avoid disappointment. Booking online always gets
+          you the <strong>best price guaranteed</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY TICKETS -->
+  <section class="ip-section tp-day-section">
+    <div class="ip-container">
+      <div class="lvl-head-row sr sr-up">
+        <div class="lvl-head-titles">
+          <span class="lvl-eyebrow">Day Tickets</span>
+          <h2 class="lvl-h2">Choose Your Adventure</h2>
+          <p class="lvl-headsub">
+            Each level builds on the last — start on the ground and climb your
+            way up.
+          </p>
+        </div>
+      </div>
+
+      <div class="lvl-grid lvl-grid--two">
+        <article
+          class="lvl-card sr sr-up"
+          *ngFor="let t of dayTickets; let i = index"
+          [class.is-top]="t.popular"
+          [style.--lc]="t.color"
+          [attr.data-sr-delay]="i * 0.12 + 's'"
+        >
+          <img class="lvl-bg" [src]="t.image" [alt]="t.name" loading="lazy" />
+          <span class="lvl-flag" *ngIf="t.popular">Most Popular</span>
+          <div class="lvl-body">
+            <div class="lvl-top">
+              <span class="lvl-no">Level 0{{ i + 1 }}</span>
+              <span class="lvl-diff">{{ diff(i) }}</span>
+            </div>
+            <h3 class="lvl-name">{{ t.name }}</h3>
+            <span class="lvl-sublabel">{{ t.level }}</span>
+            <p class="lvl-price">{{ t.price }}</p>
+            <span class="lvl-save">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"/>
+                <line x1="7" y1="7" x2="7.01" y2="7"/>
+              </svg>
+              Save $7 when you book online
+            </span>
+            <p class="lvl-desc">{{ t.blurb }}</p>
+            <ul class="lvl-feats">
+              <li *ngFor="let f of t.features">{{ f }}</li>
+            </ul>
+            <p class="lvl-note" *ngIf="t.note" [innerHTML]="t.note"></p>
+            <div class="lvl-actions">
+              <a
+                [href]="bookUrl"
+                target="_blank"
+                rel="noopener"
+                class="lvl-cta"
+              >
+                Book {{ t.name }} &#8599;
+              </a>
+              <a [routerLink]="['/tickets-passes', t.slug]" class="lvl-details">
+                View Details &#8594;
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKET GUIDE — official inclusion chart -->
+  <section class="ip-section tp-guide-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <span>Ticket Guide</span>
+        <h2>What's Included</h2>
+        <p>
+          See exactly what you unlock with each ticket — Base Camp and All
+          Access.
+        </p>
+      </div>
+
+      <div class="tg-scroll sr sr-up">
+        <div class="tg-chart">
+          <!-- header row -->
+          <div class="tg-corner">
+            <img
+              src="assets/images/bolder-logo-white-text.png"
+              alt="Bolder Adventure Park"
+            />
+          </div>
+          <div class="tg-head tg-base">
+            <strong>Base Camp</strong>
+            <span>Action on the Ground</span>
+          </div>
+          <div class="tg-head tg-extreme">
+            <strong>All Access</strong>
+            <span>Everything In The Park</span>
+          </div>
+
+          <!-- feature rows -->
+          <ng-container *ngFor="let r of matrixRows">
+            <div class="tg-feature">
+              {{ r.label }} <em *ngIf="r.sub">{{ r.sub }}</em>
+            </div>
+            <div class="tg-cell">
+              <span class="tg-mark tg-yes base" *ngIf="r.base">✓</span>
+              <span class="tg-mark tg-no" *ngIf="!r.base">✕</span>
+            </div>
+            <div class="tg-cell">
+              <span class="tg-special" *ngIf="r.special">{{ r.special }}</span>
+              <span
+                class="tg-mark tg-yes extreme"
+                *ngIf="!r.special && r.extreme"
+                >✓</span
+              >
+              <span class="tg-mark tg-no" *ngIf="!r.special && !r.extreme"
+                >✕</span
+              >
+            </div>
+          </ng-container>
+
+          <!-- restriction footer -->
+          <div class="tg-foot-spacer"></div>
+          <div class="tg-foot tg-base">
+            <span class="tg-foot-h"
+              ><b>Min Height</b> <i [innerHTML]="restrictions.base.height"></i
+            ></span>
+          </div>
+          <div class="tg-foot tg-extreme">
+            <span class="tg-foot-h"
+              ><b>Min Height</b>
+              <i [innerHTML]="restrictions.extreme.height"></i
+            ></span>
+            <span class="tg-foot-w"
+              ><b>Max Weight</b> {{ restrictions.extreme.weight }}</span
+            >
+          </div>
+        </div>
+      </div>
+      <p class="tg-hint">Swipe sideways to see all levels →</p>
+    </div>
+  </section>
+
+  <!-- SEASONAL & SPECIAL PASSES -->
+  <section class="ip-section tp-special-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <span>More Ways To Save</span>
+        <h2>Seasonal &amp; Parent Passes</h2>
+        <p>
+          Flexible options for the whole crew — whether you're playing all
+          summer or cheering from the sidelines.
+        </p>
+      </div>
+
+      <div class="tp-special-grid">
+        <article
+          class="tp-special-card sr sr-up"
+          *ngFor="let p of specialPasses; let i = index"
+          [attr.data-sr-delay]="i * 0.1 + 's'"
+          [style.--pass-color]="p.color"
+        >
+          <div class="tp-special-img">
+            <img [src]="p.image" [alt]="p.name" loading="lazy" />
+            <span class="tp-special-badge">{{ p.badge }}</span>
+          </div>
+          <div class="tp-special-body">
+            <h3>{{ p.name }}</h3>
+            <p class="tp-special-tagline">{{ p.tagline }}</p>
+            <p class="tp-special-desc">{{ p.desc }}</p>
+            <ul class="tp-special-features">
+              <li *ngFor="let f of p.features">{{ f }}</li>
+            </ul>
+            <p class="tp-special-note" *ngIf="p.note">{{ p.note }}</p>
+            <a [routerLink]="p.link" class="tp-special-cta"
+              >{{ p.cta }} <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOD TO KNOW -->
+  <section class="ip-section tp-know-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <span>Before You Book</span>
+        <h2>Good To Know</h2>
+      </div>
+      <div class="tp-know-grid">
+        <div
+          class="tp-know-card sr sr-up"
+          *ngFor="let g of goodToKnow; let i = index"
+          [attr.data-sr-delay]="i * 0.08 + 's'"
+        >
+          <div class="tp-know-icon">{{ g.icon }}</div>
+          <h4>{{ g.title }}</h4>
+          <p [innerHTML]="g.desc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ip-section tp-cta-section">
+    <div class="ip-container">
+      <div class="tp-cta sr sr-scale">
+        <h2>Ready When You Are</h2>
+        <p>
+          Book your tickets in advance to guarantee entry and lock in the best
+          price.
+        </p>
+        <div class="tp-cta-actions">
+          <a
+            [href]="bookUrl"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-orange"
+            >Book Tickets ↗</a
+          >
+          <a routerLink="/plan-your-visit" class="btn btn-outline"
+            >Plan Your Visit</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

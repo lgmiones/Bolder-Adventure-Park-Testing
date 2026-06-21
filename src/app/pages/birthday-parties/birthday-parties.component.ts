@@ -8,6 +8,9 @@ import { SeoService } from '../../services/seo.service';
 })
 export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
 
+  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/birthdayparties/en-us/products?_gl=1*zzh7j7*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.';
+  readonly footnote = '*Plus 10% gratuity & sales tax';
+
   constructor(private seo: SeoService) {}
 
   ngOnInit(): void {
@@ -21,53 +24,33 @@ export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
 
   packages = [
     {
-      name: 'Base Camp Birthday Party',
-      tag: 'Great for All Ages',
-      price: '$25.50*',
-      priceSuffix: '/guest',
-      priceNote: '*Min. 10 guests',
-      color: '#119ee8',
+      name: 'Base Camp Party',
+      tag: 'Best For Younger Kids',
+      color: '#1ba1e2',
+      image: 'assets/images/Birthday-parties.jpg',
       includes: [
-        'Celebrate your special day with us',
-        'All Base Camp ground-level attractions',
-        '2 parent passes included',
-        'Pizza meal for all guests',
-        'Unlimited drinks',
-        'Bring your own cake option'
-      ]
+        '45 minutes party table reservation',
+        '10 party guests (including the birthday child)'
+      ],
+      access: 'All Base Camp attractions — including the Jump Pad, adventure nets, exploration play areas, blaster zone, bumper cars and tubing slides.',
+      priceWeekday: '$299',
+      priceWeekend: '$379',
+      extra: 'Additional guests available for $29.99 per guest (Mon–Fri) and $37.99 (Sat / Sun).'
     },
     {
-      name: 'Summit Ropes Course Birthday Party',
-      tag: 'Most Popular',
-      price: '$55.00*',
-      priceSuffix: '/guest',
-      priceNote: '*Min. 10 guests',
-      color: '#f45113',
+      name: 'Summit Party',
+      tag: 'Ultimate Climb',
+      color: '#f7b500',
       popular: true,
+      image: 'assets/All-Attraction/Ropes-courses.jpg',
       includes: [
-        'All Base Camp ground-level attractions',
-        'Vertical climbing walls access',
-        'Ropes course included',
-        '2 parent passes included',
-        'Pizza meal for all guests',
-        'Unlimited drinks'
-      ]
-    },
-    {
-      name: 'Summit Mountain Experience Birthday Party',
-      tag: 'Ultimate Experience',
-      price: '$55.00*',
-      priceSuffix: '/guest',
-      priceNote: '*Min. 10 guests',
-      color: '#8f34cd',
-      includes: [
-        'All Base Camp ground-level attractions',
-        'Vertical climbing walls access',
-        'Mountain Experience activities',
-        '2 parent passes included',
-        'Pizza meal for all guests',
-        'Unlimited drinks'
-      ]
+        '45 minutes party table reservation',
+        '10 party guests (including the birthday child)'
+      ],
+      access: 'All Base Camp attractions, plus Vertical Climbing Adventures and your choice of one: Ropes Course & Zip Lines (48" min) OR Via Ferrata — the climb across the Bolder Mountains (48" and 88 lbs minimum weight).',
+      priceWeekday: '$499',
+      priceWeekend: '$549',
+      extra: 'Additional guests available for $49.99 per guest (Mon–Fri) and $54.99 (Sat / Sun).'
     }
   ];
 

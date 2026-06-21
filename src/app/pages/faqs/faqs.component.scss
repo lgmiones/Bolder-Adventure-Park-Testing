@@ -39,3 +39,6 @@
 }
 
 .faq-contact-actions { display:flex;justify-content:center;gap:1rem;flex-wrap:wrap; }
+
+/* ── angular theme pass ── */
+.faq-item { border-radius:0 !important; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%) !important; }

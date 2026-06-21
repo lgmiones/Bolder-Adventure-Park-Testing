@@ -193,3 +193,6 @@
     transform: translateY(-2px);
   }
 }
+
+/* ── angular theme pass ── */
+.ace-card, .passes-promo-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }

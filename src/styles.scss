@@ -85,7 +85,8 @@ a {
   justify-content: center;
   gap: 0.5rem;
   border: none;
-  border-radius: 9999px;
+  border-radius: 0;
+  clip-path: polygon(13px 0, 100% 0, calc(100% - 13px) 100%, 0 100%);
   cursor: pointer;
   font-family: var(--font-ui);
   font-size: 0.95rem;
@@ -106,11 +107,11 @@ a {
 .btn-orange {
   background: var(--orange);
   color: #fff;
-  box-shadow: 0 4px 24px rgba(244, 81, 19, 0.35);
+  filter: drop-shadow(0 4px 14px rgba(244, 81, 19, 0.4));
 
   &:hover {
     background: #e03d0a;
-    box-shadow: 0 8px 32px rgba(244, 81, 19, 0.5);
+    filter: drop-shadow(0 8px 20px rgba(244, 81, 19, 0.55));
   }
 }
 

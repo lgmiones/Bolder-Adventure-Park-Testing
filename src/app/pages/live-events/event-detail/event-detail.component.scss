@@ -935,3 +935,15 @@ tr.ed-ct-total-row {
   gap: 1rem;
   justify-content: center;
 }
+
+/* ── angular theme pass ── */
+.ed-pkg-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
+.ed-gallery-item { border-radius:0 !important; }
+
+/* keep BEST VALUE badge inside the clipped card + angular chip */
+.ed-pkg-best {
+  top: 12px;
+  border-radius: 0;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  box-shadow: none;
+}

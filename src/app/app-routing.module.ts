@@ -12,9 +12,13 @@ import { CorporateEventsComponent } from './pages/corporate-events/corporate-eve
 import { FieldTripsComponent } from './pages/field-trips/field-trips.component';
 import { LiveEventsComponent } from './pages/live-events/live-events.component';
 import { EventDetailComponent } from './pages/live-events/event-detail/event-detail.component';
+import { TicketsPassesComponent } from './pages/tickets-passes/tickets-passes.component';
+import { TicketDetailComponent } from './pages/ticket-detail/ticket-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'tickets-passes', component: TicketsPassesComponent },
+  { path: 'tickets-passes/:slug', component: TicketDetailComponent },
   { path: 'plan-your-visit', component: PlanYourVisitComponent },
   { path: 'attractions', component: AttractionsComponent },
   { path: 'birthday-parties', component: BirthdayPartiesComponent },

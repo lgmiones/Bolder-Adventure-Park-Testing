@@ -54,138 +54,97 @@
           <h3 class="ticket-card-name">{{ t.name }}</h3>
           <p class="ticket-card-desc">{{ t.desc }}</p>
           <div class="ticket-card-price">{{ t.price }}</div>
-          <a
-            href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*p4qz8g*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA2MDQ2NzckbzU2JGcxJHQxNzgwNjA1ODg0JGo1OCRsMCRoMA..*_fplc*OCUyQiUyQmN4R3pBa0w5b25welNPU3g1b0dkdUVHYTRyd2ROSmxvVSUyRjczOWxKMlF4YlhiSVBIcWhwSGdMdnU1Q3BiWVgzT2RoekdIaiUyRlZuJTJGZVRPJTJGalM1THpidVFveGpPJTJCWSUyRnRrTCUyQnRLa0lTeWdWTzBZSDJFMEpKNjJZNUh4OEZRJTNEJTNE"
-            targer="_blank"
-            rel="noopener"
-            class="ticket-card-cta"
-            >Book Now ↗</a
-          >
+          <a routerLink="/tickets-passes" class="ticket-card-cta">Details ↗</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stacking pass cards (Base / Summit / Extreme visual) -->
-  <section class="plan-your-visit" id="passes">
-    <div class="attraction-stack">
-      <div class="ac-slide">
-        <div class="ac-section ac--navy">
-          <div class="ac-content">
-            <span class="ac-num">01 &nbsp;/&nbsp; Base</span>
-            <svg class="ac-icon" viewBox="0 0 52 52" fill="none">
-              <rect
-                x="4"
-                y="4"
-                width="44"
-                height="44"
-                rx="10"
-                stroke="rgba(255,255,255,0.6)"
-                stroke-width="3"
-              />
-            </svg>
-            <h3 class="ac-name">Base Camp</h3>
-            <p class="ac-desc">
-              Action is on the ground — Jump Pad, Adventure Nets, Exploration
-              Playground, Tubing Slides, Blaster Zone and Bumper Cars.
+  <!-- Choose Your Level — angular climb (redesigned) -->
+  <section class="lvl-section" id="passes">
+    <div class="ip-container">
+      <div class="lvl-head sr sr-up">
+        <span class="lvl-kicker"
+          >&#9670;&nbsp;&nbsp;Choose Your Level&nbsp;&nbsp;&#9670;</span
+        >
+        <h2 class="lvl-title">
+          Two Ways To <span class="accent-orange">Play</span>
+        </h2>
+        <p class="lvl-sub">
+          From ground-level fun to the full aerial gauntlet — climb to the level
+          that matches your nerve.
+        </p>
+      </div>
+
+      <div class="lvl-grid">
+        <article
+          class="lvl-card sr sr-up"
+          style="--lc: #1ba1e2"
+          data-sr-delay="0.04s"
+        >
+          <img
+            class="lvl-bg"
+            src="assets/carousel-images/Carousel-4.jpg"
+            alt="Base Camp"
+            loading="lazy"
+          />
+          <div class="lvl-body">
+            <div class="lvl-top">
+              <span class="lvl-no">Level 01</span>
+              <span class="lvl-diff" title="Difficulty 1 of 3">&#9670;</span>
+            </div>
+            <h3 class="lvl-name">Base Camp</h3>
+            <p class="lvl-desc">
+              Action on the ground — the perfect warm-up for every age.
             </p>
-            <ul class="ac-features">
-              <li>Jump Pad (socks required)</li>
-              <li>Adventure Nets</li>
+            <ul class="lvl-feats">
+              <li>Jump Pad &amp; Adventure Nets</li>
               <li>Exploration Playground</li>
               <li>Tubing Slides</li>
-              <li>Blaster Zone</li>
-              <li>Bumper Cars</li>
+              <li>Blaster Zone &amp; Bumper Cars</li>
             </ul>
-            <a routerLink="/attractions" class="ac-cta">Explore Base Camp ↗</a>
-          </div>
-          <div class="ac-image">
-            <img
-              src="assets/carousel-images/Carousel-4.jpg"
-              alt="Base Camp activities"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="ac-slide">
-        <div class="ac-section ac--gold">
-          <div class="ac-image">
-            <img
-              src="assets/carousel-images/Carousel-6.jpg"
-              alt="Summit activities"
-              loading="lazy"
-            />
-          </div>
-          <div class="ac-content">
-            <span class="ac-num">02 &nbsp;/&nbsp; Summit</span>
-            <svg class="ac-icon" viewBox="0 0 52 52" fill="none">
-              <polygon
-                points="26,3 49,26 26,49 3,26"
-                stroke="rgba(0,0,0,0.45)"
-                stroke-width="3"
-                fill="rgba(0,0,0,0.08)"
-              />
-            </svg>
-            <h3 class="ac-name">Summit</h3>
-            <p class="ac-desc">
-              All Base Camp activities, plus your choice of a Ropes Course
-              <em>or</em> a Mountain Experience session.
-            </p>
-            <ul class="ac-features" style="color: #111">
-              <li>Everything in Base Camp</li>
-              <li>Ropes Course (4 levels)</li>
-              <li>Zip Lines</li>
-              <li>Rock Climbing</li>
-            </ul>
-            <a routerLink="/attractions" class="ac-cta ac-cta--dark"
-              >Explore Summit ↗</a
+            <a routerLink="/attractions" class="lvl-cta"
+              >Explore Base Camp &#8599;</a
             >
           </div>
-        </div>
-      </div>
-      <div class="ac-slide">
-        <div class="ac-section ac--violet">
-          <div class="ac-content">
-            <span class="ac-num">03 &nbsp;/&nbsp; Extreme</span>
-            <svg class="ac-icon ac-icon--wide" viewBox="0 0 106 52" fill="none">
-              <polygon
-                points="26,3 49,26 26,49 3,26"
-                fill="rgba(255,255,255,0.28)"
-              />
-              <polygon
-                points="80,3 103,26 80,49 57,26"
-                fill="rgba(255,255,255,0.28)"
-              />
-            </svg>
-            <h3 class="ac-name">Extreme All Access</h3>
-            <p class="ac-desc">
-              Unlimited access to the entire venue — every Rope, every Mountain
+        </article>
+
+        <article
+          class="lvl-card is-top sr sr-up"
+          style="--lc: #e6179e"
+          data-sr-delay="0.24s"
+        >
+          <img
+            class="lvl-bg"
+            src="assets/carousel-images/Carousel-8.jpg"
+            alt="Extreme All Access"
+            loading="lazy"
+          />
+          <span class="lvl-flag">Most Popular</span>
+          <div class="lvl-body">
+            <div class="lvl-top">
+              <span class="lvl-no">Level 02</span>
+              <span class="lvl-diff" title="Difficulty 2 of 2"
+                >&#9670;&#9670;</span
+              >
+            </div>
+            <h3 class="lvl-name">All Access</h3>
+            <p class="lvl-desc">
+              Unlimited access to the entire venue — every rope, every mountain
               course, every ground activity.
             </p>
-            <ul class="ac-features">
-              <li>Everything in Summit</li>
-              <li>Mountain Experience (2 trails)</li>
-              <li>Free Fall Drop</li>
-              <li>Archery &amp; Darts</li>
+            <ul class="lvl-feats">
+              <li>Everything in Base Camp</li>
+              <li>Ropes Course, Zip Lines &amp; Rock Climbing</li>
+              <li>Mountain Experience (2 Trails)</li>
+              <li>Free Fall Drop, Archery &amp; Darts</li>
               <li>$10 Arcade Card</li>
             </ul>
-            <a
-              routerLink="/attractions"
-              target="_blank"
-              rel="noopener"
-              class="ac-cta"
-              >Explore Extreme All Access ↗</a
+            <a routerLink="/attractions" class="lvl-cta"
+              >Explore All Access &#8599;</a
             >
           </div>
-          <div class="ac-image">
-            <img
-              src="assets/carousel-images/Carousel-8.jpg"
-              alt="Extreme All Access"
-              loading="lazy"
-            />
-          </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>

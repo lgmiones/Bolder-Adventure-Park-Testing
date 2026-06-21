@@ -22,37 +22,30 @@
   <!-- Pass Cards -->
   <section class="ip-section mem-passes-section">
     <div class="ip-container">
-      <div class="mem-passes-grid">
-        <div class="mem-pass-card sr"
-             *ngFor="let pass of passes; let i = index; let even = even"
-             [class.sr-left]="even"
-             [class.sr-right]="!even"
-             [attr.data-sr-delay]="(i * 0.12) + 's'"
-             [class.is-featured]="pass.popular"
-             [style.--pass-color]="pass.color">
+      <div class="lvl-grid lvl-grid--two">
+        <article class="lvl-card sr sr-up"
+             *ngFor="let pass of passes; let i = index"
+             [class.is-top]="pass.popular"
+             [style.--lc]="pass.color"
+             [attr.data-sr-delay]="(i * 0.12) + 's'">
 
-          <div class="mpc-popular" *ngIf="pass.popular">Most Popular</div>
-
-          <div class="mpc-image-wrap">
-            <img [src]="pass.image" [alt]="pass.name" loading="lazy"/>
-            <div class="mpc-image-overlay"></div>
-            <div class="mpc-badge">{{ pass.badge }}</div>
-            <div class="mpc-tagline">{{ pass.tagline }}</div>
-          </div>
-
-          <div class="mpc-body">
-            <h3 class="mpc-name">{{ pass.name }}</h3>
-            <p class="mpc-desc">{{ pass.desc }}</p>
-
-            <ul class="mpc-features">
+          <img class="lvl-bg" [src]="pass.image" [alt]="pass.name" loading="lazy"/>
+          <span class="lvl-flag" *ngIf="pass.popular">Most Popular</span>
+          <div class="lvl-body">
+            <div class="lvl-top">
+              <span class="lvl-no">{{ pass.badge }}</span>
+            </div>
+            <h3 class="lvl-name">{{ pass.name }}</h3>
+            <span class="lvl-sublabel">{{ pass.tagline }}</span>
+            <p class="lvl-price" *ngIf="pass.price">{{ pass.price }}</p>
+            <p class="lvl-desc">{{ pass.desc }}</p>
+            <ul class="lvl-feats">
               <li *ngFor="let f of pass.features" [innerHTML]="f"></li>
             </ul>
-
-            <p class="mpc-note" *ngIf="pass.note">{{ pass.note }}</p>
-
-            <a href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home" target="_blank" rel="noopener" class="mpc-cta">{{ pass.cta }} ↗</a>
+            <p class="lvl-note" *ngIf="pass.note">{{ pass.note }}</p>
+            <a href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home" target="_blank" rel="noopener" class="lvl-cta">{{ pass.cta }} ↗</a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>

@@ -16,6 +16,8 @@ import { CorporateEventsComponent } from './pages/corporate-events/corporate-eve
 import { FieldTripsComponent } from './pages/field-trips/field-trips.component';
 import { LiveEventsComponent } from './pages/live-events/live-events.component';
 import { EventDetailComponent } from './pages/live-events/event-detail/event-detail.component';
+import { TicketsPassesComponent } from './pages/tickets-passes/tickets-passes.component';
+import { TicketDetailComponent } from './pages/ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { EventDetailComponent } from './pages/live-events/event-detail/event-det
     CorporateEventsComponent,
     FieldTripsComponent,
     LiveEventsComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    TicketsPassesComponent,
+    TicketDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -2,12 +2,6 @@ import { Component, AfterViewInit, OnInit, OnDestroy, ViewChild, ElementRef } fr
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SeoService } from '../../services/seo.service';
 
-interface MegaItem {
-  title: string;
-  subtitle: string;
-  label: string;
-}
-
 interface AttractionCard {
   title: string;
   image: string;
@@ -28,43 +22,88 @@ interface Review {
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroVideo') heroVideoRef!: ElementRef<HTMLVideoElement>;
+  @ViewChild('passRail') passRailRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('celRail') celRailRef!: ElementRef<HTMLDivElement>;
 
-  activePlanTab = 'things';
+  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home';
+
+  /* Parties & Groups — angular collage blocks */
+  celebrate = [
+    {
+      badge: 'Birthdays',
+      title: 'Throw An Unforgettable Birthday Party Without Lifting A Finger',
+      desc: 'All-inclusive adventure parties starting at less than $33 per child with attractions, pizza, drinks, and clean-up handled so you can actually enjoy the day.',
+      color: '#f45113',
+      link: '/birthday-parties',
+      cta: 'Birthday Parties',
+      watermark: 'PARTIES',
+      reverse: false,
+      chips: ['Pizza & Drinks', 'All Attractions', 'Clean-Up Handled'],
+      images: [
+        'assets/images/Birthday-parties.jpg',
+        'assets/images/Parties1.png',
+        'assets/images/Parties2.png',
+        'assets/images/Parties3.jpg'
+      ]
+    },
+    {
+      badge: 'Groups',
+      title: 'Plan A Group Event With A Difference',
+      desc: 'Planning a group event? Skip the ordinary. Bolder turns field trips, corporate outings, and celebrations into stories people won\'t stop sharing.',
+      color: '#119ee8',
+      link: '/group-events',
+      cta: 'Group & Corporate Events',
+      watermark: 'GROUPS',
+      reverse: true,
+      chips: ['Field Trips', 'Corporate Outings', 'Team Building'],
+      images: [
+        'assets/images/Group-events.jpg',
+        'assets/images/Groups1.jpg',
+        'assets/images/Groups2.jpg',
+        'assets/images/Groups3.jpg'
+      ]
+    }
+  ];
+
+  scrollCelebrate(dir: number): void {
+    const el = this.celRailRef?.nativeElement;
+    if (!el) return;
+    const card = el.querySelector('.cel-card') as HTMLElement | null;
+    const amount = card ? card.offsetWidth + 20 : 360;
+    el.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  }
+
+  /* TICKETS & PASSES pricing carousel - replace "$00.00" with real prices */
+  passes = [
+    { name: 'Base Camp', level: 'Action on the Ground', color: '#1ba1e2', image: 'assets/All-Attraction/Adventure-nets.jpg', priceFrom: 'From', price: '$24.99', features: ['Jump Pad & Adventure Nets', 'Tubing Slides & Playground', 'Blaster Zone & Bumper Cars'], cta: 'Base Camp Details', slug: 'base-camp' },
+    { name: 'All Access', level: 'Everything In The Park', color: '#e6179e', image: 'assets/images/extreme-all-access-pass.jpg', priceFrom: 'From', price: '$34.99', features: ['Everything in Base Camp', 'Ropes, Zip Lines & Climbing', 'Mountain, Free Fall & $10 Arcade'], cta: 'All Access Details', featured: true, slug: 'extreme-all-access' },
+    { name: 'Annual Blue Pass', level: 'Annual - Ground', color: '#1ba1e2', image: 'assets/images/Blue-pass.png', priceFrom: 'Only', price: '$89.99', features: ['Unlimited ground level', 'Every day, all year', 'Pays off in 2-3 visits'], cta: 'Get Blue Pass' },
+    { name: 'Annual Black Diamond', level: 'Annual - All Access', color: '#e6179e', image: 'assets/images/Black-pass.png', priceFrom: 'Only', price: '$199.99', features: ['Unlimited all attractions', 'Ground + aerial, year-round', 'Exclusive member perks'], cta: 'Get Black Diamond' },
+    { name: 'Summer Pass', level: 'Seasonal', color: '#f7b500', image: 'assets/carousel-images/Carousel-3.jpg', priceFrom: 'From', price: '$00.00', features: ['Unlimited all summer', 'Great for school holidays', 'Skip single-ticket lines'], cta: 'Get Summer Pass' }
+  ];
+
+  scrollPasses(dir: number): void {
+    const el = this.passRailRef?.nativeElement;
+    if (!el) return;
+    const card = el.querySelector('.tk-card') as HTMLElement | null;
+    const amount = card ? card.offsetWidth + 20 : 340;
+    el.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  }
+
   activeReviewIndex = 0;
-  activeVideoUrl: SafeResourceUrl | null = null;
-  videoPage = 0;
-  readonly videosPerPage = 5;
 
   constructor(private sanitizer: DomSanitizer, private seo: SeoService) {}
 
   ngOnInit(): void {
     this.seo.update({
       title: 'Bolder Adventure Park',
-      description: 'Bolder Adventure Park — 66,000 sq ft indoor adventure park in Grand Prairie, TX. Ropes course, zip lines, climbing, birthday parties & group events.',
+      description: 'Bolder Adventure Park - 66,000 sq ft indoor adventure park in Grand Prairie, TX. Ropes course, zip lines, climbing, birthday parties & group events.',
       path: '/',
       keywords: 'indoor adventure park, Grand Prairie TX, ropes course, zip lines, rock climbing, birthday parties, family fun'
     });
     this.startCarouselCountdown();
     this.startCarouselAutoPlay();
   }
-
-  tickets: MegaItem[] = [
-    { title: 'Daily Tickets', subtitle: 'Fast checkout for today, this weekend, or a planned family day.', label: 'Most direct' },
-    { title: 'Current Deals', subtitle: 'Use this for your giveaway, discount, or seasonal campaign.', label: 'Limited time' },
-    { title: 'Annual Pass', subtitle: 'Upsell guests from one visit to repeat revenue.', label: 'Best value' },
-    { title: 'Birthday Parties', subtitle: 'Simple packages for parents who want less planning stress.', label: 'High converting' },
-    { title: 'Group Events', subtitle: 'Schools, camps, churches, teams, and corporate outings.', label: 'Request info' }
-  ];
-
-  planTabs = [
-    { id: 'things', title: 'Things To Do' },
-    { id: 'map', title: 'Park Map' },
-    { id: 'tour', title: 'Virtual Tour' },
-    { id: 'location', title: 'Location' },
-    { id: 'hours', title: 'Hours' },
-    { id: 'faq', title: 'FAQ' },
-    { id: 'waiver', title: 'Waiver' }
-  ];
 
   activeAttractionTab = 'all';
 
@@ -101,17 +140,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.activeAttractionTab + '_' + item.title;
   }
 
-  comparison = [
-    { feature: 'Exploration Play Area',     base: true,  summit: true,  extreme: true },
-    { feature: 'Adventure Nets',            base: true,  summit: true,  extreme: true },
-    { feature: 'Ropes Course',              base: false, summit: true,  extreme: true },
-    { feature: 'Climbing Adventure',        base: false, summit: true,  extreme: true },
-    { feature: 'Tubing Slides',             base: false, summit: true,  extreme: true },
-    { feature: 'Spin Zone Bumper Cars',     base: false, summit: true,  extreme: true },
-    { feature: 'Via Ferrata',               base: false, summit: false, extreme: true },
-    { feature: 'Zip Line Experience',       base: false, summit: false, extreme: true }
-  ];
-
   reviews: Review[] = [
     { name: 'Chelsea D.',  source: 'Group Events',       quote: 'This place is amazing, looks crazy big when you get inside.. the slide was great and all the kids had a blast..' },
     { name: 'Whitney C.',  source: 'Mountain Experience', quote: 'This place is AWESOME!!! My Son loved the blaster, trampoline, bumper cars, game videos! Staff is great and friendly!' },
@@ -126,10 +154,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     { file: 'Reviews-birthday-parties.jpg',    tag: 'Birthday Parties',    color: '#ff8a00' },
   ];
 
-  carouselImages = [
-    'Carousel-1.jpg','Carousel-2.jpg','Carousel-3.jpg','Carousel-4.jpg',
-    'Carousel-5.jpg','Carousel-10.jpg','Carousel-30.jpg',
-  ];
+  nextReview(): void { this.activeReviewIndex = (this.activeReviewIndex + 1) % this.reviews.length; }
+  prevReview(): void { this.activeReviewIndex = (this.activeReviewIndex - 1 + this.reviews.length) % this.reviews.length; }
+  goToReview(index: number): void { this.activeReviewIndex = index; }
+
+  // YouTube Shorts reel
+  activeVideoUrl: SafeResourceUrl | null = null;
+  videoPage = 0;
+  readonly videosPerPage = 5;
 
   videos = [
     { id: 'h2UZdBha4X8', title: 'Longest Zip Line in the Park' },
@@ -169,21 +201,47 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  setPlanTab(id: string): void { this.activePlanTab = id; }
-
-  nextReview(): void { this.activeReviewIndex = (this.activeReviewIndex + 1) % this.reviews.length; }
-  prevReview(): void { this.activeReviewIndex = (this.activeReviewIndex - 1 + this.reviews.length) % this.reviews.length; }
-  goToReview(index: number): void { this.activeReviewIndex = index; }
-
   ngAfterViewInit(): void {
     const vid = this.heroVideoRef?.nativeElement;
     if (vid) {
       vid.muted = true;
       vid.play().catch(() => {});
     }
+    setTimeout(() => this.animateCounters(), 60);
   }
 
-  // ── Events Carousel ──────────────────────────────
+  /* Count-up stat numbers when they scroll into view */
+  private animateCounters(): void {
+    const els = Array.from(document.querySelectorAll<HTMLElement>('.sh-num'));
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          this.runCount(e.target as HTMLElement);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.45 });
+    els.forEach(el => obs.observe(el));
+  }
+
+  private runCount(el: HTMLElement): void {
+    const target = parseFloat(el.dataset['count'] || '0');
+    const suffix = el.dataset['suffix'] || '';
+    const comma = el.dataset['format'] === 'comma';
+    const duration = 1600;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(target * eased);
+      el.textContent = (comma ? val.toLocaleString() : String(val)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // Events Carousel
   carouselIndex = 0;
   carouselCountdownDays = 0;
   carouselCountdownHours = 0;
@@ -198,7 +256,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       carouselTitle: 'MJ', carouselAccent: 'Dejavu',
       date: 'June 20, 2026', location: 'Main Stage', ageRestriction: 'All Ages',
       image: 'assets/MJ Dejavu/0 - HERO IMAGE.png',
-      description: 'Step into the world of the King of Pop for an unforgettable evening with MJ Dejavu, direct from Las Vegas — rated the #1 MJ tribute.',
+      description: 'Step into the world of the King of Pop for an unforgettable evening with MJ Dejavu, direct from Las Vegas - rated the #1 MJ tribute.',
       targetDate: new Date('2026-06-20T19:00:00')
     },
     {
@@ -206,7 +264,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       carouselTitle: 'Adult Night', carouselAccent: 'July 2026',
       date: 'July 3, 2026', location: 'Whole Park', ageRestriction: '18+',
       image: 'assets/images/Groups3.jpg',
-      description: 'The park goes 18+ for the night. Every attraction open until late, music turned up, and zero kids\' lines — just you, your crew, and the whole dome.',
+      description: 'The park goes 18+ for the night. Every attraction open until late, music turned up, and zero kids lines - just you, your crew, and the whole dome.',
       targetDate: new Date('2026-07-03T20:00:00')
     },
     {
@@ -214,7 +272,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       carouselTitle: 'Adult Night', carouselAccent: 'August 2026',
       date: 'August 7, 2026', location: 'Whole Park', ageRestriction: '18+',
       image: 'assets/images/Thrills-in-the-air.jpg',
-      description: 'First-Friday takeover, round two. Climb, zip, and race the slides — adults only. Every attraction open, music up, kids\' lines gone.',
+      description: 'First-Friday takeover, round two. Climb, zip, and race the slides - adults only. Every attraction open, music up, kids lines gone.',
       targetDate: new Date('2026-08-07T20:00:00')
     }
   ];

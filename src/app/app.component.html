@@ -13,27 +13,64 @@
 
   <div class="noise"></div>
 
-  <!-- ── Promo Strip ── -->
-  <div class="promo-strip">
+  <!-- ── Promo Ticker ── -->
+  <div class="promo-strip" aria-label="Park announcements">
+    <div class="promo-glow" aria-hidden="true"></div>
     <div class="promo-strip-track">
-      <span>• OPEN FROM 11AM DAILY</span>
-      <span>• BOOK IN ADVANCE AND SAVE</span>
-      <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
-      <span>• OPEN FROM 11AM DAILY</span>
-      <span>• BOOK IN ADVANCE AND SAVE</span>
-      <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
-      <span>• OPEN FROM 11AM DAILY</span>
-      <span>• BOOK IN ADVANCE AND SAVE</span>
-      <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
-      <span>• OPEN FROM 11AM DAILY</span>
-      <span>• BOOK IN ADVANCE AND SAVE</span>
-      <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
-      <span>• OPEN FROM 11AM DAILY</span>
-      <span>• BOOK IN ADVANCE AND SAVE</span>
-      <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
-      <span>• OPEN FROM 11AM DAILY</span>
-      <span>• BOOK IN ADVANCE AND SAVE</span>
-      <span>• NOW BOOKING 2026 SUMMER CAMPS</span>
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Open From 11am Daily</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Now Booking 2026 Summer Camps</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Open From 11am Daily</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Now Booking 2026 Summer Camps</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Open From 11am Daily</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Now Booking 2026 Summer Camps</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Open From 11am Daily</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Now Booking 2026 Summer Camps</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Open From 11am Daily</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Now Booking 2026 Summer Camps</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Open From 11am Daily</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
+      >
+      <span class="promo-item"
+        ><i class="promo-diamond">◆</i>Now Booking 2026 Summer Camps</span
+      >
     </div>
   </div>
 
@@ -42,139 +79,289 @@
     <nav class="main-navbar" aria-label="Main navigation">
       <a class="navbar-brand" routerLink="/" (click)="closeNav()">
         <img
-          src="assets/images/Bolder-update.png"
+          src="assets/images/bolder-logo-white-text.png"
           alt="Bolder Adventure Park"
         />
       </a>
 
       <div class="navbar-links">
+        <!-- ── Group 1: Tickets & Passes ── -->
         <div
-          class="navbar-plan-item"
-          [class.is-open]="isPlanMenuOpen"
-          (mouseenter)="openPlanMenu()"
-          (mouseleave)="schedulePlanMenuClose()"
+          class="nav-group"
+          [class.is-open]="openMenu === 'tickets'"
+          (mouseenter)="openDropdown('tickets')"
+          (mouseleave)="scheduleDropdownClose()"
         >
-          <button class="navbar-plan-trigger" type="button">
-            Plan Your Visit <span class="nav-caret">⌄</span>
+          <button class="nav-group-trigger" type="button">
+            Tickets &amp; Passes <span class="nav-caret">⌄</span>
           </button>
 
           <div
-            class="plan-visit-mega"
-            [class.is-open]="isPlanMenuOpen"
-            (mouseenter)="openPlanMenu()"
-            (mouseleave)="schedulePlanMenuClose()"
+            class="nav-dropdown wide nav-dropdown--tickets"
+            [class.is-open]="openMenu === 'tickets'"
+            (mouseenter)="openDropdown('tickets')"
+            (mouseleave)="scheduleDropdownClose()"
           >
-            <div class="plan-visit-left">
-              <h2>Plan Your Visit</h2>
-              <nav class="plan-visit-list">
-                <a routerLink="/plan-your-visit" (click)="closeNav()"
-                  >Know Before You Go</a
-                >
-                <a routerLink="/attractions" (click)="closeNav()"
-                  >Attractions</a
-                >
-                <a routerLink="/birthday-parties" (click)="closeNav()"
-                  >Birthday Parties</a
-                >
-                <a routerLink="/group-events" (click)="closeNav()"
-                  >Group Bookings</a
-                >
-                <a routerLink="/group-events" (click)="closeNav()"
-                  >Corporate Events</a
-                >
+            <div class="nav-dd-main">
+              <div class="nav-dropdown-list">
+                <a routerLink="/tickets-passes" (click)="closeNav()">
+                  <span class="ndl-title">Tickets &amp; Pricing</span>
+                  <span class="ndl-sub">Day passes &amp; all access</span>
+                </a>
+                <a routerLink="/memberships" (click)="closeNav()">
+                  <span class="ndl-title">Annual Passes</span>
+                  <span class="ndl-sub">Unlimited, year-round</span>
+                </a>
                 <a
-                  routerLink="/plan-your-visit"
-                  fragment="hours"
-                  (click)="closeNav()"
-                  >Opening Hours</a
-                >
-                <a routerLink="/faqs" (click)="closeNav()">FAQs</a>
-                <a
-                  href="https://waiver.roller.app/BolderAdventurePark/home"
+                  href="https://summer.bolderadventurepark.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Waiver</a
+                  (click)="closeNav()"
                 >
-              </nav>
+                  <span class="ndl-title">Summer Camps</span>
+                  <span class="ndl-sub">Now booking 2026</span>
+                </a>
+                <a routerLink="/group-events" (click)="closeNav()">
+                  <span class="ndl-title">Group Bookings</span>
+                  <span class="ndl-sub">10+ guests &amp; events</span>
+                </a>
+              </div>
               <a
-                class="plan-visit-main-link"
-                routerLink="/plan-your-visit"
-                (click)="closeNav()"
+                class="nav-dropdown-cta"
+                href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Plan Your Visit <span>↗</span>
+                Book Tickets <span aria-hidden="true">↗</span>
               </a>
             </div>
 
-            <div class="plan-visit-cards">
+            <div class="nav-dd-tickets">
+              <span class="nav-dd-tickets-label">Day Tickets</span>
               <a
-                class="plan-visit-card"
-                routerLink="/plan-your-visit"
+                class="nav-dd-ticket"
+                routerLink="/tickets-passes/base-camp"
                 (click)="closeNav()"
+                [style.--tc]="'#1ba1e2'"
               >
-                <img
-                  src="assets/images/Action-on-the-ground.jpg"
-                  alt="Plan your visit"
-                />
-                <span class="plan-visit-ribbon">First Time? Start Here</span>
-                <strong>Plan Your Visit</strong>
+                <span class="nav-dd-ticket-top">
+                  <span class="nav-dd-ticket-name">Base Camp</span>
+                  <span class="nav-dd-ticket-lvl">Lvl 01</span>
+                </span>
+                <span class="nav-dd-ticket-sub">Action on the ground</span>
+                <span class="nav-dd-ticket-foot">
+                  <span class="nav-dd-ticket-price">From $24.99</span>
+                  <span class="nav-dd-ticket-arrow" aria-hidden="true">→</span>
+                </span>
+                <span class="nav-dd-ticket-save">◆ Save $7 booking online</span>
               </a>
               <a
-                class="plan-visit-card"
-                routerLink="/birthday-parties"
+                class="nav-dd-ticket is-top"
+                routerLink="/tickets-passes/extreme-all-access"
                 (click)="closeNav()"
+                [style.--tc]="'#e6179e'"
               >
-                <img
-                  src="assets/images/Birthday-parties.jpg"
-                  alt="Birthday parties"
-                />
-                <strong>Birthday Parties</strong>
-              </a>
-              <a
-                class="plan-visit-card"
-                routerLink="/group-events"
-                (click)="closeNav()"
-              >
-                <img
-                  src="assets/images/Group-events.jpg"
-                  alt="Group bookings"
-                />
-                <strong>Group Bookings</strong>
+                <span class="nav-dd-ticket-top">
+                  <span class="nav-dd-ticket-name">All Access</span>
+                  <span class="nav-dd-ticket-lvl">Lvl 02</span>
+                </span>
+                <span class="nav-dd-ticket-sub">Everything in the park</span>
+                <span class="nav-dd-ticket-foot">
+                  <span class="nav-dd-ticket-price">From $34.99</span>
+                  <span class="nav-dd-ticket-arrow" aria-hidden="true">→</span>
+                </span>
+                <span class="nav-dd-ticket-save">◆ Save $7 booking online</span>
               </a>
             </div>
           </div>
         </div>
 
-        <a
-          routerLink="/attractions"
-          routerLinkActive="is-active"
-          (click)="closeNav()"
-          >Attractions</a
+        <!-- ── Group 2: Plan Your Visit ── -->
+        <div
+          class="nav-group"
+          [class.is-open]="openMenu === 'plan'"
+          (mouseenter)="openDropdown('plan')"
+          (mouseleave)="scheduleDropdownClose()"
         >
-        <a
-          routerLink="/birthday-parties"
-          routerLinkActive="is-active"
-          (click)="closeNav()"
-          >Birthday Parties</a
+          <button class="nav-group-trigger" type="button">
+            Plan Your Visit <span class="nav-caret">⌄</span>
+          </button>
+
+          <div
+            class="nav-dropdown wide nav-dropdown--plan"
+            [class.is-open]="openMenu === 'plan'"
+            (mouseenter)="openDropdown('plan')"
+            (mouseleave)="scheduleDropdownClose()"
+          >
+            <div class="nav-dd-main">
+              <div class="nav-dropdown-list">
+                <a routerLink="/plan-your-visit" (click)="closeNav()">
+                  <span class="ndl-title">Know Before You Go</span>
+                  <span class="ndl-sub">First time? Start here</span>
+                </a>
+                <a
+                  routerLink="/plan-your-visit"
+                  fragment="hours"
+                  (click)="closeNav()"
+                >
+                  <span class="ndl-title">Opening Hours</span>
+                  <span class="ndl-sub">Open from 11am daily</span>
+                </a>
+                <a routerLink="/faqs" (click)="closeNav()">
+                  <span class="ndl-title">FAQs</span>
+                  <span class="ndl-sub">Heights, safety &amp; more</span>
+                </a>
+                <a
+                  href="https://waiver.roller.app/BolderAdventurePark/home"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  (click)="closeNav()"
+                >
+                  <span class="ndl-title">Sign Your Waiver</span>
+                  <span class="ndl-sub">Save time at check-in</span>
+                </a>
+                <a routerLink="/contact-us" (click)="closeNav()">
+                  <span class="ndl-title">Contact &amp; Directions</span>
+                  <span class="ndl-sub">Grand Prairie, TX</span>
+                </a>
+              </div>
+              <a
+                class="nav-dropdown-cta ghost"
+                routerLink="/plan-your-visit"
+                (click)="closeNav()"
+              >
+                Plan Your Visit <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <a
+              class="nav-dropdown-feature"
+              routerLink="/plan-your-visit"
+              (click)="closeNav()"
+            >
+              <img
+                src="assets/images/Action-on-the-ground.jpg"
+                alt="Inside Bolder Adventure Park"
+              />
+              <span class="ndf-tag">Before You Go</span>
+              <span class="ndf-meta">
+                <span class="ndf-meta-row">◆ Open 11AM Daily</span>
+                <span class="ndf-meta-row">◆ Grand Prairie, TX</span>
+              </span>
+              <strong>Plan The Perfect Day</strong>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Group 3: Experiences ── -->
+        <div
+          class="nav-group"
+          [class.is-open]="openMenu === 'experiences'"
+          (mouseenter)="openDropdown('experiences')"
+          (mouseleave)="scheduleDropdownClose()"
         >
-        <a
-          href="https://summer.bolderadventurepark.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          (click)="closeNav()"
-          >Summer Camps</a
-        >
-        <a
-          routerLink="/group-events"
-          routerLinkActive="is-active"
-          (click)="closeNav()"
-          >Groups</a
-        >
-        <a
-          routerLink="live-events"
-          routerLinkActive="is-active"
-          (click)="closeNav()"
-          >Live Events</a
-        >
+          <button class="nav-group-trigger" type="button">
+            Experiences <span class="nav-caret">⌄</span>
+          </button>
+
+          <div
+            class="nav-dropdown wide nav-dropdown--experiences"
+            [class.is-open]="openMenu === 'experiences'"
+            (mouseenter)="openDropdown('experiences')"
+            (mouseleave)="scheduleDropdownClose()"
+          >
+            <div class="nav-dropdown-list">
+              <a routerLink="/attractions" (click)="closeNav()">
+                <span class="ndl-title">All Attractions</span>
+                <span class="ndl-sub">10 ways to play</span>
+              </a>
+              <a routerLink="/birthday-parties" (click)="closeNav()">
+                <span class="ndl-title">Birthday Parties</span>
+                <span class="ndl-sub">Worry-free celebrations</span>
+              </a>
+              <a routerLink="/group-events" (click)="closeNav()">
+                <span class="ndl-title">Group Events</span>
+                <span class="ndl-sub">Teams, schools &amp; clubs</span>
+              </a>
+              <a routerLink="/live-events" (click)="closeNav()">
+                <span class="ndl-title">Live Events</span>
+                <span class="ndl-sub">What's on at Bolder</span>
+              </a>
+            </div>
+
+            <div class="nav-dd-events">
+              <span class="nav-dd-events-label">
+                <span class="nav-dd-live-dot"></span>What's On
+              </span>
+              <a
+                class="nav-dd-event"
+                routerLink="/live-events/mj-dejavu"
+                (click)="closeNav()"
+              >
+                <span class="nav-dd-event-date">
+                  <b>20</b><i>Jun</i>
+                </span>
+                <span class="nav-dd-event-info">
+                  <span class="nav-dd-event-title">MJ Dejavu</span>
+                  <span class="nav-dd-event-meta">Concert &middot; Main Stage</span>
+                </span>
+                <span class="nav-dd-event-tag tag-limited">Limited</span>
+              </a>
+              <a
+                class="nav-dd-event"
+                routerLink="/live-events/adult-night-july-2026"
+                (click)="closeNav()"
+              >
+                <span class="nav-dd-event-date">
+                  <b>03</b><i>Jul</i>
+                </span>
+                <span class="nav-dd-event-info">
+                  <span class="nav-dd-event-title">Adult Night</span>
+                  <span class="nav-dd-event-meta">18+ &middot; Whole Park</span>
+                </span>
+                <span class="nav-dd-event-tag tag-open">Open</span>
+              </a>
+              <a
+                class="nav-dd-event"
+                routerLink="/live-events/adult-night-august-2026"
+                (click)="closeNav()"
+              >
+                <span class="nav-dd-event-date">
+                  <b>07</b><i>Aug</i>
+                </span>
+                <span class="nav-dd-event-info">
+                  <span class="nav-dd-event-title">Adult Night</span>
+                  <span class="nav-dd-event-meta">18+ &middot; Whole Park</span>
+                </span>
+                <span class="nav-dd-event-tag tag-open">Open</span>
+              </a>
+              <a
+                class="nav-dd-events-all"
+                routerLink="/live-events"
+                (click)="closeNav()"
+              >
+                See all events <span aria-hidden="true">&#8594;</span>
+              </a>
+            </div>
+
+            <a
+              class="nav-dropdown-feature"
+              routerLink="/live-events/mj-dejavu"
+              (click)="closeNav()"
+            >
+              <img
+                src="assets/MJ Dejavu/0 - HERO IMAGE.png"
+                alt="MJ Dejavu live at Bolder"
+              />
+              <span class="ndf-tag">Don't Miss</span>
+              <span class="ndf-meta">
+                <span class="ndf-meta-row">◆ Jun 20 · 7PM</span>
+                <span class="ndf-meta-row">◆ #1 MJ Tribute</span>
+              </span>
+              <strong>MJ Dejavu Live</strong>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="navbar-actions">
@@ -205,7 +392,7 @@
 
         <a
           class="navbar-ticket"
-          href="https://ticket.bolderadventurepark.com/"
+          href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -260,26 +447,81 @@
     <nav class="side-menu-links">
       <a routerLink="/" (click)="closeNav()">Home</a>
 
-      <div class="side-menu-plan-item">
+      <!-- Tickets & Passes -->
+      <div class="side-menu-group">
         <button
-          class="side-menu-plan-trigger"
+          class="side-menu-group-trigger"
           type="button"
-          (click)="toggleSideMenuPlan()"
-          [class.is-open]="isSideMenuPlanOpen"
+          (click)="toggleSideGroup('tickets')"
+          [class.is-open]="openSideGroup === 'tickets'"
+        >
+          Tickets &amp; Passes <span class="side-menu-caret">&#8250;</span>
+        </button>
+        <div
+          class="side-menu-group-sub"
+          [class.is-open]="openSideGroup === 'tickets'"
+        >
+          <a routerLink="/tickets-passes" (click)="closeNav()"
+            >Tickets &amp; Pricing</a
+          >
+          <a routerLink="/memberships" (click)="closeNav()">Annual Passes</a>
+          <a
+            href="https://summer.bolderadventurepark.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="closeNav()"
+            >Summer Camps</a
+          >
+          <a routerLink="/group-events" (click)="closeNav()">Group Bookings</a>
+
+          <div class="sm-rich sm-tickets">
+            <span class="sm-rich-label">Day Tickets</span>
+            <a
+              class="sm-tk"
+              routerLink="/tickets-passes/base-camp"
+              (click)="closeNav()"
+              [style.--tc]="'#1ba1e2'"
+            >
+              <span class="sm-tk-row">
+                <span class="sm-tk-name">Base Camp</span>
+                <span class="sm-tk-price">From $24.99</span>
+              </span>
+              <span class="sm-tk-sub">Action on the ground</span>
+              <span class="sm-tk-save">◆ Save $7 booking online</span>
+            </a>
+            <a
+              class="sm-tk"
+              routerLink="/tickets-passes/extreme-all-access"
+              (click)="closeNav()"
+              [style.--tc]="'#e6179e'"
+            >
+              <span class="sm-tk-row">
+                <span class="sm-tk-name">All Access</span>
+                <span class="sm-tk-price">From $34.99</span>
+              </span>
+              <span class="sm-tk-sub">Everything in the park</span>
+              <span class="sm-tk-save">◆ Save $7 booking online</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan Your Visit -->
+      <div class="side-menu-group">
+        <button
+          class="side-menu-group-trigger"
+          type="button"
+          (click)="toggleSideGroup('plan')"
+          [class.is-open]="openSideGroup === 'plan'"
         >
           Plan Your Visit <span class="side-menu-caret">&#8250;</span>
         </button>
-        <div class="side-menu-plan-sub" [class.is-open]="isSideMenuPlanOpen">
+        <div
+          class="side-menu-group-sub"
+          [class.is-open]="openSideGroup === 'plan'"
+        >
           <a routerLink="/plan-your-visit" (click)="closeNav()"
             >Know Before You Go</a
-          >
-          <a routerLink="/attractions" (click)="closeNav()">Attractions</a>
-          <a routerLink="/birthday-parties" (click)="closeNav()"
-            >Birthday Parties</a
-          >
-          <a routerLink="/group-events" (click)="closeNav()">Group Events</a>
-          <a routerLink="/group-events" (click)="closeNav()"
-            >Corporate Events</a
           >
           <a routerLink="/plan-your-visit" fragment="hours" (click)="closeNav()"
             >Opening Hours</a
@@ -292,21 +534,82 @@
             (click)="closeNav()"
             >Waiver</a
           >
+          <a routerLink="/contact-us" (click)="closeNav()">Contact Us</a>
+
+          <div class="sm-rich sm-plan-info">
+            <span class="sm-chip">◆ Open 11AM Daily</span>
+            <span class="sm-chip">◆ Grand Prairie, TX</span>
+          </div>
         </div>
       </div>
 
-      <a routerLink="/birthday-parties" (click)="closeNav()"
-        >Birthday Parties</a
-      >
-      <a
-        href="https://s.bolderadventurepark.com/"
-        target="_blank"
-        (click)="closeNav()"
-        >Summer Camps</a
-      >
-      <a routerLink="/group-events" (click)="closeNav()">Groups</a>
-      <a routerLink="/live-events" (click)="closeNav()">Live Events</a>
-      <a routerLink="/contact-us" (click)="closeNav()">Contact Us</a>
+      <!-- Experiences -->
+      <div class="side-menu-group">
+        <button
+          class="side-menu-group-trigger"
+          type="button"
+          (click)="toggleSideGroup('experiences')"
+          [class.is-open]="openSideGroup === 'experiences'"
+        >
+          Experiences <span class="side-menu-caret">&#8250;</span>
+        </button>
+        <div
+          class="side-menu-group-sub"
+          [class.is-open]="openSideGroup === 'experiences'"
+        >
+          <a routerLink="/attractions" (click)="closeNav()">Attractions</a>
+          <a routerLink="/birthday-parties" (click)="closeNav()"
+            >Birthday Parties</a
+          >
+          <a routerLink="/group-events" (click)="closeNav()">Group Events</a>
+          <a routerLink="/group-events/corporate-events" (click)="closeNav()"
+            >Corporate Events</a
+          >
+          <a routerLink="/live-events" (click)="closeNav()">Live Events</a>
+
+          <div class="sm-rich sm-events">
+            <span class="sm-rich-label">
+              <span class="nav-dd-live-dot"></span>What's On
+            </span>
+            <a
+              class="sm-ev"
+              routerLink="/live-events/mj-dejavu"
+              (click)="closeNav()"
+            >
+              <span class="sm-ev-date"><b>20</b><i>Jun</i></span>
+              <span class="sm-ev-info">
+                <span class="sm-ev-title">MJ Dejavu</span>
+                <span class="sm-ev-meta">Concert &middot; Main Stage</span>
+              </span>
+              <span class="sm-ev-tag tag-limited">Limited</span>
+            </a>
+            <a
+              class="sm-ev"
+              routerLink="/live-events/adult-night-july-2026"
+              (click)="closeNav()"
+            >
+              <span class="sm-ev-date"><b>03</b><i>Jul</i></span>
+              <span class="sm-ev-info">
+                <span class="sm-ev-title">Adult Night</span>
+                <span class="sm-ev-meta">18+ &middot; Whole Park</span>
+              </span>
+              <span class="sm-ev-tag tag-open">Open</span>
+            </a>
+            <a
+              class="sm-ev"
+              routerLink="/live-events/adult-night-august-2026"
+              (click)="closeNav()"
+            >
+              <span class="sm-ev-date"><b>07</b><i>Aug</i></span>
+              <span class="sm-ev-info">
+                <span class="sm-ev-title">Adult Night</span>
+                <span class="sm-ev-meta">18+ &middot; Whole Park</span>
+              </span>
+              <span class="sm-ev-tag tag-open">Open</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <a
@@ -485,6 +788,7 @@
         <nav class="footer-nav" aria-label="Tickets">
           <h4 class="footer-nav-title">Tickets</h4>
           <ul>
+            <li><a routerLink="/tickets-passes">Tickets &amp; Passes</a></li>
             <li>
               <a
                 href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"

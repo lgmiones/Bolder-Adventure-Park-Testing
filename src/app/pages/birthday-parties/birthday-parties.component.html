@@ -102,34 +102,54 @@
         <h2>Party Packages</h2>
       </div>
       <div class="bp-packages-grid">
-        <div
-          class="bp-package-card sr sr-up"
+        <article
+          class="bp-card sr sr-up"
           *ngFor="let pkg of packages; let i = index"
-          [attr.data-sr-delay]="i * 0.1 + 's'"
-          [class.is-popular]="pkg.popular"
-          [style.--pkg-color]="pkg.color"
+          [attr.data-sr-delay]="i * 0.12 + 's'"
+          [class.is-top]="pkg.popular"
+          [style.--bc]="pkg.color"
         >
-          <div class="bpp-popular-tag" *ngIf="pkg.popular">Most Popular</div>
-          <div class="bpp-header">
-            <div class="bpp-tag">{{ pkg.tag }}</div>
-            <h3 class="bpp-name">{{ pkg.name }}</h3>
-            <div class="bpp-price">
-              <span class="bpp-amount">{{ pkg.price }}</span>
-              <span class="bpp-suffix">{{ pkg.priceSuffix }}</span>
-            </div>
-            <div class="bpp-note">{{ pkg.priceNote }}</div>
+          <span class="bp-flag" *ngIf="pkg.popular">Most Popular</span>
+
+          <div class="bp-card-img">
+            <img [src]="pkg.image" [alt]="pkg.name" loading="lazy" />
+            <span class="bp-badge">{{ pkg.tag }}</span>
           </div>
-          <ul class="bpp-includes">
-            <li *ngFor="let item of pkg.includes">{{ item }}</li>
-          </ul>
-          <a
-            href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*tawbul*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODA3NTM2NjEkbzYxJGcxJHQxNzgwNzU0NDAxJGo1NSRsMCRoMA..*_fplc*N3lueDFvWVNob0xRbUNYRU5IWGxuQmhtZVJuTGdvbVFucjNWQWFuRDZDNTVRcGM0MG52eEp3M0llMG9ldXF5MTU1cXpWJTJGUzRTS3ZiVUd5MzQ5bkZ2VTJjUk1QMEI1alJ1YVclMkJXWjR1YUFLWWtDSWh3ZkN4YVRZazJLb3loZyUzRCUzRA.."
-            target="_blank"
-            rel="noopener"
-            class="bpp-cta"
-            >Book This Package ↗</a
-          >
-        </div>
+
+          <div class="bp-card-body">
+            <h3 class="bp-card-name">{{ pkg.name }}</h3>
+
+            <div class="bp-sec">
+              <span class="bp-sec-label">◆ Package Includes</span>
+              <ul class="bp-list">
+                <li *ngFor="let inc of pkg.includes">{{ inc }}</li>
+              </ul>
+            </div>
+
+            <div class="bp-sec">
+              <span class="bp-sec-label">◆ Access To</span>
+              <p class="bp-access">{{ pkg.access }}</p>
+            </div>
+
+            <div class="bp-prices">
+              <div class="bp-price">
+                <strong>{{ pkg.priceWeekday }}<sup>*</sup></strong>
+                <span>Mon&ndash;Fri</span>
+              </div>
+              <div class="bp-price">
+                <strong>{{ pkg.priceWeekend }}<sup>*</sup></strong>
+                <span>Sat, Sun &amp; Holidays</span>
+              </div>
+            </div>
+
+            <p class="bp-extra">{{ pkg.extra }}</p>
+
+            <a [href]="bookUrl" target="_blank" rel="noopener" class="bp-card-cta">
+              Book Party <span aria-hidden="true">↗</span>
+            </a>
+            <p class="bp-foot">{{ footnote }}</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>

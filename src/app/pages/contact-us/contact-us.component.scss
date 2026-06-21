@@ -340,3 +340,6 @@
   .cta-actions { justify-content: center; }
   .cu-submit-btn { width: 100%; }
 }
+
+/* ── angular theme pass ── */
+.cu-info-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
