@@ -11,6 +11,74 @@
     </div>
   </div>
 
+  <!-- ── Welcome discount popup — full screen, shown after the intro splash ── -->
+  <div
+    class="deal-pop"
+    *ngIf="showDeal"
+    (click)="closeDeal()"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Day ticket online offer"
+  >
+    <span class="deal-pop-spark deal-pop-spark--1" aria-hidden="true">◆</span>
+    <span class="deal-pop-spark deal-pop-spark--2" aria-hidden="true">◆</span>
+    <span class="deal-pop-spark deal-pop-spark--3" aria-hidden="true">◆</span>
+
+    <div class="deal-pop-card" (click)="$event.stopPropagation()">
+      <button
+        class="deal-pop-x"
+        type="button"
+        aria-label="Close offer"
+        (click)="closeDeal()"
+      >
+        &times;
+      </button>
+
+      <div class="deal-pop-glow" aria-hidden="true"></div>
+      <div class="deal-pop-scan" aria-hidden="true"></div>
+
+      <span class="deal-pop-ribbon">★ Top Deal</span>
+
+      <div class="deal-pop-inner">
+        <span class="deal-pop-kicker">
+          <i>◆</i> Online Exclusive <span class="dpk-sep">·</span> Day Tickets
+        </span>
+
+        <h2 class="deal-pop-title">
+          Book Online &amp;
+          <span class="deal-pop-title-accent">Save&nbsp;$7</span>
+        </h2>
+
+        <p class="deal-pop-lead">
+          The best price is always online. Lock in your day ticket before you
+          explore — and pay less than you would at the door.
+        </p>
+
+        <ul class="deal-pop-feats">
+          <li><i>✓</i> Two ways to play — Base Camp &amp; All Access</li>
+          <li><i>✓</i> A full $7 cheaper than the door price</li>
+          <li><i>✓</i> Weather-proof fun under the 66,000&nbsp;sq&nbsp;ft dome</li>
+          <li><i>✓</i> Built for every age — and big kids too</li>
+        </ul>
+
+        <div class="deal-pop-actions">
+          <a
+            class="deal-pop-cta"
+            href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"
+            target="_blank"
+            rel="noopener"
+            (click)="closeDeal()"
+          >
+            Buy Online Tickets <span aria-hidden="true">↗</span>
+          </a>
+          <button class="deal-pop-skip" type="button" (click)="closeDeal()">
+            Maybe later — explore the park
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="noise"></div>
 
   <!-- ── Promo Ticker ── -->

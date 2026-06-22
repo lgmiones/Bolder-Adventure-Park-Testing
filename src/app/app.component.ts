@@ -21,13 +21,26 @@ export class AppComponent implements OnInit {
   private menuCloseTimer: ReturnType<typeof setTimeout> | null = null;
 
   showIntro: boolean;
+  /** Full-screen welcome deal popup, shown once per session right after the intro splash */
+  showDeal = false;
 
   constructor(private router: Router) {
     const KEY = 'bolder_intro_shown';
     this.showIntro = !sessionStorage.getItem(KEY);
     if (this.showIntro) {
       sessionStorage.setItem(KEY, '1');
+      // The intro splash fully fades out at ~4.8s — reveal the deal as it clears.
+      setTimeout(() => { this.showDeal = true; this.lockScroll(true); }, 4600);
     }
+  }
+
+  closeDeal(): void {
+    this.showDeal = false;
+    this.lockScroll(false);
+  }
+
+  private lockScroll(lock: boolean): void {
+    document.body.style.overflow = lock ? 'hidden' : '';
   }
 
   ngOnInit(): void {
