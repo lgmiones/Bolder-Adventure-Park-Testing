@@ -1,3 +1,5 @@
+:host { display: block; }
+
 .page-hero {
   position: relative;
   width: 100%;
@@ -138,3 +140,47 @@
 }
 .ph-content .sr-up { transform: translateY(20px); }
 .ph-content .sr.sr-visible { opacity: 1; transform: none; }
+
+/* ── Mobile responsiveness ── */
+@media (max-width: 640px) {
+  .page-hero {
+    height: clamp(320px, 52vh, 460px);
+  }
+
+  .ph-content {
+    padding: 0 1.25rem 2.5rem;
+  }
+
+  .ph-title {
+    font-size: clamp(2.6rem, 10vw, 4rem);
+  }
+
+  .ph-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .ph-bottom-fade {
+    height: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  .page-hero {
+    height: clamp(300px, 50vh, 420px);
+  }
+
+  .ph-title {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+  }
+
+  .ph-content {
+    padding: 0 1rem 2rem;
+  }
+
+  .ph-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.9rem;
+    margin-bottom: 0.7rem;
+  }
+}

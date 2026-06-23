@@ -652,6 +652,7 @@
 }
 
 @media (max-width: 640px) {
+  .inner-page { padding-top: 104px; }
   .tp-tier-grid { grid-template-columns: 1fr; }
   .tp-special-card { grid-template-columns: 1fr; }
   .tp-special-img { height: 180px; }
