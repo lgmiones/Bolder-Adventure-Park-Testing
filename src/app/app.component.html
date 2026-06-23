@@ -4,7 +4,7 @@
     <div class="intro-logo-wrap">
       <img
         class="intro-logo-img"
-        src="assets/images/bolder-logo-white-text.png"
+        src="assets/images/bolder-logo.png"
         alt="Bolder Adventure Park"
       />
       <div class="intro-line"></div>
@@ -143,16 +143,84 @@
   </div>
 
   <!-- ── Main Navbar ── -->
-  <header class="main-navbar-wrap">
+  <header class="main-navbar-wrap" [class.is-stuck]="navStuck">
     <nav class="main-navbar" aria-label="Main navigation">
       <a class="navbar-brand" routerLink="/" (click)="closeNav()">
         <img
-          src="assets/images/bolder-logo-white-text.png"
+          src="assets/images/bolder-logo.png"
           alt="Bolder Adventure Park"
         />
       </a>
 
       <div class="navbar-links">
+        <!-- ── Plan Your Visit (mega dropdown) ── -->
+        <div
+          class="nav-group"
+          [class.is-open]="openMenu === 'plan'"
+          (mouseenter)="openDropdown('plan')"
+          (mouseleave)="scheduleDropdownClose()"
+        >
+          <button class="nav-group-trigger" type="button">
+            Plan Your Visit <span class="nav-caret">⌄</span>
+          </button>
+
+          <div
+            class="nav-dropdown nav-mega"
+            [class.is-open]="openMenu === 'plan'"
+            (mouseenter)="openDropdown('plan')"
+            (mouseleave)="scheduleDropdownClose()"
+          >
+            <div class="nav-mega-list">
+              <span class="nav-mega-heading">Plan Your Visit</span>
+              <a routerLink="/tickets-passes" (click)="closeNav()">Ticket Information</a>
+              <a routerLink="/attractions" (click)="closeNav()">Explore The Attractions</a>
+              <a routerLink="/birthday-parties" (click)="closeNav()">Birthday Parties</a>
+              <a routerLink="/group-events" (click)="closeNav()">Groups Bookings</a>
+              <a routerLink="/group-events/corporate-events" (click)="closeNav()">Corporate Events</a>
+              <a routerLink="/plan-your-visit" fragment="hours" (click)="closeNav()">Opening Hours</a>
+              <a routerLink="/faqs" (click)="closeNav()">FAQs</a>
+              <a
+                href="https://waiver.roller.app/BolderAdventurePark/home"
+                target="_blank"
+                rel="noopener noreferrer"
+                (click)="closeNav()"
+              >Waiver</a>
+              <a class="nav-mega-list-cta" routerLink="/plan-your-visit" (click)="closeNav()">
+                Plan Your Visit <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="nav-mega-cards">
+              <a class="nav-mega-card" routerLink="/plan-your-visit" (click)="closeNav()">
+                <img src="assets/images/Action-on-the-ground.jpg" alt="Plan your visit" />
+                <span class="nmc-flag">First Time? Start Here</span>
+                <strong>Plan Your Visit</strong>
+              </a>
+              <a class="nav-mega-card" routerLink="/birthday-parties" (click)="closeNav()">
+                <img src="assets/images/Birthday-parties.jpg" alt="Birthday parties" />
+                <strong>Birthday Parties</strong>
+              </a>
+              <a class="nav-mega-card" routerLink="/group-events" (click)="closeNav()">
+                <img src="assets/images/Group-events.jpg" alt="Group bookings" />
+                <strong>Group Bookings</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="nav-link" routerLink="/birthday-parties" (click)="closeNav()">Birthday Parties</a>
+        <a
+          class="nav-link"
+          href="https://summer.bolderadventurepark.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="closeNav()"
+        >Summer Camps</a>
+        <a class="nav-link" routerLink="/group-events" (click)="closeNav()">Groups</a>
+        <a class="nav-link" routerLink="/live-events" (click)="closeNav()">Live Events</a>
+      </div>
+
+      <div class="navbar-links-OLD" hidden>
         <!-- ── Group 1: Tickets & Passes ── -->
         <div
           class="nav-group"

@@ -2,7 +2,7 @@
   width: 100%;
   overflow: hidden;
   padding: 1.5rem 0;
-  background: var(--black, #030303);
+  background: #ffffff;
   position: relative;
 
   &::before,
@@ -18,12 +18,12 @@
 
   &::before {
     left: 0;
-    background: linear-gradient(to right, var(--black, #030303), transparent);
+    background: linear-gradient(to right, #ffffff, transparent);
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(to left, var(--black, #030303), transparent);
+    background: linear-gradient(to left, #ffffff, transparent);
   }
 }
 

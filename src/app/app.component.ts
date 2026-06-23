@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -23,6 +23,13 @@ export class AppComponent implements OnInit {
   showIntro: boolean;
   /** Full-screen welcome deal popup, shown once per session right after the intro splash */
   showDeal = false;
+  /** True once the page is scrolled past the promo bar — pins the navbar to the very top */
+  navStuck = false;
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.navStuck = window.scrollY > 36;
+  }
 
   constructor(private router: Router) {
     const KEY = 'bolder_intro_shown';

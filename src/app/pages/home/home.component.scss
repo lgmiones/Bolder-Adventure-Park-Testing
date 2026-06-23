@@ -678,3 +678,108 @@
   .cg-watermark { font-size: clamp(5rem, 22vw, 9rem); top: -1.5rem; }
 }
 /* deal banner removed — replaced by app-level intro popup */
+
+/* ═══════════════════════════════════════════════════════════
+   HUGE "GET TICKETS" CTA BAND  ·  angular HUD
+═══════════════════════════════════════════════════════════ */
+.home-cta {
+  display: flex;
+  justify-content: center;
+  padding: clamp(1.6rem, 4vw, 3rem) 1.2rem;
+}
+.home-cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow: hidden;
+  padding: clamp(0.8rem, 1.6vw, 1.1rem) clamp(1.6rem, 3.5vw, 2.6rem);
+  background: linear-gradient(135deg, #ff8a3d, #f45113);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
+  filter: drop-shadow(0 12px 28px rgba(244, 81, 19, 0.45));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+.home-cta-btn span { font-size: 0.7em; }
+.home-cta-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+  transform: translateX(-130%);
+  animation: homeCtaShine 3.6s ease-in-out infinite;
+}
+@keyframes homeCtaShine {
+  0%, 55% { transform: translateX(-130%); }
+  100%    { transform: translateX(130%); }
+}
+.home-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  filter: drop-shadow(0 24px 54px rgba(244, 81, 19, 0.62));
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-cta-btn::after { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ░░  LIGHT / WHITE THEME OVERRIDES (home)  ░░
+   Flips the live-events carousel and the Parties & Groups
+   collage to a light palette. Kept LAST so it wins.
+═══════════════════════════════════════════════════════════ */
+
+/* ── Live events carousel ── */
+.home-events-section { background: transparent; }
+.home-events-title { color: #14202b; }
+
+.le-carousel-card {
+  background: #ffffff;
+  border: 1px solid #d7dde4;
+  border-top: 3px solid var(--orange);
+  box-shadow: none;
+  /* clip-path clips box-shadow → drop-shadow so the card reads on the light page */
+  filter: drop-shadow(0 16px 30px rgba(20, 33, 43, 0.13));
+}
+.le-car-img-overlay {
+  background: linear-gradient(to right, transparent 60%, #ffffff 100%);
+}
+.le-car-arrow {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #d7dde2;
+  color: #14202b;
+}
+.le-car-arrow:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
+.le-car-title { color: #14202b; }
+.le-car-meta span { color: #5b6770; }
+.le-car-sep { color: #aeb6bd !important; }
+.le-car-desc { color: #586571; }
+.le-car-cd-box { background: #f1f4f6; border-color: #e0e5e9; }
+.le-car-cd-num { color: #14202b; }
+.le-car-cd-label { color: #7a848c; }
+.le-car-detail-link { color: #5b6770; }
+.le-car-detail-link:hover { color: #14202b; }
+.le-car-dot { background: #d7dde2; }
+
+/* ── Parties & Groups header + collage ── */
+.celebrate-section {
+  background:
+    radial-gradient(110% 80% at 50% 0%, rgba(244, 81, 19, 0.05), transparent 60%);
+}
+.cel-title { color: #14202b; }
+.cel-sub { color: #586571; }
+
+.cg-watermark { color: rgba(20, 32, 43, 0.045); }
+.cg-img { border-color: #e4e8ec; }
+.cg-title { color: #14202b; }
+.cg-desc { color: #586571; }
+.cg-chip {
+  background: #f4f6f8;
+  border-color: #e0e5e9;
+  color: #28333d;
+}

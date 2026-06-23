@@ -75,11 +75,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /* TICKETS & PASSES pricing carousel - replace "$00.00" with real prices */
   passes = [
-    { name: 'Base Camp', level: 'Action on the Ground', color: '#1ba1e2', image: 'assets/All-Attraction/Adventure-nets.jpg', priceFrom: 'From', price: '$24.99', features: ['Jump Pad & Adventure Nets', 'Tubing Slides & Playground', 'Blaster Zone & Bumper Cars'], cta: 'Base Camp Details', slug: 'base-camp' },
-    { name: 'All Access', level: 'Everything In The Park', color: '#e6179e', image: 'assets/images/extreme-all-access-pass.jpg', priceFrom: 'From', price: '$34.99', features: ['Everything in Base Camp', 'Ropes, Zip Lines & Climbing', 'Mountain, Free Fall & $10 Arcade'], cta: 'All Access Details', featured: true, slug: 'extreme-all-access' },
-    { name: 'Annual Blue Pass', level: 'Annual - Ground', color: '#1ba1e2', image: 'assets/images/Blue-pass.png', priceFrom: 'Only', price: '$89.99', features: ['Unlimited ground level', 'Every day, all year', 'Pays off in 2-3 visits'], cta: 'Get Blue Pass' },
-    { name: 'Annual Black Diamond', level: 'Annual - All Access', color: '#e6179e', image: 'assets/images/Black-pass.png', priceFrom: 'Only', price: '$199.99', features: ['Unlimited all attractions', 'Ground + aerial, year-round', 'Exclusive member perks'], cta: 'Get Black Diamond' },
-    { name: 'Summer Pass', level: 'Seasonal', color: '#f7b500', image: 'assets/carousel-images/Carousel-3.jpg', priceFrom: 'From', price: '$00.00', features: ['Unlimited all summer', 'Great for school holidays', 'Skip single-ticket lines'], cta: 'Get Summer Pass' }
+    { name: 'Base Camp', level: 'Action on the Ground', color: '#1ba1e2', image: 'assets/Ticketing pic/Photo A1.jpg', priceFrom: 'From', price: '$24.99', features: ['Jump Pad & Adventure Nets', 'Tubing Slides & Playground', 'Blaster Zone & Bumper Cars'], cta: 'Base Camp Details', slug: 'base-camp', link: '' },
+    { name: 'All Access', level: 'Everything In The Park', color: '#e6179e', image: 'assets/Ticketing pic/Photo A2.jpg', priceFrom: 'From', price: '$34.99', features: ['Everything in Base Camp', 'Ropes, Zip Lines & Climbing', 'Mountain, Free Fall & $10 Arcade'], cta: 'All Access Details', featured: true, slug: 'extreme-all-access', link: '' },
+    { name: 'Birthday Parties', level: 'Celebrate', color: '#e6179e', image: 'assets/Ticketing pic/Photo A3.jpg', priceFrom: '', price: '', features: ['Private party rooms', 'Dedicated party host', 'Food & drink packages'], cta: 'Plan a Party', slug: '', link: '/birthday-parties' },
+    { name: 'Groups & Events', level: 'Get Together', color: '#1ba1e2', image: 'assets/Ticketing pic/Photo A4.jpg', priceFrom: '', price: '', features: ['10+ guest discounts', 'Schools, teams & churches', 'Custom group packages'], cta: 'Group Bookings', slug: '', link: '/group-events' },
+    { name: 'Live At Bolder', level: 'Live Events', color: '#f7b500', image: 'assets/Ticketing pic/Photo A5.jpg', priceFrom: '', price: '', features: ['Concerts & tribute acts', 'Adult-only nights', 'See the full lineup'], cta: "See What's On", slug: '', link: '/live-events' }
   ];
 
   scrollPasses(dir: number): void {

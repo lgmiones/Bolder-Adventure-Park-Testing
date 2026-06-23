@@ -1568,9 +1568,16 @@ a {
 /* ── Actions ── */
 .hero-actions {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.85rem;
+  width: min(520px, 90%);
+  margin: 0 auto;
+}
+/* stacked, full-width hero buttons (Get Tickets above Explore Attractions) */
+.hero-actions > .btn {
+  width: 100%;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
 }
 
 .hero-btn-primary {
@@ -6680,8 +6687,7 @@ a {
 .tk-section {
   padding: clamp(4rem, 8vw, 6.5rem) 0 clamp(3.5rem, 7vw, 5.5rem);
   background:
-    radial-gradient(110% 80% at 50% 0%, rgba(244, 81, 19, 0.08), transparent 60%),
-    var(--black);
+    radial-gradient(110% 80% at 50% 0%, rgba(244, 81, 19, 0.05), transparent 60%);
   overflow: hidden;
 }
 
@@ -6757,8 +6763,8 @@ a {
   z-index: 3;
   pointer-events: none;
 }
-.tk-rail-wrap::before { left: 0;  background: linear-gradient(90deg, var(--black), transparent); }
-.tk-rail-wrap::after  { right: 0; background: linear-gradient(270deg, var(--black), transparent); }
+.tk-rail-wrap::before { left: 0;  background: linear-gradient(90deg, #e9ecf1, transparent); }
+.tk-rail-wrap::after  { right: 0; background: linear-gradient(270deg, #e9ecf1, transparent); }
 
 .tk-rail {
   display: flex;
@@ -6986,6 +6992,29 @@ a {
 /* =========================================================
    HERO · COMPACT TICKETING GUIDE (Base / Summit / Extreme)
 ========================================================= */
+/* value-proof badge in the hero (replaces the tier guide) — plain image, no card */
+.hero-proof-badge {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  margin: 2rem auto 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.25s ease;
+}
+.hero-proof-badge img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* lift the badge off the photo without a glass panel */
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55));
+}
+.hero-proof-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
 .hero-guide {
   margin-top: 2rem;
   display: flex;
@@ -7275,3 +7304,501 @@ a {
   border-radius: 0;
   clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ░░  WHITE / LIGHT THEME  —  main-site look (placed LAST, wins)  ░░
+   Reverts the navbar to the bolderadventurepark.com floating white pill,
+   recolours the global chrome (promo, side menu, dropdown, splash, popup)
+   to a light palette. Per-page section colours live in their own .scss.
+═══════════════════════════════════════════════════════════════════════ */
+
+/* light theme tokens */
+:host {
+  --ink: #14202b;
+  --ink-soft: #586571;
+  --line: #e4e8ec;
+  --paper: #ffffff;
+  --paper-2: #f4f6f8;
+}
+
+/* ── Global surface → light ── */
+.site {
+  background: #e9ecf1 !important;
+  color: var(--ink);
+}
+.noise { display: none !important; }
+body { background: #e9ecf1; }
+
+/* default body text on the light surface (footer keeps its own dark theme) */
+main { color: var(--ink); }
+main p,
+main li,
+main span,
+main strong { color: inherit; }
+
+/* ─────────────── PROMO TICKER → solid orange, black text ─────────────── */
+.promo-strip {
+  /* promo scrolls away with the page; only the navbar sticks */
+  position: absolute !important;
+  height: 40px !important;
+  background: #f3933a !important;
+  border-bottom: none !important;
+  color: #15110c !important;
+}
+.promo-glow { display: none !important; }
+.promo-item {
+  color: #15110c !important;
+  font-weight: 800 !important;
+}
+.promo-diamond {
+  color: #15110c !important;
+  font-style: normal;
+  font-size: 0.5rem !important;
+  transform: translateY(-1px);
+}
+
+/* ─────────────── NAVBAR → floating white pill ─────────────── */
+.main-navbar-wrap {
+  position: fixed !important;
+  top: 40px !important;
+  padding: 0 clamp(0.8rem, 3vw, 2rem) !important;
+  transition: top 0.28s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+/* once scrolled past the promo, the navbar slides up to the very top */
+.main-navbar-wrap.is-stuck {
+  top: 8px !important;
+}
+
+.main-navbar {
+  position: relative;
+  max-width: 1360px !important;
+  width: 100% !important;
+  margin: 14px auto 0 !important;
+  min-height: 80px !important;
+  padding: 0.5rem 0.7rem 0.5rem 1.6rem !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center;
+  gap: 1rem !important;
+  border-radius: 999px !important;
+  border: none !important;
+  background: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 22px 50px rgba(11, 22, 31, 0.16), 0 4px 12px rgba(11, 22, 31, 0.06) !important;
+}
+.main-navbar::before,
+.main-navbar::after { content: none !important; display: none !important; }
+
+.navbar-brand { grid-column: 1 !important; }
+.navbar-brand img {
+  width: auto !important;
+  height: 56px !important;
+  filter: none !important;
+}
+
+.navbar-links {
+  grid-column: 2 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  gap: clamp(0.6rem, 1.6vw, 2rem) !important;
+}
+.navbar-actions { grid-column: 3 !important; justify-self: end; }
+
+/* nav triggers + plain links → dark text, no skew/diamond */
+.nav-group-trigger,
+.nav-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px !important;
+  padding: 0 1rem !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 999px !important;
+  color: #16222e !important;
+  font-family: var(--font-body) !important;
+  font-size: 1.02rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+/* kill the angular skew tab + diamond marker */
+.nav-group-trigger::before,
+.nav-group-trigger::after { content: none !important; display: none !important; }
+
+.nav-group:hover .nav-group-trigger,
+.nav-group.is-open .nav-group-trigger,
+.nav-link:hover {
+  background: #eef1f3 !important;
+  color: #0f1a24 !important;
+}
+
+/* show the caret again, rotate on open */
+.nav-group .nav-caret {
+  display: inline-block !important;
+  font-size: 0.7em;
+  line-height: 1;
+  transition: transform 0.22s ease;
+}
+.nav-group.is-open .nav-caret { transform: rotate(180deg); }
+
+/* ── White mega dropdown (Plan Your Visit) ── */
+/* anchor the mega panel to the navbar pill (not the trigger) so it aligns
+   under the logo and never clips off-screen on inner pages */
+.nav-group { position: static !important; }
+
+/* big mega panel spanning (almost) the full navbar width, like the main site */
+.nav-dropdown.nav-mega {
+  top: calc(100% + 14px) !important;
+  left: clamp(16px, 2.4vw, 40px) !important;
+  right: clamp(16px, 2.4vw, 40px) !important;
+  width: auto !important;
+  padding: 30px !important;
+  display: grid !important;
+  grid-template-columns: 0.62fr 1.38fr !important;
+  gap: 34px !important;
+  background: #ffffff !important;
+  border: 1px solid #eceff2 !important;
+  border-top: none !important;
+  border-radius: 28px !important;
+  clip-path: none !important;
+  transform: translateY(10px) !important;
+  box-shadow: 0 40px 90px rgba(11, 22, 31, 0.28) !important;
+  filter: none !important;
+}
+.nav-dropdown.nav-mega.is-open { transform: translateY(0) !important; }
+
+.nav-mega-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-right: 26px;
+  border-right: 1px solid #eceff2;
+}
+.nav-mega-heading {
+  margin: 4px 12px 14px;
+  color: #14202b;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+.nav-mega-list a {
+  padding: 11px 14px;
+  border-radius: 12px;
+  color: #1c2934 !important;
+  font-family: var(--font-body);
+  font-size: 1.12rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+.nav-mega-list a:hover {
+  background: #f4f6f8;
+  color: var(--orange) !important;
+  transform: translateX(4px);
+}
+.nav-mega-list-cta {
+  margin-top: 10px;
+  color: var(--orange) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.nav-mega-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.nav-mega-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(360px, 30vw, 480px);
+  padding: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #14202b;
+  text-decoration: none;
+  isolation: isolate;
+}
+.nav-mega-card img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.72);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.nav-mega-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(7, 20, 30, 0.05), rgba(7, 20, 30, 0.82));
+}
+.nav-mega-card:hover img { transform: scale(1.07); filter: brightness(0.85); }
+.nav-mega-card strong {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 2.4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.nmc-flag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  padding: 6px 13px;
+  background: var(--orange);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+
+/* ── Right actions ── */
+.navbar-location { color: #16222e !important; }
+.navbar-location:hover { color: var(--orange) !important; }
+
+.navbar-ticket {
+  min-height: 54px !important;
+  padding: 0 1.6rem !important;
+  border-radius: 999px !important;
+  background: var(--orange) !important;
+  color: #fff !important;
+  font-family: var(--font-body) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  clip-path: none !important;
+  box-shadow: 0 10px 22px rgba(244, 81, 19, 0.32) !important;
+  filter: none !important;
+}
+.navbar-ticket:hover {
+  background: #16222e !important;
+  color: #fff !important;
+  box-shadow: 0 12px 26px rgba(11, 22, 31, 0.28) !important;
+  filter: none !important;
+}
+
+.navbar-divider { background: #d7dde2 !important; }
+
+.navbar-menu span {
+  background: #16222e !important;
+  transform: none !important;
+}
+.navbar-menu:hover span { background: var(--orange) !important; }
+
+/* ─────────────── SIDE MENU → white ─────────────── */
+.side-menu {
+  background: #ffffff !important;
+  color: #14202b !important;
+  border-left: none !important;
+  box-shadow: -30px 0 90px rgba(11, 22, 31, 0.18) !important;
+}
+.side-menu::before,
+.side-menu-links::before { content: none !important; display: none !important; }
+.side-menu-close { color: #14202b !important; }
+.side-menu-links > a,
+.side-menu-group-trigger { color: #14202b !important; }
+.side-menu-links > a:hover,
+.side-menu-group-trigger:hover { color: var(--orange) !important; }
+.side-menu-group-sub a { color: #586571 !important; }
+.side-menu-group-sub a:hover { color: var(--orange) !important; }
+.side-menu-info h3,
+.side-menu-info strong { color: #14202b !important; }
+.side-menu-info p { color: #586571 !important; }
+.side-menu-ticket {
+  background: var(--orange) !important;
+  color: #fff !important;
+  clip-path: none !important;
+  border-radius: 999px !important;
+}
+
+/* ── Intro splash → white ── */
+.intro-overlay { background: #ffffff !important; }
+.intro-overlay::before { opacity: 0.04 !important; }
+.intro-line {
+  background: linear-gradient(to right, transparent, rgba(20, 32, 43, 0.4), rgba(20, 32, 43, 0.9), rgba(20, 32, 43, 0.4), transparent) !important;
+}
+
+/* ── Deal popup → light card ── */
+.deal-pop {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(244, 81, 19, 0.12), transparent 60%),
+    rgba(20, 32, 43, 0.55) !important;
+}
+.deal-pop-card {
+  background:
+    radial-gradient(140% 120% at 100% 0%, rgba(244, 81, 19, 0.08), transparent 55%),
+    #ffffff !important;
+  border: 1px solid #e7ebee !important;
+  border-top: 4px solid var(--orange) !important;
+  box-shadow: 0 40px 80px rgba(11, 22, 31, 0.3) !important;
+}
+.deal-pop-card::before { opacity: 0.4 !important; }
+.deal-pop-x {
+  background: #f1f4f6 !important;
+  border: 1px solid #e0e5e9 !important;
+  color: #14202b !important;
+}
+.deal-pop-x:hover { background: var(--orange) !important; color: #fff !important; }
+.deal-pop-title { color: #14202b !important; }
+.deal-pop-lead { color: #5b6770 !important; }
+.deal-pop-feats li { color: #28333d !important; }
+.deal-pop-skip { color: #7a848c !important; }
+.deal-pop-skip:hover { color: #14202b !important; }
+
+/* (footer intentionally kept on its own dark theme — common for light sites) */
+
+/* ─────────────── responsive: keep pill tidy ─────────────── */
+@media (max-width: 1100px) {
+  .navbar-links { display: none !important; }
+  .main-navbar { grid-template-columns: auto 1fr auto !important; }
+}
+@media (max-width: 700px) {
+  .main-navbar { min-height: 66px !important; border-radius: 26px !important; }
+  .navbar-brand img { height: 44px !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ░░  LIGHT / WHITE THEME — global page sections  ░░
+   Flips home stats / tickets / video reel / reviews / visit + shared
+   section headers to a light palette. Image-overlay text, accent badges
+   and orange buttons are intentionally left as-is.
+═══════════════════════════════════════════════════════════════════════ */
+
+/* shared section headers + helpers */
+.section-title h2 { color: #14202b !important; }
+.section-title p { color: #586571 !important; }
+.accent-orange { color: var(--orange) !important; }
+
+/* ── Stats scoreboard (image tiles keep their white numbers) ── */
+.sh-headline { color: #14202b !important; }
+.sh-copy { color: #586571 !important; }
+.sh-copy strong { color: var(--orange) !important; }
+
+/* ── Tickets carousel ── */
+.tk-title { color: #14202b !important; }
+.tk-sub { color: #586571 !important; }
+/* white cards on the soft-grey page: clear border + tier-coloured top edge
+   (drop-shadow is clipped by the scroll rail, so the border/accent carry it) */
+.tk-card {
+  background: #ffffff !important;
+  border: 1px solid #d7dde4 !important;
+  border-top: 4px solid var(--tk-color) !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 10px 20px rgba(20, 33, 43, 0.12)) !important;
+}
+.tk-card:hover {
+  border-color: var(--tk-color) !important;
+  filter: drop-shadow(0 16px 28px rgba(20, 33, 43, 0.2)) !important;
+}
+.tk-name { color: #14202b !important; }
+.tk-feats li { color: #28333d !important; }
+.tk-price-from { color: #7a848c !important; }
+.tk-arrow {
+  background: #ffffff !important;
+  border-color: #d7dde2 !important;
+  color: #14202b !important;
+}
+.tk-arrow:hover { background: var(--orange) !important; border-color: var(--orange) !important; color: #fff !important; }
+.tk-foot-link { color: #14202b !important; }
+.tk-foot-link:hover { color: var(--orange) !important; }
+
+/* ── YouTube reel band ── */
+.comparison { background: transparent !important; }
+.vr-shelf-heading { color: #14202b !important; }
+.vr-yt-logo-wrap { background: #f1f4f6 !important; }
+.vr-yt-wordmark { color: #14202b !important; }
+.vr-see-all { color: #14202b !important; border-color: #d7dde2 !important; }
+.vr-see-all:hover { color: #fff !important; }
+
+/* ── Reviews ── */
+.reviews { background: transparent !important; }
+.review-card {
+  background: #ffffff !important;
+  border: 1px solid #d7dde4 !important;
+  border-top: 3px solid var(--orange) !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 16px 30px rgba(20, 33, 43, 0.14)) !important;
+}
+.review-arrow {
+  background: #ffffff !important;
+  border-color: #d7dde2 !important;
+  color: #14202b !important;
+}
+.review-arrow:hover { background: var(--orange) !important; border-color: var(--orange) !important; color: #fff !important; }
+.review-body,
+.review-body p,
+.review-quote { color: #28333d !important; }
+.review-meta strong,
+.review-name { color: #14202b !important; }
+.review-time,
+.review-meta span { color: #7a848c !important; }
+.review-dot { background: #c2cad3 !important; }
+.review-dot.is-active { background: var(--orange) !important; }
+
+/* ── Visit / map → light & cohesive ── */
+.visit { background: transparent !important; }
+/* map: drop the dark invert, use a clean light embed */
+.map-shell {
+  background: #e3e7ec !important;
+  border-color: #d7dde2 !important;
+}
+.map-frame {
+  filter: grayscale(0.12) contrast(0.96) brightness(1.04) !important;
+  opacity: 1 !important;
+}
+/* fade the map into the grey page instead of black */
+.map-shell::before {
+  background:
+    linear-gradient(180deg, transparent 35%, rgba(233, 236, 241, 0.6) 82%, #e9ecf1 100%),
+    radial-gradient(circle at 50% 48%, transparent 0 13rem, rgba(20, 33, 43, 0.05) 31rem) !important;
+}
+.visit-card {
+  background: #ffffff !important;
+  border: 1px solid #e1e6eb !important;
+  box-shadow: 0 26px 60px rgba(20, 33, 43, 0.2) !important;
+}
+.visit-logo-img { filter: drop-shadow(0 8px 18px rgba(20, 33, 43, 0.18)) !important; }
+.visit-card h2,
+.visit-card h3,
+.visit-title { color: #14202b !important; }
+.visit-card p,
+.visit-card span,
+.visit-info { color: #586571 !important; }
+/* ghost "Get Directions" button → readable on the light visit card */
+.visit-actions .btn-outline {
+  color: #14202b !important;
+  border-color: #c9d0d6 !important;
+}
+.visit-actions .btn-outline:hover { color: #fff !important; }
+
+/* ── Attractions filter tabs (cards stay image w/ white titles) ── */
+.attraction-tab {
+  background: #ffffff !important;
+  border-color: #d7dde2 !important;
+  color: #14202b !important;
+}
+.attraction-tab.is-active { background: var(--orange) !important; color: #fff !important; }

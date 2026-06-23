@@ -6,7 +6,11 @@
         class="hero-video"
         src="assets/videos/Bolder-video.webm"
         poster="assets/After-hero-section/Attractions - A view from Mezz 1.jpg"
-        autoplay muted loop playsinline preload="none"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
       ></video>
     </div>
     <div class="hero-overlay"></div>
@@ -26,7 +30,8 @@
       </h1>
 
       <p class="hero-sub reveal delay-2">
-        North Texas' premier 66,000 sq&nbsp;ft indoor thrill zone — built for the bold.
+        North Texas' premier 66,000 sq&nbsp;ft indoor thrill zone — built for
+        the bold.
       </p>
 
       <div class="hero-actions reveal delay-3">
@@ -35,34 +40,39 @@
           target="_blank"
           rel="noopener"
           class="btn btn-orange btn-lg hero-btn-primary"
-        >Get Tickets ↗</a>
-        <a routerLink="/attractions" class="btn btn-outline btn-lg">Explore Attractions</a>
+          >Get Tickets ↗</a
+        >
+        <a routerLink="/attractions" class="btn btn-outline btn-lg"
+          >Explore Attractions</a
+        >
       </div>
 
       <div class="hero-proof reveal delay-4">
-        <span class="hproof-item"><span class="hproof-check">✓</span>Best for families</span>
+        <span class="hproof-item"
+          ><span class="hproof-check">✓</span>Best for families</span
+        >
         <span class="hproof-sep"></span>
-        <span class="hproof-item"><span class="hproof-check">✓</span>Birthday packages</span>
+        <span class="hproof-item"
+          ><span class="hproof-check">✓</span>Birthday packages</span
+        >
         <span class="hproof-sep"></span>
-        <span class="hproof-item"><span class="hproof-check">✓</span>Group events</span>
+        <span class="hproof-item"
+          ><span class="hproof-check">✓</span>Group events</span
+        >
       </div>
 
-      <!-- Compact ticketing guide -->
-      <div class="hero-guide reveal delay-4">
-        <span class="hg-label">Pick your level</span>
-        <div class="hg-tiers">
-          <a class="hg-tier hg-base" routerLink="/tickets-passes/base-camp">
-            <span class="hg-dot"></span>
-            <strong>Base Camp</strong>
-            <span class="hg-sub">Action on the ground</span>
-          </a>
-          <a class="hg-tier hg-extreme" routerLink="/tickets-passes/extreme-all-access">
-            <span class="hg-dot"></span>
-            <strong>All Access</strong>
-            <span class="hg-sub">Everything + $10 arcade</span>
-          </a>
-        </div>
-      </div>
+      <!-- Value-proof badge -->
+      <a
+        class="hero-proof-badge reveal delay-4"
+        routerLink="/tickets-passes"
+        aria-label="83% of visitors say Bolder is better value — see tickets"
+      >
+        <img
+          src="assets/images/ProofOfVisitors.png"
+          alt="83% of visitors said Bolder Adventure Park is a better value than competitors"
+          loading="lazy"
+        />
+      </a>
     </div>
 
     <div class="hero-scroll-hint reveal delay-4" aria-hidden="true">
@@ -73,105 +83,200 @@
     </div>
   </section>
 
-  <!-- Stats / About — angular HUD scoreboard -->
-  <section class="about-stats" id="about">
-    <div class="sh-inner">
-      <div class="sh-intro sr sr-up">
-        <span class="sh-kicker">◆&nbsp;&nbsp;Bolder By The Numbers</span>
-        <h2 class="sh-headline">
-          North Texas' biggest <span class="accent-orange">indoor</span> adventure
-        </h2>
-        <p class="sh-copy">
-          Year-round fun under a <strong>66,000 sq ft</strong> dome — one of the most unique
-          family days out in North Texas. Fun for every age… and big kids too.
-        </p>
-        <div class="sh-accent-line"></div>
-      </div>
-
-      <div class="sh-grid">
-        <a class="sh-tile sr sr-up" routerLink="/attractions" style="--sh-color:#f45113" data-sr-delay="0.04s">
-          <img src="assets/After-hero-section/Attractions - A view from Mezz 1.jpg" alt="Attractions" loading="lazy"/>
-          <span class="sh-diamond">◆</span>
-          <span class="sh-num" data-count="18" data-suffix="+">0</span>
-          <span class="sh-label">Attractions</span>
-        </a>
-        <a class="sh-tile sr sr-up" routerLink="/plan-your-visit" style="--sh-color:#1ba1e2" data-sr-delay="0.12s">
-          <img src="assets/After-hero-section/Dome photos-03988-2.jpg" alt="66,000 sq ft dome" loading="lazy"/>
-          <span class="sh-diamond">◆</span>
-          <span class="sh-num" data-count="66000" data-format="comma">0</span>
-          <span class="sh-label">Square Foot Dome</span>
-        </a>
-        <a class="sh-tile sr sr-up" routerLink="/attractions" style="--sh-color:#f7b500" data-sr-delay="0.2s">
-          <img src="assets/After-hero-section/DSC08395.jpg" alt="All out fun" loading="lazy"/>
-          <span class="sh-diamond">◆</span>
-          <span class="sh-num" data-count="100" data-suffix="%">0</span>
-          <span class="sh-label">All Out Fun</span>
-        </a>
-        <a class="sh-tile sr sr-up" routerLink="/birthday-parties" style="--sh-color:#e6179e" data-sr-delay="0.28s">
-          <img src="assets/images/Birthday-parties.jpg" alt="5 star party venue" loading="lazy"/>
-          <span class="sh-diamond">◆</span>
-          <span class="sh-num" data-count="5" data-suffix="★">0</span>
-          <span class="sh-label">Star Party Venue</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ══ TICKETS & PASSES — PRICING CAROUSEL ══ -->
   <section class="tk-section" id="tickets">
     <div class="tk-head">
       <div class="tk-head-text sr sr-up">
-        <span class="tk-kicker">◆&nbsp;&nbsp;Tickets &amp; Passes&nbsp;&nbsp;◆</span>
-        <h2 class="tk-title">Pick Your <span class="accent-orange">Pass</span></h2>
-        <p class="tk-sub">Day tickets, annual passes and summer passes — every level of the adventure, with the best price guaranteed when you book online.</p>
+        <span class="tk-kicker"
+          >◆&nbsp;&nbsp;Tickets &amp; Passes&nbsp;&nbsp;◆</span
+        >
+        <h2 class="tk-title">
+          Pick Your <span class="accent-orange">Pass</span>
+        </h2>
+        <p class="tk-sub">
+          Day tickets, annual passes and summer passes — every level of the
+          adventure, with the best price guaranteed when you book online.
+        </p>
       </div>
       <div class="tk-nav sr sr-up" data-sr-delay="0.1s">
-        <button class="tk-arrow" type="button" (click)="scrollPasses(-1)" aria-label="Previous passes">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        <button
+          class="tk-arrow"
+          type="button"
+          (click)="scrollPasses(-1)"
+          aria-label="Previous passes"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
         </button>
-        <button class="tk-arrow" type="button" (click)="scrollPasses(1)" aria-label="Next passes">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        <button
+          class="tk-arrow"
+          type="button"
+          (click)="scrollPasses(1)"
+          aria-label="Next passes"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </button>
       </div>
     </div>
 
     <div class="tk-rail-wrap">
       <div class="tk-rail" #passRail>
-        <article class="tk-card sr sr-up"
-                 *ngFor="let p of passes; let i = index"
-                 [class.is-featured]="p.featured"
-                 [attr.data-sr-delay]="(i * 0.05) + 's'"
-                 [style.--tk-color]="p.color">
+        <article
+          class="tk-card sr sr-up"
+          *ngFor="let p of passes; let i = index"
+          [class.is-featured]="p.featured"
+          [attr.data-sr-delay]="i * 0.05 + 's'"
+          [style.--tk-color]="p.color"
+        >
           <div class="tk-card-head">
             <span class="tk-level">{{ p.level }}</span>
             <span class="tk-pop" *ngIf="p.featured">★ Most Popular</span>
           </div>
           <div class="tk-img">
-            <img [src]="p.image" [alt]="p.name" loading="lazy"/>
+            <img [src]="p.image" [alt]="p.name" loading="lazy" />
           </div>
           <h3 class="tk-name">{{ p.name }}</h3>
-          <div class="tk-price">
+          <div class="tk-price" *ngIf="p.price">
             <span class="tk-price-from">{{ p.priceFrom }}</span>
             <span class="tk-price-val">{{ p.price }}</span>
           </div>
           <span class="tk-save" *ngIf="p.slug">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"/>
-              <line x1="7" y1="7" x2="7.01" y2="7"/>
+            <svg
+              viewBox="0 0 24 24"
+              width="13"
+              height="13"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"
+              />
+              <line x1="7" y1="7" x2="7.01" y2="7" />
             </svg>
             Save $7 booking online
           </span>
           <ul class="tk-feats">
             <li *ngFor="let f of p.features">{{ f }}</li>
           </ul>
-          <a *ngIf="p.slug" [routerLink]="['/tickets-passes', p.slug]" class="tk-cta">{{ p.cta }} ↗</a>
-          <a *ngIf="!p.slug" [href]="bookUrl" target="_blank" rel="noopener" class="tk-cta">{{ p.cta }} ↗</a>
+          <a *ngIf="p.link" [routerLink]="p.link" class="tk-cta"
+            >{{ p.cta }} ↗</a
+          >
+          <a
+            *ngIf="!p.link && p.slug"
+            [routerLink]="['/tickets-passes', p.slug]"
+            class="tk-cta"
+            >{{ p.cta }} ↗</a
+          >
+          <a
+            *ngIf="!p.link && !p.slug"
+            [href]="bookUrl"
+            target="_blank"
+            rel="noopener"
+            class="tk-cta"
+            >{{ p.cta }} ↗</a
+          >
         </article>
       </div>
     </div>
 
     <div class="tk-foot sr sr-up">
-      <a routerLink="/tickets-passes" class="tk-foot-link">See full ticket details &amp; what's included →</a>
+      <a routerLink="/tickets-passes" class="tk-foot-link"
+        >See full ticket details &amp; what's included →</a
+      >
+    </div>
+  </section>
+
+  <!-- Infinite Carousel -->
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Birthday Parties & Group Events — angular collage blocks -->
+  <section class="celebrate-section" id="parties">
+    <div class="cel-head sr sr-up">
+      <span class="cel-kicker"
+        >◆&nbsp;&nbsp;Celebrate At Bolder&nbsp;&nbsp;◆</span
+      >
+      <h2 class="cel-title">
+        Parties &amp; <span class="accent-orange">Groups</span>
+      </h2>
+    </div>
+
+    <div
+      class="cg-block"
+      *ngFor="let c of celebrate; let i = index"
+      [class.is-reverse]="c.reverse"
+      [style.--cc]="c.color"
+    >
+      <span class="cg-watermark" aria-hidden="true">{{ c.watermark }}</span>
+
+      <div
+        class="cg-collage sr"
+        [class.sr-left]="!c.reverse"
+        [class.sr-right]="c.reverse"
+      >
+        <div class="cg-img cg-img--main">
+          <img
+            [src]="c.images[0]"
+            [alt]="c.badge + ' at Bolder'"
+            loading="lazy"
+          />
+          <span class="cg-diamond">&#9670;</span>
+        </div>
+        <div class="cg-img cg-img--a">
+          <img [src]="c.images[1]" alt="" loading="lazy" />
+        </div>
+        <div class="cg-img cg-img--b">
+          <img [src]="c.images[2]" alt="" loading="lazy" />
+        </div>
+        <div class="cg-img cg-img--c">
+          <img [src]="c.images[3]" alt="" loading="lazy" />
+        </div>
+      </div>
+
+      <div
+        class="cg-content sr"
+        [class.sr-right]="!c.reverse"
+        [class.sr-left]="c.reverse"
+        data-sr-delay="0.12s"
+      >
+        <span class="cg-badge">{{ c.badge }}</span>
+        <h3 class="cg-title">{{ c.title }}</h3>
+        <p class="cg-desc">{{ c.desc }}</p>
+        <div class="cg-chips">
+          <span class="cg-chip" *ngFor="let chip of c.chips"
+            ><i>&#9670;</i>{{ chip }}</span
+          >
+        </div>
+        <a class="cg-cta" [routerLink]="c.link"
+          >{{ c.cta }} <span aria-hidden="true">&#8599;</span></a
+        >
+      </div>
     </div>
   </section>
 
@@ -179,73 +284,201 @@
   <section class="home-events-section">
     <div class="home-events-header">
       <p class="home-events-kicker">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="vertical-align:-2px;margin-right:6px"><path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/></svg>
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          aria-hidden="true"
+          style="vertical-align: -2px; margin-right: 6px"
+        >
+          <path
+            d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
+          />
+        </svg>
         Live &amp; Special Events
       </p>
-      <h2 class="home-events-title">What's On <span class="accent-orange">At Bolder</span></h2>
-      <a routerLink="/live-events" class="home-events-viewall">View All Events →</a>
+      <h2 class="home-events-title">
+        Live <span class="accent-orange">At Bolder</span>
+      </h2>
+      <a routerLink="/live-events" class="home-events-viewall"
+        >View All Events →</a
+      >
     </div>
 
     <div class="le-container">
       <div class="le-carousel-card sr sr-up">
-
         <!-- Image panel -->
         <div class="le-car-image-wrap">
-          <img [src]="carouselEvents[carouselIndex].image" [alt]="carouselEvents[carouselIndex].carouselTitle" loading="lazy" />
+          <img
+            [src]="carouselEvents[carouselIndex].image"
+            [alt]="carouselEvents[carouselIndex].carouselTitle"
+            loading="lazy"
+          />
           <div class="le-car-img-overlay"></div>
           <span class="le-car-next-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-            NEXT UP &nbsp;{{ padNum(carouselIndex + 1) }}/{{ padNum(carouselEvents.length) }}
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"
+              />
+            </svg>
+            NEXT UP &nbsp;{{ padNum(carouselIndex + 1) }}/{{
+              padNum(carouselEvents.length)
+            }}
           </span>
-          <button class="le-car-arrow le-car-prev" (click)="prevCarousel()" aria-label="Previous event">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          <button
+            class="le-car-arrow le-car-prev"
+            (click)="prevCarousel()"
+            aria-label="Previous event"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              aria-hidden="true"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
           </button>
-          <button class="le-car-arrow le-car-next" (click)="nextCarousel()" aria-label="Next event">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          <button
+            class="le-car-arrow le-car-next"
+            (click)="nextCarousel()"
+            aria-label="Next event"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              aria-hidden="true"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
           </button>
         </div>
 
         <!-- Content panel -->
         <div class="le-car-copy">
           <h2 class="le-car-title">
-            {{ carouselEvents[carouselIndex].carouselTitle }}<br/>
-            <span class="accent-orange">{{ carouselEvents[carouselIndex].carouselAccent }}</span>
+            {{ carouselEvents[carouselIndex].carouselTitle }}<br />
+            <span class="accent-orange">{{
+              carouselEvents[carouselIndex].carouselAccent
+            }}</span>
           </h2>
           <div class="le-car-meta">
             <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg>
               {{ carouselEvents[carouselIndex].date }}
             </span>
             <span class="le-car-sep">·</span>
             <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z" />
+                <circle cx="12" cy="9" r="2.4" />
+              </svg>
               {{ carouselEvents[carouselIndex].location }}
             </span>
             <span class="le-car-sep">·</span>
             <span>{{ carouselEvents[carouselIndex].ageRestriction }}</span>
           </div>
-          <p class="le-car-desc">{{ carouselEvents[carouselIndex].description }}</p>
+          <p class="le-car-desc">
+            {{ carouselEvents[carouselIndex].description }}
+          </p>
           <div class="le-car-countdown">
-            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownDays) }}</span><span class="le-car-cd-label">Days</span></div>
-            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownHours) }}</span><span class="le-car-cd-label">Hrs</span></div>
-            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownMinutes) }}</span><span class="le-car-cd-label">Min</span></div>
-            <div class="le-car-cd-box"><span class="le-car-cd-num">{{ padNum(carouselCountdownSeconds) }}</span><span class="le-car-cd-label">Sec</span></div>
+            <div class="le-car-cd-box">
+              <span class="le-car-cd-num">{{
+                padNum(carouselCountdownDays)
+              }}</span
+              ><span class="le-car-cd-label">Days</span>
+            </div>
+            <div class="le-car-cd-box">
+              <span class="le-car-cd-num">{{
+                padNum(carouselCountdownHours)
+              }}</span
+              ><span class="le-car-cd-label">Hrs</span>
+            </div>
+            <div class="le-car-cd-box">
+              <span class="le-car-cd-num">{{
+                padNum(carouselCountdownMinutes)
+              }}</span
+              ><span class="le-car-cd-label">Min</span>
+            </div>
+            <div class="le-car-cd-box">
+              <span class="le-car-cd-num">{{
+                padNum(carouselCountdownSeconds)
+              }}</span
+              ><span class="le-car-cd-label">Sec</span>
+            </div>
           </div>
           <div class="le-car-actions">
-            <a href="https://ticket.bolderadventurepark.com/" target="_blank" rel="noopener" class="btn btn-orange btn-lg">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/></svg>
+            <a
+              href="https://ticket.bolderadventurepark.com/"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-orange btn-lg"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
+                />
+              </svg>
               Get Tickets
             </a>
-            <a [routerLink]="['/live-events', carouselEvents[carouselIndex].slug]" class="le-car-detail-link">View Event Details →</a>
+            <a
+              [routerLink]="[
+                '/live-events',
+                carouselEvents[carouselIndex].slug,
+              ]"
+              class="le-car-detail-link"
+              >View Event Details →</a
+            >
           </div>
           <div class="le-car-dots">
-            <button *ngFor="let e of carouselEvents; let i = index"
-                    class="le-car-dot" [class.is-active]="i === carouselIndex"
-                    (click)="goToCarousel(i)" [attr.aria-label]="'Go to slide ' + (i + 1)">
-            </button>
+            <button
+              *ngFor="let e of carouselEvents; let i = index"
+              class="le-car-dot"
+              [class.is-active]="i === carouselIndex"
+              (click)="goToCarousel(i)"
+              [attr.aria-label]="'Go to slide ' + (i + 1)"
+            ></button>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -257,63 +490,48 @@
       <h2>Big adventure, easy decision</h2>
     </div>
     <div class="attraction-tabs sr sr-up" data-sr-delay="0.1s">
-      <button *ngFor="let tab of attractionTabs"
-              class="attraction-tab"
-              [class.is-active]="activeAttractionTab === tab.id"
-              (click)="setAttractionTab(tab.id)"
-              type="button">{{ tab.label }}</button>
+      <button
+        *ngFor="let tab of attractionTabs"
+        class="attraction-tab"
+        [class.is-active]="activeAttractionTab === tab.id"
+        (click)="setAttractionTab(tab.id)"
+        type="button"
+      >
+        {{ tab.label }}
+      </button>
     </div>
     <div class="attraction-grid">
-      <a class="attraction-card"
-         *ngFor="let card of filteredAttractions; let i = index; trackBy: trackByAttraction"
-         [routerLink]="card.link"
-         [style.animation-delay]="i * 0.055 + 's'">
-        <img [src]="card.image" [alt]="card.title" loading="lazy"/>
+      <a
+        class="attraction-card"
+        *ngFor="
+          let card of filteredAttractions;
+          let i = index;
+          trackBy: trackByAttraction
+        "
+        [routerLink]="card.link"
+        [style.animation-delay]="i * 0.055 + 's'"
+      >
+        <img [src]="card.image" [alt]="card.title" loading="lazy" />
         <div class="attraction-card-content">
           <span class="attraction-card-title">{{ card.title }}</span>
           <span class="attraction-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
             </svg>
           </span>
         </div>
       </a>
-    </div>
-  </section>
-
-  <!-- Birthday Parties & Group Events — angular collage blocks -->
-  <section class="celebrate-section" id="parties">
-    <div class="cel-head sr sr-up">
-      <span class="cel-kicker">◆&nbsp;&nbsp;Celebrate At Bolder&nbsp;&nbsp;◆</span>
-      <h2 class="cel-title">Parties &amp; <span class="accent-orange">Groups</span></h2>
-    </div>
-
-    <div class="cg-block"
-         *ngFor="let c of celebrate; let i = index"
-         [class.is-reverse]="c.reverse"
-         [style.--cc]="c.color">
-
-      <span class="cg-watermark" aria-hidden="true">{{ c.watermark }}</span>
-
-      <div class="cg-collage sr" [class.sr-left]="!c.reverse" [class.sr-right]="c.reverse">
-        <div class="cg-img cg-img--main">
-          <img [src]="c.images[0]" [alt]="c.badge + ' at Bolder'" loading="lazy"/>
-          <span class="cg-diamond">&#9670;</span>
-        </div>
-        <div class="cg-img cg-img--a"><img [src]="c.images[1]" alt="" loading="lazy"/></div>
-        <div class="cg-img cg-img--b"><img [src]="c.images[2]" alt="" loading="lazy"/></div>
-        <div class="cg-img cg-img--c"><img [src]="c.images[3]" alt="" loading="lazy"/></div>
-      </div>
-
-      <div class="cg-content sr" [class.sr-right]="!c.reverse" [class.sr-left]="c.reverse" data-sr-delay="0.12s">
-        <span class="cg-badge">{{ c.badge }}</span>
-        <h3 class="cg-title">{{ c.title }}</h3>
-        <p class="cg-desc">{{ c.desc }}</p>
-        <div class="cg-chips">
-          <span class="cg-chip" *ngFor="let chip of c.chips"><i>&#9670;</i>{{ chip }}</span>
-        </div>
-        <a class="cg-cta" [routerLink]="c.link">{{ c.cta }} <span aria-hidden="true">&#8599;</span></a>
-      </div>
     </div>
   </section>
 
@@ -324,8 +542,8 @@
         <div class="vr-shelf-left">
           <div class="vr-yt-logo-wrap">
             <svg viewBox="0 0 32 22" width="38" height="26" aria-hidden="true">
-              <rect width="32" height="22" rx="5" fill="#FF0000"/>
-              <polygon points="13,6 13,16 22,11" fill="#fff"/>
+              <rect width="32" height="22" rx="5" fill="#FF0000" />
+              <polygon points="13,6 13,16 22,11" fill="#fff" />
             </svg>
             <span class="vr-yt-wordmark">YouTube</span>
           </div>
@@ -334,17 +552,48 @@
             <h2 class="vr-shelf-heading">Watch The Adventure</h2>
           </div>
         </div>
-        <a href="https://www.youtube.com/@bolderadventurepark" target="_blank" rel="noopener" class="vr-see-all">
+        <a
+          href="https://www.youtube.com/@bolderadventurepark"
+          target="_blank"
+          rel="noopener"
+          class="vr-see-all"
+        >
           See all
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            width="15"
+            height="15"
+            aria-hidden="true"
+          >
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
         </a>
       </div>
       <div class="video-reel-grid">
-        <div class="video-reel-card" *ngFor="let vid of visibleVideos" (click)="openVideo(vid.id)">
-          <img class="video-reel-thumb" [src]="'https://img.youtube.com/vi/' + vid.id + '/maxresdefault.jpg'" [alt]="vid.title" loading="lazy"/>
+        <div
+          class="video-reel-card"
+          *ngFor="let vid of visibleVideos"
+          (click)="openVideo(vid.id)"
+        >
+          <img
+            class="video-reel-thumb"
+            [src]="
+              'https://img.youtube.com/vi/' + vid.id + '/maxresdefault.jpg'
+            "
+            [alt]="vid.title"
+            loading="lazy"
+          />
           <div class="vr-top-grad"></div>
           <div class="vr-card-top">
-            <div class="vr-avatar"><img src="assets/images/bolder-logo.png" alt="Bolder Adventure Park"/></div>
+            <div class="vr-avatar">
+              <img
+                src="assets/images/bolder-logo.png"
+                alt="Bolder Adventure Park"
+              />
+            </div>
             <div class="vr-top-text">
               <span class="vr-channel-name">Bolder Adventure Park</span>
               <p class="vr-card-title">{{ vid.title }}</p>
@@ -352,21 +601,47 @@
           </div>
           <div class="video-reel-play">
             <svg viewBox="0 0 68 48" width="56" height="40" aria-hidden="true">
-              <path d="M66.52 7.74C65.7 4.72 63.28 2.3 60.27 1.49 55.01.05 34 0 34 0S12.99.05 7.73 1.49C4.72 2.3 2.3 4.72 1.48 7.74.05 13.01 0 24 0 24s.05 10.99 1.48 16.26C2.3 43.28 4.72 45.7 7.73 46.51 12.99 47.95 34 48 34 48s21.01-.05 26.27-1.49C63.28 45.7 65.7 43.28 66.52 40.26 67.95 35 68 24 68 24s-.05-10.99-1.48-16.26z" fill="#ff0000"/>
-              <path d="M27 34 45 24 27 14z" fill="#fff"/>
+              <path
+                d="M66.52 7.74C65.7 4.72 63.28 2.3 60.27 1.49 55.01.05 34 0 34 0S12.99.05 7.73 1.49C4.72 2.3 2.3 4.72 1.48 7.74.05 13.01 0 24 0 24s.05 10.99 1.48 16.26C2.3 43.28 4.72 45.7 7.73 46.51 12.99 47.95 34 48 34 48s21.01-.05 26.27-1.49C63.28 45.7 65.7 43.28 66.52 40.26 67.95 35 68 24 68 24s-.05-10.99-1.48-16.26z"
+                fill="#ff0000"
+              />
+              <path d="M27 34 45 24 27 14z" fill="#fff" />
             </svg>
           </div>
           <div class="vr-bottom-grad"></div>
           <div class="vr-card-bottom">
-            <button class="vr-share-btn" (click)="shareVideo(vid.id, $event)" aria-label="Share">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
-                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            <button
+              class="vr-share-btn"
+              (click)="shareVideo(vid.id, $event)"
+              aria-label="Share"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="18"
+                height="18"
+                aria-hidden="true"
+              >
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
               </svg>
             </button>
             <div class="vr-shorts-badge">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12" aria-hidden="true">
-                <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="12"
+                height="12"
+                aria-hidden="true"
+              >
+                <path
+                  d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"
+                />
               </svg>
               Shorts
             </div>
@@ -374,18 +649,139 @@
         </div>
       </div>
       <div class="video-reel-nav" *ngIf="maxVideoPage > 0">
-        <button class="vrn-arrow" (click)="prevVideoPage()" [disabled]="videoPage === 0" aria-label="Previous videos">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" width="22" height="22" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        <button
+          class="vrn-arrow"
+          (click)="prevVideoPage()"
+          [disabled]="videoPage === 0"
+          aria-label="Previous videos"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.8"
+            width="22"
+            height="22"
+            aria-hidden="true"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
         </button>
-        <button class="vrn-arrow" (click)="nextVideoPage()" [disabled]="videoPage >= maxVideoPage" aria-label="Next videos">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" width="22" height="22" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg>
+        <button
+          class="vrn-arrow"
+          (click)="nextVideoPage()"
+          [disabled]="videoPage >= maxVideoPage"
+          aria-label="Next videos"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.8"
+            width="22"
+            height="22"
+            aria-hidden="true"
+          >
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- Infinite Carousel -->
-  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+  <!-- Stats / About — angular HUD scoreboard -->
+  <section class="about-stats" id="about">
+    <div class="sh-inner">
+      <div class="sh-intro sr sr-up">
+        <span class="sh-kicker">◆&nbsp;&nbsp;Bolder By The Numbers</span>
+        <h2 class="sh-headline">
+          Are you
+          <span class="accent-orange">Bold</span> Enough?
+        </h2>
+        <p class="sh-copy">
+          Year-round fun under a <strong>66,000 sq ft</strong> dome — one of the
+          most unique family days out in North Texas. Fun for every age… and big
+          kids too.
+        </p>
+        <div class="sh-accent-line"></div>
+      </div>
+
+      <div class="sh-grid">
+        <a
+          class="sh-tile sr sr-up"
+          routerLink="/attractions"
+          style="--sh-color: #f45113"
+          data-sr-delay="0.04s"
+        >
+          <img
+            src="assets/After-hero-section/Attractions - A view from Mezz 1.jpg"
+            alt="Attractions"
+            loading="lazy"
+          />
+          <span class="sh-diamond">◆</span>
+          <span class="sh-num" data-count="18" data-suffix="+">0</span>
+          <span class="sh-label">Attractions</span>
+        </a>
+        <a
+          class="sh-tile sr sr-up"
+          routerLink="/plan-your-visit"
+          style="--sh-color: #1ba1e2"
+          data-sr-delay="0.12s"
+        >
+          <img
+            src="assets/After-hero-section/Dome photos-03988-2.jpg"
+            alt="66,000 sq ft dome"
+            loading="lazy"
+          />
+          <span class="sh-diamond">◆</span>
+          <span class="sh-num" data-count="66000" data-format="comma">0</span>
+          <span class="sh-label">Square Foot Dome</span>
+        </a>
+        <a
+          class="sh-tile sr sr-up"
+          routerLink="/attractions"
+          style="--sh-color: #f7b500"
+          data-sr-delay="0.2s"
+        >
+          <img
+            src="assets/After-hero-section/DSC08395.jpg"
+            alt="All out fun"
+            loading="lazy"
+          />
+          <span class="sh-diamond">◆</span>
+          <span class="sh-num" data-count="100" data-suffix="%">0</span>
+          <span class="sh-label">All Out Fun</span>
+        </a>
+        <a
+          class="sh-tile sr sr-up"
+          routerLink="/birthday-parties"
+          style="--sh-color: #e6179e"
+          data-sr-delay="0.28s"
+        >
+          <img
+            src="assets/images/Birthday-parties.jpg"
+            alt="5 star party venue"
+            loading="lazy"
+          />
+          <span class="sh-diamond">◆</span>
+          <span class="sh-num" data-count="5" data-suffix="★">0</span>
+          <span class="sh-label">Star Party Venue</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Huge Get Tickets CTA -->
+  <section class="home-cta">
+    <a
+      class="home-cta-btn"
+      href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"
+      target="_blank"
+      rel="noopener"
+    >
+      Get Tickets <span aria-hidden="true">↗</span>
+    </a>
+  </section>
 
   <!-- Reviews -->
   <section class="section reviews">
@@ -395,10 +791,20 @@
     </div>
     <div class="review-carousel sr sr-up" data-sr-delay="0.1s">
       <div class="review-track-wrap">
-        <div class="review-track" [style.transform]="'translateX(-' + activeReviewIndex * 100 + '%)'">
-          <article class="review-card" *ngFor="let review of reviews; let i = index">
+        <div
+          class="review-track"
+          [style.transform]="'translateX(-' + activeReviewIndex * 100 + '%)'"
+        >
+          <article
+            class="review-card"
+            *ngFor="let review of reviews; let i = index"
+          >
             <div class="review-image-wrap">
-              <img [src]="'assets/images/' + reviewImages[i].file" [alt]="reviewImages[i].tag" class="review-img"/>
+              <img
+                [src]="'assets/images/' + reviewImages[i].file"
+                [alt]="reviewImages[i].tag"
+                class="review-img"
+              />
               <span class="review-tag">{{ reviewImages[i].tag }}</span>
             </div>
             <div class="review-body">
@@ -407,45 +813,112 @@
                 <strong>{{ review.name }}</strong>
                 <span class="review-time">{{ review.source }}</span>
               </div>
-              <div class="review-stars" [style.color]="reviewImages[i].color">★★★★★</div>
+              <div class="review-stars" [style.color]="reviewImages[i].color">
+                ★★★★★
+              </div>
             </div>
           </article>
         </div>
       </div>
-      <button class="review-arrow review-arrow--prev" (click)="prevReview()" aria-label="Previous review" type="button">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      <button
+        class="review-arrow review-arrow--prev"
+        (click)="prevReview()"
+        aria-label="Previous review"
+        type="button"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
       </button>
-      <button class="review-arrow review-arrow--next" (click)="nextReview()" aria-label="Next review" type="button">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      <button
+        class="review-arrow review-arrow--next"
+        (click)="nextReview()"
+        aria-label="Next review"
+        type="button"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
       </button>
       <div class="review-dots">
-        <button *ngFor="let r of reviews; let i = index"
-                class="review-dot"
-                [class.is-active]="activeReviewIndex === i"
-                (click)="goToReview(i)"
-                [attr.aria-label]="'Go to review ' + (i + 1)"
-                type="button"></button>
+        <button
+          *ngFor="let r of reviews; let i = index"
+          class="review-dot"
+          [class.is-active]="activeReviewIndex === i"
+          (click)="goToReview(i)"
+          [attr.aria-label]="'Go to review ' + (i + 1)"
+          type="button"
+        ></button>
       </div>
     </div>
+  </section>
+
+  <!-- Huge Get Tickets CTA -->
+  <section class="home-cta">
+    <a
+      class="home-cta-btn"
+      href="https://ecom.roller.app/bolderadventurepark/tickets/en-us/home"
+      target="_blank"
+      rel="noopener"
+    >
+      Get Tickets <span aria-hidden="true">↗</span>
+    </a>
   </section>
 
   <!-- Visit / Map -->
   <section class="visit" id="visit">
     <div class="map-shell sr sr-left">
-      <iframe class="map-frame" title="Bolder Adventure Park Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX&output=embed">
+      <iframe
+        class="map-frame"
+        title="Bolder Adventure Park Location"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX&output=embed"
+      >
       </iframe>
       <div class="map-glow"></div>
       <div class="map-pin"><span>⌖</span><strong>We are here</strong></div>
     </div>
     <div class="visit-card sr sr-right" data-sr-delay="0.15s">
-      <img class="visit-logo-img" src="assets/images/bolder-logo-white-text.png" alt="Bolder at EpicCentral logo"/>
+      <img
+        class="visit-logo-img"
+        src="assets/images/bolder-logo.png"
+        alt="Bolder at EpicCentral logo"
+      />
       <span class="visit-kicker">Visit us today</span>
       <p>2324 W Warrior Trail, Grand Prairie, TX</p>
       <h3>(469) 858-0577</h3>
       <div class="visit-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX" target="_blank" rel="noopener" class="btn btn-outline">Get Directions</a>
-        <a routerLink="/plan-your-visit" class="btn btn-orange">Plan Your Visit</a>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=2324%20W%20Warrior%20Trail%2C%20Grand%20Prairie%2C%20TX"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-outline"
+          >Get Directions</a
+        >
+        <a routerLink="/plan-your-visit" class="btn btn-orange"
+          >Plan Your Visit</a
+        >
       </div>
     </div>
   </section>
@@ -454,11 +927,30 @@
 <!-- Video Modal -->
 <div class="video-modal" *ngIf="activeVideoUrl" (click)="closeVideo()">
   <div class="video-modal-box" (click)="$event.stopPropagation()">
-    <button class="video-modal-close" (click)="closeVideo()" aria-label="Close video">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" width="18" height="18" aria-hidden="true">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    <button
+      class="video-modal-close"
+      (click)="closeVideo()"
+      aria-label="Close video"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.8"
+        width="18"
+        height="18"
+        aria-hidden="true"
+      >
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
     </button>
-    <iframe [src]="activeVideoUrl" title="Bolder Adventure Park Video" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+    <iframe
+      [src]="activeVideoUrl"
+      title="Bolder Adventure Park Video"
+      frameborder="0"
+      allow="autoplay; encrypted-media; fullscreen"
+      allowfullscreen
+    ></iframe>
   </div>
 </div>
