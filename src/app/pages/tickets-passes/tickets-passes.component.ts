@@ -81,7 +81,7 @@ export class TicketsPassesComponent implements OnInit, AfterViewInit {
       name: 'All Access',
       level: 'Everything In The Park',
       color: '#e6179e',
-      image: 'assets/images/extreme-all-access-pass.jpg',
+      image: 'assets/All-Attraction/Zip-lines.jpg',
       price: 'From $34.99',
       slug: 'extreme-all-access',
       blurb: 'The full park. Every ground and aerial attraction — ropes, zip lines, rock climbing, the Mountain Experience, Free Fall drops, Archery, Darts and a $10 Arcade Card.',

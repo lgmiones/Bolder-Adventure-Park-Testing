@@ -201,11 +201,29 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  private heroVideoObserver?: IntersectionObserver;
+
   ngAfterViewInit(): void {
     const vid = this.heroVideoRef?.nativeElement;
     if (vid) {
       vid.muted = true;
       vid.play().catch(() => {});
+
+      // Pause the hero video once it scrolls out of view — a decoding/compositing
+      // video off-screen still burns GPU + main-thread time and made scrolling
+      // feel laggy. Resume when it comes back into view.
+      if ('IntersectionObserver' in window) {
+        this.heroVideoObserver = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              vid.play().catch(() => {});
+            } else {
+              vid.pause();
+            }
+          });
+        }, { threshold: 0.05 });
+        this.heroVideoObserver.observe(vid);
+      }
     }
     setTimeout(() => this.animateCounters(), 60);
   }
@@ -320,5 +338,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.carouselCountdownTimer) clearInterval(this.carouselCountdownTimer);
     if (this.carouselAutoPlayTimer) clearInterval(this.carouselAutoPlayTimer);
+    this.heroVideoObserver?.disconnect();
   }
 }

@@ -4256,6 +4256,12 @@ a {
   user-select: none;
   pointer-events: none;
 
+  /* Promote to its own compositor layer + contain paint so the looping glow
+     repaints only this element, never the whole page on scroll. */
+  will-change: filter, background-position;
+  transform: translateZ(0);
+  contain: paint;
+
   /* Fire gradient — colours run bottom (deep red) → top (bright white-yellow) */
   background: linear-gradient(
     0deg,
@@ -4283,23 +4289,13 @@ a {
   100% { background-position: 0% 20%;  }
 }
 
+/* Glow kept light: single, modest-radius drop-shadow (was a 3-layer stack with
+   a 90px blur on full-width text — that re-rasterised a huge area every frame
+   and caused the footer scroll jank). */
 @keyframes fireGlow {
-  0% {
-    filter:
-      drop-shadow(0 0 6px  rgba(244,  81, 19, 0.5))
-      drop-shadow(0 0 22px rgba(244,  81, 19, 0.2));
-  }
-  50% {
-    filter:
-      drop-shadow(0 0 18px rgba(255, 140,  0, 0.85))
-      drop-shadow(0 0 55px rgba(244,  81, 19, 0.5))
-      drop-shadow(0 0 90px rgba(180,  30,  0, 0.25));
-  }
-  100% {
-    filter:
-      drop-shadow(0 0 12px rgba(255, 210, 50, 0.7))
-      drop-shadow(0 0 40px rgba(244,  81, 19, 0.4));
-  }
+  0%   { filter: drop-shadow(0 0 10px rgba(244, 81, 19, 0.45)); }
+  50%  { filter: drop-shadow(0 0 22px rgba(255, 140, 0, 0.70)); }
+  100% { filter: drop-shadow(0 0 16px rgba(255, 200, 50, 0.55)); }
 }
 
 
@@ -7468,6 +7464,10 @@ main strong { color: inherit; }
   transform: translateY(10px) !important;
   box-shadow: 0 40px 90px rgba(11, 22, 31, 0.28) !important;
   filter: none !important;
+  /* Panel is solid white, so the inherited backdrop blur is invisible but
+     still re-blurs the playing hero video every frame → was the hover lag. */
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 .nav-dropdown.nav-mega.is-open { transform: translateY(0) !important; }
 
@@ -7536,7 +7536,9 @@ main strong { color: inherit; }
   height: 100%;
   object-fit: cover;
   filter: brightness(0.72);
-  transition: transform 0.4s ease, filter 0.4s ease;
+  /* transition transform only — animating the image filter on hover forced a
+     re-raster of a large image and made the dropdown hover feel laggy. */
+  transition: transform 0.4s ease;
 }
 .nav-mega-card::after {
   content: "";
@@ -7545,7 +7547,7 @@ main strong { color: inherit; }
   z-index: 2;
   background: linear-gradient(180deg, rgba(7, 20, 30, 0.05), rgba(7, 20, 30, 0.82));
 }
-.nav-mega-card:hover img { transform: scale(1.07); filter: brightness(0.85); }
+.nav-mega-card:hover img { transform: scale(1.07); }
 .nav-mega-card strong {
   position: relative;
   z-index: 3;
