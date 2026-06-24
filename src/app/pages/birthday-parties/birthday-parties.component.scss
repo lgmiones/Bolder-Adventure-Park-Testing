@@ -497,3 +497,30 @@
 /* ── angular theme pass ── */
 .bp-package-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
 .bp-review-card, .bp-include-item, .faq-item { border-radius:0 !important; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%) !important; }
+
+/* ═══ LIGHT THEME — text + outline button on white surfaces ═══ */
+/* "What You Get" labels (white span on white card) */
+.bp-include-label { color: #16222e !important; }
+
+/* FAQ question + answer text */
+.faq-q { color: #16222e !important; }
+.faq-body p { color: #586571 !important; }
+.faq-item { background: #ffffff !important; border: 1px solid #e1e6eb !important; }
+.faq-item.is-open { border-color: rgba(244, 81, 19, 0.4) !important; }
+
+/* review author name (white strong on white card) */
+.bpr-meta strong { color: #16222e !important; }
+
+/* "Inquire Now" outline button → dark outline on white, orange fill on hover.
+   .btn-outline is transparent with white text + a ::before orange overlay
+   that fades in on hover, so it was invisible on the light page. */
+.bp-intro-ctas .btn-outline {
+  color: #14202b !important;
+  border-color: #c2cad3 !important;
+  background: #ffffff !important;
+}
+.bp-intro-ctas .btn-outline:hover {
+  color: #ffffff !important;
+  border-color: var(--orange) !important;
+}
+/* the orange ::before overlay already fades in on hover — keep it */

@@ -305,3 +305,65 @@
 @media (max-width: 520px) {
   .td-gallery-item.is-wide { grid-column: span 2; grid-row: span 1; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LIGHT THEME — facts panel, CTA band, buttons (page is now on a light bg)
+═══════════════════════════════════════════════════════════════════════ */
+
+/* back link */
+.td-back { color: #586571 !important; }
+
+/* "PER TICKET" label + intro copy (were faint on the light bg) */
+.td-price span { color: #586571 !important; }
+.td-intro { color: #44515c !important; }
+
+/* facts panel — white card; labels + values were faint / white-on-white */
+.td-facts { background: #ffffff !important; border: 1px solid #e1e6eb !important; }
+.td-fact { border-bottom: 1px solid #e7ebee !important; }
+.td-fact-label { color: #44515c !important; }
+.td-fact-value { color: #16222e !important; }
+
+/* inclusions cards — white card, dark text */
+.td-incl-card { background: #ffffff !important; border: 1px solid #e1e6eb !important; }
+.td-incl-card h3 { color: #16222e !important; }
+.td-incl-card p { color: #586571 !important; }
+
+/* ── CTA band → light gradient feature card (was dark, heading went
+      dark-on-dark). Mirrors the event-detail "Ready" card. ── */
+.td-cta-band {
+  border-radius: 28px !important;
+  clip-path: none !important;
+  border: 1px solid #dfe4ea !important;
+  border-top: 4px solid var(--lc) !important;
+  background:
+    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--lc) 14%, transparent), transparent 60%),
+    linear-gradient(105deg, #f2eae9 0%, #ebeef2 52%, #e3e9f1 100%) !important;
+  box-shadow: 0 22px 50px rgba(20, 33, 43, 0.10) !important;
+}
+.td-cta-band h2 { color: #14202b !important; }
+.td-cta-band p { color: #586571 !important; }
+.td-cta-band .td-band-kicker { color: var(--orange) !important; }
+.td-next { color: #14202b !important; }
+.td-next:hover { color: var(--lc) !important; }
+
+/* ── Round the tier CTA button + give it a clear lift hover ── */
+.td-cta {
+  border-radius: 999px !important;
+  clip-path: none !important;
+  box-shadow: 0 8px 20px rgba(20, 33, 43, 0.18) !important;
+}
+.td-cta:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.06) !important;
+  box-shadow: 0 12px 26px rgba(20, 33, 43, 0.26) !important;
+}
+.td-cta.ghost {
+  background: #ffffff !important;
+  border: 1.5px solid #c2cad3 !important;
+  color: #14202b !important;
+}
+.td-cta.ghost:hover {
+  background: var(--lc) !important;
+  border-color: var(--lc) !important;
+  color: #ffffff !important;
+}

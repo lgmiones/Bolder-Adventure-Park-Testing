@@ -684,7 +684,7 @@
 .tg-corner {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 0 0.5rem 1rem;
   img { width: clamp(120px, 12vw, 170px); height: auto; }
 }
@@ -1093,3 +1093,30 @@
 @media (prefers-reduced-motion: reduce) {
   .lvl-save::after { animation: none; }
 }
+
+/* ═══ LIGHT THEME — inclusion chart ═══ */
+/* feature label pills → light with dark text */
+.tg-feature {
+  background: #ffffff;
+  border: 1px solid #e1e6eb;
+  color: #1f2a33;
+}
+.tg-feature em { color: #6a7682; font-style: italic; }
+/* tier header cards → clean dark navy anchor with coloured names */
+.tg-head {
+  background: #14202b;
+  box-shadow: 0 10px 24px rgba(20, 33, 43, 0.18);
+}
+.tg-head span { color: #aeb6bd; }
+/* check/cross cells → white with a light border */
+.tg-cell {
+  background: #ffffff;
+  border: 1px solid #e7ebee;
+}
+.tg-special { color: #1c2530; }
+/* thin scrollbar on light */
+.tg-scroll::-webkit-scrollbar-thumb { background: #c2cad3; }
+
+/* ═══ final CTA band stays dark → keep its text white ═══ */
+.tp-cta h2 { color: #ffffff !important; }
+.tp-cta p { color: rgba(255, 255, 255, 0.86) !important; }

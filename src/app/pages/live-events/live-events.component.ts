@@ -36,7 +36,7 @@ export class LiveEventsComponent implements OnInit, AfterViewInit, OnDestroy {
       ageRestriction: 'All Ages',
       badge: 'Limited Slots',
       badgeClass: 'badge-limited',
-      image: 'assets/MJ Dejavu/0 - HERO IMAGE.png',
+      image: 'assets/MJ Dejavu/0 - HERO IMAGE.jpg',
       description: 'Step into the world of the King of Pop for an unforgettable evening with MJ Dejavu, direct from Las Vegas — rated the #1 MJ tribute.',
       targetDate: new Date('2026-06-20T19:00:00'),
       ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/home?_gl=1*m3lrmr*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODEzOTY2MDkkbzc5JGcxJHQxNzgxMzk4MTUzJGozMyRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE'
@@ -165,13 +165,13 @@ export class LiveEventsComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   galleryImages = [
-    'assets/MJ Dejavu/0 - HERO IMAGE.png',
-    'assets/MJ Dejavu/Crowds.png',
-    'assets/MJ Dejavu/Justin as Michael Jackson.png',
+    'assets/MJ Dejavu/0 - HERO IMAGE.jpg',
+    'assets/MJ Dejavu/Crowds.jpg',
+    'assets/MJ Dejavu/Justin as Michael Jackson.jpg',
     'assets/images/Thrills-in-the-air.jpg',
-    'assets/MJ Dejavu/Justin.png',
+    'assets/MJ Dejavu/Justin.jpg',
     'assets/images/Action-on-the-ground.jpg',
-    'assets/MJ Dejavu/Stage pic.png',
+    'assets/MJ Dejavu/Stage pic.jpg',
     'assets/carousel-images/Carousel-1.jpg'
   ];
 

@@ -547,3 +547,54 @@
 .ticket-card { border-radius:0 !important; border-top:3px solid var(--accent,#f45113); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
 .hours-card { border-radius:0 !important; clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
 .faq-item { border-radius:0 !important; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%) !important; }
+
+/* ═══ LIGHT THEME — FAQ text + outline buttons on white ═══ */
+/* Opening Hours — day labels (white-on-white) + divider */
+.hours-day { color: #16222e !important; }
+.hours-note { color: #586571 !important; }
+.hours-divider { background: #e1e6eb !important; }
+
+/* FAQ question (white-on-white) + answer */
+.faq-q { color: #16222e !important; }
+.faq-body p { color: #586571 !important; }
+.faq-item { background: #ffffff !important; border: 1px solid #e1e6eb !important; }
+.faq-item.is-open { border-color: rgba(244, 81, 19, 0.4) !important; }
+.faq-header p { color: #586571 !important; }
+
+/* "Explore The Park" + "See All FAQs" outline buttons → dark outline on
+   white, orange fill on hover (the orange ::before overlay already fades in). */
+.ip-cta-row .btn-outline,
+.faq-cta-row .btn-outline {
+  color: #14202b !important;
+  border-color: #c2cad3 !important;
+  background: #ffffff !important;
+}
+.ip-cta-row .btn-outline:hover,
+.faq-cta-row .btn-outline:hover {
+  color: #ffffff !important;
+  border-color: var(--orange) !important;
+}
+
+/* ═══ Center the 2-card grids (were 3-col, leaving an empty column) ═══ */
+.ticket-cards-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lvl-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  max-width: 820px;
+}
+/* even out the staircase offset so the pair reads as centered */
+.lvl-grid > .lvl-card:nth-child(1) { margin-top: 2.25rem; }
+.lvl-grid > .lvl-card:nth-child(2) { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .ticket-cards-grid,
+  .lvl-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 460px;
+  }
+  .lvl-grid > .lvl-card:nth-child(1) { margin-top: 0; }
+}

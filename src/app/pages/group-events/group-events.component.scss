@@ -155,3 +155,24 @@
 
 /* ── angular theme pass ── */
 .ge-review-card { border-radius:0 !important; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%) !important; }
+
+/* ═══ LIGHT THEME — form + reviews ═══ */
+.ge-form {
+  background: #ffffff;
+  border: 1px solid #e1e6eb;
+}
+.ge-form-header p { color: #586571; }
+.ge-field label { color: #44515c; }
+.ge-field input,
+.ge-field select,
+.ge-field textarea {
+  background: #f4f6f8;
+  border: 1px solid #d7dde2;
+  color: #1f2a33;
+}
+.ge-field input::placeholder,
+.ge-field select::placeholder,
+.ge-field textarea::placeholder { color: #98a1aa; }
+.ge-field select option { background: #ffffff; color: #1f2a33; }
+.ge-review-card { background: #ffffff; border: 1px solid #e1e6eb; }
+.ger-meta strong { color: #16222e; }

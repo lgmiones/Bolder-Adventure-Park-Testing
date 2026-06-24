@@ -255,7 +255,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       slug: 'mj-dejavu',
       carouselTitle: 'MJ', carouselAccent: 'Dejavu',
       date: 'June 20, 2026', location: 'Main Stage', ageRestriction: 'All Ages',
-      image: 'assets/MJ Dejavu/0 - HERO IMAGE.png',
+      image: 'assets/MJ Dejavu/0 - HERO IMAGE.jpg',
       description: 'Step into the world of the King of Pop for an unforgettable evening with MJ Dejavu, direct from Las Vegas - rated the #1 MJ tribute.',
       targetDate: new Date('2026-06-20T19:00:00')
     },

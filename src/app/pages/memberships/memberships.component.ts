@@ -26,7 +26,7 @@ export class MembershipsComponent implements OnInit, AfterViewInit {
       badge: 'Ground Level',
       price: 'Only $89.99',
       color: '#1ba1e2',
-      image: 'assets/images/Blue-pass.png',
+      image: 'assets/images/Blue-pass.jpg',
       desc: 'The Blue Annual Pass gives you unlimited access to all of the ground-level attractions.',
       features: [
         'Tree House',

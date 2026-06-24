@@ -131,7 +131,7 @@ export class TicketsPassesComponent implements OnInit, AfterViewInit {
       tagline: 'Unlimited Ground Level',
       badge: 'Ground Level',
       color: '#1ba1e2',
-      image: 'assets/images/Blue-pass.png',
+      image: 'assets/images/Blue-pass.jpg',
       desc: 'Unlimited access to every ground-level attraction, all year round. Pays for itself in just 2–3 visits.',
       features: [
         'Jump Pad & Adventure Nets',

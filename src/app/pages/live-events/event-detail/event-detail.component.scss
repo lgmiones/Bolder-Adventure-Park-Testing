@@ -947,3 +947,50 @@ tr.ed-ct-total-row {
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
   box-shadow: none;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   ░░  LIGHT THEME — event detail page  ░░
+═══════════════════════════════════════════════════════════ */
+/* hero text sits over a darkened photo → keep it light */
+.ed-hero-title { color: #ffffff !important; }
+.ed-hero-meta, .ed-hero-meta span { color: rgba(255, 255, 255, 0.85) !important; }
+.ed-hero-bottom-fade { background: linear-gradient(to bottom, transparent, #e9ecf1) !important; }
+
+/* countdown boxes → white cards w/ dark numbers on the grey page */
+.ed-cd-box { background: #ffffff; border: 1px solid #e1e6eb; }
+.ed-cd-num { color: #16222e !important; }
+.ed-cd-label { color: #7a848c !important; }
+.ed-cd-sep { color: var(--orange) !important; }
+
+/* section titles (the non-accent word was white) → dark */
+.ed-exp-title, .ed-hl-title, .ed-pkg-title { color: #16222e !important; }
+
+/* dark pricing cards (#0d1117) keep their white text */
+.ed-pkg-name,
+.ed-pkg-dollar, .ed-pkg-num, .ed-pkg-value { color: #ffffff !important; }
+/* section subtitle + "What's Included" kicker sit on the grey page → readable */
+.ed-pkg-sub { color: #586571 !important; }
+.ed-ct-label { color: var(--orange) !important; }
+
+/* dark highlight chips keep their white text */
+.ed-highlight-chip { color: #ffffff !important; }
+
+/* featured pricing card was a near-transparent orange tint (looked light, hiding
+   its white text) → make it dark like the others; the orange border + BEST VALUE
+   badge still single it out */
+.ed-pkg-card.is-featured {
+  background: linear-gradient(180deg, rgba(244, 81, 19, 0.18), rgba(244, 81, 19, 0.05)), #0d1117 !important;
+}
+/* comparison-table package-name headers → dark on the light table */
+.ed-ct-pkg-name { color: #16222e !important; }
+
+/* "Ready to experience it?" → soft gradient card (matches the booking banner) */
+.ed-ready-section { padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.5rem) !important; }
+.ed-ready-inner {
+  max-width: 1080px;
+  padding: clamp(3rem, 6vw, 4.75rem) clamp(1.5rem, 5vw, 4rem);
+  background: linear-gradient(105deg, #f2eae9 0%, #ebeef2 52%, #e3e9f1 100%);
+  border: 1px solid #dfe4ea;
+  border-radius: 30px;
+  box-shadow: 0 26px 60px rgba(20, 33, 43, 0.1);
+}

@@ -65,7 +65,7 @@ export class EventDetailComponent implements OnInit, AfterViewInit, OnDestroy {
       status: 'limited',
       statusClass: 'status-limited',
       statusLabel: 'Limited Slots',
-      heroImage: 'assets/MJ Dejavu/0 - HERO IMAGE.png',
+      heroImage: 'assets/MJ Dejavu/0 - HERO IMAGE.jpg',
       type: 'concert',
       targetDate: new Date('2026-06-20T19:00:00'),
       experienceTitle: 'The Experience',
@@ -74,8 +74,8 @@ export class EventDetailComponent implements OnInit, AfterViewInit, OnDestroy {
         'Limited tickets available — book now and don\'t miss the thrilling tribute event.'
       ],
       experienceImages: [
-        'assets/MJ Dejavu/Justin as Michael Jackson.png',
-        'assets/MJ Dejavu/Justin.png'
+        'assets/MJ Dejavu/Justin as Michael Jackson.jpg',
+        'assets/MJ Dejavu/Justin.jpg'
       ],
       packages: [
         {
@@ -129,11 +129,11 @@ export class EventDetailComponent implements OnInit, AfterViewInit, OnDestroy {
         { name: 'Arcade Credits ($25 Arcade Card)', price: 25 }
       ],
       galleryImages: [
-        'assets/MJ Dejavu/0 - HERO IMAGE.png',
-        'assets/MJ Dejavu/Crowds.png',
-        'assets/MJ Dejavu/Justin as Michael Jackson.png',
-        'assets/MJ Dejavu/Justin.png',
-        'assets/MJ Dejavu/Stage pic.png'
+        'assets/MJ Dejavu/0 - HERO IMAGE.jpg',
+        'assets/MJ Dejavu/Crowds.jpg',
+        'assets/MJ Dejavu/Justin as Michael Jackson.jpg',
+        'assets/MJ Dejavu/Justin.jpg',
+        'assets/MJ Dejavu/Stage pic.jpg'
       ]
     },
     {

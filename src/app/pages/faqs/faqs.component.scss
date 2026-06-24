@@ -42,3 +42,22 @@
 
 /* ── angular theme pass ── */
 .faq-item { border-radius:0 !important; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%) !important; }
+
+/* ═══ LIGHT THEME — FAQ text + outline button ═══ */
+.faq-q { color: #16222e !important; }
+.faq-body p { color: #586571 !important; }
+.faq-item { background: #ffffff !important; border: 1px solid #e1e6eb !important; }
+.faq-item.is-open { border-color: rgba(244, 81, 19, 0.4) !important; }
+.faq-page-intro p,
+.faq-contact-prompt p { color: #586571 !important; }
+
+/* phone-number outline button (white-on-white) → dark outline, orange hover */
+.faq-contact-actions .btn-outline {
+  color: #14202b !important;
+  border-color: #c2cad3 !important;
+  background: #ffffff !important;
+}
+.faq-contact-actions .btn-outline:hover {
+  color: #ffffff !important;
+  border-color: var(--orange) !important;
+}

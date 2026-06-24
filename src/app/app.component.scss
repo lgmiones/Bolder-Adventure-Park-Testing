@@ -217,6 +217,7 @@ a {
   place-items: center;
   background: #000;
   overflow: hidden;
+  will-change: opacity;
   /* Fires at exactly the same moment introLogoExit starts (4.00 s) */
   animation: introOverlayOut 0.80s ease-in 4.00s 1 forwards;
 }
@@ -260,6 +261,7 @@ a {
   width: 100%;
   height: auto;
   display: block;
+  will-change: transform, filter, opacity;
   /*  introLogoFlicker → opacity    film-projector entrance
       introLogoPop     → transform  2 bounce cycles (1.4 s each, ends 4.00 s)
       introLogoPulse   → filter     2 glow cycles  (1.4 s each, ends 4.00 s)
@@ -311,36 +313,17 @@ a {
 }
 
 /* Glow pulse — same duration, same %, so the halo PEAKS exactly
-   when the logo is at its highest point on every bounce             */
+   when the logo is at its highest point on every bounce.
+   NOTE: a single, modest-radius drop-shadow is used (was a 3-layer
+   110px/72px blur stack). Animating large blurred filters forces a full
+   re-raster every frame and was the main cause of intro jank / high TBT. */
 @keyframes introLogoPulse {
-  0%   {
-    filter: drop-shadow(0 6px 20px rgba(0,   0,   0,   0.60));
-  }
-  22%  {
-    /* peak glow synced with peak bounce */
-    filter: drop-shadow(0 0  58px rgba(255, 255, 255, 0.85))
-            drop-shadow(0 0 110px rgba(255, 255, 255, 0.28))
-            drop-shadow(0 6px 18px rgba(0,   0,   0,   0.50));
-  }
-  42%  {
-    /* glow dims as logo squishes */
-    filter: drop-shadow(0 0  14px rgba(255, 255, 255, 0.28))
-            drop-shadow(0 6px 14px rgba(0,   0,   0,   0.44));
-  }
-  58%  {
-    /* second smaller glow peak */
-    filter: drop-shadow(0 0  38px rgba(255, 255, 255, 0.65))
-            drop-shadow(0 0  72px rgba(255, 255, 255, 0.18))
-            drop-shadow(0 6px 16px rgba(0,   0,   0,   0.46));
-  }
-  78%  {
-    filter: drop-shadow(0 0  16px rgba(255, 255, 255, 0.30))
-            drop-shadow(0 6px 14px rgba(0,   0,   0,   0.42));
-  }
-  100% {
-    filter: drop-shadow(0 0  20px rgba(255, 255, 255, 0.38))
-            drop-shadow(0 6px 14px rgba(0,   0,   0,   0.42));
-  }
+  0%   { filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.55)); }
+  22%  { filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.80)); }
+  42%  { filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.30)); }
+  58%  { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.60)); }
+  78%  { filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.30)); }
+  100% { filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.34)); }
 }
 
 /* Final exit — fires at 4.00 s when both bounce cycles finish.
@@ -398,11 +381,12 @@ a {
   place-items: center;
   padding: clamp(1rem, 4vw, 2.5rem);
   overflow-y: auto;
+  /* Solid scrim instead of a full-viewport backdrop-filter blur. The blur was
+     re-rasterising the entire screen on every hero-video frame behind it —
+     that was the banner lag. A slightly darker opaque scrim reads the same. */
   background:
     radial-gradient(120% 90% at 50% 0%, rgba(244, 81, 19, 0.16), transparent 60%),
-    rgba(5, 6, 8, 0.86);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+    rgba(5, 6, 8, 0.93);
   animation: dealPopIn 0.5s ease forwards;
 }
 @keyframes dealPopIn {
@@ -466,25 +450,38 @@ a {
   height: 150%;
   pointer-events: none;
   background: radial-gradient(circle at 50% 50%, rgba(244, 81, 19, 0.3), transparent 62%);
-  filter: blur(26px);
+  filter: blur(18px);
+  will-change: transform, opacity;
   animation: dealDrift 11s ease-in-out infinite alternate;
 }
 @keyframes dealDrift {
   0%   { transform: translate(0, 0) scale(1); opacity: 0.8; }
   100% { transform: translate(-8%, 7%) scale(1.14); opacity: 1; }
 }
+/* Light sweep — animated with transform (compositor) instead of
+   background-position (which repaints every frame and caused banner lag). */
 .deal-pop-scan {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: linear-gradient(100deg, transparent 42%, rgba(255, 255, 255, 0.05) 50%, transparent 58%);
-  background-size: 250% 100%;
+  overflow: hidden;
+}
+.deal-pop-scan::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  transform: translateX(-130%);
+  will-change: transform;
   animation: dealScan 7s linear infinite;
 }
 @keyframes dealScan {
-  0%   { background-position: 160% 0; }
-  100% { background-position: -60% 0; }
+  0%   { transform: translateX(-130%); }
+  100% { transform: translateX(330%); }
 }
 
 /* close button */
@@ -7802,3 +7799,157 @@ main strong { color: inherit; }
   color: #14202b !important;
 }
 .attraction-tab.is-active { background: var(--orange) !important; color: #fff !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ░░  LIGHT THEME — inner pages (shared lever)  ░░
+   Re-points the dark "panel" surface to white so every card that uses
+   `background: var(--panel)` flips to a light card across all inner pages.
+   Per-page text/band colours are handled in each page's own .scss.
+═══════════════════════════════════════════════════════════════════════ */
+.inner-page { --panel: #ffffff; }
+
+/* the whole inner-page surface + every section band → transparent so the soft
+   grey page (same as home) shows through instead of the old dark theme */
+.inner-page,
+.inner-page section,
+.inner-page .ip-section,
+.inner-page [class*="-section"] { background: transparent !important; }
+
+/* Block text → dark ink. NOTE: only block elements (headings, paragraphs,
+   lists, table/definition text) are darkened — anchors, spans, buttons and
+   badges keep their own colours, so coloured chips/CTAs are untouched. */
+.inner-page p, .inner-page li, .inner-page address,
+.inner-page dt, .inner-page dd, .inner-page td, .inner-page th,
+.inner-page blockquote, .inner-page figcaption { color: #44515c !important; }
+.inner-page h1, .inner-page h2, .inner-page h3,
+.inner-page h4, .inner-page h5, .inner-page h6,
+.inner-page strong, .inner-page b { color: #16222e !important; }
+.inner-page .accent-orange,
+.inner-page [class*="eyebrow"],
+.inner-page [class*="kicker"],
+.inner-page .section-title > span { color: var(--orange) !important; }
+
+/* the page hero sits over a darkened photo → keep its text light */
+.inner-page .ph-title { color: #ffffff !important; }
+.inner-page .ph-subtitle { color: rgba(255, 255, 255, 0.85) !important; }
+.inner-page .ph-tag { color: #ffffff !important; }
+
+/* shared orange CTA banner (Attractions, Plan, Memberships, etc.) → white text */
+.inner-page .page-cta-banner h1,
+.inner-page .page-cta-banner h2,
+.inner-page .page-cta-banner h3,
+.inner-page .page-cta-banner .cta-label { color: #ffffff !important; }
+.inner-page .page-cta-banner p { color: rgba(255, 255, 255, 0.92) !important; }
+
+/* image-overlay & coloured-band card content keeps its white text */
+.inner-page .lvl-body, .inner-page .lvl-body *,
+.inner-page .tg-head, .inner-page .tg-head *,
+.inner-page .tg-foot, .inner-page .tg-foot *,
+.inner-page .attraction-card-content, .inner-page .attraction-card-content * { color: #ffffff !important; }
+.inner-page .lvl-price { color: var(--orange) !important; }
+/* chart feature labels sit on a light cell now → dark */
+.inner-page .tg-feature { color: #283038 !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ░░  ROUNDED BUTTONS — unified pill shape + theme colour + clear hover  ░░
+   Placed LAST so it wins the cascade. CTAs across the site used angular
+   clip-path silhouettes; this rounds every one into a friendly pill, keeps
+   the brand orange as the primary colour, and gives a lift + glow on hover
+   so buttons always read as clickable on the light theme.
+═══════════════════════════════════════════════════════════════════════ */
+
+/* round EVERY button-like CTA (drop the angular clips) */
+.btn,
+.btn-lg,
+.navbar-ticket,
+.nav-dropdown-cta,
+.side-menu-ticket,
+.tk-cta,
+.vr-see-all,
+.cta-btn,
+.bp-card-cta,
+.bpp-cta,
+.lvl-cta,
+.ge-submit,
+.ft-submit-btn,
+.ce-submit-btn,
+.ft-back-link,
+.ce-back-link,
+.ed-pkg-cta,
+.ed-ct-btn,
+.le-card-incoming a,
+.le-card-link {
+  border-radius: 999px !important;
+  clip-path: none !important;
+}
+
+/* ── Primary (orange) — solid, confident, clearly tappable ── */
+.btn-orange,
+.navbar-ticket,
+.side-menu-ticket,
+.nav-dropdown-cta,
+.ge-submit,
+.ft-submit-btn,
+.ce-submit-btn,
+.cta-btn {
+  background: linear-gradient(135deg, #f45113, #ff7a1a) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 20px rgba(244, 81, 19, 0.30) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease !important;
+}
+.btn-orange:hover,
+.navbar-ticket:hover,
+.side-menu-ticket:hover,
+.nav-dropdown-cta:hover,
+.ge-submit:hover,
+.ft-submit-btn:hover,
+.ce-submit-btn:hover,
+.cta-btn:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.06) !important;
+  box-shadow: 0 12px 28px rgba(244, 81, 19, 0.45) !important;
+}
+
+/* ── Generic accent CTAs (tier / package cards) — keep their accent colour
+      but round them and give the same lift-and-glow affordance ── */
+.tk-cta,
+.bp-card-cta,
+.bpp-cta,
+.lvl-cta {
+  box-shadow: 0 8px 20px rgba(20, 33, 43, 0.18) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease !important;
+}
+.tk-cta:hover,
+.bp-card-cta:hover,
+.bpp-cta:hover,
+.lvl-cta:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.08) !important;
+  box-shadow: 0 12px 26px rgba(20, 33, 43, 0.26) !important;
+}
+
+/* ── Outline / secondary — white pill, dark ink, fills orange on hover ──
+   The orange fill comes from the ::before overlay (z-index:-1 paints ON TOP
+   of the white background but UNDER the text), revealed by the global
+   .btn:hover::before{opacity:1}. This is robust against any per-page rest
+   background, so the white-text-on-hover is always over orange, never white. */
+.btn-outline {
+  background: #ffffff !important;
+  border: 1.5px solid #cdd5dd !important;
+  color: #14202b !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 6px 16px rgba(20, 33, 43, 0.08) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, color 0.22s ease, border-color 0.22s ease !important;
+}
+.btn-outline::before {
+  display: block !important;
+  background: linear-gradient(135deg, #f45113, #ff7a1a) !important;
+}
+.btn-outline:hover {
+  transform: translateY(-2px) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 26px rgba(244, 81, 19, 0.40) !important;
+}
+.btn-outline:hover::before { opacity: 1 !important; }

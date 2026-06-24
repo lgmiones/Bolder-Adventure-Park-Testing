@@ -1117,3 +1117,81 @@
 /* ── angular theme pass ── */
 .le-event-card, .le-challenge-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
 .le-crew-card, .le-gallery-item, .le-card-image { border-radius:0 !important; }
+
+/* ═══ LIGHT THEME ═══ */
+/* custom hero text sits over a darkened photo → keep it light */
+.le-hero-title { color: #ffffff !important; }
+.le-hero-sub { color: rgba(255, 255, 255, 0.85) !important; }
+.le-hero-kicker { color: #ffffff !important; } /* white text on the orange chip */
+/* hero fades into the grey page instead of black */
+.le-hero-bottom-fade { background: linear-gradient(to bottom, transparent, #e9ecf1); }
+/* dark section bands that aren't <section> elements → grey page */
+.le-board, .le-challenges { background: transparent; }
+/* "More events incoming" dashed card */
+.le-card-incoming { border-color: #c7cfd7; }
+.le-incoming-inner h3 { color: #16222e; }
+.le-incoming-inner p { color: #586571; }
+/* Notify button → solid orange so it reads on the light card */
+.le-card-incoming a, .le-incoming-inner a {
+  background: var(--orange) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(244, 81, 19, 0.35) !important;
+}
+.le-card-incoming a:hover, .le-incoming-inner a:hover {
+  background: #14202b !important;
+  color: #ffffff !important;
+}
+/* event-card links keep an orange (not white) hover so they stay visible on the white cards */
+.le-card-link:hover { color: #c2410c !important; }
+
+/* filter chips (THE ROUTE AHEAD): inactive → light w/ dark text, active → orange */
+.le-filter-chip {
+  background: #ffffff;
+  border: 1px solid #d7dde2;
+  color: #44515c;
+}
+.le-filter-chip.is-active,
+.le-filter-chip:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #ffffff;
+}
+
+/* timeline date labels → dark on the grey page */
+.le-tl-day { color: #16222e; }
+.le-tl-year { color: #7a848c; }
+
+/* featured event carousel card stays dark → keep its text white */
+.le-car-title { color: #ffffff !important; }
+.le-car-desc { color: rgba(255, 255, 255, 0.74) !important; }
+.le-car-meta, .le-car-meta span { color: rgba(255, 255, 255, 0.66) !important; }
+.le-car-cd-num { color: #ffffff !important; }
+.le-car-cd-label { color: rgba(255, 255, 255, 0.55) !important; }
+
+/* timeline filter tabs (ALL / CONCERTS / ADULT NIGHTS) → light w/ dark text */
+.le-tab-btn {
+  background: #ffffff;
+  border: 1px solid #d7dde2;
+  color: #44515c;
+}
+.le-tab-btn.is-active,
+.le-tab-btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #ffffff;
+}
+/* the vertical line connecting the date dots → visible on the grey page */
+.le-timeline::before { background: #c4ccd5 !important; }
+
+/* event-card + timeline-card meta (time after 🕐, location after 📍) → dark on the white cards */
+.le-card-meta span,
+.le-tl-meta span { color: #586571 !important; }
+
+/* "More events coming — stay tuned!" end label → visible orange pill */
+.le-tl-end-label span {
+  display: inline-block;
+  background: var(--orange);
+  color: #ffffff !important;
+  padding: 0.45rem 1.1rem;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
