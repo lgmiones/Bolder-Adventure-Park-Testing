@@ -483,55 +483,84 @@
     </div>
   </section>
 
-  <!-- Attractions -->
-  <section class="section experiences" id="experiences">
+  <!-- Section D — What's Included (grouped by package) -->
+  <section class="section whats-included" id="experiences">
     <div class="section-title sr sr-up">
-      <p>Daily Experiences</p>
-      <h2>Big adventure, easy decision</h2>
+      <p>Every Attraction Included</p>
+      <h2>What's Included</h2>
     </div>
-    <div class="attraction-tabs sr sr-up" data-sr-delay="0.1s">
-      <button
-        *ngFor="let tab of attractionTabs"
-        class="attraction-tab"
-        [class.is-active]="activeAttractionTab === tab.id"
-        (click)="setAttractionTab(tab.id)"
-        type="button"
-      >
-        {{ tab.label }}
-      </button>
-    </div>
-    <div class="attraction-grid">
-      <a
-        class="attraction-card"
-        *ngFor="
-          let card of filteredAttractions;
-          let i = index;
-          trackBy: trackByAttraction
-        "
-        [routerLink]="card.link"
-        [style.animation-delay]="i * 0.055 + 's'"
-      >
-        <img [src]="card.image" [alt]="card.title" loading="lazy" />
-        <div class="attraction-card-content">
-          <span class="attraction-card-title">{{ card.title }}</span>
-          <span class="attraction-card-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </span>
+
+    <!-- Base Camp -->
+    <div class="wi-group sr sr-up" style="--wi:#1ba1e2;--wi2:#0b7fb8;">
+      <div class="wi-banner">
+        <div class="wi-banner-text">
+          <span class="wi-level">Level 01 · Ground Level</span>
+          <h3 class="wi-name">Base Camp <em class="wi-price">$24.99<i>+ tax</i></em></h3>
         </div>
-      </a>
+        <a class="wi-cta" [href]="bookUrl" target="_blank" rel="noopener noreferrer">
+          Get Tickets <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="wi-grid">
+        <button type="button" class="wi-card" *ngFor="let a of includedBaseCamp; let i = index"
+           (click)="openAttraction(a)"
+           [style.animation-delay]="i * 0.05 + 's'">
+          <img [src]="a.image" [alt]="a.title" loading="lazy" />
+          <div class="wi-card-label"><span>{{ a.title }}</span></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- All Access -->
+    <div class="wi-group sr sr-up" style="--wi:#e6179e;--wi2:#b3107a;">
+      <div class="wi-banner">
+        <div class="wi-banner-text">
+          <span class="wi-level">Level 02 · Everything In The Park</span>
+          <h3 class="wi-name">All Access <em class="wi-price">$34.99<i>+ tax</i></em></h3>
+        </div>
+        <a class="wi-cta" [href]="bookUrl" target="_blank" rel="noopener noreferrer">
+          Get Tickets <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <p class="wi-note">Includes <strong>everything in Base Camp</strong>, plus all the aerial adventures:</p>
+      <div class="wi-grid">
+        <button type="button" class="wi-card" *ngFor="let a of includedAllAccess; let i = index"
+           (click)="openAttraction(a)"
+           [style.animation-delay]="i * 0.05 + 's'">
+          <img [src]="a.image" [alt]="a.title" loading="lazy" />
+          <div class="wi-card-label"><span>{{ a.title }}</span></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Attraction detail modal -->
+    <div class="att-modal" #attModal [class.is-open]="!!activeAttraction" (click)="closeAttraction()" role="dialog" aria-modal="true">
+      <div class="att-modal-card" *ngIf="activeAttraction" (click)="$event.stopPropagation()" [style.--am]="activeAttraction.accent">
+        <button class="att-modal-x" type="button" aria-label="Close" (click)="closeAttraction()">&times;</button>
+        <div class="att-modal-hero">
+          <img [src]="activeAttraction.image" [alt]="activeAttraction.title" />
+          <div class="att-modal-hero-grad"></div>
+          <div class="att-modal-hero-text">
+            <span class="att-modal-level">{{ activeAttraction.level }}</span>
+            <h3 class="att-modal-name">{{ activeAttraction.title }}</h3>
+          </div>
+        </div>
+        <div class="att-modal-body">
+          <div class="att-modal-specs">
+            <h4 class="att-modal-h"><i aria-hidden="true">&#9670;</i> Facts &amp; Specs</h4>
+            <ul>
+              <li *ngFor="let sp of activeAttraction.specs">{{ sp }}</li>
+            </ul>
+          </div>
+          <div class="att-modal-exp">
+            <h4 class="att-modal-h"><i aria-hidden="true">&#9670;</i> The Experience</h4>
+            <p>{{ activeAttraction.experience }}</p>
+            <a class="att-modal-cta" [href]="bookUrl" target="_blank" rel="noopener noreferrer">
+              Get Tickets <span aria-hidden="true">&#8599;</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

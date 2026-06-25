@@ -36,28 +36,32 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
       label: 'Address',
       value: '2324 W Warrior Trail, Grand Prairie, TX',
       link: 'https://maps.google.com/?q=2324+W+Warrior+Trail+Grand+Prairie+TX',
-      linkText: 'Get Directions'
+      linkText: 'Get Directions',
+      internal: false
     },
     {
       icon: '📞',
       label: 'Phone',
       value: '(469) 858-0577',
       link: 'tel:+14698580577',
-      linkText: 'Call Us'
+      linkText: 'Call Us',
+      internal: false
     },
     {
       icon: '✉️',
       label: 'Email',
       value: 'bolder@bolderpark.com',
       link: 'mailto:bolder@bolderpark.com',
-      linkText: 'Send Email'
+      linkText: 'Send Email',
+      internal: false
     },
     {
       icon: '🕐',
       label: 'Hours',
       value: 'Mondays – Thursdays 11 AM – 9 PM · Fridays - Sundays 11 AM – 9 PM ',
-      link: null,
-      linkText: null
+      link: '/plan-your-visit#hours',
+      linkText: 'See Opening Hours',
+      internal: true
     }
   ];
 

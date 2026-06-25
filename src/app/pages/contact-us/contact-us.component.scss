@@ -343,3 +343,68 @@
 
 /* ── angular theme pass ── */
 .cu-info-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
+
+/* ═══════════════════════════════════════════════════════════
+   LIGHT THEME — form, info values, social links, map
+   ═══════════════════════════════════════════════════════════ */
+/* info-card values (address / phone / email / hours) were white-on-white */
+.cu-info-val { color: #16222e !important; }
+
+/* form header subtext */
+.cu-subhead { color: #586571 !important; }
+
+/* form fields → white card inputs with clear borders */
+.cu-field label { color: #2c3742 !important; font-weight: 700; }
+.cu-field input,
+.cu-field select,
+.cu-field textarea {
+  background: #ffffff !important;
+  border: 1.5px solid #cdd5dd !important;
+  color: #1f2a33 !important;
+  box-shadow: inset 0 1px 2px rgba(20, 33, 43, 0.04);
+}
+.cu-field input::placeholder,
+.cu-field select::placeholder,
+.cu-field textarea::placeholder { color: #9aa4ad !important; }
+.cu-field input:focus,
+.cu-field select:focus,
+.cu-field textarea:focus {
+  border-color: var(--orange) !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(244, 81, 19, 0.12) !important;
+}
+.cu-field select option { background: #ffffff; color: #1f2a33; }
+.cu-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23586571' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+}
+
+/* submit button — solid orange, fully opaque */
+.cu-submit-btn {
+  background: var(--orange) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* social links → white pills with dark text, orange fill on hover */
+.cu-social-label { color: #586571 !important; }
+.cu-social-link {
+  background: #ffffff !important;
+  border: 1px solid #d7dde2 !important;
+  color: #14202b !important;
+  box-shadow: 0 4px 12px rgba(20, 33, 43, 0.06);
+}
+.cu-social-link:hover {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #ffffff !important;
+}
+
+/* FIND US card text */
+.cu-find-title { color: #16222e !important; }
+.cu-find-addr { color: #586571 !important; }
+
+/* map → normal light Google map (was dark-inverted) */
+.cu-map-frame { border: 1px solid #d7dde2 !important; }
+.cu-map-frame iframe { filter: none !important; }

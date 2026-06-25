@@ -1027,7 +1027,7 @@
   filter: drop-shadow(0 7px 14px rgba(0, 0, 0, 0.45));
   transition: filter 0.2s ease, transform 0.18s ease, background 0.2s ease, color 0.2s ease;
 }
-.lvl-cta:hover { background: #fff; color: #111; transform: translateY(-2px); }
+.lvl-cta:hover { background: #fff !important; color: #111 !important; filter: none !important; transform: translateY(-2px); }
 
 @media (max-width: 900px) {
   .lvl-grid,
@@ -1052,9 +1052,9 @@
   text-decoration: none;
   border-bottom: 2px solid var(--lc);
   padding-bottom: 2px;
-  transition: color 0.2s ease, gap 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
-.lvl-details:hover { color: var(--lc); }
+.lvl-details:hover { color: var(--orange); border-bottom-color: var(--orange); transform: translateX(4px); }
 
 /* "$7 online discount" deal badge on day-ticket cards */
 .lvl-save {
@@ -1120,3 +1120,104 @@
 /* ═══ final CTA band stays dark → keep its text white ═══ */
 .tp-cta h2 { color: #ffffff !important; }
 .tp-cta p { color: rgba(255, 255, 255, 0.86) !important; }
+
+/* ════════════════════════════════════════════════════════════
+   MORE WAYS TO EXPERIENCE BOLDER — non-ticket cross-promo cards
+   (--mc = card accent colour, set inline)
+   ════════════════════════════════════════════════════════════ */
+.tp-more-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+  margin-top: 2.5rem;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+@media (max-width: 760px) {
+  .tp-more-grid { grid-template-columns: 1fr; max-width: 460px; }
+}
+
+.tp-more-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid #e1e6eb;
+  border-top: 4px solid var(--mc);
+  border-radius: 20px;
+  box-shadow: 0 18px 44px rgba(20, 33, 43, 0.10);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tp-more-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 64px rgba(20, 33, 43, 0.18);
+}
+
+.tp-more-img {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.tp-more-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.tp-more-card:hover .tp-more-img img { transform: scale(1.06); }
+.tp-more-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--mc);
+  color: #ffffff;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3em 0.8em;
+  border-radius: 999px;
+}
+
+.tp-more-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+  padding: clamp(1.3rem, 2.5vw, 1.8rem);
+}
+.tp-more-body h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #16222e;
+}
+.tp-more-body p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #44515c;
+}
+.tp-more-body p strong { color: var(--mc); font-weight: 800; }
+
+.tp-more-cta {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mc);
+}
+.tp-more-cta span { transition: transform 0.2s ease; }
+.tp-more-card:hover .tp-more-cta span { transform: translateX(4px); }

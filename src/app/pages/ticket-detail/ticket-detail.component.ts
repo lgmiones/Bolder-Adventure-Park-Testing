@@ -41,7 +41,7 @@ export class TicketDetailComponent implements OnInit, OnDestroy, AfterViewInit {
       name: 'Base Camp',
       level: 'Action on the Ground',
       color: '#1ba1e2',
-      price: 'From $24.99',
+      price: 'From $24.99 + tax',
       heroImage: 'assets/Base-Camp/DSC04232.jpg',
       intro: [
         'Base Camp is where every Bolder adventure begins. It is the perfect starting point for first-timers, families and younger adventurers — all the fun stays firmly on the ground, with no height or aerial gear required.',
@@ -75,20 +75,19 @@ export class TicketDetailComponent implements OnInit, OnDestroy, AfterViewInit {
       name: 'All Access',
       level: 'Everything In The Park',
       color: '#e6179e',
-      price: 'From $34.99',
+      price: 'From $34.99 + tax',
       heroImage: 'assets/Extreme All Access/Free Fall-05931.jpg',
       intro: [
         'The full Bolder experience, unlocked. All Access gives you every ground and aerial attraction in the park — plus the things nobody else gets to touch.',
-        'Take on the ropes course, zip lines and climbing walls, climb the Mountain Experience, step off the edge on the Free Fall drops, test your aim at Archery and Darts, and keep the fun going with a $10 Arcade Card on us. This is the ultimate day at Bolder.'
+        'Take on Climbing Adventures, the four-trail ropes course and zip lines, scale the Mountain Experience indoor via ferrata, step off the edge on the Free Fall drops, and test your aim at Archery. This is the ultimate day at Bolder.'
       ],
       inclusions: [
-        { title: 'Everything in Base Camp', desc: 'All the ground-level attractions are included.' },
-        { title: 'Ropes Course, Zip Lines & Rock Climbing', desc: 'The four-level ropes course, soaring zip lines and the climbing walls.' },
-        { title: 'Mountain Experience (2 Trails)', desc: 'Climb two mountain trails to the very top of the dome.' },
-        { title: 'Free Fall — Trap Door', desc: 'Drop through the trap door for a heart-stopping plunge.' },
-        { title: 'Free Fall — Top of the Arch', desc: 'Step off the highest point in the park. If you dare.' },
-        { title: 'Archery & Darts', desc: 'Take aim at our archery range and dartboards.' },
-        { title: '$10 Arcade Card', desc: 'A $10 arcade card included to keep the games rolling.' }
+        { title: 'Everything in Base Camp', desc: 'All six ground-level attractions are included.' },
+        { title: 'Climbing Adventures', desc: '16 climbing elements and 8 rock routes up to 45 feet tall.' },
+        { title: 'Ropes Course & Zip Lines', desc: 'Four progressive trails up to 48 feet, with a zip line at the end of each.' },
+        { title: 'Mountain Experience (Indoor Via Ferrata)', desc: 'Two trails across four hand-carved rock structures to the summit.' },
+        { title: 'Free Fall', desc: 'Trap doors at 35 feet and the Epic Arch jump at 55 feet.' },
+        { title: 'Archery', desc: 'Four lanes with real recurve bows and digital scoring.' }
       ],
       height: 'Min height 42&Prime; | 48&Prime; | 54&Prime;',
       weight: 'Max weight 88&ndash;265 lbs (w/ gear)',

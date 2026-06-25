@@ -25,7 +25,7 @@ export class PlanYourVisitComponent implements OnInit, AfterViewInit {
       name: 'Base Camp',
       tag: 'Ground Level',
       desc: 'Action is on the ground — Jump Pad, Adventure Nets, Exploration Playground, Tubing Slides, Blaster Zone and Bumper Cars. Perfect for every age.',
-      price: 'From $24.99',
+      price: 'From $24.99 + tax',
       color: '#1ba1e2'
     },
     {
@@ -33,7 +33,7 @@ export class PlanYourVisitComponent implements OnInit, AfterViewInit {
       name: 'All Access',
       tag: 'Everything In The Park',
       desc: 'Unlimited access to the entire venue — every rope, zip line and climbing wall, every Mountain course, the Free Fall drops, Archery, Darts and a $10 Arcade Card. The complete Bolder experience.',
-      price: 'From $34.99',
+      price: 'From $34.99 + tax',
       color: '#e6179e'
     }
   ];

@@ -64,7 +64,7 @@ export class TicketsPassesComponent implements OnInit, AfterViewInit {
       level: 'Action on the Ground',
       color: '#1ba1e2',
       image: 'assets/All-Attraction/Adventure-nets.jpg',
-      price: 'From $24.99',
+      price: 'From $24.99 + tax',
       slug: 'base-camp',
       blurb: 'All the action on the ground. The perfect starting point for first-timers and younger adventurers.',
       features: [
@@ -82,16 +82,16 @@ export class TicketsPassesComponent implements OnInit, AfterViewInit {
       level: 'Everything In The Park',
       color: '#e6179e',
       image: 'assets/All-Attraction/Zip-lines.jpg',
-      price: 'From $34.99',
+      price: 'From $34.99 + tax',
       slug: 'extreme-all-access',
-      blurb: 'The full park. Every ground and aerial attraction — ropes, zip lines, rock climbing, the Mountain Experience, Free Fall drops, Archery, Darts and a $10 Arcade Card.',
+      blurb: 'The full park. Every ground and aerial attraction — Climbing Adventures, the ropes course and zip lines, the Mountain Experience indoor via ferrata, Free Fall drops and Archery.',
       features: [
         'Everything in Base Camp',
-        'Ropes Course, Zip Lines & Rock Climbing',
-        'Mountain Experience (2 Trails)',
-        'Free Fall — Trap Door & Top of the Arch',
-        'Archery & Darts',
-        '$10 Arcade Card included'
+        'Climbing Adventures',
+        'Ropes Course & Zip Lines',
+        'Mountain Experience (Indoor Via Ferrata)',
+        'Free Fall',
+        'Archery'
       ],
       note: 'Min height 42&Prime; | 48&Prime; | 54&Prime;. Max weight 88–265 lbs (w/ gear).',
       popular: true
@@ -100,21 +100,17 @@ export class TicketsPassesComponent implements OnInit, AfterViewInit {
 
   /* ── Inclusion guide — faithful to the official chart ── */
   matrixRows: MatrixRow[] = [
-    { label: 'Jump Pad',                    sub: '(Socks Additional)', base: true,  extreme: true },
+    { label: 'Exploration Playground',      base: true,  extreme: true },
     { label: 'Adventure Nets',              base: true,  extreme: true },
-    { label: 'Exploration Play',            sub: '(Playground)',       base: true,  extreme: true },
-    { label: 'Tubing Slides',               sub: '(Speed Shot)',       base: true,  extreme: true },
-    { label: 'Tubing Slides',               sub: '(Rolling Hills)',    base: true,  extreme: true },
+    { label: 'Jump Pad',                    sub: '(Socks Additional)', base: true,  extreme: true },
+    { label: 'Spin Zone Bumper Cars',       base: true,  extreme: true },
+    { label: 'Tubing Slides',               sub: '(Speed & Rolling Hills)', base: true,  extreme: true },
     { label: 'Blaster Zone',                base: true,  extreme: true },
-    { label: 'Bumper Cars',                 base: true,  extreme: true },
-    { label: 'Ropes Course',                sub: '(4 Levels)',         base: false, extreme: true },
-    { label: 'Rock Climbing',               base: false, extreme: true },
-    { label: 'Mountain Experience',         sub: '(2 Trails)',         base: false, extreme: true },
-    { label: 'Free Fall',                   sub: '(Trap Door)',        base: false, extreme: true },
-    { label: 'Free Fall',                   sub: '(Top of the Arch)',  base: false, extreme: true },
-    { label: 'Archery',                     base: false, extreme: true },
-    { label: 'Darts',                       base: false, extreme: true },
-    { label: 'Arcade',                      base: false, extreme: false, special: '$10 Arcade Card' }
+    { label: 'Climbing Adventures',         sub: '(8 Rock Routes)',    base: false, extreme: true },
+    { label: 'Ropes Course & Zip Lines',    sub: '(4 Trails)',         base: false, extreme: true },
+    { label: 'Mountain Experience',         sub: '(Indoor Via Ferrata)', base: false, extreme: true },
+    { label: 'Free Fall',                   sub: '(Trap Door & Arch)', base: false, extreme: true },
+    { label: 'Archery',                     base: false, extreme: true }
   ];
 
   /* footer restriction bars for the chart */

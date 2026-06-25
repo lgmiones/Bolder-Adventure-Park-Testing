@@ -310,8 +310,15 @@
    LIGHT THEME — facts panel, CTA band, buttons (page is now on a light bg)
 ═══════════════════════════════════════════════════════════════════════ */
 
-/* back link */
-.td-back { color: #586571 !important; }
+/* back link — clear, obviously-clickable hover (orange + slides left) */
+.td-back {
+  color: #586571 !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+}
+.td-back:hover {
+  color: var(--orange) !important;
+  transform: translateX(-4px) !important;
+}
 
 /* "PER TICKET" label + intro copy (were faint on the light bg) */
 .td-price span { color: #586571 !important; }

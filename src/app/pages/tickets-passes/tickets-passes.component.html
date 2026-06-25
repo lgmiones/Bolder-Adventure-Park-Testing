@@ -177,42 +177,71 @@
     </div>
   </section>
 
-  <!-- SEASONAL & SPECIAL PASSES -->
-  <section class="ip-section tp-special-section">
+  <!-- MORE WAYS TO EXPERIENCE BOLDER (non-ticket cross-promo) -->
+  <section class="ip-section tp-more-section">
     <div class="ip-container">
       <div class="section-title sr sr-up">
-        <span>More Ways To Save</span>
-        <h2>Seasonal &amp; Parent Passes</h2>
+        <span>Beyond The Day Ticket</span>
+        <h2>More Ways To Experience Bolder</h2>
         <p>
-          Flexible options for the whole crew — whether you're playing all
-          summer or cheering from the sidelines.
+          Celebrating something bigger or bringing the whole crew? We've got a
+          plan for that too.
         </p>
       </div>
 
-      <div class="tp-special-grid">
-        <article
-          class="tp-special-card sr sr-up"
-          *ngFor="let p of specialPasses; let i = index"
-          [attr.data-sr-delay]="i * 0.1 + 's'"
-          [style.--pass-color]="p.color"
+      <div class="tp-more-grid">
+        <a
+          class="tp-more-card sr sr-up"
+          routerLink="/birthday-parties"
+          style="--mc: #f45113"
         >
-          <div class="tp-special-img">
-            <img [src]="p.image" [alt]="p.name" loading="lazy" />
-            <span class="tp-special-badge">{{ p.badge }}</span>
+          <div class="tp-more-img">
+            <img
+              src="assets/images/Birthday-parties.jpg"
+              alt="Birthday parties at Bolder"
+              loading="lazy"
+            />
+            <span class="tp-more-badge">Celebrate</span>
           </div>
-          <div class="tp-special-body">
-            <h3>{{ p.name }}</h3>
-            <p class="tp-special-tagline">{{ p.tagline }}</p>
-            <p class="tp-special-desc">{{ p.desc }}</p>
-            <ul class="tp-special-features">
-              <li *ngFor="let f of p.features">{{ f }}</li>
-            </ul>
-            <p class="tp-special-note" *ngIf="p.note">{{ p.note }}</p>
-            <a [routerLink]="p.link" class="tp-special-cta"
-              >{{ p.cta }} <span aria-hidden="true">↗</span></a
+          <div class="tp-more-body">
+            <h3>Birthday Parties</h3>
+            <p>
+              All-inclusive adventure parties from <strong>$299</strong>. A
+              private table, a dedicated host, and the whole park to play in —
+              we handle the rest.
+            </p>
+            <span class="tp-more-cta"
+              >Plan a Party <span aria-hidden="true">→</span></span
             >
           </div>
-        </article>
+        </a>
+
+        <a
+          class="tp-more-card sr sr-up"
+          routerLink="/group-events"
+          style="--mc: #119ee8"
+          data-sr-delay="0.1s"
+        >
+          <div class="tp-more-img">
+            <img
+              src="assets/images/Group-events.jpg"
+              alt="Group events at Bolder"
+              loading="lazy"
+            />
+            <span class="tp-more-badge">Groups &amp; Schools</span>
+          </div>
+          <div class="tp-more-body">
+            <h3>Groups &amp; Field Trips</h3>
+            <p>
+              Bring the whole crew. Group rates from <strong>$19/person</strong>
+              (15+) and field trips from <strong>$15/student</strong> — full-day
+              indoor adventure for teams, schools and clubs.
+            </p>
+            <span class="tp-more-cta"
+              >Book a Group <span aria-hidden="true">→</span></span
+            >
+          </div>
+        </a>
       </div>
     </div>
   </section>

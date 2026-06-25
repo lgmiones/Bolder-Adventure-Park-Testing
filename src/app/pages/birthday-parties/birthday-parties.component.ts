@@ -34,12 +34,12 @@ export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
       ],
       access: 'All Base Camp attractions — including the Jump Pad, adventure nets, exploration play areas, blaster zone, bumper cars and tubing slides.',
       priceWeekday: '$299',
-      priceWeekend: '$379',
+      priceWeekend: '$349',
       extra: 'Additional guests available for $29.99 per guest (Mon–Fri) and $37.99 (Sat / Sun).'
     },
     {
-      name: 'Summit Party',
-      tag: 'Ultimate Climb',
+      name: 'All Access Party',
+      tag: 'Everything In The Park',
       color: '#f7b500',
       popular: true,
       image: 'assets/All-Attraction/Ropes-courses.jpg',
@@ -47,9 +47,9 @@ export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
         '45 minutes party table reservation',
         '10 party guests (including the birthday child)'
       ],
-      access: 'All Base Camp attractions, plus Vertical Climbing Adventures and your choice of one: Ropes Course & Zip Lines (48" min) OR Via Ferrata — the climb across the Bolder Mountains (48" and 88 lbs minimum weight).',
-      priceWeekday: '$499',
-      priceWeekend: '$549',
+      access: 'Everything in Base Camp, plus the full park — Mountain Experience, Ropes Course, Archery and Drop Zone. The complete Bolder adventure (height and weight minimums apply on aerial attractions).',
+      priceWeekday: '$399',
+      priceWeekend: '$449',
       extra: 'Additional guests available for $49.99 per guest (Mon–Fri) and $54.99 (Sat / Sun).'
     }
   ];
@@ -63,7 +63,7 @@ export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
   openFaqs = new Set<number>();
 
   faqs = [
-    { q: 'What ages are the parties best for?', a: 'Birthday parties at Bolder are suitable for ages 4 and up. We recommend the Base Camp package for younger guests (under 7) and Summit or Extreme for older kids.' },
+    { q: 'What ages are the parties best for?', a: 'Birthday parties at Bolder are suitable for ages 4 and up. We recommend the Base Camp package for younger guests (under 7) and All Access for older kids who want the full park.' },
     { q: 'Can I add more than 10 guests?', a: 'Absolutely! The package prices are based on a minimum of 10 guests. Additional guests can be added at a per-person rate. Contact us for group pricing.' },
     { q: "What's included in the 45-minute table reservation?", a: 'Your exclusive party table reservation includes private party space, table decoration setup, and your dedicated party host. You are also welcome to bring a cake and decorations.' },
     { q: 'What if I need to cancel or reschedule?', a: 'We require at least 72 hours\' notice for cancellations or reschedules. Deposits are non-refundable but can be applied to a future booking.' },

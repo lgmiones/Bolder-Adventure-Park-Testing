@@ -18,8 +18,8 @@
           *ngFor="let c of contactInfo; let i = index"
           [attr.data-sr-delay]="i * 0.1 + 's'"
           [href]="c.link || null"
-          [target]="c.link ? '_blank' : null"
-          [rel]="c.link ? 'noopener' : null"
+          [target]="c.link && !c.internal ? '_blank' : null"
+          [rel]="c.link && !c.internal ? 'noopener' : null"
           [class.is-link]="c.link"
         >
           <div class="cu-info-icon">{{ c.icon }}</div>

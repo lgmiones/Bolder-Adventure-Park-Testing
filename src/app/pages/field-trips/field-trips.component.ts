@@ -29,7 +29,7 @@ export class FieldTripsComponent implements OnInit, AfterViewInit {
     { icon: '🧒', title: 'All Ages Welcome', desc: 'Activities scaled for every age group — from elementary school adventurers to high school thrill-seekers.' },
     { icon: '📚', title: 'Curriculum Aligned', desc: 'Our programs can align with physical education, teamwork, and leadership development goals.' },
     { icon: '👨‍🏫', title: 'Dedicated Guides', desc: 'Certified instructors lead every group through the activities with safety briefings and encouragement.' },
-    { icon: '🎟️', title: 'Group Pricing', desc: 'Special group rates for schools and educational groups. Contact us for a custom quote.' },
+    { icon: '🎟️', title: 'Group Pricing', desc: 'Field-trip rates from $15–18 per student, and $19–29 per person for groups of 15 or more. Contact us for a custom quote.' },
     { icon: '🛡️', title: 'Safe & Supervised', desc: 'Every activity is designed with student safety in mind. Gear, training, and supervision included.' },
     { icon: '🏆', title: 'Unforgettable Experience', desc: 'Students will be talking about this trip for years. Real adventure that builds confidence and teamwork.' }
   ];
