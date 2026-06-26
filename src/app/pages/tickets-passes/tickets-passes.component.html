@@ -1,33 +1,4 @@
 <div class="inner-page tickets-page">
-  <app-page-hero
-    title="Tickets &amp; Passes"
-    subtitle="Every way to play at Bolder Adventure Park. Pick a day ticket, go unlimited with an annual pass, or grab a parent pass — and always book online for the best price."
-    backgroundImage="assets/images/ticket-page-hero.jpg"
-    tag="Book &amp; Save"
-  >
-  </app-page-hero>
-
-  <app-infinite-carousel speed="slow"></app-infinite-carousel>
-
-  <!-- Intro -->
-  <section class="ip-section tp-intro-section">
-    <div class="ip-container">
-      <div class="tp-intro sr sr-up">
-        <p>
-          There are <strong>Two day-ticket options</strong> to choose from, plus
-          annual and seasonal passes for maximum value. The further up you go,
-          the more of the park you unlock — all the way to the full
-          <strong>Extreme All Access</strong> experience.
-        </p>
-        <p>
-          Our venue is popular and capacity is limited, so we highly recommend
-          booking in advance to avoid disappointment. Booking online always gets
-          you the <strong>best price guaranteed</strong>.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- DAY TICKETS -->
   <section class="ip-section tp-day-section">
     <div class="ip-container">
@@ -171,9 +142,162 @@
               ><b>Max Weight</b> {{ restrictions.extreme.weight }}</span
             >
           </div>
+
+          <!-- Book CTAs under each tier column -->
+          <div class="tg-foot-spacer"></div>
+          <a
+            class="tg-cta tg-cta-base"
+            [href]="bookUrl"
+            target="_blank"
+            rel="noopener"
+            >Book Base Camp <span aria-hidden="true">↗</span></a
+          >
+          <a
+            class="tg-cta tg-cta-extreme"
+            [href]="bookUrl"
+            target="_blank"
+            rel="noopener"
+            >Book All Access <span aria-hidden="true">↗</span></a
+          >
         </div>
       </div>
       <p class="tg-hint">Swipe sideways to see all levels →</p>
+    </div>
+  </section>
+
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
+  <!-- Section D — What's Included (with attraction detail modal) -->
+  <section class="section whats-included" id="whats-included">
+    <div class="section-title sr sr-up">
+      <p>Every Attraction Included</p>
+      <h2>What's Included</h2>
+    </div>
+
+    <!-- Base Camp -->
+    <div class="wi-group sr sr-up" style="--wi: #1ba1e2; --wi2: #0b7fb8">
+      <div class="wi-banner">
+        <div class="wi-banner-text">
+          <span class="wi-level">Level 01 · Ground Level</span>
+          <h3 class="wi-name">
+            Base Camp <em class="wi-price">$24.99<i>+ tax</i></em>
+          </h3>
+        </div>
+        <a
+          class="wi-cta wi-cta-base"
+          [href]="bookUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book Base Camp Tickets <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="wi-grid">
+        <button
+          type="button"
+          class="wi-card"
+          *ngFor="let a of includedBaseCamp; let i = index"
+          (click)="openAttraction(a)"
+          [style.animation-delay]="i * 0.05 + 's'"
+        >
+          <img [src]="a.image" [alt]="a.title" loading="lazy" />
+          <div class="wi-card-label"><span>{{ a.title }}</span></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- All Access -->
+    <div class="wi-group sr sr-up" style="--wi: #e6179e; --wi2: #b3107a">
+      <div class="wi-banner">
+        <div class="wi-banner-text">
+          <span class="wi-level">Level 02 · Everything In The Park</span>
+          <h3 class="wi-name">
+            All Access <em class="wi-price">$34.99<i>+ tax</i></em>
+          </h3>
+        </div>
+        <a
+          class="wi-cta wi-cta-extreme"
+          [href]="bookUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book All Access Tickets <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <p class="wi-note">
+        Includes <strong>everything in Base Camp</strong>, plus all the aerial
+        adventures:
+      </p>
+      <div class="wi-grid">
+        <button
+          type="button"
+          class="wi-card"
+          *ngFor="let a of includedAllAccess; let i = index"
+          (click)="openAttraction(a)"
+          [style.animation-delay]="i * 0.05 + 's'"
+        >
+          <img [src]="a.image" [alt]="a.title" loading="lazy" />
+          <div class="wi-card-label"><span>{{ a.title }}</span></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Attraction detail modal -->
+    <div
+      class="att-modal"
+      #attModal
+      [class.is-open]="!!activeAttraction"
+      (click)="closeAttraction()"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="att-modal-card"
+        *ngIf="activeAttraction"
+        (click)="$event.stopPropagation()"
+        [style.--am]="activeAttraction.accent"
+      >
+        <button
+          class="att-modal-x"
+          type="button"
+          aria-label="Close"
+          (click)="closeAttraction()"
+        >
+          &times;
+        </button>
+        <div class="att-modal-hero">
+          <img [src]="activeAttraction.image" [alt]="activeAttraction.title" />
+          <div class="att-modal-hero-grad"></div>
+          <div class="att-modal-hero-text">
+            <span class="att-modal-level">{{ activeAttraction.level }}</span>
+            <h3 class="att-modal-name">{{ activeAttraction.title }}</h3>
+          </div>
+        </div>
+        <div class="att-modal-body">
+          <div class="att-modal-specs">
+            <h4 class="att-modal-h">
+              <i aria-hidden="true">&#9670;</i> Facts &amp; Specs
+            </h4>
+            <ul>
+              <li *ngFor="let sp of activeAttraction.specs">{{ sp }}</li>
+            </ul>
+          </div>
+          <div class="att-modal-exp">
+            <h4 class="att-modal-h">
+              <i aria-hidden="true">&#9670;</i> The Experience
+            </h4>
+            <p>{{ activeAttraction.experience }}</p>
+            <a
+              class="att-modal-cta"
+              [href]="bookUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Tickets <span aria-hidden="true">&#8599;</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -233,9 +357,10 @@
           <div class="tp-more-body">
             <h3>Groups &amp; Field Trips</h3>
             <p>
-              Bring the whole crew. Group rates from <strong>$19/person</strong>
-              (15+) and field trips from <strong>$15/student</strong> — full-day
-              indoor adventure for teams, schools and clubs.
+              Bring the whole crew. Group rates from
+              <strong>$19/person</strong> (15+) and field trips from
+              <strong>$15/student</strong> — full-day indoor adventure for
+              teams, schools and clubs.
             </p>
             <span class="tp-more-cta"
               >Book a Group <span aria-hidden="true">→</span></span

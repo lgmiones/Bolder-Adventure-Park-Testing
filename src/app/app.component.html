@@ -57,7 +57,9 @@
         <ul class="deal-pop-feats">
           <li><i>✓</i> Two ways to play — Base Camp &amp; All Access</li>
           <li><i>✓</i> A full $7 cheaper than the door price</li>
-          <li><i>✓</i> Weather-proof fun under the 66,000&nbsp;sq&nbsp;ft dome</li>
+          <li>
+            <i>✓</i> Weather-proof fun under the 66,000&nbsp;sq&nbsp;ft dome
+          </li>
           <li><i>✓</i> Built for every age — and big kids too</li>
         </ul>
 
@@ -146,10 +148,7 @@
   <header class="main-navbar-wrap" [class.is-stuck]="navStuck">
     <nav class="main-navbar" aria-label="Main navigation">
       <a class="navbar-brand" routerLink="/" (click)="closeNav()">
-        <img
-          src="assets/images/bolder-logo.png"
-          alt="Bolder Adventure Park"
-        />
+        <img src="assets/images/bolder-logo.png" alt="Bolder Adventure Park" />
       </a>
 
       <div class="navbar-links">
@@ -172,52 +171,99 @@
           >
             <div class="nav-mega-list">
               <span class="nav-mega-heading">Plan Your Visit</span>
-              <a routerLink="/tickets-passes" (click)="closeNav()">Ticket Information</a>
-              <a routerLink="/attractions" (click)="closeNav()">Explore The Attractions</a>
-              <a routerLink="/birthday-parties" (click)="closeNav()">Birthday Parties</a>
-              <a routerLink="/group-events" (click)="closeNav()">Groups Bookings</a>
-              <a routerLink="/group-events/corporate-events" (click)="closeNav()">Corporate Events</a>
-              <a routerLink="/plan-your-visit" fragment="hours" (click)="closeNav()">Opening Hours</a>
+              <a routerLink="/tickets-passes" (click)="closeNav()"
+                >Ticket Information</a
+              >
+              <a routerLink="/attractions" (click)="closeNav()"
+                >Explore The Attractions</a
+              >
+              <a routerLink="/birthday-parties" (click)="closeNav()"
+                >Birthday Parties</a
+              >
+              <a routerLink="/group-events" (click)="closeNav()"
+                >Groups Bookings</a
+              >
+              <a
+                routerLink="/group-events/corporate-events"
+                (click)="closeNav()"
+                >Corporate Events</a
+              >
+              <a
+                routerLink="/plan-your-visit"
+                fragment="hours"
+                (click)="closeNav()"
+                >Opening Hours</a
+              >
               <a routerLink="/faqs" (click)="closeNav()">FAQs</a>
               <a
                 href="https://waiver.roller.app/BolderAdventurePark/home"
                 target="_blank"
                 rel="noopener noreferrer"
                 (click)="closeNav()"
-              >Waiver</a>
-              <a class="nav-mega-list-cta" routerLink="/plan-your-visit" (click)="closeNav()">
+                >Waiver</a
+              >
+              <a
+                class="nav-mega-list-cta"
+                routerLink="/plan-your-visit"
+                (click)="closeNav()"
+              >
                 Plan Your Visit <span aria-hidden="true">↗</span>
               </a>
             </div>
 
             <div class="nav-mega-cards">
-              <a class="nav-mega-card" routerLink="/plan-your-visit" (click)="closeNav()">
-                <img src="assets/images/Action-on-the-ground.jpg" alt="Plan your visit" />
+              <a
+                class="nav-mega-card"
+                routerLink="/plan-your-visit"
+                (click)="closeNav()"
+              >
+                <img
+                  src="assets/images/Action-on-the-ground.jpg"
+                  alt="Plan your visit"
+                />
                 <span class="nmc-flag">First Time? Start Here</span>
                 <strong>Plan Your Visit</strong>
               </a>
-              <a class="nav-mega-card" routerLink="/birthday-parties" (click)="closeNav()">
-                <img src="assets/images/Birthday-parties.jpg" alt="Birthday parties" />
+              <a
+                class="nav-mega-card"
+                routerLink="/birthday-parties"
+                (click)="closeNav()"
+              >
+                <img
+                  src="assets/images/Birthday-parties.jpg"
+                  alt="Birthday parties"
+                />
                 <strong>Birthday Parties</strong>
               </a>
-              <a class="nav-mega-card" routerLink="/group-events" (click)="closeNav()">
-                <img src="assets/images/Group-events.jpg" alt="Group bookings" />
+              <a
+                class="nav-mega-card"
+                routerLink="/group-events"
+                (click)="closeNav()"
+              >
+                <img
+                  src="assets/images/Group-events.jpg"
+                  alt="Group bookings"
+                />
                 <strong>Group Bookings</strong>
               </a>
             </div>
           </div>
         </div>
 
-        <a class="nav-link" routerLink="/birthday-parties" (click)="closeNav()">Birthday Parties</a>
+        <a class="nav-link" routerLink="/birthday-parties" (click)="closeNav()"
+          >Birthday Parties</a
+        >
         <a
           class="nav-link"
           href="https://summer.bolderadventurepark.com/"
           target="_blank"
           rel="noopener noreferrer"
           (click)="closeNav()"
-        >Summer Camps</a>
-        <a class="nav-link" routerLink="/group-events" (click)="closeNav()">Groups</a>
-        <a class="nav-link" routerLink="/live-events" (click)="closeNav()">Live Events</a>
+          >Summer Camps</a
+        >
+        <a class="nav-link" routerLink="/group-events" (click)="closeNav()"
+          >Groups</a
+        >
       </div>
 
       <div class="navbar-links-OLD" hidden>
@@ -419,10 +465,6 @@
                 <span class="ndl-title">Group Events</span>
                 <span class="ndl-sub">Teams, schools &amp; clubs</span>
               </a>
-              <a routerLink="/live-events" (click)="closeNav()">
-                <span class="ndl-title">Live Events</span>
-                <span class="ndl-sub">What's on at Bolder</span>
-              </a>
             </div>
 
             <div class="nav-dd-events">
@@ -434,12 +476,12 @@
                 routerLink="/live-events/mj-dejavu"
                 (click)="closeNav()"
               >
-                <span class="nav-dd-event-date">
-                  <b>20</b><i>Jun</i>
-                </span>
+                <span class="nav-dd-event-date"> <b>20</b><i>Jun</i> </span>
                 <span class="nav-dd-event-info">
                   <span class="nav-dd-event-title">MJ Dejavu</span>
-                  <span class="nav-dd-event-meta">Concert &middot; Main Stage</span>
+                  <span class="nav-dd-event-meta"
+                    >Concert &middot; Main Stage</span
+                  >
                 </span>
                 <span class="nav-dd-event-tag tag-limited">Limited</span>
               </a>
@@ -448,9 +490,7 @@
                 routerLink="/live-events/adult-night-july-2026"
                 (click)="closeNav()"
               >
-                <span class="nav-dd-event-date">
-                  <b>03</b><i>Jul</i>
-                </span>
+                <span class="nav-dd-event-date"> <b>03</b><i>Jul</i> </span>
                 <span class="nav-dd-event-info">
                   <span class="nav-dd-event-title">Adult Night</span>
                   <span class="nav-dd-event-meta">18+ &middot; Whole Park</span>
@@ -462,9 +502,7 @@
                 routerLink="/live-events/adult-night-august-2026"
                 (click)="closeNav()"
               >
-                <span class="nav-dd-event-date">
-                  <b>07</b><i>Aug</i>
-                </span>
+                <span class="nav-dd-event-date"> <b>07</b><i>Aug</i> </span>
                 <span class="nav-dd-event-info">
                   <span class="nav-dd-event-title">Adult Night</span>
                   <span class="nav-dd-event-meta">18+ &middot; Whole Park</span>
