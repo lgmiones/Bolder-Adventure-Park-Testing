@@ -196,3 +196,41 @@
 
 /* ── angular theme pass ── */
 .ace-card, .passes-promo-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
+
+
+/* ── Contextual "Get Tickets" CTA under the tier tabs ── */
+.ace-cta-row {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto clamp(1.6rem, 3vw, 2.4rem);
+}
+.ace-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s ease;
+}
+.ace-cta-price {
+  font-family: var(--font-ui);
+  font-size: 0.62em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.28em 0.7em;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.ace-cta span[aria-hidden] { font-size: 0.85em; }
+.ace-cta-base      { background: #1ba1e2; box-shadow: 0 12px 28px rgba(27, 161, 226, 0.35); }
+.ace-cta-allaccess { background: #e6179e; box-shadow: 0 12px 28px rgba(230, 23, 158, 0.35); }
+.ace-cta:hover { transform: translateY(-3px); filter: brightness(1.07); }
+.ace-cta-base:hover      { box-shadow: 0 18px 38px rgba(27, 161, 226, 0.5); }
+.ace-cta-allaccess:hover { box-shadow: 0 18px 38px rgba(230, 23, 158, 0.5); }

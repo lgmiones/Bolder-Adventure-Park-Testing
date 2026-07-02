@@ -60,6 +60,13 @@ export class MembershipsComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  benefits = [
+    { icon: '💰', title: 'Save Money',       desc: 'One annual pass pays for itself after just 2–3 visits.' },
+    { icon: '⚡', title: 'Skip The Line',     desc: 'Annual pass holders get priority access at peak times.' },
+    { icon: '🎯', title: 'Unlimited Visits',  desc: 'Come back as many times as you like, all year long.' },
+    { icon: '🎁', title: 'Member Perks',      desc: 'Exclusive discounts on food, merchandise, and events.' }
+  ];
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       const observer = new IntersectionObserver(

@@ -32,7 +32,7 @@ export class PlanYourVisitComponent implements OnInit, AfterViewInit {
       id: 'extreme',
       name: 'All Access',
       tag: 'Everything In The Park',
-      desc: 'Unlimited access to the entire venue — every rope, zip line and climbing wall, every Mountain course, the Free Fall drops, Archery, Darts and a $10 Arcade Card. The complete Bolder experience.',
+      desc: 'Unlimited access to the entire venue — every rope, zip line and climbing wall, every Mountain course, the Free Fall drops, Archery and Darts. The complete Bolder experience.',
       price: 'From $34.99 + tax',
       color: '#e6179e'
     }

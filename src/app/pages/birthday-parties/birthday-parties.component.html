@@ -7,7 +7,70 @@
   >
   </app-page-hero>
 
-  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+  <!-- Party Packages -->
+  <section class="bp-packages-section ip-section">
+    <div class="ip-container">
+      <div class="section-title sr sr-up">
+        <p>Choose Your Adventure Level</p>
+        <h2>Party Packages</h2>
+      </div>
+      <div class="bp-packages-grid">
+        <article
+          class="bp-card sr sr-up"
+          *ngFor="let pkg of packages; let i = index"
+          [attr.data-sr-delay]="i * 0.12 + 's'"
+          [class.is-top]="pkg.popular"
+          [style.--bc]="pkg.color"
+        >
+          <span class="bp-flag" *ngIf="pkg.popular">Most Popular</span>
+
+          <div class="bp-card-img">
+            <img [src]="pkg.image" [alt]="pkg.name" loading="lazy" />
+            <span class="bp-badge">{{ pkg.tag }}</span>
+          </div>
+
+          <div class="bp-card-body">
+            <h3 class="bp-card-name">{{ pkg.name }}</h3>
+
+            <div class="bp-sec">
+              <span class="bp-sec-label">◆ Package Includes</span>
+              <ul class="bp-list">
+                <li *ngFor="let inc of pkg.includes">{{ inc }}</li>
+              </ul>
+            </div>
+
+            <div class="bp-sec">
+              <span class="bp-sec-label">◆ Access To</span>
+              <p class="bp-access">{{ pkg.access }}</p>
+            </div>
+
+            <div class="bp-prices">
+              <div class="bp-price">
+                <strong>{{ pkg.priceWeekday }}<sup>*</sup></strong>
+                <span>Mon&ndash;Fri</span>
+              </div>
+              <div class="bp-price">
+                <strong>{{ pkg.priceWeekend }}<sup>*</sup></strong>
+                <span>Sat, Sun &amp; Holidays</span>
+              </div>
+            </div>
+
+            <p class="bp-extra">{{ pkg.extra }}</p>
+
+            <a
+              [href]="bookUrl"
+              target="_blank"
+              rel="noopener"
+              class="bp-card-cta"
+            >
+              Book Party <span aria-hidden="true">↗</span>
+            </a>
+            <p class="bp-foot">{{ footnote }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- Photo strip + intro -->
   <section class="bp-intro-section ip-section">
@@ -64,6 +127,8 @@
     </div>
   </section>
 
+  <app-infinite-carousel speed="slow"></app-infinite-carousel>
+
   <!-- What's included -->
   <section class="bp-includes-section ip-section">
     <div class="ip-container">
@@ -90,66 +155,6 @@
           <div class="bp-include-icon">{{ item.icon }}</div>
           <span class="bp-include-label">{{ item.label }}</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Party Packages -->
-  <section class="bp-packages-section ip-section">
-    <div class="ip-container">
-      <div class="section-title sr sr-up">
-        <p>Choose Your Adventure Level</p>
-        <h2>Party Packages</h2>
-      </div>
-      <div class="bp-packages-grid">
-        <article
-          class="bp-card sr sr-up"
-          *ngFor="let pkg of packages; let i = index"
-          [attr.data-sr-delay]="i * 0.12 + 's'"
-          [class.is-top]="pkg.popular"
-          [style.--bc]="pkg.color"
-        >
-          <span class="bp-flag" *ngIf="pkg.popular">Most Popular</span>
-
-          <div class="bp-card-img">
-            <img [src]="pkg.image" [alt]="pkg.name" loading="lazy" />
-            <span class="bp-badge">{{ pkg.tag }}</span>
-          </div>
-
-          <div class="bp-card-body">
-            <h3 class="bp-card-name">{{ pkg.name }}</h3>
-
-            <div class="bp-sec">
-              <span class="bp-sec-label">◆ Package Includes</span>
-              <ul class="bp-list">
-                <li *ngFor="let inc of pkg.includes">{{ inc }}</li>
-              </ul>
-            </div>
-
-            <div class="bp-sec">
-              <span class="bp-sec-label">◆ Access To</span>
-              <p class="bp-access">{{ pkg.access }}</p>
-            </div>
-
-            <div class="bp-prices">
-              <div class="bp-price">
-                <strong>{{ pkg.priceWeekday }}<sup>*</sup></strong>
-                <span>Mon&ndash;Fri</span>
-              </div>
-              <div class="bp-price">
-                <strong>{{ pkg.priceWeekend }}<sup>*</sup></strong>
-                <span>Sat, Sun &amp; Holidays</span>
-              </div>
-            </div>
-
-            <p class="bp-extra">{{ pkg.extra }}</p>
-
-            <a [href]="bookUrl" target="_blank" rel="noopener" class="bp-card-cta">
-              Book Party <span aria-hidden="true">↗</span>
-            </a>
-            <p class="bp-foot">{{ footnote }}</p>
-          </div>
-        </article>
       </div>
     </div>
   </section>

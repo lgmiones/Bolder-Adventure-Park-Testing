@@ -30,6 +30,30 @@
         </button>
       </div>
 
+      <!-- Contextual Get Tickets CTA (shows for a selected tier) -->
+      <div class="ace-cta-row" *ngIf="activeTab === 'base' || activeTab === 'allaccess'">
+        <a
+          *ngIf="activeTab === 'base'"
+          class="ace-cta ace-cta-base"
+          [href]="bookUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Base Camp Tickets <span class="ace-cta-price">from $24.99 + tax</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          *ngIf="activeTab === 'allaccess'"
+          class="ace-cta ace-cta-allaccess"
+          [href]="bookUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get All Access Tickets <span class="ace-cta-price">from $34.99 + tax</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
       <!-- Cards grid -->
       <div class="attraction-cards-enhanced">
         <div

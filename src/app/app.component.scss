@@ -5670,8 +5670,8 @@ a {
   flex-direction: column;
   gap: 4px;
   padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f4f6f8;
+  border: 1px solid #e1e6eb;
   border-left: 3px solid var(--tc, var(--orange));
   clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   text-transform: none;
@@ -5688,7 +5688,7 @@ a {
   gap: 10px;
 }
 .side-menu .sm-tk-name {
-  color: #fff;
+  color: #16222e;
   font-family: var(--font-ui);
   font-size: 1.05rem;
   font-weight: 800;
@@ -5702,7 +5702,7 @@ a {
   letter-spacing: 0.02em;
 }
 .side-menu .sm-tk-sub {
-  color: #9aa2aa;
+  color: #586571;
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
@@ -5818,9 +5818,9 @@ a {
 }
 .side-menu .sm-chip {
   padding: 6px 11px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e6eaee;
+  background: #f4f6f8;
+  border: 1px solid #e1e6eb;
+  color: #44515c;
   font-family: var(--font-ui);
   font-size: 0.74rem;
   font-weight: 700;

@@ -26,13 +26,14 @@ export class AttractionsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  activeTab = 'all';
+  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home';
+
+  activeTab = 'base';
 
   tabs = [
-    { id: 'all',      label: 'All Attractions' },
-    { id: 'base',     label: 'Base Camp' },
-    { id: 'mountain', label: 'Mountain Course' },
-    { id: 'ropes',    label: 'Ropes Course' },
+    { id: 'base',      label: 'Base Camp' },
+    { id: 'allaccess', label: 'All Access' },
+    { id: 'all',       label: 'All Attractions' },
   ];
 
   cards: AttractionCard[] = [
@@ -50,6 +51,10 @@ export class AttractionsComponent implements OnInit, AfterViewInit {
 
   get filteredCards(): AttractionCard[] {
     if (this.activeTab === 'all') return this.cards;
+    // "All Access" = everything Base Camp unlocks PLUS the aerial upgrades
+    if (this.activeTab === 'allaccess') {
+      return this.cards.filter(c => c.category === 'mountain' || c.category === 'ropes');
+    }
     return this.cards.filter(c => c.category === this.activeTab);
   }
 
