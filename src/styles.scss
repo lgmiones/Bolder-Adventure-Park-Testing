@@ -281,3 +281,60 @@ a {
   color: #c0392b;
 }
 .form-error a { color: #c0392b; font-weight: 700; text-decoration: underline; }
+
+/* Inline field validation (email format, etc.) */
+.field-err {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #d9432b;
+}
+/* red border on any required/format-invalid field once the user has touched it */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: #d9432b !important;
+}
+/* invalid email: also tint the typed text red for clear feedback */
+input[type="email"].ng-invalid.ng-touched {
+  color: #d9432b !important;
+}
+
+/* number inputs: hide the native spinner (renders as a dark box on Windows Chrome) — */
+/* a clean custom chevron is painted per-form instead */
+input[type="number"] { -moz-appearance: textfield; }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  margin: 0 !important;
+}
+
+/* custom number stepper (clickable up/down buttons) */
+.num-stepper { position: relative; display: block; width: 100%; }
+.num-stepper > input[type="number"] { width: 100%; padding-right: 2.7rem !important; }
+.num-btns {
+  position: absolute;
+  top: 1px; right: 1px; bottom: 1px;
+  width: 2rem;
+  display: flex; flex-direction: column;
+  border-left: 1px solid #d7dde2;
+  border-radius: 0 9px 9px 0;
+  overflow: hidden;
+}
+.num-btns button {
+  flex: 1 1 50%;
+  border: none;
+  background: #eef1f4;
+  color: #586571;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.num-btns button + button { border-top: 1px solid #d7dde2; }
+.num-btns button:hover { background: #f45113; color: #fff; }
+.num-btns button:active { background: #d8440d; color: #fff; }
+.num-btns button svg { display: block; }

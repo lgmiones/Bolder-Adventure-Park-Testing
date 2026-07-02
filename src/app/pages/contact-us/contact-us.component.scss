@@ -386,6 +386,14 @@
   color: #ffffff !important;
   opacity: 1 !important;
 }
+/* but clearly dim + block it while the form is invalid or sending */
+.cu-submit-btn:disabled,
+.cu-submit-btn.is-loading {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+  filter: grayscale(0.15);
+  transform: none !important;
+}
 
 /* social links → white pills with dark text, orange fill on hover */
 .cu-social-label { color: #586571 !important; }

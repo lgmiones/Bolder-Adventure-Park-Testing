@@ -83,7 +83,10 @@
                   name="email"
                   placeholder="your@email.com"
                   required
+                  email
+                  #cuEmail="ngModel"
                 />
+                <span class="field-err" *ngIf="cuEmail.touched && cuEmail.errors?.email">Please enter a valid email address.</span>
               </div>
             </div>
 

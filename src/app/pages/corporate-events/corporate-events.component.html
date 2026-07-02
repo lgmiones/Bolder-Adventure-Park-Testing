@@ -113,7 +113,8 @@
         <div class="ce-form-row">
           <div class="ce-field">
             <label>Email *</label>
-            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="your@company.com" required/>
+            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="your@company.com" required email #ceEmail="ngModel"/>
+            <span class="field-err" *ngIf="ceEmail.touched && ceEmail.errors?.email">Please enter a valid email address.</span>
           </div>
           <div class="ce-field">
             <label>Mobile *</label>
@@ -140,7 +141,17 @@
         <div class="ce-form-row">
           <div class="ce-field">
             <label>Number of Guests</label>
-            <input type="number" [(ngModel)]="formData.guests" name="guests" placeholder="Estimated headcount" min="10"/>
+            <div class="num-stepper">
+              <input type="number" #ceGuests [(ngModel)]="formData.guests" name="guests" placeholder="Estimated headcount" min="10" (change)="formData.guests = (ceGuests.value !== '' && ceGuests.valueAsNumber < 10) ? '10' : ceGuests.value"/>
+              <div class="num-btns">
+                <button type="button" tabindex="-1" aria-label="Increase" (click)="ceGuests.stepUp(); formData.guests = ceGuests.value">
+                  <svg width="11" height="7" viewBox="0 0 11 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5 5.5 1.5 10 5.5"/></svg>
+                </button>
+                <button type="button" tabindex="-1" aria-label="Decrease" (click)="ceGuests.stepDown(); formData.guests = ceGuests.value">
+                  <svg width="11" height="7" viewBox="0 0 11 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1.5 5.5 5.5 10 1.5"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
           <div class="ce-field">
             <label>Preferred Date</label>
