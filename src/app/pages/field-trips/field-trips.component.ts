@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
+import { FormMailService } from '../../services/form-mail.service';
 
 @Component({
   selector: 'app-field-trips',
@@ -8,7 +9,7 @@ import { SeoService } from '../../services/seo.service';
 })
 export class FieldTripsComponent implements OnInit, AfterViewInit {
 
-  constructor(private seo: SeoService) {}
+  constructor(private seo: SeoService, private mail: FormMailService) {}
 
   ngOnInit(): void {
     this.seo.update({
@@ -61,14 +62,23 @@ export class FieldTripsComponent implements OnInit, AfterViewInit {
   submitted = false;
   submitting = false;
 
+  error = false;
+
   submitForm(): void {
     if (this.submitting) return;
     this.submitting = true;
-    setTimeout(() => {
-      this.submitted = true;
-      this.submitting = false;
-      this.formData = { firstName: '', lastName: '', email: '', phone: '', school: '', gradeLevel: '', guests: '', date: '', message: '' };
-    }, 1200);
+    this.error = false;
+    this.mail.send(this.formData, 'Field Trip Inquiry — ' + (this.formData.school || 'School Group')).subscribe({
+      next: () => {
+        this.submitted = true;
+        this.submitting = false;
+        this.formData = { firstName: '', lastName: '', email: '', phone: '', school: '', gradeLevel: '', guests: '', date: '', message: '' };
+      },
+      error: () => {
+        this.submitting = false;
+        this.error = true;
+      }
+    });
   }
 
   ngAfterViewInit(): void {

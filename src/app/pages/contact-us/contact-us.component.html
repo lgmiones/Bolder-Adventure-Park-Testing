@@ -128,6 +128,10 @@
               <span *ngIf="!submitting">Send Message ↗</span>
               <span *ngIf="submitting">Sending...</span>
             </button>
+            <p class="form-error" *ngIf="error">
+              Sorry, that didn't send. Please try again, or email
+              <a href="mailto:bolder@bolderpark.com">bolder@bolderpark.com</a>.
+            </p>
           </form>
         </div>
 

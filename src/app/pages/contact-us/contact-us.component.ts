@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
+import { FormMailService } from '../../services/form-mail.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -8,7 +9,7 @@ import { SeoService } from '../../services/seo.service';
 })
 export class ContactUsComponent implements OnInit, AfterViewInit {
 
-  constructor(private seo: SeoService) {}
+  constructor(private seo: SeoService, private mail: FormMailService) {}
 
   ngOnInit(): void {
     this.seo.update({
@@ -29,6 +30,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
 
   submitted = false;
   submitting = false;
+  error = false;
 
   contactInfo = [
     {
@@ -79,11 +81,18 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   submitForm(): void {
     if (this.submitting) return;
     this.submitting = true;
-    setTimeout(() => {
-      this.submitted = true;
-      this.submitting = false;
-      this.formData = { name: '', email: '', phone: '', subject: '', message: '' };
-    }, 1200);
+    this.error = false;
+    this.mail.send(this.formData, 'Website Contact — ' + (this.formData.subject || 'General Inquiry')).subscribe({
+      next: () => {
+        this.submitted = true;
+        this.submitting = false;
+        this.formData = { name: '', email: '', phone: '', subject: '', message: '' };
+      },
+      error: () => {
+        this.submitting = false;
+        this.error = true;
+      }
+    });
   }
 
   ngAfterViewInit(): void {

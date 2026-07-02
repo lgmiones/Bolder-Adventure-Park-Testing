@@ -271,3 +271,13 @@ a {
     padding: 0 1rem 1rem;
   }
 }
+
+/* Form submission error message (shared across contact/group/corporate/field-trip forms) */
+.form-error {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #c0392b;
+}
+.form-error a { color: #c0392b; font-weight: 700; text-decoration: underline; }

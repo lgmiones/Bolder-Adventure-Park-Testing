@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
+import { FormMailService } from '../../services/form-mail.service';
 
 @Component({
   selector: 'app-group-events',
@@ -8,7 +9,9 @@ import { SeoService } from '../../services/seo.service';
 })
 export class GroupEventsComponent implements OnInit, AfterViewInit {
 
-  constructor(private seo: SeoService) {}
+  constructor(private seo: SeoService, private mail: FormMailService) {}
+
+  submitting = false;
 
   ngOnInit(): void {
     this.seo.update({
@@ -55,7 +58,19 @@ export class GroupEventsComponent implements OnInit, AfterViewInit {
   formData = { name: '', email: '', phone: '', eventType: '', guests: '', message: '', date: '' };
 
   submitForm(): void {
-    alert('Thank you! We will be in touch shortly.');
+    if (this.submitting) return;
+    this.submitting = true;
+    this.mail.send(this.formData, 'Group Event Inquiry — ' + (this.formData.eventType || 'Group')).subscribe({
+      next: () => {
+        this.submitting = false;
+        alert('Thank you! Your inquiry has been sent — we will be in touch shortly.');
+        this.formData = { name: '', email: '', phone: '', eventType: '', guests: '', message: '', date: '' };
+      },
+      error: () => {
+        this.submitting = false;
+        alert('Sorry, something went wrong sending your message. Please try again or email bolder@bolderpark.com directly.');
+      }
+    });
   }
 
   ngAfterViewInit(): void {
