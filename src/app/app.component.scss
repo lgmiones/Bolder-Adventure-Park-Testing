@@ -4889,37 +4889,35 @@ a {
     display: none;
   }
 
+  /* compact "Get Tickets" pill (label + icon) instead of icon-only */
   .navbar-ticket {
-    min-width: 46px;
-    width: 46px;
-    min-height: 46px;
-    height: 46px;
-    padding: 0;
-    gap: 0;
-    /* Keep the orange pill on mobile so the icon reads clearly */
+    min-width: 0;
+    width: auto;
+    min-height: 44px;
+    height: 44px;
+    padding: 0 0.9rem;
+    gap: 0.4rem;
     background: #ff9344;
+    color: #111;
+    font-size: 0.8rem;
     box-shadow: 0 4px 14px rgba(255, 147, 68, 0.40);
     border-radius: 999px;
   }
 
   .navbar-ticket:hover {
     background: #000;
+    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
   }
 
   .ticket-text {
-    display: none;
-  }
-
-  /* White icon on the orange pill so it matches the reference */
-  .navbar-ticket {
-    color: #fff;
+    display: inline;
   }
 
   .navbar-ticket .ticket-icon-svg {
-    width: 26px;
-    height: 26px;
+    width: 18px;
+    height: 18px;
   }
 
   .side-menu {
