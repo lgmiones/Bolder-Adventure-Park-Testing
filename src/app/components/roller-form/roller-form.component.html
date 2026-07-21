@@ -1,0 +1,12 @@
+<div class="roller-form-wrap">
+  <iframe
+    *ngIf="safeUrl"
+    class="roller-form-frame"
+    [src]="safeUrl"
+    [style.height.px]="height"
+    title="Enquiry form"
+    frameborder="0"
+    scrolling="no"
+    loading="lazy">
+  </iframe>
+</div>

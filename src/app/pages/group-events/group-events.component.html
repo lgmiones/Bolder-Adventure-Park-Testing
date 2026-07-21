@@ -75,59 +75,8 @@
         <p>Tell us about your group and we'll get back to you with a tailored quote within 24 hours.</p>
       </div>
 
-      <form class="ge-form sr sr-up" (ngSubmit)="submitForm()" data-sr-delay="0.1s" #geForm="ngForm">
-        <div class="ge-form-grid">
-          <div class="ge-field">
-            <label>Full Name *</label>
-            <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Your name" required/>
-          </div>
-          <div class="ge-field">
-            <label>Email Address *</label>
-            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="Your email" required email #geEmail="ngModel"/>
-            <span class="field-err" *ngIf="geEmail.touched && geEmail.errors?.email">Please enter a valid email address.</span>
-          </div>
-          <div class="ge-field">
-            <label>Phone Number</label>
-            <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="(xxx) xxx-xxxx"/>
-          </div>
-          <div class="ge-field">
-            <label>Event Type *</label>
-            <select [(ngModel)]="formData.eventType" name="eventType" required>
-              <option value="" disabled selected>Select event type</option>
-              <option value="corporate">Corporate Event</option>
-              <option value="fieldtrip">Field Trip</option>
-              <option value="birthday">Birthday Party</option>
-              <option value="other">Other Group Event</option>
-            </select>
-          </div>
-          <div class="ge-field">
-            <label>Number of Guests *</label>
-            <div class="num-stepper">
-              <input type="number" #geGuests [(ngModel)]="formData.guests" name="guests" placeholder="Estimated number" min="10" required (change)="formData.guests = (geGuests.value !== '' && geGuests.valueAsNumber < 10) ? '10' : geGuests.value"/>
-              <div class="num-btns">
-                <button type="button" tabindex="-1" aria-label="Increase" (click)="geGuests.stepUp(); formData.guests = geGuests.value">
-                  <svg width="11" height="7" viewBox="0 0 11 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5 5.5 1.5 10 5.5"/></svg>
-                </button>
-                <button type="button" tabindex="-1" aria-label="Decrease" (click)="geGuests.stepDown(); formData.guests = geGuests.value">
-                  <svg width="11" height="7" viewBox="0 0 11 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1.5 5.5 5.5 10 1.5"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="ge-field">
-            <label>Preferred Date</label>
-            <input type="date" [(ngModel)]="formData.date" name="date"/>
-          </div>
-        </div>
-        <div class="ge-field ge-field--full">
-          <label>Message</label>
-          <textarea [(ngModel)]="formData.message" name="message" rows="5" placeholder="Tell us more about your event..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-orange btn-lg ge-submit" [class.is-loading]="submitting" [disabled]="submitting || geForm.invalid">
-          <span *ngIf="!submitting">Send Inquiry</span>
-          <span *ngIf="submitting">Sending...</span>
-        </button>
-      </form>
+      <!-- ROLLER enquiry form (managed in ROLLER, submissions land in ROLLER) -->
+      <app-roller-form formId="1f373db44c7d47b"></app-roller-form>
     </div>
   </section>
 

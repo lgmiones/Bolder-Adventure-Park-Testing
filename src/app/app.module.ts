@@ -19,6 +19,7 @@ import { LiveEventsComponent } from './pages/live-events/live-events.component';
 import { EventDetailComponent } from './pages/live-events/event-detail/event-detail.component';
 import { TicketsPassesComponent } from './pages/tickets-passes/tickets-passes.component';
 import { TicketDetailComponent } from './pages/ticket-detail/ticket-detail.component';
+import { RollerFormComponent } from './components/roller-form/roller-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TicketDetailComponent } from './pages/ticket-detail/ticket-detail.compo
     LiveEventsComponent,
     EventDetailComponent,
     TicketsPassesComponent,
-    TicketDetailComponent
+    TicketDetailComponent,
+    RollerFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+/* Card shell so the embedded ROLLER form matches the site's light theme */
+.roller-form-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e1e6eb;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(20, 33, 43, 0.07);
+}
+
+.roller-form-frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  min-height: 640px;
+  background: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .roller-form-wrap {
+    border-radius: 14px;
+  }
+}
