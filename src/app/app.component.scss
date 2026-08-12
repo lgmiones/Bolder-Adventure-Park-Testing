@@ -4483,8 +4483,8 @@ a {
   }
 }
 
-/* iPad Pro and similar (1024px) — collapse nav links to hamburger */
-@media (max-width: 1100px) {
+/* collapse inline nav links to the hamburger below this width (avoids cramped/overlapping links) */
+@media (max-width: 1250px) {
   .navbar-links,
   .navbar-plan-item,
   .plan-visit-mega {
@@ -7674,7 +7674,7 @@ main strong { color: inherit; }
 /* (footer intentionally kept on its own dark theme — common for light sites) */
 
 /* ─────────────── responsive: keep pill tidy ─────────────── */
-@media (max-width: 1100px) {
+@media (max-width: 1250px) {
   .navbar-links { display: none !important; }
   .main-navbar { grid-template-columns: auto 1fr auto !important; }
 }
