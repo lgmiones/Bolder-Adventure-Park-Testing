@@ -46,7 +46,7 @@
                 class="faq-body"
                 [class.is-open]="openFaqs.has(getFaqIndex(gi, fi))"
               >
-                <p>{{ faq.a }}</p>
+                <p [innerHTML]="faq.a"></p>
               </div>
             </div>
           </div>

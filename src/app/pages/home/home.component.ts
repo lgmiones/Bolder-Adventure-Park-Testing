@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     { name: 'All Access', level: 'Everything In The Park', color: '#e6179e', image: 'assets/Ticketing pic/Photo A2.jpg', priceFrom: 'From', price: '$34.99 + tax', features: ['Everything in Base Camp', 'Climbing, Ropes & Zip Lines', 'Mountain, Free Fall & Archery'], cta: 'All Access Details', featured: true, slug: 'extreme-all-access', link: '' },
     { name: 'Birthday Parties', level: 'Celebrate', color: '#e6179e', image: 'assets/Ticketing pic/Photo A3.jpg', priceFrom: '', price: '', features: ['Private party rooms', 'Dedicated party host', 'Food & drink packages'], cta: 'Plan a Party', slug: '', link: '/birthday-parties' },
     { name: 'Groups & Events', level: 'Get Together', color: '#1ba1e2', image: 'assets/Ticketing pic/Photo A4.jpg', priceFrom: '', price: '', features: ['10+ guest discounts', 'Schools, teams & churches', 'Custom group packages'], cta: 'Group Bookings', slug: '', link: '/group-events' },
-    { name: 'Live At Bolder', level: 'Live Events', color: '#f7b500', image: 'assets/Ticketing pic/Photo A5.jpg', priceFrom: '', price: '', features: ['Concerts & tribute acts', 'Adult-only nights', 'See the full lineup'], cta: "See What's On", slug: '', link: '/live-events' }
+    /*{ name: 'Live At Bolder', level: 'Live Events', color: '#f7b500', image: 'assets/Ticketing pic/Photo A5.jpg', priceFrom: '', price: '', features: ['Concerts & tribute acts', 'Adult-only nights', 'See the full lineup'], cta: "See What's On", slug: '', link: '/live-events' } */
   ];
 
   scrollPasses(dir: number): void {

@@ -205,7 +205,7 @@
             <span class="faq-plus">{{ openFaqs.has(i) ? "−" : "+" }}</span>
           </button>
           <div class="faq-body" [class.is-open]="openFaqs.has(i)">
-            <p>{{ faq.a }}</p>
+            <p [innerHTML]="faq.a"></p>
           </div>
         </div>
       </div>

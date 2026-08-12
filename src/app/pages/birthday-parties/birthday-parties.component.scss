@@ -492,7 +492,7 @@
 .faq-trigger { width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;background:none;border:none;cursor:pointer;text-align:left;gap:1rem; }
 .faq-q { font-family:var(--font-display);font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--white);text-transform:uppercase;line-height:1.1; }
 .faq-plus { font-size:1.6rem;color:var(--orange);line-height:1;flex-shrink:0; }
-.faq-body { max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s ease; &.is-open { max-height:300px;padding:0 1.5rem 1.25rem; } p { font-family:var(--font-body);font-size:0.9rem;color:var(--muted);line-height:1.7;margin:0; } }
+.faq-body { max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s ease; &.is-open { max-height:620px;padding:0 1.5rem 1.25rem; } p { font-family:var(--font-body);font-size:0.9rem;color:var(--muted);line-height:1.7;margin:0;white-space:pre-line; } }
 
 /* ── angular theme pass ── */
 .bp-package-card { border-radius:0 !important; border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%) !important; }
@@ -524,3 +524,7 @@
   border-color: var(--orange) !important;
 }
 /* the orange ::before overlay already fades in on hover — keep it */
+
+/* FAQ answer inline links */
+.faq-body p a { color: var(--orange); font-weight: 700; text-decoration: underline; }
+.faq-body p a:hover { color: #14202b; }

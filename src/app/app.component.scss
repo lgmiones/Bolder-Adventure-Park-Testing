@@ -6769,6 +6769,11 @@ a {
 }
 .tk-rail::-webkit-scrollbar { display: none; }
 
+/* center the pass cards when they don't fill the rail; still scroll when they overflow */
+.tk-rail > .tk-card:first-child { margin-left: auto; }
+.tk-rail > .tk-card:last-child  { margin-right: auto; }
+
+
 .tk-card {
   position: relative;
   flex: 0 0 auto;

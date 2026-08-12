@@ -41,10 +41,11 @@ export class PlanYourVisitComponent implements OnInit, AfterViewInit {
   openFaqs = new Set<number>();
 
   faqs = [
-    { q: 'Do I have to pay if I\'m not participating?', a: 'A non-participating adult (observer) does not need to purchase a ticket — however, we do have limited seating for observers. All children must have a valid ticket to enter the park area.' },
-    { q: 'What are the age / height / weight restrictions?', a: 'Most Base Camp activities are suitable for all ages. Aerial and ropes activities require a minimum height of 42"–54" depending on the attraction. Maximum weight limits apply to some aerial attractions (up to 265 lbs with gear).' },
-    { q: 'Do you require reservations for the Ropes Course or Via Ferrata?', a: 'Yes, the Ropes Course and Via Ferrata (Mountain Experience) require advance reservations to guarantee your time slot. We highly recommend booking online in advance.' },
-    { q: 'Is there a place to store my belongings?', a: 'Yes! Lockers are available on-site for a small fee to keep your personal belongings safe while you explore the park.' }
+    { q: 'Do I have to pay if I\'m not participating?', a: 'For the safety of all guests, a ticket and waiver are required to entry, but we do offer a Green Parent Pass for those that do not want to participate at a discounted rate to enter the park. Passes for all levels are available for those that would like to participate.' },
+    { q: 'What are the age / height / weight restrictions?', a: 'Participants need to be a minimum height of 42″ for all Base Camp ground level attractions. Participants need to be a minimum height of 48″ for the mountain and ropes courses, or 42″ when accompanied by an adult.\n\nA maximum weight restriction of 265lbs (including the harness) applies to the ropes course and mountain course. A minimum weight of 88lbs (including the harness) applies for the mountain course.\n\nGuests on the aerial courses must be able to properly fit into the harness.\n\nThe full safety requirements for each attraction are listed on our Attractions Pages.' },
+    { q: 'Do I need a parent pass for a birthday party booking?', a: 'Birthday parties include 2 parent passes for the birthday child, and one parent pass per paid birthday guest.' },
+    { q: 'Is there a place to store my belongings inside Bolder Adventure Park?', a: 'Various sized and priced electronic lockers are available. Guests not using lockers are advised that Bolder Adventure Park is not responsible for lost or stolen items. This includes items left in or around attraction areas.' },
+    { q: 'Do you require reservations for the Ropes Course or Via Ferrata?', a: 'We are a cashless park, but we do have cash to card ATMs available.\n\nWe accept all forms of credit / debit cards. We have a "cash to card" ATM machine available for guests who need to put cash on to a debit card. There is no service fee for the card and the debit card can be used anywhere.' }
   ];
 
   toggleFaq(i: number): void {

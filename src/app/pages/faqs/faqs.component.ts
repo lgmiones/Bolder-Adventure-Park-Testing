@@ -25,26 +25,25 @@ export class FaqsComponent implements OnInit, AfterViewInit {
     {
       category: 'General',
       faqs: [
-        { q: 'Do I have to pay if I\'m not participating?', a: 'A non-participating adult (observer) does not need to purchase a ticket — however, we have limited seating for observers. All children must have a valid ticket to enter the park area.' },
-        { q: 'What form of payment do you accept?', a: 'We accept all major credit and debit cards, as well as Apple Pay and Google Pay. Cash is not accepted on site.' },
-        { q: 'Is smoking or tobacco allowed in the park?', a: 'Bolder Adventure Park is a completely smoke-free environment. Smoking and tobacco products are not permitted anywhere on the premises.' },
-        { q: 'Is outside food or drink allowed?', a: 'Outside food and drinks are not permitted inside the park. We have a café on-site with a variety of food and drinks available for purchase.' }
+        { q: 'Do I have to pay if I\'m not participating?', a: 'For the safety of all guests, a ticket and waiver are required to entry, but we do offer a Green Parent Pass for those that do not want to participate at a discounted rate to enter the park. Passes for all levels are available for those that would like to participate.' },
+        { q: 'What form of payment do you accept?', a: 'The Ropes Course and Via Ferrata are run on an appointment basis.\n\nAppointments are allocated at the park on a first come/first serve basis. For groups of ten or more, we highly recommend that you book a group event through our Sales Department to ensure you will receive an appointment time that best aligns with your event. Click <a href="/group-events">here</a> for more info on <a href="/group-events">Group Events</a>.' },
+        { q: 'Is smoking or tobacco allowed in the park?', a: 'Bolder Adventure Park is a tobacco free facility. Prohibited items include, but are not limited to, cigarettes, e-cigarettes, vaping, pipes, cigars, chewing tobacco, snuff, or any other form of tobacco. If guests want to leave the adventure park to smoke, they will be re-admitted into the adventure park if they are wearing a wristband purchased that day.' },
+        { q: 'Is outside food or drink allowed at Bolder Adventure Park?', a: 'Bolder Adventure Park does not allow outside food, drinks or coolers into the park, this includes cakes unless approved and contracted with the event. Dietary restrictions, food allergies and baby formula are exceptions to this rule but must be identified and labeled with the date of entry once a guest arrives by an employee at our admissions desk. No glass of any kind is permitted in the park which includes baby formula and baby food.\n\nBirthday package guests are allowed to bring cupcakes or a cake to their party to celebrate their special day.' }
       ]
     },
     {
       category: 'Tickets & Booking',
       faqs: [
-        { q: 'Do I need a parent pass for a birthday party booking?', a: 'Yes, each birthday party package includes 2 complimentary parent passes. Additional adult passes can be purchased at a discounted rate when booking a party.' },
-        { q: 'Do you require reservations for the Ropes Course or Via Ferrata?', a: 'Yes! The Ropes Course and Mountain Experience (Via Ferrata) require advance reservations to guarantee your time slot. We highly recommend booking online in advance to avoid disappointment.' },
-        { q: 'Can I buy tickets at the door?', a: 'Walk-in tickets are available subject to capacity. However, we strongly recommend booking online in advance for the best price and to guarantee entry, especially on weekends.' }
+        { q: 'Do I need a parent pass for a birthday party booking?', a: 'Birthday parties include 2 parent passes for the birthday child, and one parent pass per paid birthday guest.' },
+        { q: 'Do you require reservations for the Ropes Course or Via Ferrata?', a: 'We are a cashless park, but we do have cash to card ATMs available.\n\nWe accept all forms of credit / debit cards. We have a "cash to card" ATM machine available for guests who need to put cash on to a debit card. There is no service fee for the card and the debit card can be used anywhere.' }
       ]
     },
     {
       category: 'Safety & Restrictions',
       faqs: [
-        { q: 'What are the age / height / weight restrictions?', a: 'Most Base Camp activities are suitable for all ages. Aerial and ropes activities require a minimum height of 42"–54" depending on the attraction. Some aerial attractions have maximum weight limits of 88–265 lbs with gear.' },
-        { q: 'Do I have to rent shoes?', a: 'Grip socks are required for the Jump Pad and are available for purchase at the park. Regular athletic shoes or sneakers are recommended for all other attractions.' },
-        { q: 'Is there a place to store my belongings inside the park?', a: 'Yes! Lockers are available on-site for a small fee. We recommend leaving valuables in a locker while you explore the park.' }
+        { q: 'What are the age / height / weight restrictions?', a: 'Participants need to be a minimum height of 42″ for all Base Camp ground level attractions. Participants need to be a minimum height of 48″ for the mountain and ropes courses, or 42″ when accompanied by an adult.\n\nA maximum weight restriction of 265lbs (including the harness) applies to the ropes course and mountain course. A minimum weight of 88lbs (including the harness) applies for the mountain course.\n\nGuests on the aerial courses must be able to properly fit into the harness.\n\nThe full safety requirements for each attraction are listed on our Attractions Pages.' },
+        { q: 'Do I have to rent shoes?', a: 'You are only required to rent shoes if you do not have a closed heel / toe shoe, and you are participating in the Black and Double Black attractions packages. Closed heel / toe shoes are required for your safety on these attractions. If you have your own closed heel / toe shoes, then you will not be required to rent shoes.' },
+        { q: 'Is there a place to store my belongings inside Bolder Adventure Park?', a: 'Various sized and priced electronic lockers are available. Guests not using lockers are advised that Bolder Adventure Park is not responsible for lost or stolen items. This includes items left in or around attraction areas.' }
       ]
     }
   ];

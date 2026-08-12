@@ -63,12 +63,13 @@ export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
   openFaqs = new Set<number>();
 
   faqs = [
-    { q: 'What ages are the parties best for?', a: 'Birthday parties at Bolder are suitable for ages 4 and up. We recommend the Base Camp package for younger guests (under 7) and All Access for older kids who want the full park.' },
-    { q: 'Can I add more than 10 guests?', a: 'Absolutely! The package prices are based on a minimum of 10 guests. Additional guests can be added at a per-person rate. Contact us for group pricing.' },
-    { q: "What's included in the 45-minute table reservation?", a: 'Your exclusive party table reservation includes private party space, table decoration setup, and your dedicated party host. You are also welcome to bring a cake and decorations.' },
-    { q: 'What if I need to cancel or reschedule?', a: 'We require at least 72 hours\' notice for cancellations or reschedules. Deposits are non-refundable but can be applied to a future booking.' },
-    { q: 'Do parents need to supervise during activities?', a: 'Parents are encouraged to participate! Both packages include 2 free parent passes. Younger children (under 7) must be accompanied by an adult on some attractions.' },
-    { q: 'How far in advance should I book?', a: 'We recommend booking at least 2–4 weeks in advance, especially for weekend slots which fill up fast. You can book online 24/7.' }
+    { q: 'What ages are the parties best for?', a: 'Our parties work great for kids ages 5+. Activities are designed for a range of abilities, and our staff ensures every child has a safe, exciting experience. Height and weight requirements apply to certain attractions.' },
+    { q: 'Can I add more than 10 guests?', a: 'Absolutely. Both packages include 10 guests. Additional guests can be added at a per-person rate. Contact our team for large group pricing.' },
+    { q: 'What\'s included in the 45-minute table time?', a: 'Your reserved table time includes hot pizza, unlimited drink refills with two drink choices, and space for cake and presents. Our team serves and cleans up — you just enjoy.' },
+    { q: 'What if I need to cancel or reschedule?', a: 'We get it — plans change, especially with kids. Contact our Events Team and we\'ll work with you on rescheduling.' },
+    { q: 'Do parents need to supervise during activities?', a: 'Our trained staff monitors all attraction areas. Parent passes are included so you can join in or relax and watch. You\'re officially off-duty — but welcome to play!' },
+    { q: 'Are there height or weight requirements?', a: 'Some attractions have height and weight requirements for safety. The Base Camp party activities are accessible to most kids. Summit party attractions (ropes course, zip lines) have specific requirements, which can be found on our <a href="/attractions">attractions page</a>. If you have specific requirements or concerns, please <a href="/contact-us">contact us</a> and our events team will help guide you.' },
+    { q: 'How far in advance should I book?', a: 'Weekend slots fill fast — we recommend booking at least 2–3 weeks ahead, or more! Especially for Saturday parties. Weekday slots are more flexible.' }
   ];
 
   toggleFaq(i: number): void {
