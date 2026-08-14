@@ -295,7 +295,7 @@
    BIRTHDAY / GROUPS — angular feature tiles
 ========================================================= */
 .celebrate-section {
-  padding: clamp(4rem, 8vw, 6.5rem) clamp(1.2rem, 4vw, 3.5rem);
+  padding: clamp(4rem, 8vw, 6.5rem) clamp(1.2rem, 4vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
   background:
     radial-gradient(110% 80% at 50% 0%, rgba(244, 81, 19, 0.07), transparent 60%),
     var(--black);
@@ -787,7 +787,7 @@
 /* ════════════════════════════════════════════════════════════
    SECTION D · WHAT'S INCLUDED — grouped by package
    ════════════════════════════════════════════════════════════ */
-.whats-included { padding-bottom: clamp(3rem, 6vw, 5rem); }
+.whats-included { padding-top: clamp(1rem, 2.5vw, 2rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
 
 .wi-group {
   max-width: 1200px;

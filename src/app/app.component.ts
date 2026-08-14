@@ -36,8 +36,7 @@ export class AppComponent implements OnInit {
     this.showIntro = !sessionStorage.getItem(KEY);
     if (this.showIntro) {
       sessionStorage.setItem(KEY, '1');
-      // The intro splash fully fades out at ~4.8s — reveal the deal as it clears.
-      setTimeout(() => { this.showDeal = true; this.lockScroll(true); }, 4600);
+      // Deal popup disabled — intentionally not shown.
     }
   }
 
