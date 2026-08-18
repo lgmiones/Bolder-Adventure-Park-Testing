@@ -1,4 +1,6 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { SeoService } from '../../services/seo.service';
 
 @Component({
@@ -6,9 +8,11 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './plan-your-visit.component.html',
   styleUrls: ['./plan-your-visit.component.scss']
 })
-export class PlanYourVisitComponent implements OnInit, AfterViewInit {
+export class PlanYourVisitComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor(private seo: SeoService) {}
+  private fragSub?: Subscription;
+
+  constructor(private seo: SeoService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.seo.update({
@@ -73,5 +77,24 @@ export class PlanYourVisitComponent implements OnInit, AfterViewInit {
       );
       document.querySelectorAll('.sr:not(.sr-visible)').forEach(el => observer.observe(el));
     }, 50);
+
+    // Reliable scroll to a #fragment (e.g. #hours) — accounts for the fixed navbar
+    // and re-corrects after lazy images above the target finish loading.
+    this.fragSub = this.route.fragment.subscribe(frag => {
+      if (!frag) { return; }
+      [300, 750, 1300].forEach(delay => setTimeout(() => this.scrollToFragment(frag), delay));
+    });
+  }
+
+  private scrollToFragment(frag: string): void {
+    const el = document.getElementById(frag);
+    if (!el) { return; }
+    const navOffset = 160;
+    const y = el.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top: Math.max(y, 0), behavior: 'auto' });
+  }
+
+  ngOnDestroy(): void {
+    this.fragSub?.unsubscribe();
   }
 }

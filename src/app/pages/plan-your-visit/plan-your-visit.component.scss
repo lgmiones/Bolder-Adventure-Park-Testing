@@ -604,3 +604,6 @@
 /* FAQ answer inline links (e.g. Group Events) */
 .faq-body p a { color: var(--orange); font-weight: 700; text-decoration: underline; }
 .faq-body p a:hover { color: #14202b; }
+
+/* offset #hours anchor scroll below the fixed navbar (hours-section scroll offset) */
+.hours-section { scroll-margin-top: 160px; }
