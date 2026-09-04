@@ -31,7 +31,7 @@ interface TicketDetail {
 })
 export class TicketDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home';
+  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test';
   ticket!: TicketDetail;
   private sub?: Subscription;
 

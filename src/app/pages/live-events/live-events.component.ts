@@ -39,7 +39,7 @@ export class LiveEventsComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'assets/MJ Dejavu/0 - HERO IMAGE.jpg',
       description: 'Step into the world of the King of Pop for an unforgettable evening with MJ Dejavu, direct from Las Vegas — rated the #1 MJ tribute.',
       targetDate: new Date('2026-06-20T19:00:00'),
-      ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/home?_gl=1*m3lrmr*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODEzOTY2MDkkbzc5JGcxJHQxNzgxMzk4MTUzJGozMyRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE'
+      ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/home?_gl=1*m3lrmr*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODEzOTY2MDkkbzc5JGcxJHQxNzgxMzk4MTUzJGozMyRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE&utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test'
     },
     {
       slug: 'adult-night-july-2026',
@@ -57,7 +57,7 @@ export class LiveEventsComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'assets/images/Groups3.jpg',
       description: 'The park goes 18+ for the night. Every attraction open until late, music turned up, and zero kids\' lines — just you, your crew, and the whole dome.',
       targetDate: new Date('2026-07-03T20:00:00'),
-      ticketUrl: 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*sngnkv*_gcl_aw*R0NMLjE3ODA0OTQ1NTQuRUFJYUlRb2JDaE1Ja2N2WHdfX3FsQU1WdW9EQ0NCM01iUkZoRUFBWUFTQUFFZ0tOYnZEX0J3RQ..*_gcl_au*MTc5MjAyNzQ4OC4xNzc3NDc3NTY5LjEwMjU5OTA2MzIuMTc3OTkyNzI1MC4xNzc5OTI4Nzg2*FPAU*ODQwNTg4NzgwLjE3NzgzNjM5NDQ.*_ga*MTQ5NTU2MDkzMS4xNzgwNDIyMjA2*_ga_42GXW9EFND*czE3ODEwNTc2MDAkbzExJGcxJHQxNzgxMDU4NjY3JGo2MCRsMCRoMA..*_fplc*VDJBR3dCUzZlekJGTVlVaHZOcmE3TGJibEh3dkdmY3g0dHpTU3BqaDVoazhXd25rZG5YWVdzJTJGN2hUYUx5UjhmWVpxOGJqY2l6NWlRV1g2enFsNFl0QzFYMHNjQk8lMkJvcExzbUNXS0tVSGpxa3RtZFppRGclMkZQQUw5aXp1Q3BnJTNEJTNE'
+      ticketUrl: 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*sngnkv*_gcl_aw*R0NMLjE3ODA0OTQ1NTQuRUFJYUlRb2JDaE1Ja2N2WHdfX3FsQU1WdW9EQ0NCM01iUkZoRUFBWUFTQUFFZ0tOYnZEX0J3RQ..*_gcl_au*MTc5MjAyNzQ4OC4xNzc3NDc3NTY5LjEwMjU5OTA2MzIuMTc3OTkyNzI1MC4xNzc5OTI4Nzg2*FPAU*ODQwNTg4NzgwLjE3NzgzNjM5NDQ.*_ga*MTQ5NTU2MDkzMS4xNzgwNDIyMjA2*_ga_42GXW9EFND*czE3ODEwNTc2MDAkbzExJGcxJHQxNzgxMDU4NjY3JGo2MCRsMCRoMA..*_fplc*VDJBR3dCUzZlekJGTVlVaHZOcmE3TGJibEh3dkdmY3g0dHpTU3BqaDVoazhXd25rZG5YWVdzJTJGN2hUYUx5UjhmWVpxOGJqY2l6NWlRV1g2enFsNFl0QzFYMHNjQk8lMkJvcExzbUNXS0tVSGpxa3RtZFppRGclMkZQQUw5aXp1Q3BnJTNEJTNE&utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test'
     },
     {
       slug: 'adult-night-august-2026',
@@ -75,7 +75,7 @@ export class LiveEventsComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'assets/images/Reviews-events.jpg',
       description: 'First-Friday takeover, round two. Climb, zip, and race the slides — adults only. Every attraction open, music up, kids\' lines gone.',
       targetDate: new Date('2026-08-07T20:00:00'),
-      ticketUrl: 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*sngnkv*_gcl_aw*R0NMLjE3ODA0OTQ1NTQuRUFJYUlRb2JDaE1Ja2N2WHdfX3FsQU1WdW9EQ0NCM01iUkZoRUFBWUFTQUFFZ0tOYnZEX0J3RQ..*_gcl_au*MTc5MjAyNzQ4OC4xNzc3NDc3NTY5LjEwMjU5OTA2MzIuMTc3OTkyNzI1MC4xNzc5OTI4Nzg2*FPAU*ODQwNTg4NzgwLjE3NzgzNjM5NDQ.*_ga*MTQ5NTU2MDkzMS4xNzgwNDIyMjA2*_ga_42GXW9EFND*czE3ODEwNTc2MDAkbzExJGcxJHQxNzgxMDU4NjY3JGo2MCRsMCRoMA..*_fplc*VDJBR3dCUzZlekJGTVlVaHZOcmE3TGJibEh3dkdmY3g0dHpTU3BqaDVoazhXd25rZG5YWVdzJTJGN2hUYUx5UjhmWVpxOGJqY2l6NWlRV1g2enFsNFl0QzFYMHNjQk8lMkJvcExzbUNXS0tVSGpxa3RtZFppRGclMkZQQUw5aXp1Q3BnJTNEJTNE'
+      ticketUrl: 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?_gl=1*sngnkv*_gcl_aw*R0NMLjE3ODA0OTQ1NTQuRUFJYUlRb2JDaE1Ja2N2WHdfX3FsQU1WdW9EQ0NCM01iUkZoRUFBWUFTQUFFZ0tOYnZEX0J3RQ..*_gcl_au*MTc5MjAyNzQ4OC4xNzc3NDc3NTY5LjEwMjU5OTA2MzIuMTc3OTkyNzI1MC4xNzc5OTI4Nzg2*FPAU*ODQwNTg4NzgwLjE3NzgzNjM5NDQ.*_ga*MTQ5NTU2MDkzMS4xNzgwNDIyMjA2*_ga_42GXW9EFND*czE3ODEwNTc2MDAkbzExJGcxJHQxNzgxMDU4NjY3JGo2MCRsMCRoMA..*_fplc*VDJBR3dCUzZlekJGTVlVaHZOcmE3TGJibEh3dkdmY3g0dHpTU3BqaDVoazhXd25rZG5YWVdzJTJGN2hUYUx5UjhmWVpxOGJqY2l6NWlRV1g2enFsNFl0QzFYMHNjQk8lMkJvcExzbUNXS0tVSGpxa3RtZFppRGclMkZQQUw5aXp1Q3BnJTNEJTNE&utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test'
     }
   ];
 
