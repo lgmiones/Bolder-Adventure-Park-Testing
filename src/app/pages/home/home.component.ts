@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('celRail') celRailRef!: ElementRef<HTMLDivElement>;
   @ViewChild('attModal') attModalRef?: ElementRef<HTMLElement>;
 
-  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home?utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test';
+  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/tickets/en-us/home';
 
   /* Parties & Groups — angular collage blocks */
   celebrate = [
