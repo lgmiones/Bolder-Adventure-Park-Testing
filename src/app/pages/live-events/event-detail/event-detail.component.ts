@@ -86,7 +86,7 @@ export class EventDetailComponent implements OnInit, AfterViewInit, OnDestroy {
             'DJ After Hours - All-Beets Tribute',
             'General Admission Seating Area'
           ],
-          ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/product/1978850?_gl=1*17mdhfw*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODE0MDA4MjUkbzgwJGcxJHQxNzgxNDAxMzM3JGo0NCRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE&date=2026-06-20&utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test'
+          ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/product/1978850'
         },
         {
           name: 'Thriller Package',
@@ -102,7 +102,7 @@ export class EventDetailComponent implements OnInit, AfterViewInit, OnDestroy {
             '2-Hour Unlimited Arcade Card',
             'Free Second Pass to Bolder Again'
           ],
-          ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/product/1978871?_gl=1*11jcctg*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODE0MDA4MjUkbzgwJGcxJHQxNzgxNDAxMzM3JGo0NCRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE&utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test'
+          ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/product/1978871'
         },
         {
           name: 'VIP Mezzanine Club',
@@ -120,7 +120,7 @@ export class EventDetailComponent implements OnInit, AfterViewInit, OnDestroy {
             'VIP Dance Zone Upgrade',
             'Photo with MJ after the Concert'
           ],
-          ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/product/1978906?_gl=1*11jcctg*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.*_gcl_au*MTU5NTM0OTU4OS4xNzgwNDQ1MjYw*FPAU*MTYzNTc3MDEuMTc3NjA2NTgwNQ..*_ga*NTYyMjA4NDkzLjE3NzYwNjU4MDU.*_ga_42GXW9EFND*czE3ODE0MDA4MjUkbzgwJGcxJHQxNzgxNDAxMzM3JGo0NCRsMCRoMA..*_fplc*RVRscXhFeUpreEZpeElaSiUyQlFVWVFuS2hla2xqSmNoM0FqRkZGalFyempXYTFtNDRueHpRVTBBbkp3OGZ3OUJjeGIlMkY3WHBienh1eEt5TzE3eXhtcFRNUmh5clUwSUVZaGhyZlltJTJGaVV6M2RzcmtBZlBYMGtvejFPckJyTUZRJTNEJTNE&date=2026-06-20&utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test'
+          ticketUrl: 'https://ecom.roller.app/bolderadventurepark/liveevents/en-us/product/1978906'
         }
       ],
       addOns: [

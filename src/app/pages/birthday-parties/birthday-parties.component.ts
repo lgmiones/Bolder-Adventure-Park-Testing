@@ -8,7 +8,7 @@ import { SeoService } from '../../services/seo.service';
 })
 export class BirthdayPartiesComponent implements OnInit, AfterViewInit {
 
-  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/birthdayparties/en-us/products?_gl=1*zzh7j7*_gcl_aw*R0NMLjE3ODA5MjQ5MjAuQ2owS0NRancwSm5SQmhESkFSSXNBTG9iblhZaE50VmU4LTRZOTM0UUZqQkVieFZTSm8tbXRHRl9EUG96SDY0S2lySVc5ZWlKRm5BQ2Y1MGFBdDh6RUFMd193Y0I.&utm_source=bolder-ab-test&utm_medium=website&utm_campaign=bolder-ab-test';
+  readonly bookUrl = 'https://ecom.roller.app/bolderadventurepark/birthdayparties/en-us/products';
   readonly footnote = '*Plus 10% gratuity & sales tax';
 
   constructor(private seo: SeoService) {}
