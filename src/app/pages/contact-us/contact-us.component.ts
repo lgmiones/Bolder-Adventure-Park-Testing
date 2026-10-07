@@ -60,7 +60,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     {
       icon: '🕐',
       label: 'Hours',
-      value: 'Mondays – Thursdays 11 AM – 9 PM · Fridays - Sundays 11 AM – 9 PM ',
+      value: 'Fridays 4 PM – 9 PM · Saturdays 11 AM – 9 PM · Sundays 11 AM – 7 PM',
       link: '/plan-your-visit#hours',
       linkText: 'See Opening Hours',
       internal: true
