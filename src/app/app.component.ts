@@ -31,6 +31,8 @@ export class AppComponent implements OnInit {
     this.navStuck = window.scrollY > 36;
   }
 
+  private hsSeenFirst = false;
+
   constructor(private router: Router) {
     const KEY = 'bolder_intro_shown';
     this.showIntro = !sessionStorage.getItem(KEY);
@@ -53,9 +55,17 @@ export class AppComponent implements OnInit {
     // Re-run scroll observer on every route change
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(() => {
+      .subscribe((e: any) => {
         // Small delay lets the new component render before observing
         setTimeout(() => this.initScrollObserver(), 80);
+        // HubSpot: count in-app page changes (the HubSpot script itself counts the first page load)
+        if (this.hsSeenFirst) {
+          const w = window as any;
+          w._hsq = w._hsq || [];
+          w._hsq.push(['setPath', e.urlAfterRedirects]);
+          w._hsq.push(['trackPageView']);
+        }
+        this.hsSeenFirst = true;
       });
   }
 
