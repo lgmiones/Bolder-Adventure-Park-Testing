@@ -8,6 +8,60 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P3H64KXM');</script>
   <!-- End Google Tag Manager -->
+  <!-- ds split test: version checkout links without GTM (works when GTM is blocked; GTM decorator stays as backup) -->
+  <script>
+/* ds-links v1 (Bolder split test). Points ROLLER ticket/birthday links at the version checkouts
+   (dsticketsa/b, dsbirthdaya/b) for switcher visitors only. Same rules as GTM tag
+   "ds - HTML - ROLLER link decorator" v2, but runs from the site itself so it still works when GTM is blocked.
+   Non-switcher visitors: nothing changes. Any error: link left as is. */
+(function () {
+  try {
+    if (window.__dsLinks) return;
+    window.__dsLinks = 1;
+    var UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    var EXP_RE = /^ds_[a-z0-9_]{1,30}$/i;
+    function ck(n) { var m = document.cookie.match('(?:^|; )' + n + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : ''; }
+    function qp(n) { var m = location.search.match('[?&]' + n + '=([^&#]*)'); return m ? decodeURIComponent(m[1]) : ''; }
+    function ss(n, v) { try { if (v) sessionStorage.setItem(n, v); return sessionStorage.getItem(n) || ''; } catch (e) { return v || ''; } }
+    function ok(v) { return v === 'A' || v === 'B' || v === 'C'; }
+    var vid = ck('ds_vid'); if (!UUID.test(vid)) vid = qp('ds_vid'); if (!UUID.test(vid)) vid = ''; vid = ss('ds_vid', vid);
+    if (!UUID.test(vid)) vid = '';
+    var exp = ck('ds_exp'); if (!EXP_RE.test(exp)) exp = qp('ds_exp'); if (!EXP_RE.test(exp)) exp = ''; exp = ss('ds_exp', exp);
+    var v = qp('ds_v'); if (!ok(v)) v = qp('variant'); if (!ok(v)) v = ck('ds_variant'); if (!ok(v)) v = '';
+    if (!v) {
+      var h = location.hostname;
+      v = (h.indexOf('b.') === 0 || /vercel\.app$/.test(h)) ? 'B' : (h.indexOf('c.') === 0 ? 'C' : (h === 'bolderadventurepark.com' || h === 'www.bolderadventurepark.com' ? 'A' : ''));
+    }
+    if (!(vid && exp === 'ds_ab1' && (v === 'A' || v === 'B'))) return; // not a switcher visitor in this test
+    var MAP = { tickets: 'dstickets', birthdayparties: 'dsbirthday' };
+    function fix(a) {
+      try {
+        if (!a || !a.href || a.href.indexOf('ecom.roller.app') === -1) return;
+        var u = new URL(a.href);
+        if (!u.searchParams.has('ds_v')) u.searchParams.set('ds_v', v);
+        if (!u.searchParams.has('ds_vid')) u.searchParams.set('ds_vid', vid);
+        if (!u.searchParams.has('ds_exp')) u.searchParams.set('ds_exp', exp);
+        var m = u.pathname.match(/^\/(bolderadventurepark)\/(tickets|birthdayparties)(\/|$)/i);
+        if (m) u.pathname = '/' + m[1] + '/' + MAP[m[2].toLowerCase()] + v.toLowerCase() + m[3] + u.pathname.slice(m[0].length);
+        if (u.href !== a.href) a.href = u.href;
+      } catch (e) {}
+    }
+    function all(root) { try { var l = (root || document).querySelectorAll('a[href*="ecom.roller.app"]'); for (var i = 0; i < l.length; i++) fix(l[i]); } catch (e) {} }
+    function onEv(e) { var a = e.target; while (a && a.tagName !== 'A') a = a.parentElement; fix(a); }
+    document.addEventListener('mousedown', onEv, true);
+    document.addEventListener('touchstart', onEv, true);
+    document.addEventListener('click', onEv, true);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Enter') onEv(e); }, true);
+    all();
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { all(); });
+    if (window.MutationObserver) {
+      var t = 0;
+      new MutationObserver(function () { if (!t) t = setTimeout(function () { t = 0; all(); }, 200); })
+        .observe(document.documentElement, { childList: true, subtree: true });
+    }
+  } catch (e) {}
+})();
+  </script>
     <meta charset="utf-8" />
     <title>
       Bolder Adventure Park — Epic Indoor Adventure Park, Grand Prairie TX
