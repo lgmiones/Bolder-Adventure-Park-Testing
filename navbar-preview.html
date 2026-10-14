@@ -1,202 +1,811 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bolder — Racing-Tab Navbar Preview</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<style>
-  :root{--font-display:'Bebas Neue',Impact,sans-serif;--font-ui:'Barlow Condensed',Arial,sans-serif;--font-body:'Inter',Arial,sans-serif;--orange:#f45113;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{min-height:100vh;font-family:var(--font-body);color:#fff;background:#060606;}
-  .stage{position:relative;min-height:100vh;overflow:hidden;
-    background:radial-gradient(120% 90% at 72% -10%,rgba(244,81,19,.38),transparent 55%),linear-gradient(160deg,#241308 0%,#0b0b0d 45%,#060606 100%);}
-  .stage::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 2px,transparent 2px 26px);}
-  .hint{position:absolute;left:0;right:0;bottom:40px;text-align:center;color:#7a7f86;font-family:var(--font-ui);letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolder — Racing-Tab Navbar Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --font-display: "Bebas Neue", Impact, sans-serif;
+        --font-ui: "Barlow Condensed", Arial, sans-serif;
+        --font-body: "Inter", Arial, sans-serif;
+        --orange: #f45113;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        font-family: var(--font-body);
+        color: #fff;
+        background: #060606;
+      }
+      .stage {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            120% 90% at 72% -10%,
+            rgba(244, 81, 19, 0.38),
+            transparent 55%
+          ),
+          linear-gradient(160deg, #241308 0%, #0b0b0d 45%, #060606 100%);
+      }
+      .stage::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          115deg,
+          rgba(255, 255, 255, 0.025) 0 2px,
+          transparent 2px 26px
+        );
+      }
+      .hint {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 40px;
+        text-align: center;
+        color: #7a7f86;
+        font-family: var(--font-ui);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
 
-  /* ticker */
-  .promo{position:absolute;top:0;left:0;right:0;z-index:30;height:38px;display:flex;align-items:center;overflow:hidden;
-    background:linear-gradient(90deg,#08080a,#161619 50%,#08080a);border-bottom:1px solid rgba(244,81,19,.4);}
-  .promo-glow{position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(100deg,transparent,rgba(244,81,19,0) 35%,rgba(244,81,19,.22) 50%,rgba(244,81,19,0) 65%,transparent);
-    background-size:220% 100%;animation:sheen 6s linear infinite;}
-  @keyframes sheen{from{background-position:120% 0}to{background-position:-120% 0}}
-  .promo-track{position:relative;z-index:2;display:flex;align-items:center;width:max-content;animation:ticker 38s linear infinite;}
-  @keyframes ticker{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
-  .promo-item{display:inline-flex;align-items:center;flex-shrink:0;padding-right:4.5rem;font-family:var(--font-ui);font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#eef0f2;white-space:nowrap;}
-  .promo-diamond{margin:0 1.35rem;font-size:.6rem;color:var(--orange);transform:translateY(-1px);text-shadow:0 0 10px rgba(244,81,19,.8);}
+      /* ticker */
+      .promo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 30;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: linear-gradient(90deg, #08080a, #161619 50%, #08080a);
+        border-bottom: 1px solid rgba(244, 81, 19, 0.4);
+      }
+      .promo-glow {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(
+          100deg,
+          transparent,
+          rgba(244, 81, 19, 0) 35%,
+          rgba(244, 81, 19, 0.22) 50%,
+          rgba(244, 81, 19, 0) 65%,
+          transparent
+        );
+        background-size: 220% 100%;
+        animation: sheen 6s linear infinite;
+      }
+      @keyframes sheen {
+        from {
+          background-position: 120% 0;
+        }
+        to {
+          background-position: -120% 0;
+        }
+      }
+      .promo-track {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        width: max-content;
+        animation: ticker 38s linear infinite;
+      }
+      @keyframes ticker {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(-50%, 0, 0);
+        }
+      }
+      .promo-item {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+        padding-right: 4.5rem;
+        font-family: var(--font-ui);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #eef0f2;
+        white-space: nowrap;
+      }
+      .promo-diamond {
+        margin: 0 1.35rem;
+        font-size: 0.6rem;
+        color: var(--orange);
+        transform: translateY(-1px);
+        text-shadow: 0 0 10px rgba(244, 81, 19, 0.8);
+      }
 
-  /* HUD bar */
-  .wrap{position:absolute;top:38px;left:0;right:0;z-index:1002;}
-  .navbar{position:relative;width:100%;min-height:72px;padding:8px clamp(18px,3.2vw,52px);
-    display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:clamp(1rem,2vw,2.4rem);
-    background:rgba(9,10,12,.74);-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);
-    box-shadow:0 18px 50px rgba(0,0,0,.5);}
-  .navbar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
-    background:linear-gradient(90deg,var(--orange),#ff8a00 60%,rgba(255,138,0,0));box-shadow:0 0 16px rgba(244,81,19,.55);}
-  .navbar::before{content:"";position:absolute;right:0;bottom:0;width:64px;height:2px;background:var(--orange);transform:skewX(-45deg) translateX(10px);transform-origin:bottom right;opacity:.9;}
+      /* HUD bar */
+      .wrap {
+        position: absolute;
+        top: 38px;
+        left: 0;
+        right: 0;
+        z-index: 1002;
+      }
+      .navbar {
+        position: relative;
+        width: 100%;
+        min-height: 72px;
+        padding: 8px clamp(18px, 3.2vw, 52px);
+        display: grid;
+        grid-template-columns: auto auto 1fr auto;
+        align-items: center;
+        gap: clamp(1rem, 2vw, 2.4rem);
+        background: rgba(9, 10, 12, 0.74);
+        -webkit-backdrop-filter: blur(22px) saturate(150%);
+        backdrop-filter: blur(22px) saturate(150%);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+      }
+      .navbar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--orange),
+          #ff8a00 60%,
+          rgba(255, 138, 0, 0)
+        );
+        box-shadow: 0 0 16px rgba(244, 81, 19, 0.55);
+      }
+      .navbar::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 64px;
+        height: 2px;
+        background: var(--orange);
+        transform: skewX(-45deg) translateX(10px);
+        transform-origin: bottom right;
+        opacity: 0.9;
+      }
 
-  .brand{grid-column:1;width:118px;display:flex;align-items:center;}
-  .brand img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.55));}
+      .brand {
+        grid-column: 1;
+        width: 118px;
+        display: flex;
+        align-items: center;
+      }
+      .brand img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55));
+      }
 
-  .links{grid-column:2;display:flex;align-items:center;justify-content:flex-start;gap:clamp(.2rem,.8vw,.8rem);}
-  .group{position:relative;}
-  .trigger{position:relative;z-index:1;overflow:visible;display:inline-flex;align-items:center;min-height:46px;padding:0 1.15rem;border:0;background:transparent;cursor:pointer;
-    color:#e9edf1;font-family:var(--font-ui);font-size:1.05rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
-  .trigger::before{content:"";position:absolute;inset:4px -2px;z-index:-1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transform:skewX(-12deg);transition:.2s;}
-  .trigger::after{content:"◆";position:absolute;left:50%;top:-7px;color:var(--orange);font-size:.5rem;line-height:1;opacity:0;transform:translate(-50%,5px);transition:.2s;text-shadow:0 0 8px rgba(244,81,19,.8);}
-  .group:hover .trigger{color:#fff;}
-  .group:hover .trigger::before{background:rgba(244,81,19,.92);border-color:var(--orange);transform:skewX(-12deg) translateY(-1px);}
-  .group:hover .trigger::after{opacity:1;transform:translate(-50%,0);}
+      .links {
+        grid-column: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: clamp(0.2rem, 0.8vw, 0.8rem);
+      }
+      .group {
+        position: relative;
+      }
+      .trigger {
+        position: relative;
+        z-index: 1;
+        overflow: visible;
+        display: inline-flex;
+        align-items: center;
+        min-height: 46px;
+        padding: 0 1.15rem;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        color: #e9edf1;
+        font-family: var(--font-ui);
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .trigger::before {
+        content: "";
+        position: absolute;
+        inset: 4px -2px;
+        z-index: -1;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transform: skewX(-12deg);
+        transition: 0.2s;
+      }
+      .trigger::after {
+        content: "◆";
+        position: absolute;
+        left: 50%;
+        top: -7px;
+        color: var(--orange);
+        font-size: 0.5rem;
+        line-height: 1;
+        opacity: 0;
+        transform: translate(-50%, 5px);
+        transition: 0.2s;
+        text-shadow: 0 0 8px rgba(244, 81, 19, 0.8);
+      }
+      .group:hover .trigger {
+        color: #fff;
+      }
+      .group:hover .trigger::before {
+        background: rgba(244, 81, 19, 0.92);
+        border-color: var(--orange);
+        transform: skewX(-12deg) translateY(-1px);
+      }
+      .group:hover .trigger::after {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
 
-  .dropdown{position:absolute;top:calc(100% + 14px);left:50%;width:320px;padding:14px;display:grid;gap:12px;
-    background:rgba(12,13,16,.98);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.08);border-top:3px solid var(--orange);
-    clip-path:polygon(0 0,100% 0,100% 100%,18px 100%,0 calc(100% - 18px));
-    filter:drop-shadow(0 22px 44px rgba(0,0,0,.55));opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:.2s;}
-  .dropdown::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px;}
-  .group:hover .dropdown{opacity:1;visibility:visible;transform:translate(-50%,0);}
-  .dd-list{display:flex;flex-direction:column;gap:2px;}
-  .dd-list a{display:flex;flex-direction:column;gap:2px;padding:10px 13px;text-decoration:none;transition:.18s;}
-  .dd-list a:hover{background:rgba(244,81,19,.14);box-shadow:inset 3px 0 0 var(--orange);transform:translateX(3px);}
-  .ndl-title{color:#f0f2f4;font-size:.98rem;font-weight:800;line-height:1.1;}
-  .dd-list a:hover .ndl-title{color:var(--orange);}
-  .ndl-sub{color:#868f98;font-size:.78rem;font-weight:600;}
-  .dd-cta{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:48px;background:var(--orange);color:#fff;font-weight:900;text-decoration:none;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 22px rgba(244,81,19,.4);transition:.2s;}
-  .dd-cta:hover{background:#fff;color:#111;}
+      .dropdown {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 50%;
+        width: 320px;
+        padding: 14px;
+        display: grid;
+        gap: 12px;
+        background: rgba(12, 13, 16, 0.98);
+        -webkit-backdrop-filter: blur(18px);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 3px solid var(--orange);
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 100%,
+          18px 100%,
+          0 calc(100% - 18px)
+        );
+        filter: drop-shadow(0 22px 44px rgba(0, 0, 0, 0.55));
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(-50%, 8px);
+        transition: 0.2s;
+      }
+      .dropdown::before {
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: 0;
+        right: 0;
+        height: 14px;
+      }
+      .group:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, 0);
+      }
+      .dd-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .dd-list a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px 13px;
+        text-decoration: none;
+        transition: 0.18s;
+      }
+      .dd-list a:hover {
+        background: rgba(244, 81, 19, 0.14);
+        box-shadow: inset 3px 0 0 var(--orange);
+        transform: translateX(3px);
+      }
+      .ndl-title {
+        color: #f0f2f4;
+        font-size: 0.98rem;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+      .dd-list a:hover .ndl-title {
+        color: var(--orange);
+      }
+      .ndl-sub {
+        color: #868f98;
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+      .dd-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        min-height: 48px;
+        background: var(--orange);
+        color: #fff;
+        font-weight: 900;
+        text-decoration: none;
+        clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        box-shadow: 0 8px 22px rgba(244, 81, 19, 0.4);
+        transition: 0.2s;
+      }
+      .dd-cta:hover {
+        background: #fff;
+        color: #111;
+      }
 
-  .actions{grid-column:4;justify-self:end;display:flex;align-items:center;gap:1.15rem;}
-  .loc{width:28px;height:28px;display:grid;place-items:center;color:#eaeef1;transition:.2s;}
-  .loc:hover{color:var(--orange);}
-  .ticket{min-width:178px;min-height:50px;padding:0 1.7rem;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-    background:var(--orange);color:#fff;font-family:var(--font-ui);font-size:1.02rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
-    clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);filter:drop-shadow(0 7px 14px rgba(244,81,19,.5));transition:.25s;}
-  .ticket:hover{background:#fff;color:#111;filter:drop-shadow(0 10px 20px rgba(255,255,255,.25));}
-  .divider{width:1px;height:44px;background:rgba(255,255,255,.16);}
-  .burger{width:50px;height:44px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:0;background:transparent;cursor:pointer;}
-  .burger span{width:34px;height:2.5px;border-radius:999px;background:#eaeef1;transform:skewX(-12deg);transition:.2s;}
-  .burger:hover span{background:var(--orange);}
+      .actions {
+        grid-column: 4;
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: 1.15rem;
+      }
+      .loc {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        color: #eaeef1;
+        transition: 0.2s;
+      }
+      .loc:hover {
+        color: var(--orange);
+      }
+      .ticket {
+        min-width: 178px;
+        min-height: 50px;
+        padding: 0 1.7rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        background: var(--orange);
+        color: #fff;
+        font-family: var(--font-ui);
+        font-size: 1.02rem;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+        filter: drop-shadow(0 7px 14px rgba(244, 81, 19, 0.5));
+        transition: 0.25s;
+      }
+      .ticket:hover {
+        background: #fff;
+        color: #111;
+        filter: drop-shadow(0 10px 20px rgba(255, 255, 255, 0.25));
+      }
+      .divider {
+        width: 1px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+      .burger {
+        width: 50px;
+        height: 44px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+      .burger span {
+        width: 34px;
+        height: 2.5px;
+        border-radius: 999px;
+        background: #eaeef1;
+        transform: skewX(-12deg);
+        transition: 0.2s;
+      }
+      .burger:hover span {
+        background: var(--orange);
+      }
 
-  /* slide-out menu */
-  .backdrop{position:absolute;inset:0;z-index:1998;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.25s;}
-  .backdrop.open{opacity:1;pointer-events:auto;}
-  .side{position:absolute;top:0;right:0;z-index:1999;width:min(560px,92%);height:100%;overflow-y:auto;color:#f1f3f5;
-    padding:92px 64px 48px;transform:translateX(100%);transition:transform .32s ease;
-    background:repeating-linear-gradient(115deg,rgba(255,255,255,.018) 0 2px,transparent 2px 26px),#0a0b0d;border-left:3px solid var(--orange);}
-  .side.open{transform:translateX(0);}
-  .side-close{position:absolute;top:30px;right:38px;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#f1f3f5;font-size:2.2rem;cursor:pointer;
-    clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);transition:.25s;}
-  .side-close:hover{background:var(--orange);color:#fff;transform:rotate(90deg);}
-  .side-eyebrow{color:var(--orange);font-family:var(--font-ui);font-size:.92rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;margin-bottom:1.4rem;}
-  .side-list{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.2rem;}
-  .side-item{position:relative;padding:0 0 .7rem 2.4rem;border-bottom:1px solid rgba(255,255,255,.08);
-    color:#f4f6f7;font-family:var(--font-display);font-size:clamp(2rem,6vw,3rem);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;line-height:.95;cursor:pointer;transition:.2s;}
-  .side-item::before{content:"◆";position:absolute;left:0;top:.28em;color:var(--orange);font-size:.42em;opacity:0;transform:translateX(-10px);transition:.2s;text-shadow:0 0 10px rgba(244,81,19,.8);}
-  .side-item:hover{color:var(--orange);transform:translateX(6px);}
-  .side-item:hover::before{opacity:1;transform:translateX(0);}
-  .side-ticket{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-width:240px;min-height:70px;padding:0 2rem;margin-bottom:2rem;
-    background:var(--orange);color:#fff;font-family:var(--font-ui);font-size:1.2rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
-    clip-path:polygon(16px 0,100% 0,calc(100% - 16px) 100%,0 100%);filter:drop-shadow(0 8px 18px rgba(244,81,19,.45));transition:.2s;}
-  .side-ticket:hover{background:#fff;color:#111;}
-  .side-info{padding-left:1.2rem;border-left:2px solid rgba(244,81,19,.55);margin-bottom:1.6rem;}
-  .side-info h3{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem;}
-  .side-info p{color:#b8c0c7;font-size:1rem;margin-bottom:.3rem;}
-  .side-socials{display:flex;gap:.8rem;}
-  .side-socials span{width:50px;height:50px;display:grid;place-items:center;background:var(--orange);color:#111;font-weight:900;
-    clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);}
-</style>
-</head>
-<body>
-  <div class="stage">
-    <div class="promo"><div class="promo-glow"></div><div class="promo-track" id="track"></div></div>
-
-    <div class="wrap">
-      <nav class="navbar">
-        <a class="brand" href="#"><img src="src/assets/images/Bolder-update.png" alt="Bolder Adventure Park" /></a>
-
-        <div class="links">
-          <div class="group">
-            <button class="trigger">Tickets &amp; Passes</button>
-            <div class="dropdown">
-              <div class="dd-list">
-                <a href="#"><span class="ndl-title">Tickets &amp; Pricing</span><span class="ndl-sub">Day passes &amp; all access</span></a>
-                <a href="#"><span class="ndl-title">Annual Passes</span><span class="ndl-sub">Unlimited, year-round</span></a>
-                <a href="#"><span class="ndl-title">Summer Camps</span><span class="ndl-sub">Now booking 2026</span></a>
-                <a href="#"><span class="ndl-title">Group Bookings</span><span class="ndl-sub">10+ guests &amp; events</span></a>
-              </div>
-              <a class="dd-cta" href="#">Book Tickets ↗</a>
-            </div>
-          </div>
-          <div class="group">
-            <button class="trigger">Plan Your Visit</button>
-            <div class="dropdown">
-              <div class="dd-list">
-                <a href="#"><span class="ndl-title">Know Before You Go</span><span class="ndl-sub">First time? Start here</span></a>
-                <a href="#"><span class="ndl-title">Opening Hours</span><span class="ndl-sub">Open from 11am daily</span></a>
-                <a href="#"><span class="ndl-title">FAQs</span><span class="ndl-sub">Heights, safety &amp; more</span></a>
-                <a href="#"><span class="ndl-title">Sign Your Waiver</span><span class="ndl-sub">Save time at check-in</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="group">
-            <button class="trigger">Experiences</button>
-            <div class="dropdown">
-              <div class="dd-list">
-                <a href="#"><span class="ndl-title">All Attractions</span><span class="ndl-sub">10 ways to play</span></a>
-                <a href="#"><span class="ndl-title">Birthday Parties</span><span class="ndl-sub">Worry-free celebrations</span></a>
-                <a href="#"><span class="ndl-title">Group Events</span><span class="ndl-sub">Teams, schools &amp; clubs</span></a>
-                <a href="#"><span class="ndl-title">Live Events</span><span class="ndl-sub">What's on at Bolder</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="loc" href="#" aria-label="Location">
-            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
-          </a>
-          <a class="ticket" href="#">Get Tickets
-            <svg viewBox="0 0 16 16" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/></svg>
-          </a>
-          <span class="divider"></span>
-          <button class="burger" aria-label="Menu" onclick="openMenu()"><span></span><span></span><span></span></button>
-        </div>
-      </nav>
-    </div>
-
-    <div class="hint">Hover the tabs — or click the <strong style="color:#eaeef1">≡</strong> to open the menu</div>
-
-    <div class="backdrop" id="backdrop" onclick="closeMenu()"></div>
-    <aside class="side" id="side">
-      <button class="side-close" aria-label="Close" onclick="closeMenu()">×</button>
-      <div class="side-eyebrow">◆&nbsp;&nbsp;Menu&nbsp;&nbsp;◆</div>
-      <nav class="side-list">
-        <a class="side-item" href="#">Home</a>
-        <span class="side-item">Tickets &amp; Passes</span>
-        <span class="side-item">Plan Your Visit</span>
-        <span class="side-item">Experiences</span>
-        <a class="side-item" href="#">Contact Us</a>
-      </nav>
-      <a class="side-ticket" href="#">Get Tickets
-        <svg viewBox="0 0 16 16" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"/></svg>
-      </a>
-      <div class="side-info">
-        <h3>Open Hours</h3>
-        <p>Friday &amp; Saturday: 11am–9pm</p>
-        <p>Sunday to Thursday: 11am–8pm</p>
+      /* slide-out menu */
+      .backdrop {
+        position: absolute;
+        inset: 0;
+        z-index: 1998;
+        background: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.25s;
+      }
+      .backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .side {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1999;
+        width: min(560px, 92%);
+        height: 100%;
+        overflow-y: auto;
+        color: #f1f3f5;
+        padding: 92px 64px 48px;
+        transform: translateX(100%);
+        transition: transform 0.32s ease;
+        background:
+          repeating-linear-gradient(
+            115deg,
+            rgba(255, 255, 255, 0.018) 0 2px,
+            transparent 2px 26px
+          ),
+          #0a0b0d;
+        border-left: 3px solid var(--orange);
+      }
+      .side.open {
+        transform: translateX(0);
+      }
+      .side-close {
+        position: absolute;
+        top: 30px;
+        right: 38px;
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f1f3f5;
+        font-size: 2.2rem;
+        cursor: pointer;
+        clip-path: polygon(
+          10px 0,
+          100% 0,
+          100% calc(100% - 10px),
+          calc(100% - 10px) 100%,
+          0 100%,
+          0 10px
+        );
+        transition: 0.25s;
+      }
+      .side-close:hover {
+        background: var(--orange);
+        color: #fff;
+        transform: rotate(90deg);
+      }
+      .side-eyebrow {
+        color: var(--orange);
+        font-family: var(--font-ui);
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        margin-bottom: 1.4rem;
+      }
+      .side-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        margin-bottom: 2.2rem;
+      }
+      .side-item {
+        position: relative;
+        padding: 0 0 0.7rem 2.4rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        color: #f4f6f7;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 6vw, 3rem);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        line-height: 0.95;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .side-item::before {
+        content: "◆";
+        position: absolute;
+        left: 0;
+        top: 0.28em;
+        color: var(--orange);
+        font-size: 0.42em;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: 0.2s;
+        text-shadow: 0 0 10px rgba(244, 81, 19, 0.8);
+      }
+      .side-item:hover {
+        color: var(--orange);
+        transform: translateX(6px);
+      }
+      .side-item:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .side-ticket {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        min-width: 240px;
+        min-height: 70px;
+        padding: 0 2rem;
+        margin-bottom: 2rem;
+        background: var(--orange);
+        color: #fff;
+        font-family: var(--font-ui);
+        font-size: 1.2rem;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+        filter: drop-shadow(0 8px 18px rgba(244, 81, 19, 0.45));
+        transition: 0.2s;
+      }
+      .side-ticket:hover {
+        background: #fff;
+        color: #111;
+      }
+      .side-info {
+        padding-left: 1.2rem;
+        border-left: 2px solid rgba(244, 81, 19, 0.55);
+        margin-bottom: 1.6rem;
+      }
+      .side-info h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+      .side-info p {
+        color: #b8c0c7;
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+      }
+      .side-socials {
+        display: flex;
+        gap: 0.8rem;
+      }
+      .side-socials span {
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        background: var(--orange);
+        color: #111;
+        font-weight: 900;
+        clip-path: polygon(
+          8px 0,
+          100% 0,
+          100% calc(100% - 8px),
+          calc(100% - 8px) 100%,
+          0 100%,
+          0 8px
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="promo">
+        <div class="promo-glow"></div>
+        <div class="promo-track" id="track"></div>
       </div>
-      <div class="side-socials"><span>f</span><span>○</span><span>♪</span><span>▶</span></div>
-    </aside>
-  </div>
-<script>
-  var msgs=['Open From 11am Daily','Book In Advance & Save','Now Booking 2026 Summer Camps'],h='';
-  for(var i=0;i<6;i++)for(var j=0;j<msgs.length;j++)h+='<span class="promo-item"><i class="promo-diamond">◆</i>'+msgs[j]+'</span>';
-  document.getElementById('track').innerHTML=h;
-  function openMenu(){document.getElementById('side').classList.add('open');document.getElementById('backdrop').classList.add('open');}
-  function closeMenu(){document.getElementById('side').classList.remove('open');document.getElementById('backdrop').classList.remove('open');}
-</script>
-</body>
+
+      <div class="wrap">
+        <nav class="navbar">
+          <a class="brand" href="#"
+            ><img
+              src="src/assets/images/Bolder-update.png"
+              alt="Bolder Adventure Park"
+          /></a>
+
+          <div class="links">
+            <div class="group">
+              <button class="trigger">Tickets &amp; Passes</button>
+              <div class="dropdown">
+                <div class="dd-list">
+                  <a href="#"
+                    ><span class="ndl-title">Tickets &amp; Pricing</span
+                    ><span class="ndl-sub">Day passes &amp; all access</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Annual Passes</span
+                    ><span class="ndl-sub">Unlimited, year-round</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Summer Camps</span
+                    ><span class="ndl-sub">Now booking 2026</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Group Bookings</span
+                    ><span class="ndl-sub">10+ guests &amp; events</span></a
+                  >
+                </div>
+                <a class="dd-cta" href="#">Book Tickets ↗</a>
+              </div>
+            </div>
+            <div class="group">
+              <button class="trigger">Plan Your Visit</button>
+              <div class="dropdown">
+                <div class="dd-list">
+                  <a href="#"
+                    ><span class="ndl-title">Know Before You Go</span
+                    ><span class="ndl-sub">First time? Start here</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Opening Hours</span
+                    ><span class="ndl-sub">Open from 11am daily</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">FAQs</span
+                    ><span class="ndl-sub">Heights, safety &amp; more</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Sign Your Waiver</span
+                    ><span class="ndl-sub">Save time at check-in</span></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <button class="trigger">Experiences</button>
+              <div class="dropdown">
+                <div class="dd-list">
+                  <a href="#"
+                    ><span class="ndl-title">All Attractions</span
+                    ><span class="ndl-sub">10 ways to play</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Birthday Parties</span
+                    ><span class="ndl-sub">Worry-free celebrations</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Group Events</span
+                    ><span class="ndl-sub">Teams, schools &amp; clubs</span></a
+                  >
+                  <a href="#"
+                    ><span class="ndl-title">Live Events</span
+                    ><span class="ndl-sub">What's on at Bolder</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="loc" href="#" aria-label="Location">
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                />
+                <circle
+                  cx="12"
+                  cy="9"
+                  r="2.4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                />
+              </svg>
+            </a>
+            <a class="ticket" href="#"
+              >Get Tickets
+              <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
+                />
+              </svg>
+            </a>
+            <span class="divider"></span>
+            <button class="burger" aria-label="Menu" onclick="openMenu()">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <div class="hint">
+        Hover the tabs — or click the
+        <strong style="color: #eaeef1">≡</strong> to open the menu
+      </div>
+
+      <div class="backdrop" id="backdrop" onclick="closeMenu()"></div>
+      <aside class="side" id="side">
+        <button class="side-close" aria-label="Close" onclick="closeMenu()">
+          ×
+        </button>
+        <div class="side-eyebrow">◆&nbsp;&nbsp;Menu&nbsp;&nbsp;◆</div>
+        <nav class="side-list">
+          <a class="side-item" href="#">Home</a>
+          <span class="side-item">Tickets &amp; Passes</span>
+          <span class="side-item">Plan Your Visit</span>
+          <span class="side-item">Experiences</span>
+          <a class="side-item" href="#">Contact Us</a>
+        </nav>
+        <a class="side-ticket" href="#"
+          >Get Tickets
+          <svg
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            width="22"
+            height="22"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5z"
+            />
+          </svg>
+        </a>
+        <div class="side-info">
+          <h3>Open Hours</h3>
+          <p>Friday &amp; Saturday: 11am–9pm</p>
+          <p>Sunday to Thursday: 11am–8pm</p>
+        </div>
+        <div class="side-socials">
+          <span>f</span><span>○</span><span>♪</span><span>▶</span>
+        </div>
+      </aside>
+    </div>
+    <script>
+      var msgs = [
+          "Open From 11am Daily",
+          "Book In Advance & Save",
+          "Now Booking 2026 Summer Camps",
+        ],
+        h = "";
+      for (var i = 0; i < 6; i++)
+        for (var j = 0; j < msgs.length; j++)
+          h +=
+            '<span class="promo-item"><i class="promo-diamond">◆</i>' +
+            msgs[j] +
+            "</span>";
+      document.getElementById("track").innerHTML = h;
+      function openMenu() {
+        document.getElementById("side").classList.add("open");
+        document.getElementById("backdrop").classList.add("open");
+      }
+      function closeMenu() {
+        document.getElementById("side").classList.remove("open");
+        document.getElementById("backdrop").classList.remove("open");
+      }
+    </script>
+  </body>
 </html>
