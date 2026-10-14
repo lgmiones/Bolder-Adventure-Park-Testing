@@ -7958,3 +7958,64 @@ main strong { color: inherit; }
   box-shadow: 0 12px 26px rgba(244, 81, 19, 0.40) !important;
 }
 .btn-outline:hover::before { opacity: 1 !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ds 15 Oct: orange promo ticker removed (per Holly); park hours sit next
+   to Get Tickets. Navbar now always sits at the top.
+═══════════════════════════════════════════════════════════════════════ */
+.main-navbar-wrap,
+.main-navbar-wrap.is-stuck { top: 8px !important; }
+
+.navbar-hours {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 4px;
+  color: #16222e;
+  line-height: 1.15;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.navbar-hours svg { width: 20px; height: 20px; flex: none; color: #16222e; }
+.navbar-hours .nh-text { display: flex; flex-direction: column; }
+.navbar-hours .nh-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f3933a;
+}
+.navbar-hours .nh-times { font-size: 13px; font-weight: 600; color: #16222e; }
+.navbar-hours .nh-b { display: block; }
+.navbar-hours .nh-sep { display: none; }
+.navbar-hours:hover .nh-times { color: #f3933a; }
+
+/* tight desktop widths: drop the map pin so the links never overlap */
+@media (min-width: 1251px) and (max-width: 1380px) {
+  .navbar-location { display: none !important; }
+}
+@media (max-width: 1250px) {
+  .navbar-hours .nh-times { font-size: 12px; }
+}
+/* phones: hours become a small white chip just under the navbar pill */
+@media (max-width: 700px) {
+  .navbar-actions { position: static !important; }
+  .navbar-hours {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 8px 0 0;
+    padding: 5px 12px;
+    gap: 6px;
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(20, 32, 43, 0.14);
+  }
+  .navbar-hours svg { width: 14px; height: 14px; }
+  .navbar-hours .nh-text { flex-direction: row; align-items: baseline; }
+  .navbar-hours .nh-label { display: none; }
+  .navbar-hours .nh-times { font-size: 11.5px; }
+  .navbar-hours .nh-b,
+  .navbar-hours .nh-sep { display: inline; }
+}
