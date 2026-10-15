@@ -83,73 +83,6 @@
 
   <div class="noise"></div>
 
-  <!-- ── Promo Ticker ── -->
-  <div class="promo-strip" aria-label="Park announcements">
-    <div class="promo-glow" aria-hidden="true"></div>
-    <div class="promo-strip-track">
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Park Hours: Fri 4pm–9pm | Sat 11am–9pm |
-        Sun 11am–7pm</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book An Epic Birthday At Bolder!</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Park Hours: Fri 4pm–9pm | Sat 11am–9pm |
-        Sun 11am–7pm</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book An Epic Birthday At Bolder!</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Park Hours: Fri 4pm–9pm | Sat 11am–9pm |
-        Sun 11am–7pm</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book An Epic Birthday At Bolder!</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Park Hours: Fri 4pm–9pm | Sat 11am–9pm |
-        Sun 11am–7pm</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book An Epic Birthday At Bolder!</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Park Hours: Fri 4pm–9pm | Sat 11am–9pm |
-        Sun 11am–7pm</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book An Epic Birthday At Bolder!</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Park Hours: Fri 4pm–9pm | Sat 11am–9pm |
-        Sun 11am–7pm</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book In Advance &amp; Save</span
-      >
-      <span class="promo-item"
-        ><i class="promo-diamond">◆</i>Book An Epic Birthday At Bolder!</span
-      >
-    </div>
-  </div>
-
   <!-- ── Main Navbar ── -->
   <header class="main-navbar-wrap" [class.is-stuck]="navStuck">
     <nav class="main-navbar" aria-label="Main navigation">
@@ -563,6 +496,24 @@
               stroke-width="2.4"
             />
           </svg>
+        </a>
+
+        <!-- ds 15 Oct: park hours next to Get Tickets (replaces the orange promo ticker, per Holly) -->
+        <a
+          class="navbar-hours"
+          routerLink="/plan-your-visit"
+          fragment="hours"
+          (click)="closeNav()"
+          aria-label="Park hours: Friday 4pm to 9pm, Saturday 11am to 9pm, Sunday 11am to 7pm"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.2" />
+            <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+          </svg>
+          <span class="nh-text">
+            <span class="nh-label">Park Hours</span>
+            <span class="nh-times"><span class="nh-a">Fri 4–9pm · Sat 11am–9pm</span><span class="nh-sep"> · </span><span class="nh-b">Sun 11am–7pm</span></span>
+          </span>
         </a>
 
         <a
